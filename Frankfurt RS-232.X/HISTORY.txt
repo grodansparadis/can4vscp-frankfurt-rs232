@@ -1,0 +1,4 @@
+Frankfurt RS-232 module
+=======================
+
+2014-11-28 AKHE - Started development

@@ -1,0 +1,292 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"55 C:\Program Files (x86)\Microchip\xc8\v1.21\include\string.h
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
+[; ;common\inttypes.h: 34: typedef long long int64_t;
+[; ;common\inttypes.h: 39: typedef long int32_t;
+[; ;common\inttypes.h: 43: typedef short int16_t;
+[; ;common\inttypes.h: 47: typedef char int8_t;
+[; ;common\inttypes.h: 52: typedef unsigned long long uint64_t;
+[; ;common\inttypes.h: 57: typedef unsigned long uint32_t;
+[; ;common\inttypes.h: 61: typedef unsigned short uint16_t;
+[; ;common\inttypes.h: 65: typedef unsigned char uint8_t;
+[; ;string.h: 4: typedef int ptrdiff_t;
+[; ;string.h: 5: typedef unsigned size_t;
+[; ;string.h: 6: typedef unsigned short wchar_t;
+[; ;string.h: 9: extern int errno;
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 35: extern char * strcat(char *, const char *);
+[; ;string.h: 36: extern char * strcpy(char *, const char *);
+[; ;string.h: 37: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 38: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strdup(const char *);
+[; ;string.h: 40: extern char * strtok(char *, const char *);
+[; ;string.h: 43: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 44: extern int strcmp(const char *, const char *);
+[; ;string.h: 45: extern int stricmp(const char *, const char *);
+[; ;string.h: 46: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 47: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 49: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 50: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 51: extern size_t strspn(const char *, const char *);
+[; ;string.h: 52: extern char * strstr(const char *, const char *);
+[; ;string.h: 53: extern char * stristr(const char *, const char *);
+[; ;string.h: 54: extern char * strerror(int);
+[; ;string.h: 55: extern size_t strlen(const char *);
+[; ;string.h: 56: extern char * strchr(const char *, int);
+[; ;string.h: 57: extern char * strichr(const char *, int);
+[; ;string.h: 58: extern char * strrchr(const char *, int);
+[; ;string.h: 59: extern char * strrichr(const char *, int);
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 91: extern void abort(void);
+[; ;stdlib.h: 92: extern void exit(int);
+[; ;stdlib.h: 93: extern int atexit(void (*)(void));
+[; ;stdlib.h: 94: extern char * getenv(const char *);
+[; ;stdlib.h: 95: extern char ** environ;
+[; ;stdlib.h: 96: extern int system(char *);
+[; ;stdlib.h: 97: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 98: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 99: extern int abs(int);
+[; ;stdlib.h: 100: extern long labs(long);
+[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
+[; ;hexutils.h: 15: static uint8_t nibbleFromChar(char c);
+[; ;hexutils.h: 16: uint8_t hexStringToBytes(uint8_t *buf, uint8_t size, char *inhex);
+[; ;hexutils.h: 17: static char nibbleToChar(uint8_t nibble);
+[; ;hexutils.h: 18: uint8_t bytesToHexString(uint8_t *buf, uint8_t size, uint8_t *bytes, uint8_t buflen);
+"16 hexutils.c
+[v _nibbleFromChar `(uc ~T0 @X0 1 sf1`uc ]
+{
+[; ;hexutils.c: 15: static uint8_t nibbleFromChar(char c)
+[; ;hexutils.c: 16: {
+[e :U _nibbleFromChar ]
+[v _c `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;hexutils.c: 17: if(c >= '0' && c <= '9') return c - '0';
+"17
+[e $ ! && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 6  ]
+[e ) -> - -> _c `ui -> 48 `ui `uc ]
+[e $UE 5  ]
+[e :U 6 ]
+[; ;hexutils.c: 18: if(c >= 'a' && c <= 'f') return c - 'a' + 10;
+"18
+[e $ ! && >= -> _c `ui -> 97 `ui <= -> _c `ui -> 102 `ui 7  ]
+[e ) -> + - -> _c `ui -> 97 `ui -> -> 10 `i `ui `uc ]
+[e $UE 5  ]
+[e :U 7 ]
+[; ;hexutils.c: 19: if(c >= 'A' && c <= 'F') return c - 'A' + 10;
+"19
+[e $ ! && >= -> _c `ui -> 65 `ui <= -> _c `ui -> 70 `ui 8  ]
+[e ) -> + - -> _c `ui -> 65 `ui -> -> 10 `i `ui `uc ]
+[e $UE 5  ]
+[e :U 8 ]
+[; ;hexutils.c: 20: return 255;
+"20
+[e ) -> -> 255 `i `uc ]
+[e $UE 5  ]
+[; ;hexutils.c: 21: }
+"21
+[e :UE 5 ]
+}
+"31
+[v _hexStringToBytes `(uc ~T0 @X0 1 ef3`*uc`uc`*uc ]
+{
+[; ;hexutils.c: 30: uint8_t hexStringToBytes(uint8_t *buf, uint8_t size, char *inhex)
+[; ;hexutils.c: 31: {
+[e :U _hexStringToBytes ]
+[v _buf `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _inhex `*uc ~T0 @X0 1 r3 ]
+[f ]
+"32
+[v _p `*uc ~T0 @X0 1 a ]
+"33
+[v _len `i ~T0 @X0 1 a ]
+[v _i `i ~T0 @X0 1 a ]
+[; ;hexutils.c: 32: uint8_t *p;
+[; ;hexutils.c: 33: int len, i;
+[; ;hexutils.c: 35: len = strlen(inhex) / 2;
+"35
+[e = _len -> / ( _strlen (1 -> _inhex `*Cuc -> -> 2 `i `ui `i ]
+[; ;hexutils.c: 36: if ( len > size ) return 0;
+"36
+[e $ ! > _len -> _size `i 10  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 9  ]
+[e :U 10 ]
+[; ;hexutils.c: 37: for (i=0, p = (uint8_t *)inhex; i<len; i++) {
+"37
+{
+[e ; = _i -> 0 `i = _p _inhex ]
+[e $U 14  ]
+[e :U 11 ]
+{
+[; ;hexutils.c: 38: buf[ i ] = (nibbleFromChar(*p) << 4) | nibbleFromChar(*(p+1));
+"38
+[e = *U + _buf * -> _i `x -> -> # *U _buf `i `x -> | << -> ( _nibbleFromChar (1 *U _p `i -> 4 `i -> ( _nibbleFromChar (1 *U + _p * -> -> 1 `i `x -> -> # *U _p `i `x `i `uc ]
+[; ;hexutils.c: 39: p += 2;
+"39
+[e =+ _p * -> -> 2 `i `x -> -> # *U _p `i `x ]
+"40
+}
+"37
+[e ++ _i -> 1 `i ]
+[e :U 14 ]
+[e $ < _i _len 11  ]
+[e :U 12 ]
+"40
+}
+[; ;hexutils.c: 40: }
+[; ;hexutils.c: 42: return i;
+"42
+[e ) -> _i `uc ]
+[e $UE 9  ]
+[; ;hexutils.c: 43: }
+"43
+[e :UE 9 ]
+}
+"45
+[v _byteMap `uc ~T0 @X0 -> 0 `x s ]
+[i _byteMap
+:U ..
+-> -> 48 `ui `uc
+-> -> 49 `ui `uc
+-> -> 50 `ui `uc
+-> -> 51 `ui `uc
+-> -> 52 `ui `uc
+-> -> 53 `ui `uc
+-> -> 54 `ui `uc
+-> -> 55 `ui `uc
+-> -> 56 `ui `uc
+-> -> 57 `ui `uc
+-> -> 97 `ui `uc
+-> -> 98 `ui `uc
+-> -> 99 `ui `uc
+-> -> 100 `ui `uc
+-> -> 101 `ui `uc
+-> -> 102 `ui `uc
+..
+]
+[; ;hexutils.c: 45: static char byteMap[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+"46
+[v _byteMapLen `i ~T0 @X0 1 s ]
+[i _byteMapLen
+-> -> # _byteMap `ui `i
+]
+[; ;hexutils.c: 46: static int byteMapLen = sizeof(byteMap);
+"56
+[v _nibbleToChar `(uc ~T0 @X0 1 sf1`uc ]
+{
+[; ;hexutils.c: 55: static char nibbleToChar(uint8_t nibble)
+[; ;hexutils.c: 56: {
+[e :U _nibbleToChar ]
+[v _nibble `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;hexutils.c: 57: if (nibble < byteMapLen) return byteMap[nibble];
+"57
+[e $ ! < -> _nibble `i _byteMapLen 16  ]
+[e ) *U + &U _byteMap * -> _nibble `ux -> -> # *U &U _byteMap `ui `ux ]
+[e $UE 15  ]
+[e :U 16 ]
+[; ;hexutils.c: 58: return '*';
+"58
+[e ) -> -> 42 `ui `uc ]
+[e $UE 15  ]
+[; ;hexutils.c: 59: }
+"59
+[e :UE 15 ]
+}
+"68
+[v _bytesToHexString `(uc ~T0 @X0 1 ef4`*uc`uc`*uc`uc ]
+{
+[; ;hexutils.c: 67: uint8_t bytesToHexString( uint8_t *buf, uint8_t size, uint8_t *bytes, uint8_t buflen)
+[; ;hexutils.c: 68: {
+[e :U _bytesToHexString ]
+[v _buf `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _bytes `*uc ~T0 @X0 1 r3 ]
+[v _buflen `uc ~T0 @X0 1 r4 ]
+[f ]
+"69
+[v _i `i ~T0 @X0 1 a ]
+[; ;hexutils.c: 69: int i;
+[; ;hexutils.c: 71: if ( size < (buflen*2 + 1) ) return 0;
+"71
+[e $ ! < -> _size `i + * -> _buflen `i -> 2 `i -> 1 `i 18  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 17  ]
+[e :U 18 ]
+[; ;hexutils.c: 72: for (i=0; i<buflen; i++) {
+"72
+{
+[e = _i -> 0 `i ]
+[e $U 22  ]
+[e :U 19 ]
+{
+[; ;hexutils.c: 73: buf[i*2] = nibbleToChar(bytes[i] >> 4);
+"73
+[e = *U + _buf * -> * _i -> 2 `i `x -> -> # *U _buf `i `x ( _nibbleToChar (1 -> >> -> *U + _bytes * -> _i `x -> -> # *U _bytes `i `x `i -> 4 `i `uc ]
+[; ;hexutils.c: 74: buf[i*2+1] = nibbleToChar(bytes[i] & 0x0f);
+"74
+[e = *U + _buf * -> + * _i -> 2 `i -> 1 `i `x -> -> # *U _buf `i `x ( _nibbleToChar (1 -> & -> *U + _bytes * -> _i `x -> -> # *U _bytes `i `x `i -> 15 `i `uc ]
+"75
+}
+"72
+[e ++ _i -> 1 `i ]
+[e :U 22 ]
+[e $ < _i -> _buflen `i 19  ]
+[e :U 20 ]
+"75
+}
+[; ;hexutils.c: 75: }
+[; ;hexutils.c: 76: buf[i] = '\0';
+"76
+[e = *U + _buf * -> _i `x -> -> # *U _buf `i `x -> -> 0 `ui `uc ]
+[; ;hexutils.c: 77: return i;
+"77
+[e ) -> _i `uc ]
+[e $UE 17  ]
+[; ;hexutils.c: 78: }
+"78
+[e :UE 17 ]
+}
