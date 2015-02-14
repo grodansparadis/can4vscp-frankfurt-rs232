@@ -27,3 +27,5 @@
 *.i*86
 *.x86_64
 *.hex
+/Frankfurt RS-232.X/build
+/Frankfurt RS-232.X/debug
