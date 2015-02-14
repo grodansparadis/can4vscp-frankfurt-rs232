@@ -1,7 +1,7 @@
 
 # 1 "hexutils.c"
 
-# 34 "../../../../../vscp_firmware/pic/common\inttypes.h"
+# 34 "../../vscp_firmware/pic/common\inttypes.h"
 typedef long long int64_t;
 
 
