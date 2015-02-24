@@ -47,7 +47,8 @@
 #define	STATUS_LED_VERY_FAST_BLINK      6
 
 
-#define SIZE_INPUT_BUFFER               500u
+#define SIZE_SERIAL_INPUT_BUFFER        128u
+#define SIZE_CAN_INPUT_FIFO             38      // Max total 512 bytes
 
 // Working modes
 #define WORKING_MODE_VERBOSE            0
@@ -59,7 +60,7 @@
 #define NUMERICAL_PRINTOUTMODE_DECIMAL  FALSE
 
 // Default
-#define DEFAULT_REGISTER_RW_TIMEOUT     10u      // Reg r/w timeout
+#define DEFAULT_REGISTER_RW_TIMEOUT     10u // Reg r/w timeout
 
 // Baudrates 40MHz
 #define BAUDRATE_19200                  128 // BRGH=1 0,16%
@@ -271,5 +272,7 @@ int8_t sendVSCPFrame(uint16_t vscpclass,
                         uint8_t priority,
                         uint8_t size,
                         uint8_t *pData);
+
+
 
 #endif
