@@ -83,53 +83,20 @@
 //
 #define TIMER0_RELOAD_VALUE             0xfb1d
 
-// VSCP Driver special character codes
-#define DLE     0x10
-#define STX     0x02
-#define ETX     0x03
-
-// VSCP Driver states
-#define STATE_VSCP_DRIVER_WAIT_FOR_FRAME_START      0
-#define STATE_VSCP_DRIVER_WAIT_FOR_FRAME_END        1
-#define STATE_VSCP_DRIVER_FRAME_RECEIVED            2
-
-// VSCP Driver positions in frame
-#define VSCP_DRIVER_POS_FRAME_TYPE                  0
-#define VSCP_DRIVER_POS_FRAME_CHANNEL               1
-#define VSCP_DRIVER_POS_FRAME_SEQUENCY              2
-#define VSCP_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB      3
-#define VSCP_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB      4
-#define VSCP_DRIVER_POS_FRAME_PAYLOAD               5
-
-// VSCP Driver operations
-#define VSCP_DRVER_OPERATION_NOOP                   0
-#define VSCP_DRVER_OPERATION_VSCP_EVENT             1
-#define VSCP_DRVER_OPERATION_CANAL                  2
-#define VSCP_DRVER_OPERATION_CONFIGURE              3
-#define VSCP_DRVER_OPERATION_POLL                   4
-#define VSCP_DRVER_OPERATION_NO_EVENT               5
-#define VSCP_DRVER_OPERATION_SENT_ACK               249
-#define VSCP_DRVER_OPERATION_SENT_NACK              250
-#define VSCP_DRVER_OPERATION_ACK                    251
-#define VSCP_DRVER_OPERATION_NACK                   252
-#define VSCP_DRVER_OPERATION_ERROR                  253
-#define VSCP_DRVER_OPERATION_COMMAND_REPLY          254
-#define VSCP_DRVER_OPERATION_COMMAND                255
-
-// VSCP Driver errors
-#define ERROR_VSCP_DRIVER_CHECKSUM                  1
-#define ERROR_VSCP_DRIVER_UNKNOWN_OPERATION         2
+// Our capabilities
+#define OUR_CAPS_MAX_CANAL_FRAMES       5
+#define OUR_CAPS_MAX_VSCP_FRAMES        1
 
 // VSCP driver commands
-#define VSCP_DRIVER_COMMAND_NOOP                    0
-#define VSCP_DRIVER_COMMAND_OPEN                    1
-#define VSCP_DRIVER_COMMAND_LISTEN                  2
-#define VSCP_DRIVER_COMMAND_LOOPBACK                3
-#define VSCP_DRIVER_COMMAND_CLOSE                   4
-#define VSCP_DRIVER_COMMAND_SET_FILTER              5
+#define VSCP_DRIVER_COMMAND_NOOP        0
+#define VSCP_DRIVER_COMMAND_OPEN        1
+#define VSCP_DRIVER_COMMAND_LISTEN      2
+#define VSCP_DRIVER_COMMAND_LOOPBACK    3
+#define VSCP_DRIVER_COMMAND_CLOSE       4
+#define VSCP_DRIVER_COMMAND_SET_FILTER  5
 
-#define SLCAN_TIMESTAMP_NOT_USED                    0
-#define SLCAN_TIMESTAMP_USE                         1
+#define SLCAN_TIMESTAMP_NOT_USED        0
+#define SLCAN_TIMESTAMP_USE             1
 
 // EEPROM Storage
 #define MODULE_EEPROM_BOOTLOADER_FLAG   0x00	// Reserved for bootloader
@@ -204,6 +171,7 @@ BOOL receivePrintEventCANAL( void );
 BOOL receivePrintEventVSCP( void );
 BOOL receivePrintEventSLCAN( void );
 BOOL receiveVSCPModeCanalMsg( void );
+BOOL receiveVSCPModeMultiCanalMsg(void);
 void sendVSCPDriverCommandReply( uint8_t cmdReplyCode, uint8_t cmdCode );
 void printHelp( void );
 void findNodes( void );

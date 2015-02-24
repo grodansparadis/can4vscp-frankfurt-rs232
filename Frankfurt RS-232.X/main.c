@@ -20,6 +20,7 @@
 #include "version.h"
 #include <vscp_class.h>
 #include <vscp_type.h>
+#include <vscp_serial.h>
 #include "hexutils.h"
 #include "crc8.h"
 #include "main.h"
@@ -66,9 +67,12 @@ char cmdbuf[80];
 char wrkbuf[80];
 
 // VSCP driver mode
-BOOL stateVscpDriver = STATE_VSCP_DRIVER_WAIT_FOR_FRAME_START;
+BOOL stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
 BOOL bDLE = FALSE; // True if escpae charcter has been received.
 uint8_t sequencyno = 0; // Sequency number. Increaces for every fram
+
+// * * * *   Capabilities   * * * *
+vscp_serial_caps caps;
 
 // SLCAN mode
 BOOL bInitiated = FALSE;
@@ -228,6 +232,12 @@ void interrupt low_priority Interrupt()
 
 int main(int argc, char** argv)
 {
+    // Init capabilities
+    caps.maxVscpFrames = 1;
+    caps.maxCanalFrames = 1;        // Max frames that will be sent to host
+                                    // can be increase after a capability
+                                    // request.
+
     // Init fifos
     fifo_init( &serialInputFifo, inputBuffer, sizeof ( inputBuffer));       // UART receive
     fifo_init( &canInputFifo, caninputBuffer, sizeof ( caninputBuffer));    // CAN receive
@@ -1026,7 +1036,12 @@ void doModeVerbose(void)
 
             }
             else {
-                putsUSART((char *) "-ERROR - Unknown command\r\n");
+                if ( 0x0d == cmdbuf[ 0 ]  ) {
+                    putsUSART((char *) "+OK\r\n");
+                }
+                else {
+                    putsUSART((char *) "-ERROR - Unknown command\r\n");
+                }
             }
 
             memset(cmdbuf, 0, sizeof ( cmdbuf));
@@ -1059,13 +1074,13 @@ void doModeVscp(void)
         // Enable interrupts again
         ei();
 
-        if (STATE_VSCP_DRIVER_WAIT_FOR_FRAME_START == stateVscpDriver) {
+        if (STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START == stateVscpDriver) {
             if (bDLE) {
                 bDLE = FALSE;
 
                 // Check for frame start
                 if (STX == c) {
-                    stateVscpDriver = STATE_VSCP_DRIVER_WAIT_FOR_FRAME_END;
+                    stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_END;
                     pos = 0;
                 }
             } else {
@@ -1073,7 +1088,7 @@ void doModeVscp(void)
                 return;
             }
         }
-        else if (STATE_VSCP_DRIVER_WAIT_FOR_FRAME_END == stateVscpDriver) {
+        else if (STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_END == stateVscpDriver) {
 
             if (bDLE) {
 
@@ -1081,7 +1096,7 @@ void doModeVscp(void)
 
                 // Check for frame end
                 if (ETX == c) {
-                    stateVscpDriver = STATE_VSCP_DRIVER_FRAME_RECEIVED;
+                    stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED;
                 }                    // Check for escaped DLE
                 else if (DLE == c) {
                     // Save
@@ -1102,7 +1117,7 @@ void doModeVscp(void)
                         // We have garbage. Start all over again to
                         // look for valid content
                         pos = 0;
-                        stateVscpDriver = STATE_VSCP_DRIVER_WAIT_FOR_FRAME_START;
+                        stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
                     }
 
                     return;
@@ -1113,10 +1128,10 @@ void doModeVscp(void)
 
 
 
-        if (STATE_VSCP_DRIVER_FRAME_RECEIVED == stateVscpDriver) {
+        if (STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED == stateVscpDriver) {
 
             // Next state is waiting for frame
-            stateVscpDriver = STATE_VSCP_DRIVER_WAIT_FOR_FRAME_START;
+            stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
 
             // 0 - Frame type
             // 1 - Channel
@@ -1129,20 +1144,22 @@ void doModeVscp(void)
             // Check that the checksum is correct
             //          Correct if zero
             if (calcCRC(cmdbuf, pos)) {
-                sendVSCPDriverErrorFrame(ERROR_VSCP_DRIVER_CHECKSUM);
+                sendVSCPDriverErrorFrame(VSCP_SERIAL_DRIVER_ERROR_CHECKSUM);
             }
 
             // * * * *  N O O P  * * * *
-            if (VSCP_DRVER_OPERATION_NOOP ==
-                    cmdbuf[ VSCP_DRIVER_POS_FRAME_TYPE ]) {
+            if (VSCP_SERIAL_DRIVER_OPERATION_NOOP ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 sendVSCPDriverAck(); // OK
-            }                // * * * *  E V E N T  * * * *
-            else if (VSCP_DRVER_OPERATION_VSCP_EVENT ==
-                    cmdbuf[ VSCP_DRIVER_POS_FRAME_TYPE ]) {
+            }
+            // * * * *  E V E N T  * * * *
+            else if (VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
 
-            }                // * * * *  C A N A L  * * * *
-            else if (VSCP_DRVER_OPERATION_CANAL ==
-                    cmdbuf[ VSCP_DRIVER_POS_FRAME_TYPE ]) {
+            }
+            // * * * *  C A N A L  * * * *
+            else if (VSCP_SERIAL_DRIVER_OPERATION_CANAL ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 if (receiveVSCPModeCanalMsg()) {
                     sendVSCPDriverAck(); // OK
                 }
@@ -1150,50 +1167,72 @@ void doModeVscp(void)
                     sendVSCPDriverNack(); // Failed
                 }
             }
+            // * * * *  M U L T I  F R A M E  C A N A L  * * * *
+            else if (VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
+                if (receiveVSCPModeMultiCanalMsg()) {
+                    sendVSCPDriverAck(); // OK
+                }
+                else {
+                    sendVSCPDriverNack(); // Failed
+                }
+            }
+            // * * * *  M U L T I  F R A M E  V S C P  * * * *
+            else if (VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
+                sendVSCPDriverNack(); // Not supported
+            }
             // * * * *  C O N F I G U R E  * * * *
-            else if (VSCP_DRVER_OPERATION_CONFIGURE ==
-                    cmdbuf[ VSCP_DRIVER_POS_FRAME_TYPE ]) {
+            else if (VSCP_SERIAL_DRIVER_OPERATION_CONFIGURE ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 sendVSCPDriverNack(); // Not supported
             }
             // * * * *  P O L L  * * * *
-            else if (VSCP_DRVER_OPERATION_POLL ==
-                    cmdbuf[ VSCP_DRIVER_POS_FRAME_TYPE ]) {
+            else if (VSCP_SERIAL_DRIVER_OPERATION_POLL ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
+                sendVSCPDriverNack(); // Not supported
+            }
+            // * * * *  CAPABILITIES  * * * *
+            else if (VSCP_SERIAL_DRIVER_OPERATION_CAPS_REQUEST ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
+                caps.maxVscpFrames = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ];
+                caps.maxCanalFrames = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ];
                 sendVSCPDriverNack(); // Not supported
             }
             // * * * *  C O M M A N D  * * * *
-            else if (VSCP_DRVER_OPERATION_COMMAND ==
-                    cmdbuf[ VSCP_DRIVER_POS_FRAME_TYPE ]) {
+            else if (VSCP_SERIAL_DRIVER_OPERATION_COMMAND ==
+                    cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 // Noop
-                if (cmdbuf[ VSCP_DRIVER_POS_FRAME_PAYLOAD ] ==
+                if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_NOOP) {
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_NOOP);
                 }
                 // Open
-                else if (cmdbuf[ VSCP_DRIVER_POS_FRAME_PAYLOAD ] ==
+                else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_OPEN) {
                     ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_OPEN);
                 }
                 // Loopback
-                else if (cmdbuf[ VSCP_DRIVER_POS_FRAME_PAYLOAD ] ==
+                else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_LISTEN) {
                     ECANSetOperationMode(ECAN_OP_MODE_LOOP);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_LISTEN);
                 }                    
                 // Listen
-                else if (cmdbuf[ VSCP_DRIVER_POS_FRAME_PAYLOAD ] ==
+                else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_LOOPBACK) {
                     ECANSetOperationMode(ECAN_OP_MODE_LISTEN);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_LOOPBACK);
                 }
                 // Close
-                else if (cmdbuf[ VSCP_DRIVER_POS_FRAME_PAYLOAD ] ==
+                else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_CLOSE) {
                     ECANSetOperationMode(ECAN_INIT_DISABLE);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_CLOSE);
                 }
                 // Set filter
-                else if (cmdbuf[ VSCP_DRIVER_POS_FRAME_PAYLOAD ] ==
+                else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_SET_FILTER) {
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_NOOP);
                 }
@@ -1201,12 +1240,12 @@ void doModeVscp(void)
             }
             else {
                 // This is an unknown operation
-                sendVSCPDriverErrorFrame(ERROR_VSCP_DRIVER_UNKNOWN_OPERATION);
+                sendVSCPDriverErrorFrame(VSCP_SERIAL_DRIVER_ERROR_UNKNOWN_OPERATION);
             }
 
             // Get ready for a new frame
             pos = 0;
-            stateVscpDriver = STATE_VSCP_DRIVER_WAIT_FOR_FRAME_START;
+            stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
 
         }
 
@@ -1469,8 +1508,8 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
 
     // Operation
     while BusyUSART();
-    WriteUSART(VSCP_DRVER_OPERATION_ERROR);
-    crc8(&crc, VSCP_DRVER_OPERATION_ERROR);
+    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ERROR);
+    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ERROR);
 
     // Channel
     while BusyUSART();
@@ -1517,8 +1556,8 @@ void sendVSCPDriverAck(void)
 
     // Operation
     while BusyUSART();
-    WriteUSART(VSCP_DRVER_OPERATION_ACK);
-    crc8(&crc, VSCP_DRVER_OPERATION_ACK);
+    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ACK);
+    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ACK);
 
     // Channel
     while BusyUSART();
@@ -1561,8 +1600,8 @@ void sendVSCPDriverNack(void) {
 
     // Operation
     while BusyUSART();
-    WriteUSART(VSCP_DRVER_OPERATION_NACK);
-    crc8(&crc, VSCP_DRVER_OPERATION_NACK);
+    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_NACK);
+    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_NACK);
 
     // Channel
     while BusyUSART();
@@ -1606,8 +1645,8 @@ void sendVSCPDriverCommandReply(uint8_t cmdReplyCode, uint8_t cmdCode)
 
     // Operation
     while BusyUSART();
-    WriteUSART(VSCP_DRVER_OPERATION_COMMAND_REPLY);
-    crc8(&crc, VSCP_DRVER_OPERATION_COMMAND_REPLY);
+    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_COMMAND_REPLY);
+    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_COMMAND_REPLY);
 
     // Channel
     while BusyUSART();
@@ -1724,8 +1763,8 @@ BOOL receivePrintEventCANAL(void)
 
         // Operation
         while BusyUSART();
-        WriteUSART(VSCP_DRVER_OPERATION_CANAL);
-        crc8(&crc, VSCP_DRVER_OPERATION_CANAL);
+        WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_CANAL);
+        crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_CANAL);
 
         // Channel
         while BusyUSART();
@@ -1800,8 +1839,8 @@ BOOL sendReceiveEventVSCP(void)
 
         // Operation
         while BusyUSART();
-        WriteUSART(VSCP_DRVER_OPERATION_ACK);
-        crc8(&crc, VSCP_DRVER_OPERATION_ACK);
+        WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ACK);
+        crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ACK);
 
         // Channel
         while BusyUSART();
@@ -1926,14 +1965,22 @@ BOOL receiveVSCPModeCanalMsg(void)
     uint8_t dlc;
     uint8_t data[8];
 
-    id = ((uint32_t) cmdbuf[VSCP_DRIVER_POS_FRAME_PAYLOAD] << 26) |
-            ((uint32_t) cmdbuf[VSCP_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
-            ((uint32_t) cmdbuf[VSCP_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
-            cmdbuf[VSCP_DRIVER_POS_FRAME_PAYLOAD + 3]; // nodeaddress (our address)
-    dlc = cmdbuf[VSCP_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4;
-    memcpy(data, cmdbuf + VSCP_DRIVER_POS_FRAME_PAYLOAD + 4, dlc);
+    id = ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD] << 26) |
+            ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
+            ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
+            cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // nodeaddress (our address)
+    dlc = cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4;
+    memcpy(data, cmdbuf + VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4, dlc);
 
     return sendCANFrame(id, dlc, data);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// receiveVSCPModeMultiCanalMsg
+//
+
+BOOL receiveVSCPModeMultiCanalMsg(void) {
+
 }
 
 
@@ -1943,11 +1990,11 @@ BOOL receiveVSCPModeCanalMsg(void)
 
 BOOL readRegister(uint8_t nodeid, uint8_t reg, uint16_t timeout, uint8_t *value)
 {
-    vscpData[ 0 ] = nodeid; // Node id
-    vscpData[ 1 ] = reg; // First byte of MDF
+    vscpData[ 0 ] = nodeid;     // Node id
+    vscpData[ 1 ] = reg;        // First byte of MDF
 
-    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL, // Class
-            VSCP_TYPE_PROTOCOL_READ_REGISTER, // Read register
+    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL,     // Class
+            VSCP_TYPE_PROTOCOL_READ_REGISTER,   // Read register
             0, // Node id (ours)
             0, // High priority
             2, // reg
@@ -1995,8 +2042,8 @@ BOOL readRegisterExtended(uint8_t nodeid,
     vscpData[ 3 ] = reg;            // Offset into page
     vscpData[ 4 ] = 1;              // Number of regs to read
 
-    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL, // class
-            VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ, // Read register
+    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL,         // class
+            VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ,  // Read register
             0, // Node id (ours)
             0, // High priority
             5, // size
@@ -2046,8 +2093,8 @@ BOOL writeRegister(uint8_t nodeid,
     vscpData[ 2 ] = *value;     // value
 
 
-    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL, // class
-            VSCP_TYPE_PROTOCOL_WRITE_REGISTER, // Extended Read register
+    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL,     // class
+            VSCP_TYPE_PROTOCOL_WRITE_REGISTER,  // Extended Read register
             0, // Node id (ours)
             0, // High priority
             3, // size
@@ -2090,13 +2137,13 @@ BOOL writeRegisterExtended(uint8_t nodeid,
                             uint16_t timeout,
                             uint8_t *value)
 {
-    vscpData[ 0 ] = nodeid; // Node id
-    vscpData[ 1 ] = page >> 8; // Page MSB
-    vscpData[ 2 ] = page & 0xff; // Page LSB
-    vscpData[ 3 ] = reg; // Offset into page
-    vscpData[ 4 ] = *value; // Value to write
+    vscpData[ 0 ] = nodeid;         // Node id
+    vscpData[ 1 ] = page >> 8;      // Page MSB
+    vscpData[ 2 ] = page & 0xff;    // Page LSB
+    vscpData[ 3 ] = reg;            // Offset into page
+    vscpData[ 4 ] = *value;         // Value to write
 
-    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL, // class
+    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL,         // class
             VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_WRITE, // Extended Read register
             0, // Node id (ours)
             0, // High priority
@@ -2744,20 +2791,28 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 
     return FALSE;
  */
+
+    di(); // Disable interrupt
+
     // Get id
     if ( 4 != fifo_read( &canInputFifo, (uint8_t *)pid, 4 ) ) {
-        return *pdlc;
+        ei();   // Enable interrupt
+        return FALSE;
     }
 
     // Get dlc
     if ( 1 != fifo_read( &canInputFifo, pdlc, 1 ) ) {
-        return *pdlc;
+        ei();   // Enable interrupt
+        return FALSE;
     }
 
     // Get data
     if ( *pdlc != fifo_read( &canInputFifo, pdata, *pdlc ) ) {
-        return *pdlc;
+        ei();   // Enable interrupt
+        return FALSE;
     }
+
+    ei();   // Enable interrupt
 
     return TRUE;
 }
