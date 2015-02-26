@@ -1,0 +1,9 @@
+Frankfurt RS-232 TODO
+=====================
+
+- Handel capabilities in driver.
+- ACK commands in driver.
+- Check CAN errors.
+- Debug SLCAN mode.
+- VSCP events should be handled in VSCP mode.
+- Increase capabilities to receive 5 CANAL frames.

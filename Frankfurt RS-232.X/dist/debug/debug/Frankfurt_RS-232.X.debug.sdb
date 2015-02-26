@@ -8,7 +8,7 @@ FALSE 0
 TRUE 1
 ]
 "213
-[e E16349 _ECAN_RX_MSG_FLAGS `uc
+[e E16358 _ECAN_RX_MSG_FLAGS `uc
 ECAN_RX_OVERFLOW 8
 ECAN_RX_INVALID_MSG 16
 ECAN_RX_XTD_FRAME 32
@@ -16,7 +16,7 @@ ECAN_RX_RTR_FRAME 64
 ECAN_RX_DBL_BUFFERED 128
 ]
 "535
-[e E16362 _ECAN_OP_MODE `uc
+[e E16371 _ECAN_OP_MODE `uc
 ECAN_OP_MODE_BITS 224
 ECAN_OP_MODE_NORMAL 0
 ECAN_OP_MODE_SLEEP 32
@@ -25,7 +25,7 @@ ECAN_OP_MODE_LISTEN 96
 ECAN_OP_MODE_CONFIG 128
 ]
 "2955
-[e E16331 _ECAN_TX_MSG_FLAGS `uc
+[e E16340 _ECAN_TX_MSG_FLAGS `uc
 ECAN_TX_PRIORITY_BITS 3
 ECAN_TX_PRIORITY_0 0
 ECAN_TX_PRIORITY_1 1
@@ -39,7 +39,7 @@ ECAN_TX_NO_RTR_FRAME 0
 ECAN_TX_RTR_FRAME 64
 ]
 "171 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\ECAN.c
-[e E16337 _ECAN_OP_MODE `uc
+[e E16346 _ECAN_OP_MODE `uc
 ECAN_OP_MODE_BITS 224
 ECAN_OP_MODE_NORMAL 0
 ECAN_OP_MODE_SLEEP 32
@@ -48,7 +48,7 @@ ECAN_OP_MODE_LISTEN 96
 ECAN_OP_MODE_CONFIG 128
 ]
 "617
-[e E16306 _ECAN_TX_MSG_FLAGS `uc
+[e E16315 _ECAN_TX_MSG_FLAGS `uc
 ECAN_TX_PRIORITY_BITS 3
 ECAN_TX_PRIORITY_0 0
 ECAN_TX_PRIORITY_1 1
@@ -66,7 +66,7 @@ FALSE 0
 TRUE 1
 ]
 "803
-[e E16324 _ECAN_RX_MSG_FLAGS `uc
+[e E16333 _ECAN_RX_MSG_FLAGS `uc
 ECAN_RX_OVERFLOW 8
 ECAN_RX_INVALID_MSG 16
 ECAN_RX_XTD_FRAME 32
@@ -1009,6 +1009,18 @@ ECAN_RX_DBL_BUFFERED 128
 "5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\udefs.c
 [u S2510 USART 1 `uc 1 val 1 0 `S2504 1 . 1 0 ]
 [v _USART_Status USART_Status `S2510  1 e 1 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c
+[v __IT_INT_MASK _IT_INT_MASK `uc  1 e 1 0 ]
+"5
+[v ___DCByte __DCByte `VEuc  1 e 1 0 ]
+"6
+[v ___DCDelay __DCDelay `VSSEuc  1 e 1 0 ]
+"8
+[v __IT_SAVE_BSR _IT_SAVE_BSR `uc  1 e 1 0 ]
+"9
+[v __IT_SAVE_WREG _IT_SAVE_WREG `uc  1 e 1 0 ]
+"10
+[v __IT_SAVE_STATUS _IT_SAVE_STATUS `uc  1 e 1 0 ]
 "17 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\crc8.c
 [v _crc8_table crc8_table `[256]uc  1 s 256 crc8_table ]
 "18
@@ -1390,7 +1402,7 @@ ECAN_RX_DBL_BUFFERED 128
 "598
 [v doModeVerbose@p p `*.39uc  1 a 2 55 ]
 "568
-[v doModeVerbose@ifmode ifmode `E16362  1 a 1 54 ]
+[v doModeVerbose@ifmode ifmode `E16371  1 a 1 54 ]
 "493
 [v doModeVerbose@c c `uc  1 a 1 44 ]
 "494
@@ -1585,7 +1597,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ECANSendMessage@id id `ul  1 p 4 10 ]
 [v ECANSendMessage@data data `*.39uc  1 p 2 14 ]
 [v ECANSendMessage@dataLen dataLen `uc  1 p 1 16 ]
-[v ECANSendMessage@msgFlags msgFlags `E16306  1 p 1 17 ]
+[v ECANSendMessage@msgFlags msgFlags `E16315  1 p 1 17 ]
 "761
 } 0
 "1101
@@ -1918,8 +1930,8 @@ ECAN_RX_DBL_BUFFERED 128
 "1014
 [v _ECANSetOperationMode ECANSetOperationMode `(v  1 e 0 0 ]
 {
-[v ECANSetOperationMode@mode mode `E16337  1 a 1 0 ]
-[v ECANSetOperationMode@mode mode `E16337  1 a 1 0 ]
+[v ECANSetOperationMode@mode mode `E16346  1 a 1 0 ]
+[v ECANSetOperationMode@mode mode `E16346  1 a 1 0 ]
 "1019
 } 0
 "19 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0open.c
@@ -1998,7 +2010,7 @@ ECAN_RX_DBL_BUFFERED 128
 "210
 [v Interrupt@id id `ul  1 a 4 37 ]
 "213
-[v Interrupt@flags flags `E16349  1 a 1 41 ]
+[v Interrupt@flags flags `E16358  1 a 1 41 ]
 "211
 [v Interrupt@dlc dlc `uc  1 a 1 36 ]
 "138
@@ -2048,7 +2060,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ECANReceiveMessage@id id `*.29ul  1 a 1 12 ]
 [v ECANReceiveMessage@data data `*.29uc  1 p 1 7 ]
 [v ECANReceiveMessage@dataLen dataLen `*.29uc  1 p 1 8 ]
-[v ECANReceiveMessage@msgFlags msgFlags `*.29E16324  1 p 1 9 ]
+[v ECANReceiveMessage@msgFlags msgFlags `*.29E16333  1 p 1 9 ]
 "993
 } 0
 "1158

@@ -84,7 +84,7 @@
 #define TIMER0_RELOAD_VALUE             0xfb1d
 
 // Our capabilities
-#define OUR_CAPS_MAX_CANAL_FRAMES       5
+#define OUR_CAPS_MAX_CANAL_FRAMES       1
 #define OUR_CAPS_MAX_VSCP_FRAMES        1
 
 // VSCP driver commands
@@ -167,11 +167,13 @@ BOOL writeRegisterExtended(uint8_t nodeid,
                                 uint8_t *value );
 void printBinary( uint8_t value );
 BOOL receivePrintEventVerbose( void );
-BOOL receivePrintEventCANAL( void );
-BOOL receivePrintEventVSCP( void );
-BOOL receivePrintEventSLCAN( void );
+BOOL receiveSendEventCANAL( void );
+BOOL receiveSendMultiEventCANAL(void);
+BOOL receiveSendEventVSCP( void );
+BOOL receiveSendEventSLCAN( void );
 BOOL receiveVSCPModeCanalMsg( void );
 BOOL receiveVSCPModeMultiCanalMsg(void);
+BOOL sendVSCPModeCapabilities(void);
 void sendVSCPDriverCommandReply( uint8_t cmdReplyCode, uint8_t cmdCode );
 void printHelp( void );
 void findNodes( void );

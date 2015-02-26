@@ -913,7 +913,9 @@ BOOL ECANReceiveMessage(unsigned long *id,
 #if ( (ECAN_LIB_MODE_VAL == ECAN_LIB_MODE_RUN_TIME) || \
       (ECAN_LIB_MODE_VAL == ECAN_LIB_MODE_FIXED) && (ECAN_FUNC_MODE_VAL == ECAN_MODE_2) )
     {
-        if ( COMSTAT_FIFOEMPTY == 1 )      //if FIFO is NOT empty --> meaning there is a message to be read waiting in Bn or RXBn Buffer
+        if ( COMSTAT_FIFOEMPTY == 1 )      
+            // if FIFO is NOT empty --> meaning there is a message to be read
+            // waiting in Bn or RXBn Buffer
         {
             ptr = (BYTE*)_ECANPointBuffer(CANCON&0x07);          // get the pointer to the proper buffer
 

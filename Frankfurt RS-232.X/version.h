@@ -1,12 +1,12 @@
 /* ******************************************************************************
- * 	VSCP (Very Simple Control Protocol) 
- * 	http://www.vscp.org
+ * VSCP (Very Simple Control Protocol)
+ * http://www.vscp.org
  *
- * 	2014-11-28
- * 	akhe@grodansparadis.com
+ * 2014-11-28
+ * akhe@grodansparadis.com
  *
- *  Copyright (C) 1995-2014 Ake Hedman, Grodans Paradis AB
- *                          <akhe@grodansparadis.com>
+ * Copyright (C) 1995-2015 Ake Hedman, Grodans Paradis AB
+ * <akhe@grodansparadis.com>
  *
  * This software is provided 'as-is', without any express or implied
  * warranty.  In no event will the authors be held liable for any damages
