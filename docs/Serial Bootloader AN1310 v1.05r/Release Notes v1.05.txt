@@ -1,0 +1,60 @@
+This release does not change the bootloader protocol.
+The host PC software should be fully backwards 
+compatible with v1.03 and v1.04 bootloader 
+firmware.
+
+- Device Database files updated with all 
+  latest processor support. 
+
+  PIC18F87K22/K90 family should erase correctly 
+  now.
+
+- New PIC12F617 software bit-bang UART bootloader.
+
+- Improved PIC16 enhanced core support. 
+  Added more enhanced core options (bootconfig.inc).
+  Added LWLO bit support (improves write time).
+
+- Improved PIC16 bootloader firmware portability.
+
+  PIC16F1824, PIC16F1828 ANx analog inputs 
+  configured.
+
+  PIC12F1822 enhanced core supported. 
+
+- Improved PIC18 bootloader firmware portability.
+  PIC18F14K50 should be easier to set up now.
+
+- PIC18 software boot protect option improved. 
+  Should work on 96KB flash memory devices now.
+
+- Improved PIC18 to ease configuration for 
+  UART2 operation in bootconfig.inc.
+
+  Improved portability to devices where analog
+  input (ANx) is multiplexed with RX input pin.
+
+- PIC18 support for Peripheral Pin Select (PPS).
+
+  Allows use of PPS UART2 on PIC18F46J11/J50 and
+  PIC18F47J13/J53 family devices.
+
+- PC software improved to reduce throughput 
+  bottlenecks.
+
+- New command-line only host PC software (AN1310cl).
+
+- Fixed bug where host PC software could crash if
+  write plan turned out to be empty.
+
+- AN1310ui now allows recording incoming UART 
+  data after releasing serial terminal mode.
+
+- GUI should be more responsive during bootload
+  operations (bootloader operations run through
+  a separate thread now).
+
+- Incremental bootloading bug fixed for large, 
+  slowly written HEX files that would sometimes
+  trigger an incremental bootload operation
+  before the entire HEX file is written.

@@ -1,0 +1,31 @@
+CAN4VSCP - RS-232
+=================
+
+2014-11-26 - AKHE Added missing decoupling capacitor to uP.
+2014-04-22 - AKHE REV C
+					Moved RS-232 connector closer to border.
+					Connected uP pin 6 to VCC needed for PIC25K80 devices
+2014-02-28 - AKHE Moved VCC on pinheader and change link on board to
+					www.grodansparadis.com instead of www.vscp.org
+					Added a not3 in drawing so a female connector is used
+					for the DSUB.
+2011-12-20 - AKHE Added termination resistor. Leave unpopulated.
+2011-11-17 - AKHE Added 1uF capacitor on uP pin 6 forPIC18F66K80 compatibility
+2011-11-15 - AKHE Move L1 so it fits on the board.
+2011-11-10 - AKHE Packages for D1/D2 updatet to SOD123 from SMDB
+2011-11-10 - AKHE +/- changed position + is at 1,2,3
+2011-11-10 - AKHE CANH should be on pin 4 of RJ-45
+2011-11-10 - AKHE Rev B
+
+0.0.4
+=====
+- Changed to Switched power regulator LM2575S.
+- Changed from resonator to crystal. 
+- Checked design.
+
+0.0.3
+=====
+
+- Changed direction off Power LED
+- General tidy up
+- LM340 used as Power regulator.

@@ -1,0 +1,37 @@
+CAN4VSCP_RS232
+==============
+
+C17,C18,C19,C20 Kondensator 0805 100 nF (4) 
+-------------------------------------------
+Bejoken Artnr: 522580 M5Y 100nF 50V Y5V 0805 -20+80% LxBxH=2x1.3x1.3mm 4000st UWA  196,50SEK/4000
+Digi-Key 490-1726-2-ND  32USD/4000
+
+Kondensator 0805 1 uF
+---------------------
+Kond 0805 1uF Y5V, ELFA 65-809-97 0,574 SEK/100
+Bejoken Artnr: 522592 M5Y 1uF 25V Y5V 0805 -20+80% LxBxH=2x1.3x1.3mm 4000st UWA  628.79SEK/4000
+Digi-key 	490-1739-2-ND   54USD/4000
+
+IC4 - LM2575 Switching Regulator
+--------------------------------
+http://www.national.com/mpf/LM/LM2575.html
+Digi-Key 	LM2575S-5.0-ND  1.46160USD/1000 ( 2.9USD a piece)
+Possible replacement LM2595 http://www.national.com/pf/LM/LM2595.html
+Possible replacement (lower input voltage) LM2734 - http://www.national.com/pf/LM/LM2734.html
+
+
+J2 - Low profile RJ-45 connector
+--------------------------------
+Elfa 42-688-37 11.30SEK/500 29.80SEK/st
+
+IC7 - MAX232IDWR RS-232 buffer
+------------------------------
+Digi-Key 296-6939-5-ND  0.29300USD/2000 (0.90USD a piece)
+
+
+X1 - DB9 femail connector
+-------------------------
+Digi-Key A35109-ND  0.60246/1000 (1.09USD a pice)
+Digi-Key 182-09FE-ND  0.85550USD/1000 (2.01USD a piece)
+
+
