@@ -1,9 +1,9 @@
 EAGLE AutoRouter Statistics:
 
-Job           : C:/Users/akhe/development/vscp_hardware/can4vscp/can4vscp_rs232/eagle/smd/smd_can4vscp_rs232_rev_B.brd
+Job           : C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/eagle/smd/smd_can4vscp_rs232_rev_B.brd
 
-Start at      : 16:41:43 (2014-02-28)
-End at        : 16:41:43 (2014-02-28)
+Start at      : 18:18:06 (2015-03-02)
+End at        : 18:18:07 (2015-03-02)
 Elapsed time  : 00:00:00
 
 Signals       :    35   RoutingGrid: 50 mil  Layers: 2

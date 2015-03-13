@@ -1,6 +1,7 @@
 CAN4VSCP - RS-232
 =================
 
+2015-03-05 - AKHE Moved signal ground on RS-232 connector to pin 5
 2015-03-02 - AKHE Added Switches for TTL/RS-232 
 2014-11-26 - AKHE Added missing decoupling capacitor to uP.
 2014-04-22 - AKHE REV C

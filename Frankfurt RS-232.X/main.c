@@ -663,10 +663,12 @@ void doModeVerbose(void)
             // Print out statistics
             else if (cmdbuf == stristr(cmdbuf, "STAT")) {
                 printStatistics();
+                putsUSART((char *) "+OK\r\n");
             }
             // List error counters
             else if (cmdbuf == stristr(cmdbuf, "ERR")) {
                 printErrors();
+                putsUSART((char *) "+OK\r\n");
             }
             // Help
             else if (cmdbuf == stristr(cmdbuf, "HELP")) {
@@ -676,6 +678,7 @@ void doModeVerbose(void)
             // Find nodes on CAN4VSCP bus
             else if (cmdbuf == stristr(cmdbuf, "FIND")) {
                 findNodes();
+                putsUSART((char *) "+OK\r\n");
             }
             // Read register of node
             //      RREG node [page:]reg count
@@ -835,7 +838,7 @@ void doModeVerbose(void)
             else if (cmdbuf == stristr(cmdbuf, "INFO")) {
                 uint8_t nodeid;
 
-                strcpy(cmdbuf, cmdbuf + 9);
+                strcpy(cmdbuf, cmdbuf + 5);
                 nodeid = atoi(cmdbuf);
 
                 putsUSART((char *) "Info for node id = ");
@@ -845,6 +848,7 @@ void doModeVerbose(void)
                 printNodeFirmwareVersion(nodeid);
                 printGUID(nodeid);
                 printMDF(nodeid);
+                putsUSART((char *) "+OK\r\n");
             }
             // Set filter
             //  FILTER filterno,prio,class,type,nodeid
@@ -919,6 +923,7 @@ void doModeVerbose(void)
                         ((uint32_t) filter_type << 8) |
                         filter_nodeid;
                 setFilter(filterno, id);
+                putsUSART((char *) "+OK\r\n");
             }
             // Set Mask
             //  MASK maskno,prio,class,type,nodeid
@@ -995,6 +1000,7 @@ void doModeVerbose(void)
 
                 maskno ? ECANSetRXM0Value(id, ECAN_MSG_XTD) :
                         ECANSetRXM1Value(id, ECAN_MSG_XTD);
+                putsUSART((char *) "+OK\r\n");
             }
             // Set Configuration
             //      RWTIMEOUT n  - rreg/wreg timeout
@@ -1026,6 +1032,7 @@ void doModeVerbose(void)
                         rwtimeout = DEFAULT_REGISTER_RW_TIMEOUT;
                     }
                     writeEEPROM(MODULE_EEPROM_RW_TIMEOUT, rwtimeout);
+                    putsUSART((char *) "+OK\r\n");
                 }
                 else if (0 != stristr(cmdbuf, "STARTIF ")) {
                     strcpy(cmdbuf, cmdbuf + 8);

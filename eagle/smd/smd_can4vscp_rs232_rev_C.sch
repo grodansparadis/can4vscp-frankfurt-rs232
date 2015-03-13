@@ -17031,10 +17031,10 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <pinref part="D2" gate="G$1" pin="A"/>
 </segment>
 <segment>
-<wire x1="58.42" y1="91.44" x2="58.42" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="119.38" x2="81.28" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="91.44" x2="58.42" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<pinref part="J4" gate="G$1" pin="1"/>
+<pinref part="J4" gate="G$1" pin="5"/>
+<wire x1="81.28" y1="109.22" x2="58.42" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="96.52" y1="121.92" x2="121.92" y2="121.92" width="0.1524" layer="91"/>
