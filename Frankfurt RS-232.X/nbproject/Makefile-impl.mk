@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=Frankfurt RS-232.X
 
 # Active Configuration
-DEFAULTCONF=debug
+DEFAULTCONF=relocated
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default debug 
+ALLCONFS=default debug relocated 
 
 
 # build
@@ -47,6 +47,7 @@ ALLCONFS=default debug
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated clean
 
 
 
@@ -54,6 +55,7 @@ ALLCONFS=default debug
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated build
 
 
 

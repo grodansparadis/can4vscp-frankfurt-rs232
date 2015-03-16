@@ -1,6 +1,6 @@
 /* 
- * File:   main.c
- * Author: grodansparadis
+ * File:   main.c - Frankfurt RS-232
+ * Author: Ake Hedman Grodansparadis AB, Sweden
  *
  * Created on den 28 november 2014, 12:17
  */
@@ -290,7 +290,7 @@ int main(int argc, char** argv)
 
     // Wait for init sequency to bring interface to verbose mode
     // v' pressed withing three seconds
-    if (0 && (WORKING_MODE_VERBOSE != mode)) {
+    if ( WORKING_MODE_VERBOSE != mode ) {
 
         uint8_t c;
 
@@ -1095,17 +1095,15 @@ void doModeVscp( void )
     uint8_t c;
 
     // Fetch possible VSCP event
-    if ( !bSilent ) {
-        if ( caps.maxCanalFrames > 1 ) {
-            // Send multiple CANAL frames in one serial frame for speed
-            // if it is possible to do so.
-            receiveSendMultiEventCANAL();
-        }
-        else {
-            // If not possible to send several CANAL frames in one serial
-            // frame this is a speedier alternative.
-            receiveSendEventCANAL();
-        }
+    if ( caps.maxCanalFrames > 1 ) {
+        // Send multiple CANAL frames in one serial frame for speed
+        // if it is possible to do so.
+        receiveSendMultiEventCANAL();
+    }
+    else {
+        // If not possible to send several CANAL frames in one serial
+        // frame this is a speedier alternative.
+        receiveSendEventCANAL();
     }
 
     // Disable interrupt

@@ -18,3 +18,10 @@ CND_ARTIFACT_PATH_debug=dist/debug/production/Frankfurt_RS-232.X.production.hex
 CND_PACKAGE_DIR_debug=${CND_DISTDIR}/debug/package
 CND_PACKAGE_NAME_debug=frankfurtrs-232.x.tar
 CND_PACKAGE_PATH_debug=${CND_DISTDIR}/debug/package/frankfurtrs-232.x.tar
+# relocated configuration
+CND_ARTIFACT_DIR_relocated=dist/relocated/production
+CND_ARTIFACT_NAME_relocated=Frankfurt_RS-232.X.production.hex
+CND_ARTIFACT_PATH_relocated=dist/relocated/production/Frankfurt_RS-232.X.production.hex
+CND_PACKAGE_DIR_relocated=${CND_DISTDIR}/relocated/package
+CND_PACKAGE_NAME_relocated=frankfurtrs-232.x.tar
+CND_PACKAGE_PATH_relocated=${CND_DISTDIR}/relocated/package/frankfurtrs-232.x.tar
