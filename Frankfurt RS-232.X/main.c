@@ -27,7 +27,6 @@
 
 #define _XTAL_FREQ 40000000
 
-
 // Buffers
 uint8_t inputBuffer[ SIZE_SERIAL_INPUT_BUFFER ];
 uint8_t caninputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];
@@ -40,17 +39,17 @@ volatile uint32_t timer = 0; // Millisecond timer
 volatile uint32_t timekeeper = 0; // Nill to measure time
 uint8_t ledFunctionality; // Init LED functionality
 volatile uint16_t status_led_cnt; // status LED counter
-// increase externally bye one every
+// increase externally by one every
 // millisecond
-uint8_t mode; // Unit working mode
+uint8_t mode;           // Unit working mode
 
-BOOL bHex = FALSE; // Numerical printouts in hex
+BOOL bHex = FALSE;      // Numerical printouts in hex
 
 BOOL bOpen = FALSE;     // TRUE if i/f is open
 BOOL bSilent = FALSE;   // Open but no receive
 uint8_t rwtimeout;      // Reg read/write timeout
 
-volatile uint8_t canrxcount = 0;    // Number of CAN messages in fifo
+volatile uint8_t canrxcount = 0; // Number of CAN messages in fifo
 
 // Statistics
 uint32_t cntTxFrames = 0;   // Number of sent CAN frames
@@ -70,11 +69,11 @@ char wrkbuf[80];
 
 // VSCP driver mode
 BOOL stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
-BOOL bDLE = FALSE; // True if escpae charcter has been received.
-uint8_t sequencyno = 0; // Sequency number. Increaces for every fram
+BOOL bDLE = FALSE; // True if escape character has been received.
+uint8_t sequencyno = 0; // Sequency number. Increases for every frame
 
 // * * * *   Capabilities   * * * *
-vscp_serial_caps caps;   // Init structure in main
+vscp_serial_caps caps;   // Init. structure in main
 
 // SLCAN mode
 BOOL bInitiated = FALSE;
@@ -253,17 +252,17 @@ void interrupt low_priority Interrupt()
 
 int main(int argc, char** argv)
 {
-    // Init capabilities
+    // Init. capabilities
     caps.maxVscpFrames = 1;
     caps.maxCanalFrames = 1;        // Max frames that will be sent to host
                                     // can be increase after a capability
                                     // request.
 
-    // Init fifos
+    // Init. fifos
     fifo_init( &serialInputFifo, inputBuffer, sizeof ( inputBuffer));       // UART receive
     fifo_init( &canInputFifo, caninputBuffer, sizeof ( caninputBuffer));    // CAN receive
 
-    // Init CRC table
+    // Init. CRC table
     init_crc8();
 
     // If EEPROM is not initialized then restore defaults
@@ -288,7 +287,7 @@ int main(int argc, char** argv)
     printFirmwareVersion();
     printMode();
 
-    // Wait for init sequency to bring interface to verbose mode
+    // Wait for init. sequency to bring interface to verbose mode
     // v' pressed withing three seconds
     if ( WORKING_MODE_VERBOSE != mode ) {
 

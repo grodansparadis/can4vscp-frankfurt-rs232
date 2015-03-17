@@ -1,4 +1,4 @@
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  1
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00051 ;                           re-writing values matching existing config
                       00052 ;                           data.
                       00053 ; E. Schlunder  04/24/2009  Optimized EEPROM Write routine a little bit.
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  2
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00104 ; 03/27/2002    Removed the boot vector and related code. This could lead to customer
                       00105 ;       issues. There is a very minute probability that errent code execution
                       00106 ;       could jump into the boot area and cause artificial boot entry.
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  3
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00219   ENDIF
                       00220   IFDEF __18F2685
                       00221      INCLUDE <p18F2685.INC>
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  4
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00272      INCLUDE <p18F4410.INC>
                       00273   ENDIF
                       00274   IFDEF __18F442
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  5
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00325   IFDEF __18F452
                       00326      INCLUDE <p18F452.INC>
                       00327   ENDIF
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  6
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00378   ENDIF
                       00379   IFDEF __18F4620
                       00380      INCLUDE <p18F4620.INC>
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  7
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -411,7 +411,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00431      INCLUDE <p18F63J90.INC>
                       00432   ENDIF
                       00433   IFDEF __18F6410
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  8
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -470,7 +470,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00484   IFDEF __18F6620
                       00485      INCLUDE <p18F6620.INC>
                       00486   ENDIF
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE  9
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE  9
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -529,7 +529,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00537   ENDIF
                       00538   IFDEF __18F66K80
                       00539      INCLUDE <p18F66K80.INC>
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 10
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 10
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -588,7 +588,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00590      INCLUDE <p18F83J11.INC>
                       00591   ENDIF
                       00592   IFDEF __18F83J90
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 11
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 11
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -647,7 +647,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00643   IFDEF __18F85J94
                       00644      INCLUDE <p18F85J94.INC>
                       00645   ENDIF
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 12
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 12
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -706,7 +706,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00696   ENDIF
                       00697   IFDEF __18F86J60
                       00698      INCLUDE <p18F86J60.INC>
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 13
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 13
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -765,7 +765,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00749      INCLUDE <p18F87J93.INC>
                       00750   ENDIF
                       00751   IFDEF __18F87J94
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 14
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 14
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -824,7 +824,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00802   IFDEF __18LF24K50
                       00803      INCLUDE <p18LF24K50.INC>
                       00804   ENDIF
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 15
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 15
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -883,7 +883,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00855   ENDIF
                       00856   IFDEF __18LF44J50
                       00857      INCLUDE <p18LF44J50.INC>
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 16
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 16
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -942,7 +942,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00908      INCLUDE <p18LF66K80.INC>
                       00909   ENDIF
                       00910   IFDEF __MCV20USB
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 17
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 17
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1001,7 +1001,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00047 #endif
                       00048 
                       00049 #ifdef __18F24J10
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 18
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 18
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1060,7 +1060,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00100 
                       00101 #ifdef __18F25J11
                       00102      #define CONFIG_AS_FLASH
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 19
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 19
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1119,7 +1119,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00153      #define CONFIG_AS_FLASH
                       00154      #define DEVICEID                .713
                       00155      #define WRITE_FLASH_BLOCKSIZE   .64
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 20
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 20
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1178,7 +1178,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00206      #define WRITE_FLASH_BLOCKSIZE   .64
                       00207      #define ERASE_FLASH_BLOCKSIZE   .1024
                       00208      #define END_FLASH               0x20000
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 21
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 21
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1237,7 +1237,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00259      #define ERASE_FLASH_BLOCKSIZE   .1024
                       00260      #define END_FLASH               0x4000
                       00261      #define END_GPR                 0xEC0
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 22
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 22
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1296,7 +1296,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00312      #define END_GPR                 0x600
                       00313 #endif
                       00314 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 23
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 23
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1355,7 +1355,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00365 #endif
                       00366 
                       00367 #ifdef __18F46K20
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 24
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 24
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1414,7 +1414,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00418 #ifdef __18F63J90
                       00419      #define CONFIG_AS_FLASH
                       00420      #define DEVICEID                .448
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 25
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 25
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1473,7 +1473,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00471 
                       00472 #ifdef __18F65J50
                       00473      #define CONFIG_AS_FLASH
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 26
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 26
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1532,7 +1532,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00524      #define CONFIG_AS_FLASH
                       00525      #define DEVICEID                .546
                       00526      #define WRITE_FLASH_BLOCKSIZE   .64
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 27
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 27
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1591,7 +1591,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00577 #ifdef __18F66J65
                       00578      #define CONFIG_AS_FLASH
                       00579      #define DEVICEID                .248
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 28
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 28
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1650,7 +1650,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00630      #define DEVICEID                .173
                       00631      #define WRITE_FLASH_BLOCKSIZE   .64
                       00632      #define ERASE_FLASH_BLOCKSIZE   .1024
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 29
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 29
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1709,7 +1709,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00683      #define DEVICEID                .652
                       00684      #define WRITE_FLASH_BLOCKSIZE   .128
                       00685      #define ERASE_FLASH_BLOCKSIZE   .128
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 30
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 30
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1768,7 +1768,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00736      #define DEVICEID                .175
                       00737      #define WRITE_FLASH_BLOCKSIZE   .64
                       00738      #define ERASE_FLASH_BLOCKSIZE   .1024
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 31
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 31
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1827,7 +1827,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00789      #define WRITE_FLASH_BLOCKSIZE   .64
                       00790      #define ERASE_FLASH_BLOCKSIZE   .64
                       00791      #define END_FLASH               0x8000
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 32
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 32
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1886,7 +1886,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00842      #define DEVICEID                .528
                       00843      #define WRITE_FLASH_BLOCKSIZE   .64
                       00844      #define ERASE_FLASH_BLOCKSIZE   .1024
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 33
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 33
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -1945,7 +1945,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00895      #define DEVICEID                .665
                       00896      #define WRITE_FLASH_BLOCKSIZE   .64
                       00897      #define ERASE_FLASH_BLOCKSIZE   .64
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 34
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 34
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2004,7 +2004,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00948      #define DEVICEID                .643
                       00949      #define WRITE_FLASH_BLOCKSIZE   .64
                       00950      #define ERASE_FLASH_BLOCKSIZE   .1024
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 35
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 35
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2063,7 +2063,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01001      #define WRITE_FLASH_BLOCKSIZE   .64
                       01002      #define ERASE_FLASH_BLOCKSIZE   .1024
                       01003      #define END_FLASH               0x18000
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 36
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 36
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2122,7 +2122,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01054 #endif
                       01055 
                       01056 #ifdef __18F448
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 37
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 37
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2181,7 +2181,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01107      #define ERASE_FLASH_BLOCKSIZE   .64
                       01108      #define END_FLASH               0x2000
                       01109      #define END_GPR                 0x100
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 38
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 38
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2240,7 +2240,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01160 #ifdef __18F2420
                       01161      #define DEVICEID                .138
                       01162      #define WRITE_FLASH_BLOCKSIZE   .32
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 39
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 39
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2299,7 +2299,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01213      #define END_GPR                 0x800
                       01214 #endif
                       01215 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 40
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 40
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2358,7 +2358,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01266      #define WRITE_FLASH_BLOCKSIZE   .8
                       01267      #define ERASE_FLASH_BLOCKSIZE   .64
                       01268      #define END_FLASH               0x6000
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 41
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 41
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2417,7 +2417,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01319 
                       01320 #ifdef __18F2680
                       01321      #define DEVICEID                .118
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 42
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 42
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2476,7 +2476,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01372      #define END_FLASH               0x2000
                       01373      #define END_GPR                 0x200
                       01374 #endif
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 43
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 43
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2535,7 +2535,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01425      #define DEVICEID                .288
                       01426      #define WRITE_FLASH_BLOCKSIZE   .16
                       01427      #define ERASE_FLASH_BLOCKSIZE   .64
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 44
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 44
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2594,7 +2594,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01478 #endif
                       01479 
                       01480 #ifdef __18F4523
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 45
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 45
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2653,7 +2653,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01531      #define ERASE_FLASH_BLOCKSIZE   .64
                       01532      #define END_FLASH               0xC000
                       01533      #define END_GPR                 0xD00
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 46
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 46
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2712,7 +2712,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01584      #define WRITE_FLASH_BLOCKSIZE   .8
                       01585      #define ERASE_FLASH_BLOCKSIZE   .64
                       01586      #define END_FLASH               0x8000
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 47
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 47
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2771,7 +2771,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01637 
                       01638 #ifdef __18F6627
                       01639      #define DEVICEID                .158
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 48
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 48
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2830,7 +2830,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01690 ; PIC18F8490 does not support self-programming.
                       01691 ; PIC18F8493 does not support self-programming.
                       01692 #ifdef __18F8520
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 49
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 49
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2889,7 +2889,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01743      #define ERASE_FLASH_BLOCKSIZE   .64
                       01744      #define END_FLASH               0x10000
                       01745      #define END_GPR                 0xF60
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 50
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 50
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -2948,7 +2948,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01796 #ifdef __18LF13K22
                       01797      #define DEVICEID                .636
                       01798      #define WRITE_FLASH_BLOCKSIZE   .8
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 51
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 51
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3007,7 +3007,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01849      #define ERASE_FLASH_BLOCKSIZE   .1024
                       01850      #define END_FLASH               0x4000
                       01851      #define END_GPR                 0xEC0
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 52
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 52
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3066,7 +3066,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01902      #define END_FLASH               0x8000
                       01903      #define END_GPR                 0x600
                       01904 #endif
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 53
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 53
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3125,7 +3125,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       01955      #define END_GPR                 0xF38
                       01956 #endif
                       01957 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 54
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 54
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3184,7 +3184,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       02008 #endif
                       02009 
                       02010 #ifdef __18LF44J50
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 55
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 55
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3243,7 +3243,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       02061 
                       02062 #ifdef __18LF45K80
                       02063      #define DEVICEID                .786
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 56
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 56
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3302,7 +3302,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       02114 #ifdef __18LF46K80
                       02115      #define DEVICEID                .783
                       02116      #define WRITE_FLASH_BLOCKSIZE   .64
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 57
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 57
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3361,7 +3361,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00012 ; CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, HARM TO YOUR
                       00013 ; EQUIPMENT, COST OF PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY
                       00014 ; OR SERVICES, ANY CLAIMS BY THIRD PARTIES (INCLUDING BUT NOT LIMITED
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 58
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 58
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3420,7 +3420,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00061   #if BOOTLOADER_ADDRESS == 0
                       00062     ; For Bootloader located at program memory address 0, the application firmware must 
                       00063     ; provide remapped reset and interrupt vectors outside of the Boot Block. The following 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 59
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 59
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3479,7 +3479,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00114 ;    #define RXPIN           .2
                       00115 
                       00116 ;    #define RXPORT          PORTD   ; RX2 pin PPS'ed to RD4/RP21 on PIC18F46J11 for example.
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 60
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 60
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3538,7 +3538,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00024 
                       00025 DigitalInput macro
                       00026 #ifdef __18F1320
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 61
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 61
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3597,7 +3597,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00077         #define RXPIN 4            ; PIC18F1220, PIC18F1320 have RX on RB4
                       00078     #endif
                       00079 #endif
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 62
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 62
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3656,7 +3656,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00129     ; This device has a large Erase FLASH Block Size, so we need to reserve a full Erase Block
                       00130     ; page for the bootloader. Reserving an entire erase block prevents the PC application
                       00131     ; from trying to accidently erase a portion of the bootloader.
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 63
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 63
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -3682,110 +3682,116 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00149 #endif
                       00112 ; *****************************************************************************
                       00113 
+                      00114 ; AKHE Frankfurt RS-232 Configs
 Warning[205]: Found directive in column 1. (CONFIG)
-06 1F 1F 82 85 0F C0 000114 CONFIG  OSC = HSPLL           ; Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency =
+06 1F 1E 82 85 0F C0 000115 CONFIG  OSC = HSPLL           ; Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency =
                              4 x FOSC1))
        F E0 0F 40 
-                      00115 
-                      00116 ; *****************************************************************************
-                      00117 #define STX             0x0F            
-                      00118 #define ETX             0x04
-                      00119 #define DLE             0x05
-                      00120 #define NTX             0xFF
-                      00121 ; *****************************************************************************
-                      00122 
-                      00123 ; *****************************************************************************
-                      00124 ; RAM Address Map
-  00000000            00125 CRCL                equ 0x00
-  00000001            00126 CRCH                equ 0x01
-  00000002            00127 RXDATA              equ 0x02
-  00000003            00128 TXDATA              equ 0x03
-                      00129 
-                      00130 ; Framed Packet Format
-                      00131 ; <STX>[<COMMAND><ADDRL><ADDRH><ADDRU><0x00><DATALEN><...DATA...>]<CRCL><CRCH><ETX>
-  00000005            00132 COMMAND             equ 0x05        ; receive buffer
-  00000006            00133 ADDRESS_L           equ 0x06
-  00000007            00134 ADDRESS_H           equ 0x07
-  00000008            00135 ADDRESS_U           equ 0x08
-  00000009            00136 ADDRESS_X           equ 0x09
-  0000000A            00137 DATA_COUNTL         equ 0x0A
-  0000000B            00138 PACKET_DATA         equ 0x0B
-  0000000B            00139 DATA_COUNTH         equ 0x0B        ; only for certain commands
-                      00140 ; *****************************************************************************
-                      00141 
-                      00142 ; *****************************************************************************
-                      00143     errorlevel -311                 ; don't warn on HIGH() operator values >16-bits
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 64
+Warning[205]: Found directive in column 1. (CONFIG)
+                      00116 CONFIG  BBSIZ = 1024          ; Boot Block Size Select bit (1K words (2K bytes) boot block)
+Warning[205]: Found directive in column 1. (CONFIG)
+                      00117 CONFIG  WDT = OFF             ; Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN
+                             bit))
+                      00118 
+                      00119 ; *****************************************************************************
+                      00120 #define STX             0x0F            
+                      00121 #define ETX             0x04
+                      00122 #define DLE             0x05
+                      00123 #define NTX             0xFF
+                      00124 ; *****************************************************************************
+                      00125 
+                      00126 ; *****************************************************************************
+                      00127 ; RAM Address Map
+  00000000            00128 CRCL                equ 0x00
+  00000001            00129 CRCH                equ 0x01
+  00000002            00130 RXDATA              equ 0x02
+  00000003            00131 TXDATA              equ 0x03
+                      00132 
+                      00133 ; Framed Packet Format
+                      00134 ; <STX>[<COMMAND><ADDRL><ADDRH><ADDRU><0x00><DATALEN><...DATA...>]<CRCL><CRCH><ETX>
+  00000005            00135 COMMAND             equ 0x05        ; receive buffer
+  00000006            00136 ADDRESS_L           equ 0x06
+  00000007            00137 ADDRESS_H           equ 0x07
+  00000008            00138 ADDRESS_U           equ 0x08
+  00000009            00139 ADDRESS_X           equ 0x09
+  0000000A            00140 DATA_COUNTL         equ 0x0A
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 64
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
+  0000000B            00141 PACKET_DATA         equ 0x0B
+  0000000B            00142 DATA_COUNTH         equ 0x0B        ; only for certain commands
+                      00143 ; *****************************************************************************
                       00144 
-                      00145 #ifdef USE_SOFTBOOTWP
-                      00146   #ifndef SOFTWP
-                      00147     #define SOFTWP
-                      00148   #endif
-                      00149 #endif
-                      00150 
-                      00151 #ifdef USE_SOFTCONFIGWP
-                      00152   #ifdef CONFIG_AS_FLASH
-                      00153     #ifndef SOFTWP
-                      00154       #define SOFTWP
-                      00155     #endif
-                      00156   #endif
-                      00157 #endif
-                      00158 
-                      00159 #ifndef AppVector
-                      00160     ; The application startup GOTO instruction will be written just before the Boot Block,
-                      00161     ; courtesy of the host PC bootloader application.
-                      00162     #define AppVector (BootloaderStart-.4)
-                      00163 #endif
-                      00164 ; *****************************************************************************
-                      00165 
-                      00166  
+                      00145 ; *****************************************************************************
+                      00146     errorlevel -311                 ; don't warn on HIGH() operator values >16-bits
+                      00147 
+                      00148 #ifdef USE_SOFTBOOTWP
+                      00149   #ifndef SOFTWP
+                      00150     #define SOFTWP
+                      00151   #endif
+                      00152 #endif
+                      00153 
+                      00154 #ifdef USE_SOFTCONFIGWP
+                      00155   #ifdef CONFIG_AS_FLASH
+                      00156     #ifndef SOFTWP
+                      00157       #define SOFTWP
+                      00158     #endif
+                      00159   #endif
+                      00160 #endif
+                      00161 
+                      00162 #ifndef AppVector
+                      00163     ; The application startup GOTO instruction will be written just before the Boot Block,
+                      00164     ; courtesy of the host PC bootloader application.
+                      00165     #define AppVector (BootloaderStart-.4)
+                      00166 #endif
                       00167 ; *****************************************************************************
-                      00168 #if BOOTLOADER_ADDRESS != 0
-                      00169     ORG     0
-                      00170     ; The following GOTO is not strictly necessary, but may startup faster
-                      00171     ; for large microcontrollers running at extremely slow clock speeds.
-                      00172     ;goto    BootloaderBreakCheck  
-                      00173 
-                      00174     ORG     BOOTLOADER_ADDRESS
-                      00175 BootloaderStart:
-                      00176     bra     BootloadMode
-                      00177 
-                      00178 ; *****************************************************************************
-                      00179 ; Determine if the application is supposed to be started or if we should
-                      00180 ; go into bootloader mode.
-                      00181 ;
-                      00182 ; If RX pin is in BREAK state when we come out of MCLR reset, immediately 
-                      00183 ; enter bootloader mode, even if there exists some application firmware in 
-                      00184 ; program memory.
-                      00185 BootloaderBreakCheck:
-                      00186     DigitalInput                ; set RX pin as digital input on certain parts
-                      00187 #ifdef INVERT_UART
-                      00188     btfss   RXPORT, RXPIN
-                      00189 GotoAppVector:
-                      00190     goto    AppVector           ; no BREAK state, attempt to start application
-                      00191 #else
-                      00192     btfsc   RXPORT, RXPIN
-                      00193 GotoAppVector:
-                      00194     goto    AppVector           ; no BREAK state, attempt to start application
-                      00195 #endif
-                      00196 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 65
+                      00168 
+                      00169  
+                      00170 ; *****************************************************************************
+                      00171 #if BOOTLOADER_ADDRESS != 0
+                      00172     ORG     0
+                      00173     ; The following GOTO is not strictly necessary, but may startup faster
+                      00174     ; for large microcontrollers running at extremely slow clock speeds.
+                      00175     ;goto    BootloaderBreakCheck  
+                      00176 
+                      00177     ORG     BOOTLOADER_ADDRESS
+                      00178 BootloaderStart:
+                      00179     bra     BootloadMode
+                      00180 
+                      00181 ; *****************************************************************************
+                      00182 ; Determine if the application is supposed to be started or if we should
+                      00183 ; go into bootloader mode.
+                      00184 ;
+                      00185 ; If RX pin is in BREAK state when we come out of MCLR reset, immediately 
+                      00186 ; enter bootloader mode, even if there exists some application firmware in 
+                      00187 ; program memory.
+                      00188 BootloaderBreakCheck:
+                      00189     DigitalInput                ; set RX pin as digital input on certain parts
+                      00190 #ifdef INVERT_UART
+                      00191     btfss   RXPORT, RXPIN
+                      00192 GotoAppVector:
+                      00193     goto    AppVector           ; no BREAK state, attempt to start application
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 65
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00197 BootloadMode:
-                      00198     DigitalInput                ; set RX pin as digital input on certain parts
-                      00199 #else ; BOOTLOADER_ADDRESS == 0 ****************************************************************
-000000                00200     ORG     0
-000000                00201 BootloaderStart:
-                      00202     DigitalInput                ; set RX pin as digital input on certain parts
+                      00194 #else
+                      00195     btfsc   RXPORT, RXPIN
+                      00196 GotoAppVector:
+                      00197     goto    AppVector           ; no BREAK state, attempt to start application
+                      00198 #endif
+                      00199 
+                      00200 BootloadMode:
+                      00201     DigitalInput                ; set RX pin as digital input on certain parts
+                      00202 #else ; BOOTLOADER_ADDRESS == 0 ****************************************************************
+000000                00203     ORG     0
+000000                00204 BootloaderStart:
+                      00205     DigitalInput                ; set RX pin as digital input on certain parts
                           M #ifdef __18F1320
                           M     #if BOOTLOADER_ADDRESS == 0
                           M     nop                         ; start up GOTO instruction errata
@@ -3808,983 +3814,983 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                           M         bcf     ANSELC, ANSC7   ; Digital input enable on RC7/RX pin for PIC18F46K22 family
                           M     #endif
                           M #endif
-000000 0E00           00203     movlw   low(AppVector)      ; load address of application reset vector
-000002 D004           00204     bra     BootloaderBreakCheck
-                      00205 
-000008                00206         ORG         0x0008
-000008                00207 HighPriorityInterruptVector:
-000008 EF04 F002      00208         goto    AppHighIntVector    ; Re-map Interrupt vector
-                      00209 
-00000C                00210 BootloaderBreakCheck:
-                      00211 #ifdef INVERT_UART
-                      00212     btfsc   RXPORT, RXPIN
-                      00213     bra     BootloadMode
-                      00214 #else
-00000C AE82           00215     btfss   RXPORT, RXPIN
-00000E D00F           00216     bra     BootloadMode
-                      00217 #endif
-000010                00218 CheckAppVector:
-                      00219     ; Read instruction at the application reset vector location. 
-                      00220     ; If we read 0xFFFF, assume that the application firmware has
-                      00221     ; not been programmed yet, so don't try going into application mode.
-000010 6EF6           00222     movwf   TBLPTRL
-000012 0E04           00223     movlw   high(AppVector)
-000014 6EF7           00224     movwf   TBLPTRH
-000016 D002           00225     bra     CheckAppVector2
-                      00226 
-000018                00227         ORG         0x0018
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 66
+000000 0E00           00206     movlw   low(AppVector)      ; load address of application reset vector
+000002 D004           00207     bra     BootloaderBreakCheck
+                      00208 
+000008                00209         ORG         0x0008
+000008                00210 HighPriorityInterruptVector:
+000008 EF04 F002      00211         goto    AppHighIntVector    ; Re-map Interrupt vector
+                      00212 
+00000C                00213 BootloaderBreakCheck:
+                      00214 #ifdef INVERT_UART
+                      00215     btfsc   RXPORT, RXPIN
+                      00216     bra     BootloadMode
+                      00217 #else
+00000C AE82           00218     btfss   RXPORT, RXPIN
+00000E D00F           00219     bra     BootloadMode
+                      00220 #endif
+000010                00221 CheckAppVector:
+                      00222     ; Read instruction at the application reset vector location. 
+                      00223     ; If we read 0xFFFF, assume that the application firmware has
+                      00224     ; not been programmed yet, so don't try going into application mode.
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 66
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-000018                00228 LowPriorityInterruptVector:
-000018 EF0C F002      00229         goto    AppLowIntVector     ; Re-map Interrupt vector
-                      00230 
-00001C                00231 CheckAppVector2:
-00001C 0E00           00232     movlw   upper(AppVector)
-00001E 6EF8           00233     movwf   TBLPTRU     
-000020 0009           00234     tblrd   *+                  ; read instruction from program memory
-000022 3CF5           00235     incfsz  TABLAT, W           ; if the lower byte != 0xFF, 
-000024                00236 GotoAppVector:
-000024 EF00 F002      00237     goto    AppVector           ; run application.
-                      00238 
-000028 0009           00239     tblrd   *+                  ; read instruction from program memory
-00002A 3CF5           00240     incfsz  TABLAT, W           ; if the lower byte == 0xFF but upper byte != 0xFF,
-00002C D7FB           00241     bra     GotoAppVector       ; run application.
-                      00242     ; otherwise, assume application firmware is not present because we read a NOP (0xFFFF).
-                      00243     ; fall through to bootloader mode...
-00002E                00244 BootloadMode:
-                      00245 #endif ; end BOOTLOADER_ADDRESS == 0 ******************************************
-00002E EE20 F000      00246     lfsr    FSR2, 0             ; for compatibility with Extended Instructions mode.
-                      00247 
-                      00248 #ifdef USE_MAX_INTOSC
-000032 0E70           00249     movlw   b'01110000'         ; set INTOSC to maximum speed (usually 8MHz)
-000034 12D3           00250     iorwf   OSCCON, f
-                      00251 #endif
-                      00252 
-                      00253 #ifdef USE_PLL
-                      00254     #ifdef PLLEN
-                      00255         #ifdef OSCTUNE
-000036 8C9B           00256             bsf     OSCTUNE, PLLEN      ; enable PLL for faster internal clock
-                      00257         #else
-                      00258             ; 18F8680, 18F8585, 18F6680, and 18F6585 doesn't have OSCTUNE register.
-                      00259             ; Instead, PLLEN bit is in OSCCON.
-                      00260             bsf     OSCCON, PLLEN      ; enable PLL for faster internal clock
-                      00261         #endif
-                      00262     #else
-                      00263         #ifdef SPLLEN
-                      00264             bsf     OSCTUNE, SPLLEN     ; PIC18F14K50 has SPLLEN at bit 6
-                      00265         #endif
-                      00266     #endif
-                      00267 #endif
-                      00268 
-                      00269 #ifdef INVERT_UART
-                      00270     btfsc   RXPORT, RXPIN       ; wait for RX pin to go IDLE
-                      00271     bra     $-2
-                      00272 #else
-000038 AE82           00273     btfss   RXPORT, RXPIN       ; wait for RX pin to go IDLE
-00003A D7FE           00274     bra     $-2
-                      00275 #endif
-                      00276 
-                      00277 #ifdef PPS_UTX_PIN
-                      00278     banksel PPSCON
-                      00279     ; unlock PPS registers
-                      00280     movlw   0x55
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 67
+000010 6EF6           00225     movwf   TBLPTRL
+000012 0E04           00226     movlw   high(AppVector)
+000014 6EF7           00227     movwf   TBLPTRH
+000016 D002           00228     bra     CheckAppVector2
+                      00229 
+000018                00230         ORG         0x0018
+000018                00231 LowPriorityInterruptVector:
+000018 EF0C F002      00232         goto    AppLowIntVector     ; Re-map Interrupt vector
+                      00233 
+00001C                00234 CheckAppVector2:
+00001C 0E00           00235     movlw   upper(AppVector)
+00001E 6EF8           00236     movwf   TBLPTRU     
+000020 0009           00237     tblrd   *+                  ; read instruction from program memory
+000022 3CF5           00238     incfsz  TABLAT, W           ; if the lower byte != 0xFF, 
+000024                00239 GotoAppVector:
+000024 EF00 F002      00240     goto    AppVector           ; run application.
+                      00241 
+000028 0009           00242     tblrd   *+                  ; read instruction from program memory
+00002A 3CF5           00243     incfsz  TABLAT, W           ; if the lower byte == 0xFF but upper byte != 0xFF,
+00002C D7FB           00244     bra     GotoAppVector       ; run application.
+                      00245     ; otherwise, assume application firmware is not present because we read a NOP (0xFFFF).
+                      00246     ; fall through to bootloader mode...
+00002E                00247 BootloadMode:
+                      00248 #endif ; end BOOTLOADER_ADDRESS == 0 ******************************************
+00002E EE20 F000      00249     lfsr    FSR2, 0             ; for compatibility with Extended Instructions mode.
+                      00250 
+                      00251 #ifdef USE_MAX_INTOSC
+000032 0E70           00252     movlw   b'01110000'         ; set INTOSC to maximum speed (usually 8MHz)
+000034 12D3           00253     iorwf   OSCCON, f
+                      00254 #endif
+                      00255 
+                      00256 #ifdef USE_PLL
+                      00257     #ifdef PLLEN
+                      00258         #ifdef OSCTUNE
+000036 8C9B           00259             bsf     OSCTUNE, PLLEN      ; enable PLL for faster internal clock
+                      00260         #else
+                      00261             ; 18F8680, 18F8585, 18F6680, and 18F6585 doesn't have OSCTUNE register.
+                      00262             ; Instead, PLLEN bit is in OSCCON.
+                      00263             bsf     OSCCON, PLLEN      ; enable PLL for faster internal clock
+                      00264         #endif
+                      00265     #else
+                      00266         #ifdef SPLLEN
+                      00267             bsf     OSCTUNE, SPLLEN     ; PIC18F14K50 has SPLLEN at bit 6
+                      00268         #endif
+                      00269     #endif
+                      00270 #endif
+                      00271 
+                      00272 #ifdef INVERT_UART
+                      00273     btfsc   RXPORT, RXPIN       ; wait for RX pin to go IDLE
+                      00274     bra     $-2
+                      00275 #else
+000038 AE82           00276     btfss   RXPORT, RXPIN       ; wait for RX pin to go IDLE
+00003A D7FE           00277     bra     $-2
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 67
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00281     movwf   EECON2, ACCESS
-                      00282     movlw   0xAA
-                      00283     movwf   EECON2, ACCESS
-                      00284     bcf     PPSCON, IOLOCK, BANKED
-                      00285 
-                      00286     ; assign UART RX/TX to PPS remappable pins
-                      00287     movlw   PPS_UTX
-                      00288     movwf   PPS_UTX_PIN, BANKED
-                      00289 
-                      00290     movlw   PPS_URX_PIN
-                      00291     movwf   PPS_URX, BANKED
+                      00278 #endif
+                      00279 
+                      00280 #ifdef PPS_UTX_PIN
+                      00281     banksel PPSCON
+                      00282     ; unlock PPS registers
+                      00283     movlw   0x55
+                      00284     movwf   EECON2, ACCESS
+                      00285     movlw   0xAA
+                      00286     movwf   EECON2, ACCESS
+                      00287     bcf     PPSCON, IOLOCK, BANKED
+                      00288 
+                      00289     ; assign UART RX/TX to PPS remappable pins
+                      00290     movlw   PPS_UTX
+                      00291     movwf   PPS_UTX_PIN, BANKED
                       00292 
-                      00293     ; lock PPS registers from inadvertent changes
-                      00294     movlw   0x55
-                      00295     movwf   EECON2, ACCESS
-                      00296     movlw   0xAA
-                      00297     movwf   EECON2, ACCESS
-                      00298     bsf     PPSCON, IOLOCK, BANKED
-                      00299     movlb   0x0F
-                      00300 #endif
-                      00301 
-00003C 0E90           00302     movlw   b'10010000'         ; Setup UART
-00003E 6EAB           00303     movwf   UxRCSTA
-000040 0E26           00304     movlw   b'00100110'         ; BRGH = 1, TXEN = 1
-000042 6EAC           00305     movwf   UxTXSTA
-                      00306 
-                      00307 #ifdef INVERT_UART
-                      00308     bsf     UxBAUDCON, RXDTP
-                      00309     bsf     UxBAUDCON, TXCKP
-                      00310 #endif
-                      00311 
-                      00312 #ifdef BRG16
-000044 86B8           00313     bsf     UxBAUDCON, BRG16
-000046 0E02           00314     movlw   b'00000010'         ; 1:8 prescaler - no division required later (but no rounding possible)
-                      00315 #else
-                      00316     movlw   b'00000011'         ; 1:16 prescaler - thus we only have to divide by 2 later on.
-                      00317 #endif
-000048 6ED5           00318     movwf   T0CON
-                      00319 
-                      00320 #ifdef PICDEM_LCD2
-                      00321     bsf     LATB, LATB0         ; PICDEM LCD 2 demoboard requires RB0 high to enable MAX3221 TX output t
+                      00293     movlw   PPS_URX_PIN
+                      00294     movwf   PPS_URX, BANKED
+                      00295 
+                      00296     ; lock PPS registers from inadvertent changes
+                      00297     movlw   0x55
+                      00298     movwf   EECON2, ACCESS
+                      00299     movlw   0xAA
+                      00300     movwf   EECON2, ACCESS
+                      00301     bsf     PPSCON, IOLOCK, BANKED
+                      00302     movlb   0x0F
+                      00303 #endif
+                      00304 
+00003C 0E90           00305     movlw   b'10010000'         ; Setup UART
+00003E 6EAB           00306     movwf   UxRCSTA
+000040 0E26           00307     movlw   b'00100110'         ; BRGH = 1, TXEN = 1
+000042 6EAC           00308     movwf   UxTXSTA
+                      00309 
+                      00310 #ifdef INVERT_UART
+                      00311     bsf     UxBAUDCON, RXDTP
+                      00312     bsf     UxBAUDCON, TXCKP
+                      00313 #endif
+                      00314 
+                      00315 #ifdef BRG16
+000044 86B8           00316     bsf     UxBAUDCON, BRG16
+000046 0E02           00317     movlw   b'00000010'         ; 1:8 prescaler - no division required later (but no rounding possible)
+                      00318 #else
+                      00319     movlw   b'00000011'         ; 1:16 prescaler - thus we only have to divide by 2 later on.
+                      00320 #endif
+000048 6ED5           00321     movwf   T0CON
+                      00322 
+                      00323 #ifdef PICDEM_LCD2
+                      00324     bsf     LATB, LATB0         ; PICDEM LCD 2 demoboard requires RB0 high to enable MAX3221 TX output t
                             o PC.
-                      00322     bcf     TRISB, TRISB0
-                      00323 #endif
-                      00324 ; *****************************************************************************
-                      00325 
-                      00326 
+                      00325     bcf     TRISB, TRISB0
+                      00326 #endif
                       00327 ; *****************************************************************************
-                      00328 #ifdef USE_AUTOBAUD
-00004A                00329 DoAutoBaud:
-                      00330 ; ___    __________            ________
-                      00331 ;    \__/          \__________/
-                      00332 ;       |                     |
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 68
+                      00328 
+                      00329 
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 68
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00333 ;       |-------- p ----------|
-                      00334 ;
-                      00335 ;   p = The number of instructions between the first and last
-                      00336 ;           rising edge of the RS232 control sequence 0x0F. Other 
-                      00337 ;       possible control sequences are 0x01, 0x03, 0x07, 0x1F, 
-                      00338 ;       0x3F, 0x7F.
-                      00339 ;
-                      00340 ;   SPBRG = (p / 32) - 1    BRGH = 1, BRG16 = 0
-                      00341 ;   SPBRG = (p / 8) - 1     BRGH = 1, BRG16 = 1
-                      00342 
-00004A 98AB           00343     bcf     UxRCSTA, CREN       ; Stop receiving
-00004C 50AE           00344     movf    UxRCREG, W          ; Empty the buffer
-00004E 50AE           00345     movf    UxRCREG, W
-                      00346 
-000050                00347 RetryAutoBaud:
-000050 6AD7           00348     clrf    TMR0H               ; reset timer count value
-000052 6AD6           00349     clrf    TMR0L
-000054 94F2           00350     bcf     INTCON, TMR0IF
-000056 D84D           00351     rcall   WaitForRise         ; wait for a start bit to pass by
-000058 8ED5           00352     bsf     T0CON, TMR0ON       ; start timer counting for entire D7..D0 data bit period.
-00005A D84B           00353     rcall   WaitForRise         ; wait for stop bit
-00005C 9ED5           00354     bcf     T0CON, TMR0ON       ; stop the timer from counting further. 
-                      00355 
-00005E B4F2           00356     btfsc   INTCON, TMR0IF      ; if TMR0 overflowed, we did not get a good baud capture
-000060 D7F7           00357     bra     RetryAutoBaud       ; try again
+                      00330 ; *****************************************************************************
+                      00331 #ifdef USE_AUTOBAUD
+00004A                00332 DoAutoBaud:
+                      00333 ; ___    __________            ________
+                      00334 ;    \__/          \__________/
+                      00335 ;       |                     |
+                      00336 ;       |-------- p ----------|
+                      00337 ;
+                      00338 ;   p = The number of instructions between the first and last
+                      00339 ;           rising edge of the RS232 control sequence 0x0F. Other 
+                      00340 ;       possible control sequences are 0x01, 0x03, 0x07, 0x1F, 
+                      00341 ;       0x3F, 0x7F.
+                      00342 ;
+                      00343 ;   SPBRG = (p / 32) - 1    BRGH = 1, BRG16 = 0
+                      00344 ;   SPBRG = (p / 8) - 1     BRGH = 1, BRG16 = 1
+                      00345 
+00004A 98AB           00346     bcf     UxRCSTA, CREN       ; Stop receiving
+00004C 50AE           00347     movf    UxRCREG, W          ; Empty the buffer
+00004E 50AE           00348     movf    UxRCREG, W
+                      00349 
+000050                00350 RetryAutoBaud:
+000050 6AD7           00351     clrf    TMR0H               ; reset timer count value
+000052 6AD6           00352     clrf    TMR0L
+000054 94F2           00353     bcf     INTCON, TMR0IF
+000056 D84D           00354     rcall   WaitForRise         ; wait for a start bit to pass by
+000058 8ED5           00355     bsf     T0CON, TMR0ON       ; start timer counting for entire D7..D0 data bit period.
+00005A D84B           00356     rcall   WaitForRise         ; wait for stop bit
+00005C 9ED5           00357     bcf     T0CON, TMR0ON       ; stop the timer from counting further. 
                       00358 
-                      00359     #ifdef BRG16
-                      00360     ; save new baud rate generator value
-000062 CFD6 FFAF      00361     movff   TMR0L, UxSPBRG      ; warning: must read TMR0L before TMR0H holds real data
-000066 CFD7 FFB0      00362     movff   TMR0H, UxSPBRGH
-                      00363     #else 
-                      00364     movff   TMR0L, UxSPBRG      ; warning: must read TMR0L before TMR0H holds real data
-                      00365     ; TMR0H:TMR0L holds (p / 16).
-                      00366     rrcf    TMR0H, w            ; divide by 2
-                      00367     rrcf    UxSPBRG, F            
-                      00368     btfss   STATUS, C           ; rounding
-                      00369     decf    UxSPBRG, F    
-                      00370     #endif
-                      00371 
-00006A 88AB           00372     bsf     UxRCSTA, CREN       ; start receiving
-                      00373 
-00006C                00374 WaitForHostCommand:
-00006C D8DA           00375     rcall   ReadHostByte        ; get start of transmission <STX>
-00006E 0A0F           00376     xorlw   STX
-000070 E1EC           00377     bnz     DoAutoBaud          ; got something unexpected, perform autobaud
-                      00378 #else ; not using autobaud
-                      00379     movlw   low(BAUDRG)         ; set fixed baud rate generator value
-                      00380     movwf   UxSPBRG
-                      00381     #ifdef UxSPBRGH
-                      00382         #if high(BAUDRG) != 0
-                      00383     movlw   high(BAUDRG)
-                      00384     movwf   UxSPBRGH
-                      00385         #endif
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 69
+00005E B4F2           00359     btfsc   INTCON, TMR0IF      ; if TMR0 overflowed, we did not get a good baud capture
+000060 D7F7           00360     bra     RetryAutoBaud       ; try again
+                      00361 
+                      00362     #ifdef BRG16
+                      00363     ; save new baud rate generator value
+000062 CFD6 FFAF      00364     movff   TMR0L, UxSPBRG      ; warning: must read TMR0L before TMR0H holds real data
+000066 CFD7 FFB0      00365     movff   TMR0H, UxSPBRGH
+                      00366     #else 
+                      00367     movff   TMR0L, UxSPBRG      ; warning: must read TMR0L before TMR0H holds real data
+                      00368     ; TMR0H:TMR0L holds (p / 16).
+                      00369     rrcf    TMR0H, w            ; divide by 2
+                      00370     rrcf    UxSPBRG, F            
+                      00371     btfss   STATUS, C           ; rounding
+                      00372     decf    UxSPBRG, F    
+                      00373     #endif
+                      00374 
+00006A 88AB           00375     bsf     UxRCSTA, CREN       ; start receiving
+                      00376 
+00006C                00377 WaitForHostCommand:
+00006C D8DA           00378     rcall   ReadHostByte        ; get start of transmission <STX>
+00006E 0A0F           00379     xorlw   STX
+000070 E1EC           00380     bnz     DoAutoBaud          ; got something unexpected, perform autobaud
+                      00381 #else ; not using autobaud
+                      00382     movlw   low(BAUDRG)         ; set fixed baud rate generator value
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 69
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00386     #endif
-                      00387     bsf     UxRCSTA, CREN       ; start receiving
-                      00388 DoAutoBaud:
-                      00389 WaitForHostCommand:
-                      00390     rcall   ReadHostByte        ; get start of transmission <STX>
-                      00391     xorlw   STX
-                      00392     bnz     WaitForHostCommand  ; got something unexpected, keep waiting for <STX>
-                      00393 #endif ; end #ifdef USE_AUTOBAUD
-                      00394         
-                      00395 ; *****************************************************************************
-                      00396 
-                      00397 ; *****************************************************************************
-                      00398 ; Read and parse packet data.
-000072                00399 StartOfLine:
-000072 0E0F           00400     movlw   STX                     ; send back start of response
-000074 D8D1           00401     rcall   SendHostByte
-                      00402 
-000076 EE00 F004      00403     lfsr    FSR0, COMMAND-1         ; Point to the buffer
-                      00404         
-00007A                00405 ReceiveDataLoop:
-00007A D8D3           00406     rcall   ReadHostByte            ; Get the data
-00007C 0A0F           00407     xorlw   STX                     ; Check for an unexpected STX
-00007E E0F9           00408     bz      StartOfLine             ; unexpected STX: abort packet and start over.
-                      00409 
-000080                00410 NoSTX:
-000080 5002           00411     movf    RXDATA, W
-000082 0A04           00412     xorlw   ETX                     ; Check for a ETX
-000084 E007           00413     bz      VerifyPacketCRC         ; Yes, verify CRC
-                      00414 
-000086                00415 NoETX:
-000086 5002           00416     movf    RXDATA, W
-000088 0A05           00417     xorlw   DLE                     ; Check for a DLE
-00008A E101           00418     bnz     AppendDataBuffer
-                      00419 
-00008C D8CA           00420     rcall   ReadHostByte            ; DLE received, get the next byte and store it
-                      00421     
-00008E                00422 AppendDataBuffer:
-00008E C002 FFEC      00423     movff   RXDATA, PREINC0         ; store the data to the buffer
-000092 D7F3           00424     bra     ReceiveDataLoop
-                      00425 
-000094                00426 VerifyPacketCRC:
-000094 EE10 F005      00427     lfsr    FSR1, COMMAND
-000098 6A00           00428     clrf    CRCL
-00009A 6A01           00429     clrf    CRCH
-00009C CFED FFF4      00430     movff   POSTDEC0, PRODH         ; Save host packet's CRCH to PRODH for later comparison
-                      00431                                     ; CRCL is now available as INDF0
-0000A0                00432 VerifyPacketCrcLoop:
-0000A0 50E6           00433     movf    POSTINC1, w
-0000A2 D82F           00434     rcall   AddCrc                  ; add new data to the CRC
-                      00435 
-0000A4 50E2           00436     movf    FSR1H, w
-0000A6 62EA           00437     cpfseq  FSR0H
-0000A8 D7FB           00438     bra     VerifyPacketCrcLoop     ; we aren't at the end of the received data yet, loop
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 70
+                      00383     movwf   UxSPBRG
+                      00384     #ifdef UxSPBRGH
+                      00385         #if high(BAUDRG) != 0
+                      00386     movlw   high(BAUDRG)
+                      00387     movwf   UxSPBRGH
+                      00388         #endif
+                      00389     #endif
+                      00390     bsf     UxRCSTA, CREN       ; start receiving
+                      00391 DoAutoBaud:
+                      00392 WaitForHostCommand:
+                      00393     rcall   ReadHostByte        ; get start of transmission <STX>
+                      00394     xorlw   STX
+                      00395     bnz     WaitForHostCommand  ; got something unexpected, keep waiting for <STX>
+                      00396 #endif ; end #ifdef USE_AUTOBAUD
+                      00397         
+                      00398 ; *****************************************************************************
+                      00399 
+                      00400 ; *****************************************************************************
+                      00401 ; Read and parse packet data.
+000072                00402 StartOfLine:
+000072 0E0F           00403     movlw   STX                     ; send back start of response
+000074 D8D1           00404     rcall   SendHostByte
+                      00405 
+000076 EE00 F004      00406     lfsr    FSR0, COMMAND-1         ; Point to the buffer
+                      00407         
+00007A                00408 ReceiveDataLoop:
+00007A D8D3           00409     rcall   ReadHostByte            ; Get the data
+00007C 0A0F           00410     xorlw   STX                     ; Check for an unexpected STX
+00007E E0F9           00411     bz      StartOfLine             ; unexpected STX: abort packet and start over.
+                      00412 
+000080                00413 NoSTX:
+000080 5002           00414     movf    RXDATA, W
+000082 0A04           00415     xorlw   ETX                     ; Check for a ETX
+000084 E007           00416     bz      VerifyPacketCRC         ; Yes, verify CRC
+                      00417 
+000086                00418 NoETX:
+000086 5002           00419     movf    RXDATA, W
+000088 0A05           00420     xorlw   DLE                     ; Check for a DLE
+00008A E101           00421     bnz     AppendDataBuffer
+                      00422 
+00008C D8CA           00423     rcall   ReadHostByte            ; DLE received, get the next byte and store it
+                      00424     
+00008E                00425 AppendDataBuffer:
+00008E C002 FFEC      00426     movff   RXDATA, PREINC0         ; store the data to the buffer
+000092 D7F3           00427     bra     ReceiveDataLoop
+                      00428 
+000094                00429 VerifyPacketCRC:
+000094 EE10 F005      00430     lfsr    FSR1, COMMAND
+000098 6A00           00431     clrf    CRCL
+00009A 6A01           00432     clrf    CRCH
+00009C CFED FFF4      00433     movff   POSTDEC0, PRODH         ; Save host packet's CRCH to PRODH for later comparison
+                      00434                                     ; CRCL is now available as INDF0
+0000A0                00435 VerifyPacketCrcLoop:
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 70
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0000AA 50E1           00439     movf    FSR1L, w
-0000AC 62E9           00440     cpfseq  FSR0L
-0000AE D7F8           00441     bra     VerifyPacketCrcLoop     ; we aren't at the end of the received data yet, loop
-                      00442 
-0000B0 5001           00443     movf    CRCH, w
-0000B2 62F4           00444     cpfseq  PRODH
-0000B4 D7CA           00445     bra     DoAutoBaud              ; invalid CRC, reset baud rate generator to re-sync with host
-0000B6 5000           00446     movf    CRCL, w
-0000B8 62EF           00447     cpfseq  INDF0
-0000BA D7C7           00448     bra     DoAutoBaud              ; invalid CRC, reset baud rate generator to re-sync with host
-                      00449 
-                      00450 ; ***********************************************
-                      00451 ; Pre-setup, common to all commands.
-0000BC 6A00           00452     clrf    CRCL
-0000BE 6A01           00453     clrf    CRCH
-                      00454 
-0000C0 5006           00455     movf    ADDRESS_L, W            ; Set all possible pointers
-0000C2 6EF6           00456     movwf   TBLPTRL
-                      00457 #ifdef EEADR
-0000C4 6EA9           00458     movwf   EEADR
-                      00459 #endif
-0000C6 5007           00460     movf    ADDRESS_H, W
-0000C8 6EF7           00461     movwf   TBLPTRH
-                      00462 #ifdef EEADRH
-                      00463     movwf   EEADRH
-                      00464 #endif
-0000CA C008 FFF8      00465     movff   ADDRESS_U, TBLPTRU
-0000CE EE00 F00B      00466     lfsr    FSR0, PACKET_DATA
-                      00467 ; ***********************************************
-                      00468 
-                      00469  
-                      00470 
-                      00471 ; ***********************************************
-                      00472 ; Test the command field and sub-command.
-0000D2                00473 CheckCommand:
-0000D2 0E0A           00474     movlw   .10
-0000D4 6005           00475     cpfslt  COMMAND
-0000D6 D7B9           00476     bra     DoAutoBaud          ; invalid command - reset baud generator to re-sync with host
-                      00477 
-                      00478     ; This jump table must exist entirely within one 256 byte block of program memory.
-                      00479 #if ($ & 0xFF) > (0xFF - .24)
-                      00480     ; Too close to the end of a 256 byte boundary, push address forward to get code
-                      00481     ; into the next 256 byte block.
-                      00482     messg   "Wasting some code space to ensure jump table is aligned."
-                      00483     ORG     $+(0x100 - ($ & 0xFF))
-                      00484 #endif
-0000D8                00485 JUMPTABLE_BEGIN:
-0000D8 50F9           00486     movf    PCL, w              ; 0 do a read of PCL to set PCLATU:PCLATH to current program counter.
-0000DA 4405           00487     rlncf   COMMAND, W          ; 2 multiply COMMAND by 2 (each BRA instruction takes 2 bytes on PIC18)
-0000DC 26F9           00488     addwf   PCL, F              ; 4 Jump in command jump table based on COMMAND from host
-0000DE D027           00489     bra     BootloaderInfo      ; 6 00h
-0000E0 D02F           00490     bra     ReadFlash           ; 8 01h
-0000E2 D039           00491     bra     VerifyFlash         ; 10 02h
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 71
+0000A0 50E6           00436     movf    POSTINC1, w
+0000A2 D82F           00437     rcall   AddCrc                  ; add new data to the CRC
+                      00438 
+0000A4 50E2           00439     movf    FSR1H, w
+0000A6 62EA           00440     cpfseq  FSR0H
+0000A8 D7FB           00441     bra     VerifyPacketCrcLoop     ; we aren't at the end of the received data yet, loop
+0000AA 50E1           00442     movf    FSR1L, w
+0000AC 62E9           00443     cpfseq  FSR0L
+0000AE D7F8           00444     bra     VerifyPacketCrcLoop     ; we aren't at the end of the received data yet, loop
+                      00445 
+0000B0 5001           00446     movf    CRCH, w
+0000B2 62F4           00447     cpfseq  PRODH
+0000B4 D7CA           00448     bra     DoAutoBaud              ; invalid CRC, reset baud rate generator to re-sync with host
+0000B6 5000           00449     movf    CRCL, w
+0000B8 62EF           00450     cpfseq  INDF0
+0000BA D7C7           00451     bra     DoAutoBaud              ; invalid CRC, reset baud rate generator to re-sync with host
+                      00452 
+                      00453 ; ***********************************************
+                      00454 ; Pre-setup, common to all commands.
+0000BC 6A00           00455     clrf    CRCL
+0000BE 6A01           00456     clrf    CRCH
+                      00457 
+0000C0 5006           00458     movf    ADDRESS_L, W            ; Set all possible pointers
+0000C2 6EF6           00459     movwf   TBLPTRL
+                      00460 #ifdef EEADR
+0000C4 6EA9           00461     movwf   EEADR
+                      00462 #endif
+0000C6 5007           00463     movf    ADDRESS_H, W
+0000C8 6EF7           00464     movwf   TBLPTRH
+                      00465 #ifdef EEADRH
+                      00466     movwf   EEADRH
+                      00467 #endif
+0000CA C008 FFF8      00468     movff   ADDRESS_U, TBLPTRU
+0000CE EE00 F00B      00469     lfsr    FSR0, PACKET_DATA
+                      00470 ; ***********************************************
+                      00471 
+                      00472  
+                      00473 
+                      00474 ; ***********************************************
+                      00475 ; Test the command field and sub-command.
+0000D2                00476 CheckCommand:
+0000D2 0E0A           00477     movlw   .10
+0000D4 6005           00478     cpfslt  COMMAND
+0000D6 D7B9           00479     bra     DoAutoBaud          ; invalid command - reset baud generator to re-sync with host
+                      00480 
+                      00481     ; This jump table must exist entirely within one 256 byte block of program memory.
+                      00482 #if ($ & 0xFF) > (0xFF - .24)
+                      00483     ; Too close to the end of a 256 byte boundary, push address forward to get code
+                      00484     ; into the next 256 byte block.
+                      00485     messg   "Wasting some code space to ensure jump table is aligned."
+                      00486     ORG     $+(0x100 - ($ & 0xFF))
+                      00487 #endif
+0000D8                00488 JUMPTABLE_BEGIN:
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 71
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0000E4 D04B           00492     bra     EraseFlash          ; 12 03h
-0000E6 D055           00493     bra     WriteFlash          ; 14 04h
-0000E8 D062           00494     bra     ReadEeprom          ; 16 05h
-0000EA D06A           00495     bra     WriteEeprom         ; 18 06h
-0000EC D074           00496     bra     WriteConfig         ; 20 07h
-0000EE D79A           00497     bra     GotoAppVector       ; 22 08h
-0000F0 00FF           00498     reset                       ; 24 09h
-                      00499 
-                      00500 #if (JUMPTABLE_BEGIN & 0xFF) > ($ & 0xFF)
-                      00501     error "Jump table is not aligned to fit within a single 256 byte address range."
-                      00502 #endif
-                      00503 ; *****************************************************************************
-                      00504 
-                      00505 #ifdef INVERT_UART
-                      00506 WaitForRise:
-                      00507     clrwdt
-                      00508 
-                      00509 WaitForRiseLoop:
-                      00510     btfsc   INTCON, TMR0IF  ; if TMR0 overflowed, we did not get a good baud capture
-                      00511     return                  ; abort
-                      00512 
-                      00513     btfss   RXPORT, RXPIN   ; Wait for a falling edge
-                      00514     bra     WaitForRiseLoop
+0000D8 50F9           00489     movf    PCL, w              ; 0 do a read of PCL to set PCLATU:PCLATH to current program counter.
+0000DA 4405           00490     rlncf   COMMAND, W          ; 2 multiply COMMAND by 2 (each BRA instruction takes 2 bytes on PIC18)
+0000DC 26F9           00491     addwf   PCL, F              ; 4 Jump in command jump table based on COMMAND from host
+0000DE D027           00492     bra     BootloaderInfo      ; 6 00h
+0000E0 D02F           00493     bra     ReadFlash           ; 8 01h
+0000E2 D039           00494     bra     VerifyFlash         ; 10 02h
+0000E4 D04B           00495     bra     EraseFlash          ; 12 03h
+0000E6 D055           00496     bra     WriteFlash          ; 14 04h
+0000E8 D062           00497     bra     ReadEeprom          ; 16 05h
+0000EA D06A           00498     bra     WriteEeprom         ; 18 06h
+0000EC D074           00499     bra     WriteConfig         ; 20 07h
+0000EE D79A           00500     bra     GotoAppVector       ; 22 08h
+0000F0 00FF           00501     reset                       ; 24 09h
+                      00502 
+                      00503 #if (JUMPTABLE_BEGIN & 0xFF) > ($ & 0xFF)
+                      00504     error "Jump table is not aligned to fit within a single 256 byte address range."
+                      00505 #endif
+                      00506 ; *****************************************************************************
+                      00507 
+                      00508 #ifdef INVERT_UART
+                      00509 WaitForRise:
+                      00510     clrwdt
+                      00511 
+                      00512 WaitForRiseLoop:
+                      00513     btfsc   INTCON, TMR0IF  ; if TMR0 overflowed, we did not get a good baud capture
+                      00514     return                  ; abort
                       00515 
-                      00516 WtSR:
-                      00517     btfsc   RXPORT, RXPIN   ; Wait for starting edge
-                      00518     bra     WtSR
-                      00519     return
-                      00520 #else ; not inverted UART pins
-0000F2                00521 WaitForRise:
-0000F2 0004           00522     clrwdt
-                      00523 
-0000F4                00524 WaitForRiseLoop
-0000F4 B4F2           00525     btfsc   INTCON, TMR0IF  ; if TMR0 overflowed, we did not get a good baud capture
-0000F6 0012           00526     return                  ; abort
-                      00527 
-0000F8 BE82           00528     btfsc   RXPORT, RXPIN   ; Wait for a falling edge
-0000FA D7FC           00529     bra     WaitForRiseLoop
+                      00516     btfss   RXPORT, RXPIN   ; Wait for a falling edge
+                      00517     bra     WaitForRiseLoop
+                      00518 
+                      00519 WtSR:
+                      00520     btfsc   RXPORT, RXPIN   ; Wait for starting edge
+                      00521     bra     WtSR
+                      00522     return
+                      00523 #else ; not inverted UART pins
+0000F2                00524 WaitForRise:
+0000F2 0004           00525     clrwdt
+                      00526 
+0000F4                00527 WaitForRiseLoop
+0000F4 B4F2           00528     btfsc   INTCON, TMR0IF  ; if TMR0 overflowed, we did not get a good baud capture
+0000F6 0012           00529     return                  ; abort
                       00530 
-0000FC                00531 WtSR:
-0000FC AE82           00532     btfss   RXPORT, RXPIN   ; Wait for rising edge
-0000FE D7FE           00533     bra     WtSR
-000100 0012           00534     return
-                      00535 #endif ; end #ifdef INVERT_UART
-                      00536 ; *****************************************************************************
-                      00537 
-                      00538 ; 16-bit CCITT CRC
-                      00539 ; Adds WREG byte to the CRC checksum CRCH:CRCL. WREG destroyed on return.
-000102                00540 AddCrc:                           ; Init: CRCH = HHHH hhhh, CRCL = LLLL llll
-000102 1801           00541     xorwf   CRCH, w               ; Pre:  HHHH hhhh     WREG =      IIII iiii
-000104 C000 F001      00542     movff   CRCL, CRCH            ; Pre:  LLLL llll     CRCH =      LLLL llll
-000108 6E00           00543     movwf   CRCL                  ; Pre:  IIII iiii     CRCL =      IIII iiii
-00010A 3AE8           00544     swapf   WREG                  ; Pre:  IIII iiii     WREG =      iiii IIII
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 72
+0000F8 BE82           00531     btfsc   RXPORT, RXPIN   ; Wait for a falling edge
+0000FA D7FC           00532     bra     WaitForRiseLoop
+                      00533 
+0000FC                00534 WtSR:
+0000FC AE82           00535     btfss   RXPORT, RXPIN   ; Wait for rising edge
+0000FE D7FE           00536     bra     WtSR
+000100 0012           00537     return
+                      00538 #endif ; end #ifdef INVERT_UART
+                      00539 ; *****************************************************************************
+                      00540 
+                      00541 ; 16-bit CCITT CRC
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 72
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00010C 0B0F           00545     andlw   0x0F                  ; Pre:  iiii IIII     WREG =      0000 IIII
-00010E 1A00           00546     xorwf   CRCL, f               ; Pre:  IIII iiii     CRCL =      IIII jjjj
-000110 3800           00547     swapf   CRCL, w               ; Pre:  IIII jjjj     WREG =      jjjj IIII
-000112 0BF0           00548     andlw   0xF0                  ; Pre:  jjjj IIII     WREG =      jjjj 0000
-000114 1A01           00549     xorwf   CRCH, f               ; Pre:  LLLL llll     CRCH =      MMMM llll
-000116 3800           00550     swapf   CRCL, w               ; Pre:  IIII jjjj     WREG =      jjjj IIII
-000118 44E8           00551     rlncf   WREG, w               ; Pre:  jjjj IIII     WREG =      jjjI IIIj
-00011A 1A01           00552     xorwf   CRCH, f               ; Pre:  MMMM llll     CRCH =      XXXN mmmm
-00011C 0BE0           00553     andlw   b'11100000'           ; Pre:  jjjI IIIj     WREG =      jjj0 0000
-00011E 1A01           00554     xorwf   CRCH, f               ; Pre:  jjj0 0000     CRCH =      MMMN mmmm
-000120 1A00           00555     xorwf   CRCL, f               ; Pre:  MMMN mmmm     CRCL =      JJJI jjjj
-000122 0012           00556     return
-                      00557 
-                      00558 ; ***********************************************
-                      00559 ; Commands
-                      00560 ; ***********************************************
-                      00561 
-                      00562 ; Provides information about the Bootloader to the host PC software.
-000124                00563 BootInfoBlock:
-000124 0300           00564     db      low(BOOTBLOCKSIZE), high(BOOTBLOCKSIZE)
-000126 0501           00565     db      MAJOR_VERSION, MINOR_VERSION
-000128 84FF           00566     db      0xFF, 0x84             ; command mask : family id 
-00012A 0000           00567     db      low(BootloaderStart), high(BootloaderStart)
-00012C 0000           00568     db      upper(BootloaderStart), 0 
-00012E                00569 BootInfoBlockEnd:
-                      00570 
-                      00571 ; In:   <STX>[<0x00>]<CRCL><CRCH><ETX>
-                      00572 ; Out:  <STX><BOOTBYTESL><BOOTBYTESH><VERL><VERH><STARTBOOTL><STARTBOOTH><STARTBOOTU><0x00><CRCL><CRCH><
+                      00542 ; Adds WREG byte to the CRC checksum CRCH:CRCL. WREG destroyed on return.
+000102                00543 AddCrc:                           ; Init: CRCH = HHHH hhhh, CRCL = LLLL llll
+000102 1801           00544     xorwf   CRCH, w               ; Pre:  HHHH hhhh     WREG =      IIII iiii
+000104 C000 F001      00545     movff   CRCL, CRCH            ; Pre:  LLLL llll     CRCH =      LLLL llll
+000108 6E00           00546     movwf   CRCL                  ; Pre:  IIII iiii     CRCL =      IIII iiii
+00010A 3AE8           00547     swapf   WREG                  ; Pre:  IIII iiii     WREG =      iiii IIII
+00010C 0B0F           00548     andlw   0x0F                  ; Pre:  iiii IIII     WREG =      0000 IIII
+00010E 1A00           00549     xorwf   CRCL, f               ; Pre:  IIII iiii     CRCL =      IIII jjjj
+000110 3800           00550     swapf   CRCL, w               ; Pre:  IIII jjjj     WREG =      jjjj IIII
+000112 0BF0           00551     andlw   0xF0                  ; Pre:  jjjj IIII     WREG =      jjjj 0000
+000114 1A01           00552     xorwf   CRCH, f               ; Pre:  LLLL llll     CRCH =      MMMM llll
+000116 3800           00553     swapf   CRCL, w               ; Pre:  IIII jjjj     WREG =      jjjj IIII
+000118 44E8           00554     rlncf   WREG, w               ; Pre:  jjjj IIII     WREG =      jjjI IIIj
+00011A 1A01           00555     xorwf   CRCH, f               ; Pre:  MMMM llll     CRCH =      XXXN mmmm
+00011C 0BE0           00556     andlw   b'11100000'           ; Pre:  jjjI IIIj     WREG =      jjj0 0000
+00011E 1A01           00557     xorwf   CRCH, f               ; Pre:  jjj0 0000     CRCH =      MMMN mmmm
+000120 1A00           00558     xorwf   CRCL, f               ; Pre:  MMMN mmmm     CRCL =      JJJI jjjj
+000122 0012           00559     return
+                      00560 
+                      00561 ; ***********************************************
+                      00562 ; Commands
+                      00563 ; ***********************************************
+                      00564 
+                      00565 ; Provides information about the Bootloader to the host PC software.
+000124                00566 BootInfoBlock:
+000124 0300           00567     db      low(BOOTBLOCKSIZE), high(BOOTBLOCKSIZE)
+000126 0501           00568     db      MAJOR_VERSION, MINOR_VERSION
+000128 84FF           00569     db      0xFF, 0x84             ; command mask : family id 
+00012A 0000           00570     db      low(BootloaderStart), high(BootloaderStart)
+00012C 0000           00571     db      upper(BootloaderStart), 0 
+00012E                00572 BootInfoBlockEnd:
+                      00573 
+                      00574 ; In:   <STX>[<0x00>]<CRCL><CRCH><ETX>
+                      00575 ; Out:  <STX><BOOTBYTESL><BOOTBYTESH><VERL><VERH><STARTBOOTL><STARTBOOTH><STARTBOOTU><0x00><CRCL><CRCH><
                             ETX>
-00012E                00573 BootloaderInfo:
-00012E 0E24           00574     movlw   low(BootInfoBlock)
-000130 6EF6           00575     movwf   TBLPTRL
-000132 0E01           00576     movlw   high(BootInfoBlock)
-000134 6EF7           00577     movwf   TBLPTRH
-000136 0E00           00578     movlw   upper(BootInfoBlock)
-000138 6EF8           00579     movwf   TBLPTRU
-                      00580 
-00013A 0E0A           00581     movlw   (BootInfoBlockEnd - BootInfoBlock)
-00013C 6E0A           00582     movwf   DATA_COUNTL
-00013E 6A0B           00583     clrf    DATA_COUNTH
-                      00584     ;; fall through to ReadFlash code -- send Bootloader Information Block from FLASH.
-                      00585 
-                      00586 ; In:   <STX>[<0x01><ADDRL><ADDRH><ADDRU><0x00><BYTESL><BYTESH>]<CRCL><CRCH><ETX>
-                      00587 ; Out:  <STX>[<DATA>...]<CRCL><CRCH><ETX>
-000140                00588 ReadFlash:
-000140 0009           00589     tblrd   *+                  ; read from FLASH memory into TABLAT
-000142 50F5           00590     movf    TABLAT, w
-000144 D85D           00591     rcall   SendEscapeByte
-000146 DFDD           00592     rcall   AddCrc
-                      00593 
-000148 060A           00594     decf    DATA_COUNTL, f      ; decrement counter
-00014A 0E00           00595     movlw   0
-00014C 5A0B           00596     subwfb  DATA_COUNTH, f
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 73
+00012E                00576 BootloaderInfo:
+00012E 0E24           00577     movlw   low(BootInfoBlock)
+000130 6EF6           00578     movwf   TBLPTRL
+000132 0E01           00579     movlw   high(BootInfoBlock)
+000134 6EF7           00580     movwf   TBLPTRH
+000136 0E00           00581     movlw   upper(BootInfoBlock)
+000138 6EF8           00582     movwf   TBLPTRU
+                      00583 
+00013A 0E0A           00584     movlw   (BootInfoBlockEnd - BootInfoBlock)
+00013C 6E0A           00585     movwf   DATA_COUNTL
+00013E 6A0B           00586     clrf    DATA_COUNTH
+                      00587     ;; fall through to ReadFlash code -- send Bootloader Information Block from FLASH.
+                      00588 
+                      00589 ; In:   <STX>[<0x01><ADDRL><ADDRH><ADDRU><0x00><BYTESL><BYTESH>]<CRCL><CRCH><ETX>
+                      00590 ; Out:  <STX>[<DATA>...]<CRCL><CRCH><ETX>
+000140                00591 ReadFlash:
+000140 0009           00592     tblrd   *+                  ; read from FLASH memory into TABLAT
+000142 50F5           00593     movf    TABLAT, w
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 73
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00597 
-00014E 500A           00598     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
-000150 100B           00599     iorwf   DATA_COUNTH, w
-000152 E1F6           00600     bnz     ReadFlash           ; no, loop
-000154 D04E           00601     bra     SendChecksum        ; yes, send end of packet
-                      00602 
-                      00603 ; In:   <STX>[<0x02><ADDRL><ADDRH><ADDRU><0x00><BLOCKSL><BLOCKSH>]<CRCL><CRCH><ETX>
-                      00604 ; Out:  <STX>[<CRCL1><CRCH1>...<CRCLn><CRCHn>]<ETX>
-000156                00605 VerifyFlash:
-000156 0009           00606     tblrd   *+
-000158 50F5           00607     movf    TABLAT, w    
-00015A DFD3           00608     rcall   AddCrc
-                      00609 
-00015C 50F6           00610     movf    TBLPTRL, w          ; have we crossed into the next block?
-                      00611 #if ERASE_FLASH_BLOCKSIZE > .255
-                      00612     bnz     VerifyFlash
-                      00613     movf    TBLPTRH, w
-                      00614     andlw   high(ERASE_FLASH_BLOCKSIZE-1)
-                      00615 #else
-00015E 0B3F           00616     andlw   (ERASE_FLASH_BLOCKSIZE-1)    
-                      00617 #endif
-000160 E1FA           00618     bnz     VerifyFlash
-                      00619 
-000162 5000           00620     movf    CRCL, w
-000164 EC00 F001      00621     call    SendEscapeByte
-000168 5001           00622     movf    CRCH, w
-00016A EC00 F001      00623     call    SendEscapeByte
-                      00624 
-00016E 060A           00625     decf    DATA_COUNTL, f      ; decrement counter
-000170 0E00           00626     movlw   0
-000172 5A0B           00627     subwfb  DATA_COUNTH, f
-                      00628 
-000174 500A           00629     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
-000176 100B           00630     iorwf   DATA_COUNTH, w
-000178 E1EE           00631     bnz     VerifyFlash         ; no, loop
-00017A D03F           00632     bra     SendETX             ; yes, send end of packet
-                      00633 
-                      00634 #ifdef SOFTWP
-                      00635     reset                       ; this code -should- never be executed, but 
-                      00636     reset                       ; just in case of errant execution or buggy
-                      00637     reset                       ; firmware, these reset instructions may protect
-                      00638     reset                       ; against accidental erases.
-                      00639 #endif
-                      00640 
-                      00641 ; In:   <STX>[<0x03><ADDRL><ADDRH><ADDRU><0x00><PAGESL>]<CRCL><CRCH><ETX>
-                      00642 ; Out:  <STX>[<0x03>]<CRCL><CRCH><ETX>
-00017C                00643 EraseFlash:
-                      00644 #ifdef SOFTWP
-                      00645   #define ERASE_ADDRESS_MASK  (~(ERASE_FLASH_BLOCKSIZE-1))
-                      00646   #if upper(ERASE_ADDRESS_MASK) != 0xFF
-                      00647     movlw   upper(ERASE_ADDRESS_MASK)    ; force starting address to land on a FLASH Erase Block boundar
+000144 D85D           00594     rcall   SendEscapeByte
+000146 DFDD           00595     rcall   AddCrc
+                      00596 
+000148 060A           00597     decf    DATA_COUNTL, f      ; decrement counter
+00014A 0E00           00598     movlw   0
+00014C 5A0B           00599     subwfb  DATA_COUNTH, f
+                      00600 
+00014E 500A           00601     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
+000150 100B           00602     iorwf   DATA_COUNTH, w
+000152 E1F6           00603     bnz     ReadFlash           ; no, loop
+000154 D04E           00604     bra     SendChecksum        ; yes, send end of packet
+                      00605 
+                      00606 ; In:   <STX>[<0x02><ADDRL><ADDRH><ADDRU><0x00><BLOCKSL><BLOCKSH>]<CRCL><CRCH><ETX>
+                      00607 ; Out:  <STX>[<CRCL1><CRCH1>...<CRCLn><CRCHn>]<ETX>
+000156                00608 VerifyFlash:
+000156 0009           00609     tblrd   *+
+000158 50F5           00610     movf    TABLAT, w    
+00015A DFD3           00611     rcall   AddCrc
+                      00612 
+00015C 50F6           00613     movf    TBLPTRL, w          ; have we crossed into the next block?
+                      00614 #if ERASE_FLASH_BLOCKSIZE > .255
+                      00615     bnz     VerifyFlash
+                      00616     movf    TBLPTRH, w
+                      00617     andlw   high(ERASE_FLASH_BLOCKSIZE-1)
+                      00618 #else
+00015E 0B3F           00619     andlw   (ERASE_FLASH_BLOCKSIZE-1)    
+                      00620 #endif
+000160 E1FA           00621     bnz     VerifyFlash
+                      00622 
+000162 5000           00623     movf    CRCL, w
+000164 EC00 F001      00624     call    SendEscapeByte
+000168 5001           00625     movf    CRCH, w
+00016A EC00 F001      00626     call    SendEscapeByte
+                      00627 
+00016E 060A           00628     decf    DATA_COUNTL, f      ; decrement counter
+000170 0E00           00629     movlw   0
+000172 5A0B           00630     subwfb  DATA_COUNTH, f
+                      00631 
+000174 500A           00632     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
+000176 100B           00633     iorwf   DATA_COUNTH, w
+000178 E1EE           00634     bnz     VerifyFlash         ; no, loop
+00017A D03F           00635     bra     SendETX             ; yes, send end of packet
+                      00636 
+                      00637 #ifdef SOFTWP
+                      00638     reset                       ; this code -should- never be executed, but 
+                      00639     reset                       ; just in case of errant execution or buggy
+                      00640     reset                       ; firmware, these reset instructions may protect
+                      00641     reset                       ; against accidental erases.
+                      00642 #endif
+                      00643 
+                      00644 ; In:   <STX>[<0x03><ADDRL><ADDRH><ADDRU><0x00><PAGESL>]<CRCL><CRCH><ETX>
+                      00645 ; Out:  <STX>[<0x03>]<CRCL><CRCH><ETX>
+00017C                00646 EraseFlash:
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 74
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00647 #ifdef SOFTWP
+                      00648   #define ERASE_ADDRESS_MASK  (~(ERASE_FLASH_BLOCKSIZE-1))
+                      00649   #if upper(ERASE_ADDRESS_MASK) != 0xFF
+                      00650     movlw   upper(ERASE_ADDRESS_MASK)    ; force starting address to land on a FLASH Erase Block boundar
                             y
-                      00648     andwf   TBLPTRU, f
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 74
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-                      00649   #endif
-                      00650   #if high(ERASE_ADDRESS_MASK) != 0xFF
-                      00651     movlw   high(ERASE_ADDRESS_MASK)    ; force starting address to land on a FLASH Erase Block boundary
-                      00652     andwf   TBLPTRH, f
-                      00653   #endif
-                      00654   #if low(ERASE_ADDRESS_MASK) != 0xFF
-                      00655     movlw   low(ERASE_ADDRESS_MASK)     ; force starting address to land on a FLASH Erase Block boundary
-                      00656     andwf   TBLPTRL, f
-                      00657   #endif
-                      00658 
-                      00659     ; Verify Erase Address does not attempt to erase beyond the end of FLASH memory
-                      00660     movlw   low(END_FLASH)
-                      00661     subwf   TBLPTRL, w
-                      00662     movlw   high(END_FLASH)
-                      00663     subwfb  TBLPTRH, w
-                      00664     movlw   upper(END_FLASH)
-                      00665     subwfb  TBLPTRU, w
-                      00666     bn      EraseEndFlashAddressOkay
-                      00667 
-                      00668     clrf    EECON1              ; inhibit writes for this block
-                      00669     bra     NextEraseBlock      ; move on to next erase block
-                      00670 #endif ; end #ifdef USE_SOFTBOOTWP
-                      00671 
-00017C                00672 EraseEndFlashAddressOkay:
-                      00673 #ifdef USE_SOFTCONFIGWP
-                      00674     #ifdef CONFIG_AS_FLASH
-                      00675     movlw   low(END_FLASH - ERASE_FLASH_BLOCKSIZE)
-                      00676     subwf   TBLPTRL, w
-                      00677     movlw   high(END_FLASH - ERASE_FLASH_BLOCKSIZE)
-                      00678     subwfb  TBLPTRH, w
-                      00679     movlw   upper(END_FLASH - ERASE_FLASH_BLOCKSIZE)
-                      00680     subwfb  TBLPTRU, w
-                      00681     bn      EraseConfigAddressOkay
-                      00682 
-                      00683     clrf    EECON1              ; inhibit writes for this block
-                      00684     bra     NextEraseBlock      ; move on to next erase block
+                      00651     andwf   TBLPTRU, f
+                      00652   #endif
+                      00653   #if high(ERASE_ADDRESS_MASK) != 0xFF
+                      00654     movlw   high(ERASE_ADDRESS_MASK)    ; force starting address to land on a FLASH Erase Block boundary
+                      00655     andwf   TBLPTRH, f
+                      00656   #endif
+                      00657   #if low(ERASE_ADDRESS_MASK) != 0xFF
+                      00658     movlw   low(ERASE_ADDRESS_MASK)     ; force starting address to land on a FLASH Erase Block boundary
+                      00659     andwf   TBLPTRL, f
+                      00660   #endif
+                      00661 
+                      00662     ; Verify Erase Address does not attempt to erase beyond the end of FLASH memory
+                      00663     movlw   low(END_FLASH)
+                      00664     subwf   TBLPTRL, w
+                      00665     movlw   high(END_FLASH)
+                      00666     subwfb  TBLPTRH, w
+                      00667     movlw   upper(END_FLASH)
+                      00668     subwfb  TBLPTRU, w
+                      00669     bn      EraseEndFlashAddressOkay
+                      00670 
+                      00671     clrf    EECON1              ; inhibit writes for this block
+                      00672     bra     NextEraseBlock      ; move on to next erase block
+                      00673 #endif ; end #ifdef USE_SOFTBOOTWP
+                      00674 
+00017C                00675 EraseEndFlashAddressOkay:
+                      00676 #ifdef USE_SOFTCONFIGWP
+                      00677     #ifdef CONFIG_AS_FLASH
+                      00678     movlw   low(END_FLASH - ERASE_FLASH_BLOCKSIZE)
+                      00679     subwf   TBLPTRL, w
+                      00680     movlw   high(END_FLASH - ERASE_FLASH_BLOCKSIZE)
+                      00681     subwfb  TBLPTRH, w
+                      00682     movlw   upper(END_FLASH - ERASE_FLASH_BLOCKSIZE)
+                      00683     subwfb  TBLPTRU, w
+                      00684     bn      EraseConfigAddressOkay
                       00685 
-                      00686 EraseConfigAddressOkay:
-                      00687     #endif ; end CONFIG_AS_FLASH
-                      00688 #endif ; end USE_SOFTCONFIGWP
-                      00689 
-                      00690 #ifdef USE_SOFTBOOTWP
-                      00691     movlw   low(BOOTLOADER_ADDRESS)
-                      00692     subwf   TBLPTRL, w
-                      00693     movlw   high(BOOTLOADER_ADDRESS)
-                      00694     subwfb  TBLPTRH, w
-                      00695     movlw   upper(BOOTLOADER_ADDRESS)
-                      00696     subwfb  TBLPTRU, w
-                      00697     bn      EraseAddressOkay
-                      00698 
-                      00699     movlw   low(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
-                      00700     subwf   TBLPTRL, w
-                      00701     movlw   high(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 75
+                      00686     clrf    EECON1              ; inhibit writes for this block
+                      00687     bra     NextEraseBlock      ; move on to next erase block
+                      00688 
+                      00689 EraseConfigAddressOkay:
+                      00690     #endif ; end CONFIG_AS_FLASH
+                      00691 #endif ; end USE_SOFTCONFIGWP
+                      00692 
+                      00693 #ifdef USE_SOFTBOOTWP
+                      00694     movlw   low(BOOTLOADER_ADDRESS)
+                      00695     subwf   TBLPTRL, w
+                      00696     movlw   high(BOOTLOADER_ADDRESS)
+                      00697     subwfb  TBLPTRH, w
+                      00698     movlw   upper(BOOTLOADER_ADDRESS)
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 75
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00702     subwfb  TBLPTRH, w
-                      00703     movlw   upper(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
-                      00704     subwfb  TBLPTRU, w
-                      00705     bnn     EraseAddressOkay
-                      00706 
-                      00707     clrf    EECON1              ; inhibit writes for this block
-                      00708     bra     NextEraseBlock      ; move on to next erase block
+                      00699     subwfb  TBLPTRU, w
+                      00700     bn      EraseAddressOkay
+                      00701 
+                      00702     movlw   low(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
+                      00703     subwf   TBLPTRL, w
+                      00704     movlw   high(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
+                      00705     subwfb  TBLPTRH, w
+                      00706     movlw   upper(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
+                      00707     subwfb  TBLPTRU, w
+                      00708     bnn     EraseAddressOkay
                       00709 
-                      00710     reset                       ; this code -should- never be executed, but 
-                      00711     reset                       ; just in case of errant execution or buggy
-                      00712     reset                       ; firmware, these reset instruction may protect
-                      00713     reset                       ; against accidental writes.
-                      00714 #endif
-                      00715 
-00017C                00716 EraseAddressOkay:
-                      00717 #ifdef EEADR
-00017C 0E94           00718     movlw   b'10010100'         ; setup FLASH erase
-                      00719 #else
-                      00720     movlw   b'00010100'         ; setup FLASH erase for J device (no EEPROM bit)
-                      00721 #endif
-00017E 6EA6           00722     movwf   EECON1
-                      00723 
-000180 D85E           00724     rcall   StartWrite          ; erase the page
-                      00725 
-000182                00726 NextEraseBlock:
-                      00727     ; Decrement address by erase block size
-                      00728 #if ERASE_FLASH_BLOCKSIZE >= .256
-                      00729     movlw   high(ERASE_FLASH_BLOCKSIZE)
-                      00730     subwf   TBLPTRH, F
-                      00731     clrf    WREG
-                      00732     subwfb  TBLPTRU, F
-                      00733 #else
-000182 0E40           00734     movlw   ERASE_FLASH_BLOCKSIZE
-000184 5EF6           00735     subwf   TBLPTRL, F
-000186 6AE8           00736     clrf    WREG
-000188 5AF7           00737     subwfb  TBLPTRH, F
-00018A 5AF8           00738     subwfb  TBLPTRU, F
-                      00739 #endif
-                      00740 
-00018C 2E0A           00741     decfsz  DATA_COUNTL, F
-00018E D7F6           00742     bra     EraseFlash    
-000190 D02C           00743     bra     SendAcknowledge     ; All done, send acknowledgement packet
-                      00744 
-                      00745 #ifdef SOFTWP
-                      00746     reset                       ; this code -should- never be executed, but 
-                      00747     reset                       ; just in case of errant execution or buggy
-                      00748     reset                       ; firmware, these reset instructions may protect
-                      00749     reset                       ; against accidental writes.
-                      00750 #endif
-                      00751 
-                      00752 ; In:   <STX>[<0x04><ADDRL><ADDRH><ADDRU><0x00><BLOCKSL><DATA>...]<CRCL><CRCH><ETX>
-                      00753 ; Out:  <STX>[<0x04>]<CRCL><CRCH><ETX>
-000192                00754 WriteFlash:
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 76
+                      00710     clrf    EECON1              ; inhibit writes for this block
+                      00711     bra     NextEraseBlock      ; move on to next erase block
+                      00712 
+                      00713     reset                       ; this code -should- never be executed, but 
+                      00714     reset                       ; just in case of errant execution or buggy
+                      00715     reset                       ; firmware, these reset instruction may protect
+                      00716     reset                       ; against accidental writes.
+                      00717 #endif
+                      00718 
+00017C                00719 EraseAddressOkay:
+                      00720 #ifdef EEADR
+00017C 0E94           00721     movlw   b'10010100'         ; setup FLASH erase
+                      00722 #else
+                      00723     movlw   b'00010100'         ; setup FLASH erase for J device (no EEPROM bit)
+                      00724 #endif
+00017E 6EA6           00725     movwf   EECON1
+                      00726 
+000180 D85E           00727     rcall   StartWrite          ; erase the page
+                      00728 
+000182                00729 NextEraseBlock:
+                      00730     ; Decrement address by erase block size
+                      00731 #if ERASE_FLASH_BLOCKSIZE >= .256
+                      00732     movlw   high(ERASE_FLASH_BLOCKSIZE)
+                      00733     subwf   TBLPTRH, F
+                      00734     clrf    WREG
+                      00735     subwfb  TBLPTRU, F
+                      00736 #else
+000182 0E40           00737     movlw   ERASE_FLASH_BLOCKSIZE
+000184 5EF6           00738     subwf   TBLPTRL, F
+000186 6AE8           00739     clrf    WREG
+000188 5AF7           00740     subwfb  TBLPTRH, F
+00018A 5AF8           00741     subwfb  TBLPTRU, F
+                      00742 #endif
+                      00743 
+00018C 2E0A           00744     decfsz  DATA_COUNTL, F
+00018E D7F6           00745     bra     EraseFlash    
+000190 D02C           00746     bra     SendAcknowledge     ; All done, send acknowledgement packet
+                      00747 
+                      00748 #ifdef SOFTWP
+                      00749     reset                       ; this code -should- never be executed, but 
+                      00750     reset                       ; just in case of errant execution or buggy
+                      00751     reset                       ; firmware, these reset instructions may protect
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 76
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00755 #ifdef SOFTWP
-                      00756   #define WRITE_ADDRESS_MASK (~(WRITE_FLASH_BLOCKSIZE-1))
-                      00757   #if upper(WRITE_ADDRESS_MASK) != 0xFF
-                      00758     movlw   upper(WRITE_ADDRESS_MASK)    ; force starting address to land on a FLASH Write Block boundar
+                      00752     reset                       ; against accidental writes.
+                      00753 #endif
+                      00754 
+                      00755 ; In:   <STX>[<0x04><ADDRL><ADDRH><ADDRU><0x00><BLOCKSL><DATA>...]<CRCL><CRCH><ETX>
+                      00756 ; Out:  <STX>[<0x04>]<CRCL><CRCH><ETX>
+000192                00757 WriteFlash:
+                      00758 #ifdef SOFTWP
+                      00759   #define WRITE_ADDRESS_MASK (~(WRITE_FLASH_BLOCKSIZE-1))
+                      00760   #if upper(WRITE_ADDRESS_MASK) != 0xFF
+                      00761     movlw   upper(WRITE_ADDRESS_MASK)    ; force starting address to land on a FLASH Write Block boundar
                             y
-                      00759     andwf   TBLPTRU, f
-                      00760   #endif
-                      00761   #if high(WRITE_ADDRESS_MASK) != 0xFF
-                      00762     movlw   high(WRITE_ADDRESS_MASK)    ; force starting address to land on a FLASH Write Block boundary
-                      00763     andwf   TBLPTRH, f
-                      00764   #endif
-                      00765   #if low(WRITE_ADDRESS_MASK) != 0xFF
-                      00766     movlw   low(WRITE_ADDRESS_MASK)     ; force starting address to land on a FLASH Write Block boundary
-                      00767     andwf   TBLPTRL, f
-                      00768   #endif
-                      00769 
-                      00770     ; Verify Write Address does not attempt to write beyond the end of FLASH memory
-                      00771     movlw   low(END_FLASH)
-                      00772     subwf   TBLPTRL, w
-                      00773     movlw   high(END_FLASH)
-                      00774     subwfb  TBLPTRH, w
-                      00775     movlw   upper(END_FLASH)
-                      00776     subwfb  TBLPTRU, w
-                      00777     bn      WriteEndFlashAddressOkay
-                      00778 
-                      00779     clrf    EECON1              ; inhibit writes for this block
-                      00780     bra     LoadHoldingRegisters; fake the write so we can move on to real writes
-                      00781 #endif ; end #ifdef SOFTWP
-                      00782 
-000192                00783 WriteEndFlashAddressOkay:
-                      00784 #ifdef USE_SOFTCONFIGWP
-                      00785     #ifdef CONFIG_AS_FLASH
-                      00786     movlw   low(END_FLASH - ERASE_FLASH_BLOCKSIZE)
-                      00787     subwf   TBLPTRL, w
-                      00788     movlw   high(END_FLASH - ERASE_FLASH_BLOCKSIZE)
-                      00789     subwfb  TBLPTRH, w
-                      00790     movlw   upper(END_FLASH - ERASE_FLASH_BLOCKSIZE)
-                      00791     subwfb  TBLPTRU, w
-                      00792     bn      WriteConfigAddressOkay
-                      00793 
-                      00794     clrf    EECON1              ; inhibit writes for this block
-                      00795     bra     LoadHoldingRegisters; fake the write so we can move on to real writes
+                      00762     andwf   TBLPTRU, f
+                      00763   #endif
+                      00764   #if high(WRITE_ADDRESS_MASK) != 0xFF
+                      00765     movlw   high(WRITE_ADDRESS_MASK)    ; force starting address to land on a FLASH Write Block boundary
+                      00766     andwf   TBLPTRH, f
+                      00767   #endif
+                      00768   #if low(WRITE_ADDRESS_MASK) != 0xFF
+                      00769     movlw   low(WRITE_ADDRESS_MASK)     ; force starting address to land on a FLASH Write Block boundary
+                      00770     andwf   TBLPTRL, f
+                      00771   #endif
+                      00772 
+                      00773     ; Verify Write Address does not attempt to write beyond the end of FLASH memory
+                      00774     movlw   low(END_FLASH)
+                      00775     subwf   TBLPTRL, w
+                      00776     movlw   high(END_FLASH)
+                      00777     subwfb  TBLPTRH, w
+                      00778     movlw   upper(END_FLASH)
+                      00779     subwfb  TBLPTRU, w
+                      00780     bn      WriteEndFlashAddressOkay
+                      00781 
+                      00782     clrf    EECON1              ; inhibit writes for this block
+                      00783     bra     LoadHoldingRegisters; fake the write so we can move on to real writes
+                      00784 #endif ; end #ifdef SOFTWP
+                      00785 
+000192                00786 WriteEndFlashAddressOkay:
+                      00787 #ifdef USE_SOFTCONFIGWP
+                      00788     #ifdef CONFIG_AS_FLASH
+                      00789     movlw   low(END_FLASH - ERASE_FLASH_BLOCKSIZE)
+                      00790     subwf   TBLPTRL, w
+                      00791     movlw   high(END_FLASH - ERASE_FLASH_BLOCKSIZE)
+                      00792     subwfb  TBLPTRH, w
+                      00793     movlw   upper(END_FLASH - ERASE_FLASH_BLOCKSIZE)
+                      00794     subwfb  TBLPTRU, w
+                      00795     bn      WriteConfigAddressOkay
                       00796 
-                      00797 WriteConfigAddressOkay:
-                      00798     #endif ; end CONFIG_AS_FLASH
-                      00799 #endif ; end USE_SOFTCONFIGWP
-                      00800 
-                      00801 #ifdef USE_SOFTBOOTWP
-                      00802     movlw   low(BOOTLOADER_ADDRESS)
-                      00803     subwf   TBLPTRL, w
-                      00804     movlw   high(BOOTLOADER_ADDRESS)
-                      00805     subwfb  TBLPTRH, w
-                      00806     movlw   upper(BOOTLOADER_ADDRESS)
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 77
+                      00797     clrf    EECON1              ; inhibit writes for this block
+                      00798     bra     LoadHoldingRegisters; fake the write so we can move on to real writes
+                      00799 
+                      00800 WriteConfigAddressOkay:
+                      00801     #endif ; end CONFIG_AS_FLASH
+                      00802 #endif ; end USE_SOFTCONFIGWP
+                      00803 
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 77
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00807     subwfb  TBLPTRU, w
-                      00808     bn      WriteAddressOkay
-                      00809 
-                      00810     movlw   low(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
-                      00811     subwf   TBLPTRL, w
-                      00812     movlw   high(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
-                      00813     subwfb  TBLPTRH, w
-                      00814     movlw   upper(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
-                      00815     subwfb  TBLPTRU, w
-                      00816     bnn     WriteAddressOkay
-                      00817 
-                      00818     clrf    EECON1                      ; inhibit writes for this block
-                      00819     bra     LoadHoldingRegisters        ; fake the write so we can move on to real writes
+                      00804 #ifdef USE_SOFTBOOTWP
+                      00805     movlw   low(BOOTLOADER_ADDRESS)
+                      00806     subwf   TBLPTRL, w
+                      00807     movlw   high(BOOTLOADER_ADDRESS)
+                      00808     subwfb  TBLPTRH, w
+                      00809     movlw   upper(BOOTLOADER_ADDRESS)
+                      00810     subwfb  TBLPTRU, w
+                      00811     bn      WriteAddressOkay
+                      00812 
+                      00813     movlw   low(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
+                      00814     subwf   TBLPTRL, w
+                      00815     movlw   high(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
+                      00816     subwfb  TBLPTRH, w
+                      00817     movlw   upper(BOOTLOADER_ADDRESS + BOOTBLOCKSIZE)
+                      00818     subwfb  TBLPTRU, w
+                      00819     bnn     WriteAddressOkay
                       00820 
-                      00821     reset                       ; this code -should- never be executed, but 
-                      00822     reset                       ; just in case of errant execution or buggy
-                      00823     reset                       ; firmware, these reset instruction may protect
-                      00824     reset                       ; against accidental writes.
-                      00825 #endif
-                      00826 
-000192                00827 WriteAddressOkay:
-                      00828 #ifdef EEADR
-000192 0E84           00829     movlw   b'10000100'         ; Setup FLASH writes
-                      00830 #else
-                      00831     movlw   b'00000100'         ; Setup FLASH writes for J device (no EEPROM bit)
-                      00832 #endif
-000194 6EA6           00833     movwf   EECON1
-                      00834 
-000196                00835 LoadHoldingRegisters:
-000196 CFEE FFF5      00836     movff   POSTINC0, TABLAT    ; Load the holding registers
-                      00837     pmwtpi                      ; Same as tblwt *+
+                      00821     clrf    EECON1                      ; inhibit writes for this block
+                      00822     bra     LoadHoldingRegisters        ; fake the write so we can move on to real writes
+                      00823 
+                      00824     reset                       ; this code -should- never be executed, but 
+                      00825     reset                       ; just in case of errant execution or buggy
+                      00826     reset                       ; firmware, these reset instruction may protect
+                      00827     reset                       ; against accidental writes.
+                      00828 #endif
+                      00829 
+000192                00830 WriteAddressOkay:
+                      00831 #ifdef EEADR
+000192 0E84           00832     movlw   b'10000100'         ; Setup FLASH writes
+                      00833 #else
+                      00834     movlw   b'00000100'         ; Setup FLASH writes for J device (no EEPROM bit)
+                      00835 #endif
+000194 6EA6           00836     movwf   EECON1
+                      00837 
+000196                00838 LoadHoldingRegisters:
+000196 CFEE FFF5      00839     movff   POSTINC0, TABLAT    ; Load the holding registers
+                      00840     pmwtpi                      ; Same as tblwt *+
                           M #ifdef TBLWT_BUG
                           M     tblwt   *
                           M     tblrd   *+
                           M #else
 00019A 000D               M     tblwt   *+
                           M #endif
-                      00838 
-00019C 50F6           00839     movf    TBLPTRL, w          ; have we crossed into the next write block?
-00019E 0B1F           00840     andlw   (WRITE_FLASH_BLOCKSIZE-1)
-0001A0 E1FA           00841     bnz     LoadHoldingRegisters; Not finished writing holding registers, repeat
-                      00842 
-0001A2 000A           00843     tblrd   *-                  ; Point back into the block to write data
-0001A4 D84C           00844     rcall   StartWrite          ; initiate a page write
-0001A6 0009           00845     tblrd   *+                  ; Restore pointer for loading holding registers with next block
-                      00846 
-0001A8 2E0A           00847     decfsz  DATA_COUNTL, F      
-0001AA D7F3           00848     bra     WriteFlash          ; Not finished writing all blocks, repeat
-0001AC D01E           00849     bra     SendAcknowledge     ; all done, send ACK packet
-                      00850 
-                      00851 ; In:   <STX>[<0x05><ADDRL><ADDRH><0x00><0x00><BYTESL><BYTESH>]<CRCL><CRCH><ETX>
-                      00852 ; Out:  <STX>[<DATA>...]<CRCL><CRCH><ETX>
-                      00853 #ifdef EEADR                ; some devices do not have EEPROM, so no need for this code
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 78
+                      00841 
+00019C 50F6           00842     movf    TBLPTRL, w          ; have we crossed into the next write block?
+00019E 0B1F           00843     andlw   (WRITE_FLASH_BLOCKSIZE-1)
+0001A0 E1FA           00844     bnz     LoadHoldingRegisters; Not finished writing holding registers, repeat
+                      00845 
+0001A2 000A           00846     tblrd   *-                  ; Point back into the block to write data
+0001A4 D84C           00847     rcall   StartWrite          ; initiate a page write
+0001A6 0009           00848     tblrd   *+                  ; Restore pointer for loading holding registers with next block
+                      00849 
+0001A8 2E0A           00850     decfsz  DATA_COUNTL, F      
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 78
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0001AE                00854 ReadEeprom:
-0001AE 6AA6           00855     clrf    EECON1 
-0001B0                00856 ReadEepromLoop:
-0001B0 80A6           00857     bsf     EECON1, RD          ; Read the data
-0001B2 50A8           00858     movf    EEDATA, w
-                      00859     #ifdef EEADRH
-                      00860     infsnz  EEADR, F            ; Adjust EEDATA pointer
-                      00861     incf    EEADRH, F
-                      00862     #else
-0001B4 2AA9           00863     incf    EEADR, F            ; Adjust EEDATA pointer
-                      00864     #endif
-0001B6 D824           00865     rcall   SendEscapeByte
-0001B8 DFA4           00866     rcall   AddCrc
-                      00867 
-                      00868     #ifdef EEADRH
-                      00869     decf    DATA_COUNTL, f      ; decrement counter
-                      00870     movlw   0
-                      00871     subwfb  DATA_COUNTH, f
-                      00872 
-                      00873     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
-                      00874     iorwf   DATA_COUNTH, w
-                      00875     bnz     ReadEepromLoop      ; no, loop
-                      00876     bra     SendChecksum        ; yes, send end of packet
-                      00877     #else
-0001BA 2E0A           00878     decfsz  DATA_COUNTL, F
-0001BC D7F9           00879     bra     ReadEepromLoop      ; Not finished then repeat
-0001BE D019           00880     bra     SendChecksum
-                      00881     #endif
-                      00882 #endif ; end #ifdef EEADR
-                      00883 
-                      00884 ; In:   <STX>[<0x06><ADDRL><ADDRH><0x00><0x00><BYTESL><BYTESH><DATA>...]<CRCL><CRCH><ETX>
-                      00885 ; Out:  <STX>[<0x06>]<CRCL><CRCH><ETX>
-                      00886 #ifdef EEADR                ; some devices do not have EEPROM, so no need for this code
-0001C0                00887 WriteEeprom:
-0001C0 0E04           00888     movlw   b'00000100'     ; Setup for EEPROM data writes
-0001C2 6EA6           00889     movwf   EECON1
-                      00890 
-0001C4                00891 WriteEepromLoop:
-0001C4 CFEC FFA8      00892     movff   PREINC0, EEDATA
-0001C8 D83A           00893     rcall   StartWrite      
-                      00894 
-0001CA B2A6           00895     btfsc   EECON1, WR      ; wait for write to complete before moving to next address
-0001CC D7FE           00896     bra     $-2
+0001AA D7F3           00851     bra     WriteFlash          ; Not finished writing all blocks, repeat
+0001AC D01E           00852     bra     SendAcknowledge     ; all done, send ACK packet
+                      00853 
+                      00854 ; In:   <STX>[<0x05><ADDRL><ADDRH><0x00><0x00><BYTESL><BYTESH>]<CRCL><CRCH><ETX>
+                      00855 ; Out:  <STX>[<DATA>...]<CRCL><CRCH><ETX>
+                      00856 #ifdef EEADR                ; some devices do not have EEPROM, so no need for this code
+0001AE                00857 ReadEeprom:
+0001AE 6AA6           00858     clrf    EECON1 
+0001B0                00859 ReadEepromLoop:
+0001B0 80A6           00860     bsf     EECON1, RD          ; Read the data
+0001B2 50A8           00861     movf    EEDATA, w
+                      00862     #ifdef EEADRH
+                      00863     infsnz  EEADR, F            ; Adjust EEDATA pointer
+                      00864     incf    EEADRH, F
+                      00865     #else
+0001B4 2AA9           00866     incf    EEADR, F            ; Adjust EEDATA pointer
+                      00867     #endif
+0001B6 D824           00868     rcall   SendEscapeByte
+0001B8 DFA4           00869     rcall   AddCrc
+                      00870 
+                      00871     #ifdef EEADRH
+                      00872     decf    DATA_COUNTL, f      ; decrement counter
+                      00873     movlw   0
+                      00874     subwfb  DATA_COUNTH, f
+                      00875 
+                      00876     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
+                      00877     iorwf   DATA_COUNTH, w
+                      00878     bnz     ReadEepromLoop      ; no, loop
+                      00879     bra     SendChecksum        ; yes, send end of packet
+                      00880     #else
+0001BA 2E0A           00881     decfsz  DATA_COUNTL, F
+0001BC D7F9           00882     bra     ReadEepromLoop      ; Not finished then repeat
+0001BE D019           00883     bra     SendChecksum
+                      00884     #endif
+                      00885 #endif ; end #ifdef EEADR
+                      00886 
+                      00887 ; In:   <STX>[<0x06><ADDRL><ADDRH><0x00><0x00><BYTESL><BYTESH><DATA>...]<CRCL><CRCH><ETX>
+                      00888 ; Out:  <STX>[<0x06>]<CRCL><CRCH><ETX>
+                      00889 #ifdef EEADR                ; some devices do not have EEPROM, so no need for this code
+0001C0                00890 WriteEeprom:
+0001C0 0E04           00891     movlw   b'00000100'     ; Setup for EEPROM data writes
+0001C2 6EA6           00892     movwf   EECON1
+                      00893 
+0001C4                00894 WriteEepromLoop:
+0001C4 CFEC FFA8      00895     movff   PREINC0, EEDATA
+0001C8 D83A           00896     rcall   StartWrite      
                       00897 
-                      00898     #ifdef EEADRH
-                      00899     infsnz  EEADR, F        ; Adjust EEDATA pointer
-                      00900     incf    EEADRH, F
-                      00901     #else
-0001CE 2AA9           00902     incf    EEADR, f        ; Adjust EEDATA pointer
-                      00903     #endif
-                      00904 
-                      00905     #ifdef EEADRH
-                      00906     decf    DATA_COUNTL, f      ; decrement counter
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 79
+0001CA B2A6           00898     btfsc   EECON1, WR      ; wait for write to complete before moving to next address
+0001CC D7FE           00899     bra     $-2
+                      00900 
+                      00901     #ifdef EEADRH
+                      00902     infsnz  EEADR, F        ; Adjust EEDATA pointer
+                      00903     incf    EEADRH, F
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 79
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00907     movlw   0
-                      00908     subwfb  DATA_COUNTH, f
-                      00909 
-                      00910     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
-                      00911     iorwf   DATA_COUNTH, w
-                      00912     bnz     WriteEepromLoop     ; no, loop
-                      00913     bra     SendAcknowledge     ; yes, send end of packet
-                      00914     #else
-0001D0 2E0A           00915     decfsz  DATA_COUNTL, f
-0001D2 D7F8           00916     bra     WriteEepromLoop
-0001D4 D00A           00917     bra     SendAcknowledge
-                      00918     #endif
-                      00919 #endif ; end #ifdef EEADR
-                      00920  
-                      00921 ; In:   <STX>[<0x07><ADDRL><ADDRH><ADDRU><0x00><BYTES><DATA>...]<CRCL><CRCH><ETX>
-                      00922 ; Out:  <STX>[<0x07>]<CRCL><CRCH><ETX>
-                      00923 #ifndef CONFIG_AS_FLASH     ; J flash devices store config words in FLASH, so no need for this code
-                      00924     #ifndef USE_SOFTCONFIGWP
-0001D6                00925 WriteConfig:
-0001D6 0EC4           00926     movlw   b'11000100'
-0001D8 6EA6           00927     movwf   EECON1
-0001DA 0008           00928     tblrd   *               ; read existing value from config memory
-                      00929 
-0001DC                00930 WriteConfigLoop:
-0001DC 50EE           00931     movf    POSTINC0, w
-0001DE 62F5           00932     cpfseq  TABLAT          ; is the proposed value already the same as existing value?
-0001E0 D82C           00933     rcall   TableWriteWREG  ; write config memory only if necessary (save time and endurance)
-0001E2 000B           00934     tblrd   +*              ; increment table pointer to next address and read existing value
-0001E4 2E0A           00935     decfsz  DATA_COUNTL, F
-0001E6 D7FA           00936     bra     WriteConfigLoop ; If more data available in packet, keep looping
-                      00937 
-0001E8 D000           00938     bra     SendAcknowledge ; Send acknowledge
-                      00939     #endif ; end #ifndef USE_SOFTCONFIGWP
-                      00940 #endif ; end #ifndef CONFIG_AS_FLASH
-                      00941     
-                      00942 ;************************************************
-                      00943 
-                      00944 ; ***********************************************
-                      00945 ; Send an acknowledgement packet back
-                      00946 ;
-                      00947 ; <STX><COMMAND><CRCL><CRCH><ETX>
-                      00948 
-                      00949 ; Some devices only have config words as FLASH memory. Some devices don't have EEPROM.
-                      00950 ; For these devices, we can save code by jumping directly to sending back an
-                      00951 ; acknowledgement packet if the PC application erroneously requests them.
-                      00952 #ifdef CONFIG_AS_FLASH
-                      00953 WriteConfig:
-                      00954 #else
-                      00955   #ifdef USE_SOFTCONFIGWP
+                      00904     #else
+0001CE 2AA9           00905     incf    EEADR, f        ; Adjust EEDATA pointer
+                      00906     #endif
+                      00907 
+                      00908     #ifdef EEADRH
+                      00909     decf    DATA_COUNTL, f      ; decrement counter
+                      00910     movlw   0
+                      00911     subwfb  DATA_COUNTH, f
+                      00912 
+                      00913     movf    DATA_COUNTL, w      ; DATA_COUNTH:DATA_COUNTH == 0?
+                      00914     iorwf   DATA_COUNTH, w
+                      00915     bnz     WriteEepromLoop     ; no, loop
+                      00916     bra     SendAcknowledge     ; yes, send end of packet
+                      00917     #else
+0001D0 2E0A           00918     decfsz  DATA_COUNTL, f
+0001D2 D7F8           00919     bra     WriteEepromLoop
+0001D4 D00A           00920     bra     SendAcknowledge
+                      00921     #endif
+                      00922 #endif ; end #ifdef EEADR
+                      00923  
+                      00924 ; In:   <STX>[<0x07><ADDRL><ADDRH><ADDRU><0x00><BYTES><DATA>...]<CRCL><CRCH><ETX>
+                      00925 ; Out:  <STX>[<0x07>]<CRCL><CRCH><ETX>
+                      00926 #ifndef CONFIG_AS_FLASH     ; J flash devices store config words in FLASH, so no need for this code
+                      00927     #ifndef USE_SOFTCONFIGWP
+0001D6                00928 WriteConfig:
+0001D6 0EC4           00929     movlw   b'11000100'
+0001D8 6EA6           00930     movwf   EECON1
+0001DA 0008           00931     tblrd   *               ; read existing value from config memory
+                      00932 
+0001DC                00933 WriteConfigLoop:
+0001DC 50EE           00934     movf    POSTINC0, w
+0001DE 62F5           00935     cpfseq  TABLAT          ; is the proposed value already the same as existing value?
+0001E0 D82C           00936     rcall   TableWriteWREG  ; write config memory only if necessary (save time and endurance)
+0001E2 000B           00937     tblrd   +*              ; increment table pointer to next address and read existing value
+0001E4 2E0A           00938     decfsz  DATA_COUNTL, F
+0001E6 D7FA           00939     bra     WriteConfigLoop ; If more data available in packet, keep looping
+                      00940 
+0001E8 D000           00941     bra     SendAcknowledge ; Send acknowledge
+                      00942     #endif ; end #ifndef USE_SOFTCONFIGWP
+                      00943 #endif ; end #ifndef CONFIG_AS_FLASH
+                      00944     
+                      00945 ;************************************************
+                      00946 
+                      00947 ; ***********************************************
+                      00948 ; Send an acknowledgement packet back
+                      00949 ;
+                      00950 ; <STX><COMMAND><CRCL><CRCH><ETX>
+                      00951 
+                      00952 ; Some devices only have config words as FLASH memory. Some devices don't have EEPROM.
+                      00953 ; For these devices, we can save code by jumping directly to sending back an
+                      00954 ; acknowledgement packet if the PC application erroneously requests them.
+                      00955 #ifdef CONFIG_AS_FLASH
                       00956 WriteConfig:
-                      00957   #endif
-                      00958 #endif ; end #ifdef CONFIG_AS_FLASH
-                      00959 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 80
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 80
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00960 #ifndef EEADR
-                      00961 ReadEeprom:
-                      00962 WriteEeprom:
-                      00963 #endif
-                      00964 
-0001EA                00965 SendAcknowledge:
-0001EA 6AA6           00966     clrf    EECON1              ; inhibit write cycles to FLASH memory
+                      00957 #else
+                      00958   #ifdef USE_SOFTCONFIGWP
+                      00959 WriteConfig:
+                      00960   #endif
+                      00961 #endif ; end #ifdef CONFIG_AS_FLASH
+                      00962 
+                      00963 #ifndef EEADR
+                      00964 ReadEeprom:
+                      00965 WriteEeprom:
+                      00966 #endif
                       00967 
-0001EC 5005           00968     movf    COMMAND, w
-0001EE D808           00969     rcall   SendEscapeByte      ; Send only the command byte (acknowledge packet)
-0001F0 DF88           00970     rcall   AddCrc
-                      00971 
-0001F2                00972 SendChecksum:
-0001F2 5000           00973     movf    CRCL, W
-0001F4 D805           00974     rcall   SendEscapeByte
-                      00975 
-0001F6 5001           00976     movf    CRCH, W
-0001F8 D803           00977     rcall   SendEscapeByte
+0001EA                00968 SendAcknowledge:
+0001EA 6AA6           00969     clrf    EECON1              ; inhibit write cycles to FLASH memory
+                      00970 
+0001EC 5005           00971     movf    COMMAND, w
+0001EE D808           00972     rcall   SendEscapeByte      ; Send only the command byte (acknowledge packet)
+0001F0 DF88           00973     rcall   AddCrc
+                      00974 
+0001F2                00975 SendChecksum:
+0001F2 5000           00976     movf    CRCL, W
+0001F4 D805           00977     rcall   SendEscapeByte
                       00978 
-0001FA                00979 SendETX:
-0001FA 0E04           00980     movlw   ETX             ; Send stop condition
-0001FC D80D           00981     rcall   SendHostByte
-                      00982 
-0001FE D736           00983     bra     WaitForHostCommand
-                      00984 ; *****************************************************************************
+0001F6 5001           00979     movf    CRCH, W
+0001F8 D803           00980     rcall   SendEscapeByte
+                      00981 
+0001FA                00982 SendETX:
+0001FA 0E04           00983     movlw   ETX             ; Send stop condition
+0001FC D80D           00984     rcall   SendHostByte
                       00985 
-                      00986 
-                      00987 
+0001FE D736           00986     bra     WaitForHostCommand
+                      00987 ; *****************************************************************************
                       00988 
-                      00989 ; *****************************************************************************
-                      00990 ; Write a byte to the serial port while escaping control characters with a DLE
-                      00991 ; first.
-000200                00992 SendEscapeByte:
-000200 6E03           00993     movwf   TXDATA          ; Save the data
-                      00994  
-000202 0A0F           00995     xorlw   STX             ; Check for a STX
-000204 E006           00996     bz      WrDLE           ; No, continue WrNext
-                      00997 
-000206 5003           00998     movf    TXDATA, W       
-000208 0A04           00999     xorlw   ETX             ; Check for a ETX
-00020A E003           01000     bz      WrDLE           ; No, continue WrNext
-                      01001 
-00020C 5003           01002     movf    TXDATA, W       
-00020E 0A05           01003     xorlw   DLE             ; Check for a DLE
-000210 E102           01004     bnz     WrNext          ; No, continue WrNext
-                      01005 
-000212                01006 WrDLE:
-000212 0E05           01007     movlw   DLE             ; Yes, send DLE first
-000214 D801           01008     rcall   SendHostByte
-                      01009 
-000216                01010 WrNext:
-000216 5003           01011     movf    TXDATA, W       ; Then send STX
+                      00989 
+                      00990 
+                      00991 
+                      00992 ; *****************************************************************************
+                      00993 ; Write a byte to the serial port while escaping control characters with a DLE
+                      00994 ; first.
+000200                00995 SendEscapeByte:
+000200 6E03           00996     movwf   TXDATA          ; Save the data
+                      00997  
+000202 0A0F           00998     xorlw   STX             ; Check for a STX
+000204 E006           00999     bz      WrDLE           ; No, continue WrNext
+                      01000 
+000206 5003           01001     movf    TXDATA, W       
+000208 0A04           01002     xorlw   ETX             ; Check for a ETX
+00020A E003           01003     bz      WrDLE           ; No, continue WrNext
+                      01004 
+00020C 5003           01005     movf    TXDATA, W       
+00020E 0A05           01006     xorlw   DLE             ; Check for a DLE
+000210 E102           01007     bnz     WrNext          ; No, continue WrNext
+                      01008 
+000212                01009 WrDLE:
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 81
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000212 0E05           01010     movlw   DLE             ; Yes, send DLE first
+000214 D801           01011     rcall   SendHostByte
                       01012 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 81
-
-
-LOC  OBJECT CODE     LINE SOURCE TEXT
-  VALUE
-
-000218                01013 SendHostByte:
-000218 0004           01014     clrwdt
-00021A A89E           01015     btfss   UxPIR, UxTXIF      ; Write only if TXREG is ready
-00021C D7FE           01016     bra     $-2
-                      01017     
-00021E 6EAD           01018     movwf   UxTXREG           ; Start sending
-                      01019 
-000220 0012           01020     return
-                      01021 ; *****************************************************************************
+000216                01013 WrNext:
+000216 5003           01014     movf    TXDATA, W       ; Then send STX
+                      01015 
+000218                01016 SendHostByte:
+000218 0004           01017     clrwdt
+00021A A89E           01018     btfss   UxPIR, UxTXIF      ; Write only if TXREG is ready
+00021C D7FE           01019     bra     $-2
+                      01020     
+00021E 6EAD           01021     movwf   UxTXREG           ; Start sending
                       01022 
-                      01023 
-                      01024 
+000220 0012           01023     return
+                      01024 ; *****************************************************************************
                       01025 
-                      01026 ; *****************************************************************************
-000222                01027 ReadHostByte:
-000222 B2AB           01028     btfsc   UxRCSTA, OERR       ; Reset on overun
-000224 00FF           01029     reset
-                      01030 
-000226                01031 WaitForHostByte:
-000226 0004           01032     clrwdt
-000228 AA9E           01033     btfss   UxPIR, UxRCIF       ; Wait for data from RS232
-00022A D7FD           01034     bra     WaitForHostByte
-                      01035 
-00022C 50AE           01036     movf    UxRCREG, W          ; Save the data
-00022E 6E02           01037     movwf   RXDATA
-                      01038  
-000230 0012           01039     return
-                      01040 ; *****************************************************************************
-                      01041 
-000232 00FF           01042     reset                       ; this code -should- never be executed, but 
-000234 00FF           01043     reset                       ; just in case of errant execution or buggy
-000236 00FF           01044     reset                       ; firmware, these instructions may protect
-000238 6AA6           01045     clrf    EECON1              ; against accidental erase/write operations.
-                      01046 
-                      01047 ; *****************************************************************************
-                      01048 ; Unlock and start the write or erase sequence.
-00023A                01049 TableWriteWREG:
-00023A 6EF5           01050     movwf   TABLAT
-00023C 000C           01051     tblwt   *
-                      01052 
-00023E                01053 StartWrite:
-00023E 0004           01054     clrwdt
+                      01026 
+                      01027 
+                      01028 
+                      01029 ; *****************************************************************************
+000222                01030 ReadHostByte:
+000222 B2AB           01031     btfsc   UxRCSTA, OERR       ; Reset on overun
+000224 00FF           01032     reset
+                      01033 
+000226                01034 WaitForHostByte:
+000226 0004           01035     clrwdt
+000228 AA9E           01036     btfss   UxPIR, UxRCIF       ; Wait for data from RS232
+00022A D7FD           01037     bra     WaitForHostByte
+                      01038 
+00022C 50AE           01039     movf    UxRCREG, W          ; Save the data
+00022E 6E02           01040     movwf   RXDATA
+                      01041  
+000230 0012           01042     return
+                      01043 ; *****************************************************************************
+                      01044 
+000232 00FF           01045     reset                       ; this code -should- never be executed, but 
+000234 00FF           01046     reset                       ; just in case of errant execution or buggy
+000236 00FF           01047     reset                       ; firmware, these instructions may protect
+000238 6AA6           01048     clrf    EECON1              ; against accidental erase/write operations.
+                      01049 
+                      01050 ; *****************************************************************************
+                      01051 ; Unlock and start the write or erase sequence.
+00023A                01052 TableWriteWREG:
+00023A 6EF5           01053     movwf   TABLAT
+00023C 000C           01054     tblwt   *
                       01055 
-000240 0E55           01056     movlw   0x55            ; Unlock
-000242 6EA7           01057     movwf   EECON2
-000244 0EAA           01058     movlw   0xAA
-000246 6EA7           01059     movwf   EECON2
-000248 82A6           01060     bsf     EECON1, WR      ; Start the write
-00024A 0000           01061     nop
-                      01062 
-00024C 0012           01063     return
-                      01064 ; *****************************************************************************
-                      01065 
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 82
+00023E                01056 StartWrite:
+00023E 0004           01057     clrwdt
+                      01058 
+000240 0E55           01059     movlw   0x55            ; Unlock
+000242 6EA7           01060     movwf   EECON2
+000244 0EAA           01061     movlw   0xAA
+000246 6EA7           01062     movwf   EECON2
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 82
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      01066     END
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 83
+000248 82A6           01063     bsf     EECON1, WR      ; Start the write
+00024A 0000           01064     nop
+                      01065 
+00024C 0012           01066     return
+                      01067 ; *****************************************************************************
+                      01068 
+                      01069     END
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 83
 
 
 SYMBOL TABLE
@@ -4843,7 +4849,7 @@ B0D03                             00000003
 B0D04                             00000004
 B0D05                             00000005
 B0D06                             00000006
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 84
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 84
 
 
 SYMBOL TABLE
@@ -4902,7 +4908,7 @@ B0D62                             00000002
 B0D63                             00000003
 B0D64                             00000004
 B0D65                             00000005
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 85
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 85
 
 
 SYMBOL TABLE
@@ -4961,7 +4967,7 @@ B1D32                             00000002
 B1D33                             00000003
 B1D34                             00000004
 B1D35                             00000005
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 86
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 86
 
 
 SYMBOL TABLE
@@ -5020,7 +5026,7 @@ B2D02                             00000002
 B2D03                             00000003
 B2D04                             00000004
 B2D05                             00000005
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 87
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 87
 
 
 SYMBOL TABLE
@@ -5079,7 +5085,7 @@ B2D61                             00000001
 B2D62                             00000002
 B2D63                             00000003
 B2D64                             00000004
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 88
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 88
 
 
 SYMBOL TABLE
@@ -5138,7 +5144,7 @@ B3D31                             00000001
 B3D32                             00000002
 B3D33                             00000003
 B3D34                             00000004
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 89
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 89
 
 
 SYMBOL TABLE
@@ -5197,7 +5203,7 @@ B4D00                             00000000
 B4D01                             00000001
 B4D02                             00000002
 B4D03                             00000003
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 90
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 90
 
 
 SYMBOL TABLE
@@ -5256,7 +5262,7 @@ B4D6                              00000E6C
 B4D60                             00000000
 B4D61                             00000001
 B4D62                             00000002
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 91
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 91
 
 
 SYMBOL TABLE
@@ -5315,7 +5321,7 @@ B5D26                             00000006
 B5D27                             00000007
 B5D3                              00000E79
 B5D30                             00000000
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 92
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 92
 
 
 SYMBOL TABLE
@@ -5374,7 +5380,7 @@ B5TXEN                            00000007
 BANKED                            00000001
 BAUDCON                           00000FB8
 BAUDCTL                           00000FB8
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 93
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 93
 
 
 SYMBOL TABLE
@@ -5433,7 +5439,7 @@ CANSTAT_RO5                       00000E6E
 CANSTAT_RO6                       00000E5E
 CANSTAT_RO7                       00000E4E
 CANSTAT_RO8                       00000E3E
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 94
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 94
 
 
 SYMBOL TABLE
@@ -5492,7 +5498,7 @@ DFLC0                             00000000
 DFLC1                             00000001
 DFLC2                             00000002
 DFLC3                             00000003
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 95
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 95
 
 
 SYMBOL TABLE
@@ -5551,7 +5557,7 @@ END_GPR                           0x600
 ERASE_FLASH_BLOCKSIZE             .64
 ERRIE                             00000005
 ERRIF                             00000005
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 96
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 96
 
 
 SYMBOL TABLE
@@ -5610,7 +5616,7 @@ F2BP_2                            00000002
 F2BP_3                            00000003
 F3BP_0                            00000004
 F3BP_1                            00000005
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 97
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 97
 
 
 SYMBOL TABLE
@@ -5669,7 +5675,7 @@ FIL1_1                            00000003
 FIL2_0                            00000004
 FIL2_1                            00000005
 FIL3_0                            00000006
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 98
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 98
 
 
 SYMBOL TABLE
@@ -5728,7 +5734,7 @@ GO_DONE                           00000001
 GO_NOT_DONE                       00000001
 GotoAppVector                     00000024
 HLVDCON                           00000FD2
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 99
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 99
 
 
 SYMBOL TABLE
@@ -5787,7 +5793,7 @@ INTSRC                            00000007
 IOFS                              00000002
 IPEN                              00000007
 IPR1                              00000F9F
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 100
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 100
 
 
 SYMBOL TABLE
@@ -5846,7 +5852,7 @@ LVDIP                             00000002
 LVDL0                             00000000
 LVDL1                             00000001
 LVDL2                             00000002
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 101
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 101
 
 
 SYMBOL TABLE
@@ -5905,7 +5911,7 @@ PACKET_DATA                       0000000B
 PC                                00000FF9
 PCFG0                             00000000
 PCFG1                             00000001
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 102
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 102
 
 
 SYMBOL TABLE
@@ -5964,7 +5970,7 @@ RA3                               00000003
 RA4                               00000004
 RA5                               00000005
 RA6                               00000006
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 103
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 103
 
 
 SYMBOL TABLE
@@ -6023,7 +6029,7 @@ RD                                00000000
 RD16                              00000007
 RE3                               00000003
 READ_WRITE                        00000002
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 104
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 104
 
 
 SYMBOL TABLE
@@ -6082,7 +6088,7 @@ RXB0D30                           00000000
 RXB0D31                           00000001
 RXB0D32                           00000002
 RXB0D33                           00000003
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 105
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 105
 
 
 SYMBOL TABLE
@@ -6141,7 +6147,7 @@ RXB0OVFL_NOT_FIFOEMPTY            00000007
 RXB0SIDH                          00000F61
 RXB0SIDL                          00000F62
 RXB1CON                           00000F50
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 106
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 106
 
 
 SYMBOL TABLE
@@ -6200,7 +6206,7 @@ RXB1D53                           00000003
 RXB1D54                           00000004
 RXB1D55                           00000005
 RXB1D56                           00000006
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 107
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 107
 
 
 SYMBOL TABLE
@@ -6259,7 +6265,7 @@ RXF11EN                           00000003
 RXF11SIDH                         00000D78
 RXF11SIDL                         00000D79
 RXF12EIDH                         00000D82
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 108
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 108
 
 
 SYMBOL TABLE
@@ -6318,7 +6324,7 @@ RXF7EIDH                          00000D66
 RXF7EIDL                          00000D67
 RXF7EN                            00000007
 RXF7SIDH                          00000D64
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 109
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 109
 
 
 SYMBOL TABLE
@@ -6377,7 +6383,7 @@ RXWARN                            00000001
 R_NOT_W                           00000002
 R_W                               00000002
 ReadEeprom                        000001AE
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 110
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 110
 
 
 SYMBOL TABLE
@@ -6436,7 +6442,7 @@ SSPCON1                           00000FC6
 SSPCON2                           00000FC5
 SSPEN                             00000005
 SSPIE                             00000003
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 111
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 111
 
 
 SYMBOL TABLE
@@ -6495,7 +6501,7 @@ T1RUN                             00000006
 T1SYNC                            00000002
 T2CKPS0                           00000000
 T2CKPS1                           00000001
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 112
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 112
 
 
 SYMBOL TABLE
@@ -6554,7 +6560,7 @@ TMR3IE                            00000001
 TMR3IF                            00000001
 TMR3IP                            00000001
 TMR3L                             00000FB2
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 113
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 113
 
 
 SYMBOL TABLE
@@ -6613,7 +6619,7 @@ TXB0D04                           00000004
 TXB0D05                           00000005
 TXB0D06                           00000006
 TXB0D07                           00000007
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 114
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 114
 
 
 SYMBOL TABLE
@@ -6672,7 +6678,7 @@ TXB0D63                           00000003
 TXB0D64                           00000004
 TXB0D65                           00000005
 TXB0D66                           00000006
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 115
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 115
 
 
 SYMBOL TABLE
@@ -6731,7 +6737,7 @@ TXB1D32                           00000002
 TXB1D33                           00000003
 TXB1D34                           00000004
 TXB1D35                           00000005
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 116
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 116
 
 
 SYMBOL TABLE
@@ -6790,7 +6796,7 @@ TXB2D01                           00000001
 TXB2D02                           00000002
 TXB2D03                           00000003
 TXB2D04                           00000004
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 117
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 117
 
 
 SYMBOL TABLE
@@ -6849,7 +6855,7 @@ TXB2D60                           00000000
 TXB2D61                           00000001
 TXB2D62                           00000002
 TXB2D63                           00000003
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 118
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 118
 
 
 SYMBOL TABLE
@@ -6908,7 +6914,7 @@ UARTNUM                           1
 USE_AUTOBAUD                      
 USE_MAX_INTOSC                    
 USE_PLL                           
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 119
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 119
 
 
 SYMBOL TABLE
@@ -6967,7 +6973,7 @@ WriteEndFlashAddressOkay          00000192
 WriteFlash                        00000192
 WtSR                              000000FC
 Z                                 00000002
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 120
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 120
 
 
 SYMBOL TABLE
@@ -7026,7 +7032,7 @@ _IDLOC0                           00200000
 _IDLOC1                           00200001
 _IDLOC2                           00200002
 _IDLOC3                           00200003
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 121
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 121
 
 
 SYMBOL TABLE
@@ -7085,7 +7091,7 @@ _WRT1_ON_6L                       000000FD
 _WRT2_OFF_6L                      000000FF
 _WRT2_ON_6L                       000000FB
 _WRT3_OFF_6L                      000000FF
-MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:13:06         PAGE 122
+MPASM 5.60              PIC18 BOOTLOADER.ASM   3-16-2015  22:32:45         PAGE 122
 
 
 SYMBOL TABLE
@@ -7127,7 +7133,7 @@ Program Memory Bytes Free: 32171
 
 
 Errors   :     0
-Warnings :     1 reported,     0 suppressed
+Warnings :     3 reported,     0 suppressed
 Messages :     0 reported,     0 suppressed
 
 

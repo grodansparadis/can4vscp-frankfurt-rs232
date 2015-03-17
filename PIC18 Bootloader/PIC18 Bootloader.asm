@@ -111,7 +111,17 @@
 #include "preprocess.inc"
 ; *****************************************************************************
 
-CONFIG  OSC = HSPLL           ; Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))
+; AKHE Frankfurt RS-232 Configs
+CONFIG  OSC = HSPLL     ; Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))
+CONFIG  BBSIZ = 1024    ; Boot Block Size Select bit (1K words (2K bytes) boot block)
+CONFIG  WDT = OFF       ; Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
+CONFIG  LVP = OFF       ; Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
+;CONFIG  XINST = OFF     ; Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode disabled (Legacy mode))
+;CONFIG  FCMEN = ON      ; Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
+;CONFIG  EBTR0 = OFF     ; Table Read Protection bit (Block 0 (000800-001FFFh) not protected from table reads executed in other blocks)
+;CONFIG  EBTR1 = OFF     ; Table Read Protection bit (Block 1 (002000-003FFFh) not protected from table reads executed in other blocks)
+;CONFIG  EBTR2 = OFF     ; Table Read Protection bit (Block 2 (004000-005FFFh) not protected from table reads executed in other blocks)
+;CONFIG  EBTR3 = OFF     ; Table Read Protection bit (Block 3 (006000-007FFFh) not protected from table reads executed in other blocks)
 
 ; *****************************************************************************
 #define STX             0x0F            

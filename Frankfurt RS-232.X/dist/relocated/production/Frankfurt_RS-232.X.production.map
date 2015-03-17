@@ -6,7 +6,7 @@ Linker command line:
   --UDF=html\Frankfurt_RS-232.X.production.link.html -cs \
   -h+dist/relocated/production\Frankfurt_RS-232.X.production.sym \
   --cmf=dist/relocated/production\Frankfurt_RS-232.X.production.cmf -z \
-  -Q18F2580 -oC:\Users\GRODAN~1\AppData\Local\Temp\s8v4.6 \
+  -Q18F2580 -oC:\Users\GRODAN~1\AppData\Local\Temp\s4ng.6 \
   -Mdist/relocated/production/Frankfurt_RS-232.X.production.map -E1 \
   -ver=XC8 -ACODE=0400h-07FFFh -ACONST=0400h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-05Fh \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\GRODAN~1\AppData\Local\Temp\s8v4.obj \
+  C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj \
   dist/relocated/production\Frankfurt_RS-232.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\GRODAN~1\AppData\Local\Temp\s8v4.obj
+C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
                 end_init                            668      668        4      20C       0
                 reset_vec                           400      400        4      200       0
                 idloc                            200000   200000        8   200000       0
@@ -1737,7 +1737,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 255 in file "main.c"
+		line 254 in file "main.c"
  Parameters:    Size  Location     Type
   argc            2  106[BANK0 ] int 
   argv            3  108[BANK0 ] PTR PTR unsigned char 
@@ -1779,7 +1779,7 @@ Total ram usage:        7 bytes
 
  *************** function _doModeVscpNode *****************
  Defined at:
-		line 1506 in file "main.c"
+		line 1505 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1809,7 +1809,7 @@ Total ram usage:        0 bytes
 
  *************** function _doModeSLCAN *****************
  Defined at:
-		line 1304 in file "main.c"
+		line 1303 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1919,7 +1919,7 @@ Total ram usage:        1 bytes
 
  *************** function _receiveSendEventSLCAN *****************
  Defined at:
-		line 2095 in file "main.c"
+		line 2094 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1991,7 +1991,7 @@ Total ram usage:       13 bytes
 
  *************** function _doModeVscp *****************
  Defined at:
-		line 1094 in file "main.c"
+		line 1093 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2032,7 +2032,7 @@ Total ram usage:        1 bytes
 
  *************** function _sendVSCPDriverCommandReply *****************
  Defined at:
-		line 1678 in file "main.c"
+		line 1677 in file "main.c"
  Parameters:    Size  Location     Type
   cmdReplyCode    1    wreg     unsigned char 
   cmdCode         1   15[BANK0 ] unsigned char 
@@ -2066,7 +2066,7 @@ Total ram usage:        3 bytes
 
  *************** function _sendVSCPModeCapabilities *****************
  Defined at:
-		line 2047 in file "main.c"
+		line 2046 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2098,7 +2098,7 @@ Total ram usage:        1 bytes
 
  *************** function _receiveVSCPModeMultiCanalMsg *****************
  Defined at:
-		line 2178 in file "main.c"
+		line 2177 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2128,7 +2128,7 @@ Total ram usage:        0 bytes
 
  *************** function _sendVSCPDriverNack *****************
  Defined at:
-		line 1633 in file "main.c"
+		line 1632 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2160,7 +2160,7 @@ Total ram usage:        1 bytes
 
  *************** function _receiveVSCPModeCanalMsg *****************
  Defined at:
-		line 2157 in file "main.c"
+		line 2156 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2231,7 +2231,7 @@ Total ram usage:       10 bytes
 
  *************** function _sendVSCPDriverAck *****************
  Defined at:
-		line 1589 in file "main.c"
+		line 1588 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2263,7 +2263,7 @@ Total ram usage:        1 bytes
 
  *************** function _sendVSCPDriverErrorFrame *****************
  Defined at:
-		line 1541 in file "main.c"
+		line 1540 in file "main.c"
  Parameters:    Size  Location     Type
   errorcode       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2296,7 +2296,7 @@ Total ram usage:        2 bytes
 
  *************** function _calcCRC *****************
  Defined at:
-		line 2390 in file "main.c"
+		line 2389 in file "main.c"
  Parameters:    Size  Location     Type
   p               2   12[BANK0 ] PTR unsigned char 
 		 -> cmdbuf(80), 
@@ -2329,7 +2329,7 @@ Total ram usage:        5 bytes
 
  *************** function _receiveSendEventCANAL *****************
  Defined at:
-		line 1785 in file "main.c"
+		line 1784 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2366,7 +2366,7 @@ Total ram usage:       15 bytes
 
  *************** function _receiveSendMultiEventCANAL *****************
  Defined at:
-		line 1862 in file "main.c"
+		line 1861 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2405,7 +2405,7 @@ Total ram usage:       17 bytes
 
  *************** function _sendEscapedUartData *****************
  Defined at:
-		line 1515 in file "main.c"
+		line 1514 in file "main.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
   pcrc            2   12[BANK0 ] PTR unsigned char 
@@ -2521,7 +2521,7 @@ Total ram usage:        7 bytes
 
  *************** function _doModeVerbose *****************
  Defined at:
-		line 492 in file "main.c"
+		line 491 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2627,7 +2627,7 @@ Total ram usage:       81 bytes
 
  *************** function _setFilter *****************
  Defined at:
-		line 2776 in file "main.c"
+		line 2775 in file "main.c"
  Parameters:    Size  Location     Type
   filter          1    wreg     unsigned char 
   val             4    0[BANK0 ] unsigned long 
@@ -2662,7 +2662,7 @@ Total ram usage:       15 bytes
 
  *************** function _writeRegisterExtended *****************
  Defined at:
-		line 2339 in file "main.c"
+		line 2338 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
   page            2   86[BANK0 ] unsigned short 
@@ -2698,7 +2698,7 @@ Total ram usage:       12 bytes
 
  *************** function _printBinary *****************
  Defined at:
-		line 2426 in file "main.c"
+		line 2425 in file "main.c"
  Parameters:    Size  Location     Type
   value           1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2729,7 +2729,7 @@ Total ram usage:        5 bytes
 
  *************** function _readRegisterExtended *****************
  Defined at:
-		line 2238 in file "main.c"
+		line 2237 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
   page            2   86[BANK0 ] unsigned short 
@@ -2799,7 +2799,7 @@ Total ram usage:        6 bytes
 
  *************** function _findNodes *****************
  Defined at:
-		line 2577 in file "main.c"
+		line 2576 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2836,7 +2836,7 @@ Total ram usage:        5 bytes
 
  *************** function _printMDF *****************
  Defined at:
-		line 2658 in file "main.c"
+		line 2657 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2873,7 +2873,7 @@ Total ram usage:        5 bytes
 
  *************** function _printGUID *****************
  Defined at:
-		line 2617 in file "main.c"
+		line 2616 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2912,7 +2912,7 @@ Total ram usage:        6 bytes
 
  *************** function _printNodeFirmwareVersion *****************
  Defined at:
-		line 2689 in file "main.c"
+		line 2688 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2986,7 +2986,7 @@ Total ram usage:        6 bytes
 
  *************** function _readRegister *****************
  Defined at:
-		line 2192 in file "main.c"
+		line 2191 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
   reg             1   86[BANK0 ] unsigned char 
@@ -3024,7 +3024,7 @@ Total ram usage:        9 bytes
 
  *************** function _sendVSCPFrame *****************
  Defined at:
-		line 2913 in file "main.c"
+		line 2912 in file "main.c"
  Parameters:    Size  Location     Type
   vscpclass       2   54[BANK0 ] unsigned short 
   vscptype        1   56[BANK0 ] unsigned char 
@@ -3063,7 +3063,7 @@ Total ram usage:       32 bytes
 
  *************** function _sendCANFrame *****************
  Defined at:
-		line 2959 in file "main.c"
+		line 2958 in file "main.c"
  Parameters:    Size  Location     Type
   id              4   47[BANK0 ] unsigned long 
   dlc             1   51[BANK0 ] unsigned char 
@@ -3224,7 +3224,7 @@ Total ram usage:        8 bytes
 
  *************** function _printHelp *****************
  Defined at:
-		line 2536 in file "main.c"
+		line 2535 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3254,7 +3254,7 @@ Total ram usage:        0 bytes
 
  *************** function _printErrors *****************
  Defined at:
-		line 2472 in file "main.c"
+		line 2471 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3285,7 +3285,7 @@ Total ram usage:       12 bytes
 
  *************** function _printStatistics *****************
  Defined at:
-		line 2445 in file "main.c"
+		line 2444 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3706,7 +3706,7 @@ Total ram usage:        4 bytes
 
  *************** function _receivePrintEventVerbose *****************
  Defined at:
-		line 1731 in file "main.c"
+		line 1730 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3738,7 +3738,7 @@ Total ram usage:       18 bytes
 
  *************** function _getVSCPFrame *****************
  Defined at:
-		line 2938 in file "main.c"
+		line 2937 in file "main.c"
  Parameters:    Size  Location     Type
   pvscpclass      2   18[BANK0 ] PTR unsigned short 
 		 -> vscpClass(2), 
@@ -3782,7 +3782,7 @@ Total ram usage:       20 bytes
 
  *************** function _getCANFrame *****************
  Defined at:
-		line 2974 in file "main.c"
+		line 2973 in file "main.c"
  Parameters:    Size  Location     Type
   pid             1    wreg     PTR unsigned long 
 		 -> getVSCPFrame@id(4), receiveSendEventSLCAN@id(4), receiveSendMultiEventCANAL@id(4), receiveSendEventCANAL@id(4), 
@@ -4053,7 +4053,7 @@ Total ram usage:        3 bytes
 
  *************** function _printFirmwareVersion *****************
  Defined at:
-		line 2734 in file "main.c"
+		line 2733 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4222,7 +4222,7 @@ Total ram usage:        7 bytes
 
  *************** function _printMode *****************
  Defined at:
-		line 2755 in file "main.c"
+		line 2754 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4378,7 +4378,7 @@ Total ram usage:        1 bytes
 
  *************** function _init *****************
  Defined at:
-		line 375 in file "main.c"
+		line 374 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4566,7 +4566,7 @@ Total ram usage:        4 bytes
 
  *************** function _vscp_restoreDefaults *****************
  Defined at:
-		line 2724 in file "main.c"
+		line 2723 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4597,7 +4597,7 @@ Total ram usage:        0 bytes
 
  *************** function _init_app_eeprom *****************
  Defined at:
-		line 465 in file "main.c"
+		line 464 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4660,7 +4660,7 @@ Total ram usage:        3 bytes
 
  *************** function _init_app_ram *****************
  Defined at:
-		line 447 in file "main.c"
+		line 446 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4757,7 +4757,7 @@ Total ram usage:        5 bytes
 
  *************** function _Interrupt *****************
  Defined at:
-		line 137 in file "main.c"
+		line 136 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
