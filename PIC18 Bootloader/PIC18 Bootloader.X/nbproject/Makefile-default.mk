@@ -86,11 +86,11 @@ ${OBJECTDIR}/_ext/1472/PIC18\ Bootloader.o: ../PIC18\ Bootloader.asm  nbproject/
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".d 
 	@${RM} "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o" 
-	@${FIXDEPS} dummy.d -e "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader.ERR" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_REAL_ICE=1 -q -p$(MP_PROCESSOR_OPTION)  $(ASM_OPTIONS)   \"C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader.asm\" 
-	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".O "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o"
-	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".ERR "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".err
-	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".LST "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".lst
-	@${RM}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".HEX 
+	@${FIXDEPS} dummy.d -e "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.ERR" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_REAL_ICE=1 -q -p$(MP_PROCESSOR_OPTION)  $(ASM_OPTIONS)   \"C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.asm\" 
+	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".O "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o"
+	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".ERR "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".err
+	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".LST "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".lst
+	@${RM}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".HEX 
 	@${DEP_GEN} -d "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o"
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	
@@ -99,11 +99,11 @@ ${OBJECTDIR}/_ext/1472/PIC18\ Bootloader.o: ../PIC18\ Bootloader.asm  nbproject/
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".d 
 	@${RM} "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o" 
-	@${FIXDEPS} dummy.d -e "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader.ERR" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  $(ASM_OPTIONS)   \"C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader.asm\" 
-	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".O "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o"
-	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".ERR "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".err
-	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".LST "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".lst
-	@${RM}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.X/../PIC18 Bootloader".HEX 
+	@${FIXDEPS} dummy.d -e "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.ERR" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  $(ASM_OPTIONS)   \"C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader.asm\" 
+	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".O "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o"
+	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".ERR "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".err
+	@${MV}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".LST "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o".lst
+	@${RM}  "C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/PIC18 Bootloader/PIC18 Bootloader".HEX 
 	@${DEP_GEN} -d "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o"
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/PIC18 Bootloader.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	

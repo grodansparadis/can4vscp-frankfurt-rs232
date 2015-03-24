@@ -96,7 +96,7 @@ uint8_t vscpData[8];
 #pragma config BORV = 3
 #pragma config LVP = ON
 #pragma config CPB = ON
-#pragma config BBSIZ = 2048
+#pragma config BBSIZ = 1024
 #pragma config WRTD  = OFF
 
 #pragma config EBTR0 = OFF
@@ -281,9 +281,9 @@ int main(int argc, char** argv)
 
     //mode = WORKING_MODE_VSCP_DRIVER;
 
-    putsUSART((char *) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
-    putsUSART((char *) "Copyright (C) 2014-2015 Grodans Paradis AB, Sweden\r\n");
-    putsUSART((char *) "http://www.paradiseofthefrog.com\r\n");
+    putsUSART((char*) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
+    putsUSART((char*) "Copyright (C) 2014-2015 Grodans Paradis AB, Sweden\r\n");
+    putsUSART((char*) "http://www.paradiseofthefrog.com\r\n");
     printFirmwareVersion();
     printMode();
 
@@ -299,7 +299,7 @@ int main(int argc, char** argv)
         ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
         while (timekeeper < 3000) {
             ClrWdt(); // Feed the dog
-            di();       // Disablee interrupt
+            di();       // Disable interrupt
             if (1 == fifo_read(&serialInputFifo, &c, 1)) {
                 ei(); // Enable interrupt
                 if ('v' == c) {

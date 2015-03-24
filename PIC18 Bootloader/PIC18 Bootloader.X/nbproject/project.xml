@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://www.netbeans.org/ns/project/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PIC18 Bootloader</name>
+            <name>PIC18 Serial Bootloader</name>
             <creation-uuid>413832f0-6434-4862-b9a0-03e7584c7b2a</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions/>

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 PRO Macro Assembler V1.21 build 54009 
-                                                                                               Tue Mar 17 11:00:32 2015
+                                                                                               Tue Mar 24 15:49:21 2015
 
 Microchip Technology Omniscient Code Generator (PRO mode) build 54009
      1                           	processor	18F2580
@@ -6482,7 +6482,7 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
   6475  003876  D7FC               	goto	u17137
   6476  003878  D000               	nop2	
   6477                           
-  6478                           ;main.c: 284: putsUSART((char *) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
+  6478                           ;main.c: 284: putsUSART((char*) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
   6479  00387A  0E79               	movlw	high STR_1
   6480  00387C  0100               	movlb	0	; () banked
   6481  00387E  6F62               	movwf	(?_putsUSART+1)& (0+255),b
@@ -6490,8 +6490,8 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
   6483  003882  6F61               	movwf	?_putsUSART& (0+255),b
   6484  003884  ECF6  F02A         	call	_putsUSART	;wreg free
   6485                           
-  6486                           ;main.c: 285: putsUSART((char *) "Copyright (C) 2014-2015 Grodans Paradis AB, Sweden\r\n
-      +                          ");
+  6486                           ;main.c: 285: putsUSART((char*) "Copyright (C) 2014-2015 Grodans Paradis AB, Sweden\r\n"
+      +                          );
   6487  003888  0E74               	movlw	high STR_2
   6488  00388A  0100               	movlb	0	; () banked
   6489  00388C  6F62               	movwf	(?_putsUSART+1)& (0+255),b
@@ -6499,7 +6499,7 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
   6491  003890  6F61               	movwf	?_putsUSART& (0+255),b
   6492  003892  ECF6  F02A         	call	_putsUSART	;wreg free
   6493                           
-  6494                           ;main.c: 286: putsUSART((char *) "http://www.paradiseofthefrog.com\r\n");
+  6494                           ;main.c: 286: putsUSART((char*) "http://www.paradiseofthefrog.com\r\n");
   6495  003896  0E79               	movlw	high STR_3
   6496  003898  0100               	movlb	0	; () banked
   6497  00389A  6F62               	movwf	(?_putsUSART+1)& (0+255),b
@@ -30326,7 +30326,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.21 build 54009 
-Symbol Table                                                                                   Tue Mar 17 11:00:32 2015
+Symbol Table                                                                                   Tue Mar 24 15:49:21 2015
 
         ??_receiveVSCPModeMultiCanalMsg 0060                   __end_of_doModeVerbose 1900  
                           printBinary@i 0064                             fifo_write@f 000F  

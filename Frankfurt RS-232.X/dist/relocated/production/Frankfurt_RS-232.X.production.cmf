@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+$C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 end_init CODE 0 668 668 4 1
 reset_vec CODE 0 400 400 4 1
 idloc IDLOC 0 200000 200000 8 1
@@ -1779,46 +1779,46 @@ $dist/relocated/production\Frankfurt_RS-232.X.production.obj
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strnicmp.c":9 539C text49 CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strnicmp.c":15 53AC text49 CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strnicmp.c":16 53B0 text49 CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8625 53B2 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8626 53B6 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8628 53BA cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8629 53BC cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8630 53BE cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8631 53C0 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8632 53C2 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8633 53C4 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8636 53C6 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8637 53CA cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8639 53CE cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8640 53D0 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8641 53D2 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8642 53D4 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8643 53D6 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8644 53D8 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8647 53DA cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8648 53DE cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8650 53E0 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8651 53E2 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8652 53E4 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8655 53E6 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8656 53EA cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8658 53EC cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8659 53EE cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8660 53F0 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8663 53F2 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8664 53F6 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8666 53F8 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8667 53FA cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8668 53FC cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8671 53FE cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8672 5402 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8674 5404 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8675 5406 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8676 5408 cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8684 540A cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8685 540C cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8686 540E cinit CODE
-"C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.":8687 5410 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8625 53B2 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8626 53B6 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8628 53BA cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8629 53BC cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8630 53BE cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8631 53C0 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8632 53C2 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8633 53C4 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8636 53C6 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8637 53CA cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8639 53CE cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8640 53D0 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8641 53D2 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8642 53D4 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8643 53D6 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8644 53D8 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8647 53DA cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8648 53DE cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8650 53E0 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8651 53E2 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8652 53E4 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8655 53E6 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8656 53EA cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8658 53EC cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8659 53EE cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8660 53F0 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8663 53F2 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8664 53F6 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8666 53F8 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8667 53FA cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8668 53FC cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8671 53FE cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8672 5402 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8674 5404 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8675 5406 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8676 5408 cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8684 540A cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8685 540C cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8686 540E cinit CODE
+"C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.":8687 5410 cinit CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strchr.c":7 5414 text46 CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strchr.c":8 5438 text46 CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strchr.c":9 5442 text46 CODE
@@ -2245,7 +2245,7 @@ __end_of_fifo_write 3CA8 0 CODE 0 text87 dist/relocated/production\Frankfurt_RS-
 fifo_init@f 64 0 BANK0 1 cstackBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _caps F5 0 BANK0 1 nvBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _init 5726 0 CODE 0 text69 dist/relocated/production\Frankfurt_RS-232.X.production.obj
-start 668 0 CODE 0 init C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+start 668 0 CODE 0 init C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 __size_of_sendVSCPDriverNack 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _vscpData 1A4 0 BANK1 1 bssBANK1 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _LATC1 7C59 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
@@ -2907,8 +2907,8 @@ _bSilent 101 0 BANK1 1 bssBANK1 dist/relocated/production\Frankfurt_RS-232.X.pro
 _RXM0EXIDM 78CB 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _printGUID 4012 0 CODE 0 text30 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 ?_strspn 66 0 BANK0 1 cstackBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
-__mediumconst 6FB4 0 MEDIUMCONST 0 mediumconst C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
+__mediumconst 6FB4 0 MEDIUMCONST 0 mediumconst C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 ___lwdiv 56DC 0 CODE 0 text65 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of_sendVSCPDriverAck 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
@@ -3370,7 +3370,7 @@ _RXF7SIDL D65 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.
 _RXF8SIDL D69 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __end_of___llmod 54D8 0 CODE 0 text58 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _RXF9SIDL D71 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 __ECANPointBuffer@pt 5 0 COMRAM 1 cstackCOMRAM dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of_sendEscapedUartData 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of___wmul 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
@@ -3398,7 +3398,7 @@ __stringdata 702C 0 MEDIUMCONST 0 mediumconst dist/relocated/production\Frankfur
 sendVSCPFrame@pData 9C 0 BANK0 1 cstackBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 readRegisterExtended@nodeid C1 0 BANK0 1 cstackBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of_atoi 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+__accesstop 60 0 ABS 0 - C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 init_crc8@j 62 0 BANK0 1 cstackBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _FIFOEMPTY 7BA7 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/relocated/production\Frankfurt_RS-232.X.production.obj
@@ -3406,18 +3406,18 @@ __Lintcode_body 0 0 ABS 0 intcode_body dist/relocated/production\Frankfurt_RS-23
 __end_of_printFirmwareVersion 4EF2 0 CODE 0 text61 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of_stristr 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __end_of_sendVSCPDriverErrorFrame 48B6 0 CODE 0 text15 dist/relocated/production\Frankfurt_RS-232.X.production.obj
-intlevel0 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+intlevel0 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 __size_of_fifo_read 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __end_of__CANIDToRegs 3DB2 0 CODE 0 text37 dist/relocated/production\Frankfurt_RS-232.X.production.obj
-intlevel1 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+intlevel1 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 __end_of_stristr 5108 0 CODE 0 text47 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 doModeVerbose@value_1159 2A9 0 BANK2 1 cstackBANK2 dist/relocated/production\Frankfurt_RS-232.X.production.obj
-intlevel2 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+intlevel2 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 __size_of_writeEEPROM 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __size_of_printErrors 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __end_of_sendVSCPModeCapabilities 497A 0 CODE 0 text9 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 __end_of_printErrors 27D4 0 CODE 0 text40 dist/relocated/production\Frankfurt_RS-232.X.production.obj
-intlevel3 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s4ng.obj
+intlevel3 0 0 CODE 0 text C:\Users\GRODAN~1\AppData\Local\Temp\s2v0.obj
 __size_of_printHelp 0 0 ABS 0 - dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _sendVSCPDriverErrorFrame 4806 0 CODE 0 text15 dist/relocated/production\Frankfurt_RS-232.X.production.obj
 _sprintf$2151 86 0 BANK0 1 cstackBANK0 dist/relocated/production\Frankfurt_RS-232.X.production.obj
