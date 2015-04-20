@@ -369,3 +369,6 @@
 /eagle/smd/*.b#1
 /eagle/old/CA330A~1.brd
 /eagle/old/CAN4VS~3.pro
+*.d
+*.err
+*.lst

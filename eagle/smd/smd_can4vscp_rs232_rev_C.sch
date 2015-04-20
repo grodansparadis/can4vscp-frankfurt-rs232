@@ -16844,7 +16844,6 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0805" value="120"/>
 <part name="PAD1" library="wirepad" deviceset="1,6/0,8" device=""/>
 <part name="PAD2" library="wirepad" deviceset="1,6/0,8" device=""/>
-<part name="P+4" library="SUPPLY1" deviceset="VCC" device=""/>
 <part name="C7" library="cap-master" deviceset="CNP-" device="0805" value="100nF"/>
 <part name="GND18" library="SUPPLY1" deviceset="GND" device=""/>
 <part name="J6" library="con-lstb" deviceset="MA03-1" device=""/>
@@ -16936,7 +16935,6 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <instance part="R17" gate="G$1" x="254" y="248.92" rot="R90"/>
 <instance part="PAD1" gate="P" x="233.68" y="246.38"/>
 <instance part="PAD2" gate="P" x="233.68" y="238.76"/>
-<instance part="P+4" gate="VCC" x="22.86" y="215.9"/>
 <instance part="C7" gate="G$1" x="152.4" y="25.4" rot="R90"/>
 <instance part="GND18" gate="1" x="152.4" y="20.32"/>
 <instance part="J6" gate="G$1" x="299.72" y="99.06" rot="R180"/>
@@ -16983,15 +16981,6 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <wire x1="144.78" y1="33.02" x2="152.4" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="33.02" x2="152.4" y2="27.94" width="0.1524" layer="91"/>
 <junction x="144.78" y="33.02"/>
-</segment>
-<segment>
-<wire x1="22.86" y1="203.2" x2="22.86" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="203.2" x2="22.86" y2="203.2" width="0.1524" layer="91"/>
-<pinref part="C8" gate="G$1" pin="2"/>
-<pinref part="IC1" gate="G$1" pin="RA4/T0CKIN"/>
-<pinref part="P+4" gate="VCC" pin="VCC"/>
-<wire x1="22.86" y1="203.2" x2="22.86" y2="213.36" width="0.1524" layer="91"/>
-<junction x="22.86" y="203.2"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -17495,6 +17484,14 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <pinref part="J5" gate="G$1" pin="1"/>
 <wire x1="335.28" y1="101.6" x2="330.2" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="101.6" x2="330.2" y2="111.76" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<wire x1="22.86" y1="203.2" x2="22.86" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="203.2" x2="22.86" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<pinref part="IC1" gate="G$1" pin="RA4/T0CKIN"/>
 </segment>
 </net>
 </nets>
