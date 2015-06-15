@@ -1,4 +1,5 @@
 Frankfurt RS-232 module
 =======================
 
+2015-06-12 AKHE - Added slcan @vscp to enter vscp mode from slcan
 2014-11-28 AKHE - Started development

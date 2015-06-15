@@ -112,16 +112,76 @@
 ; *****************************************************************************
 
 ; AKHE Frankfurt RS-232 Configs
-CONFIG  OSC = HSPLL     ; Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))
-CONFIG  BBSIZ = 1024    ; Boot Block Size Select bit (1K words (2K bytes) boot block)
-CONFIG  WDT = OFF       ; Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
-CONFIG  LVP = OFF       ; Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
-;CONFIG  XINST = OFF     ; Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode disabled (Legacy mode))
-;CONFIG  FCMEN = ON      ; Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
-;CONFIG  EBTR0 = OFF     ; Table Read Protection bit (Block 0 (000800-001FFFh) not protected from table reads executed in other blocks)
-;CONFIG  EBTR1 = OFF     ; Table Read Protection bit (Block 1 (002000-003FFFh) not protected from table reads executed in other blocks)
-;CONFIG  EBTR2 = OFF     ; Table Read Protection bit (Block 2 (004000-005FFFh) not protected from table reads executed in other blocks)
-;CONFIG  EBTR3 = OFF     ; Table Read Protection bit (Block 3 (006000-007FFFh) not protected from table reads executed in other blocks)
+#ifdef __18F2580
+  CONFIG  OSC = HSPLL     ; Oscillator Selection bits (HS oscillator, PLL enabled (Clock Frequency = 4 x FOSC1))
+  CONFIG  BBSIZ = 1024    ; Boot Block Size Select bit (1K words (2K bytes) boot block)
+  CONFIG  WDT = OFF       ; Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
+  CONFIG  LVP = OFF       ; Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
+#endif
+#ifdef __18F26K80
+; ASM source line config statements
+
+; CONFIG1L
+  CONFIG  RETEN = OFF           ; VREG Sleep Enable bit (Ultra low-power regulator is Disabled (Controlled by REGSLP bit))
+  CONFIG  INTOSCSEL = HIGH      ; LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
+  CONFIG  SOSCSEL = HIGH        ; SOSC Power Selection and mode Configuration bits (High Power SOSC circuit selected)
+  CONFIG  XINST = OFF           ; Extended Instruction Set (Disabled)
+
+; CONFIG1H
+  CONFIG  FOSC = INTIO2         ; Oscillator (Internal RC oscillator)
+  CONFIG  PLLCFG = ON           ; PLL x4 Enable bit (Enabled)
+  CONFIG  FCMEN = OFF           ; Fail-Safe Clock Monitor (Disabled)
+  CONFIG  IESO = OFF            ; Internal External Oscillator Switch Over Mode (Disabled)
+
+; CONFIG2L
+  CONFIG  PWRTEN = ON           ; Power Up Timer (Enabled)
+  CONFIG  BOREN = SBORDIS       ; Brown Out Detect (Enabled in hardware, SBOREN disabled)
+  CONFIG  BORV = 1              ; Brown-out Reset Voltage bits (2.7V)
+  CONFIG  BORPWR = ZPBORMV      ; BORMV Power level (ZPBORMV instead of BORMV is selected)
+
+; CONFIG2H
+  CONFIG  WDTEN = SWDTDIS       ; Watchdog Timer (WDT enabled in hardware; SWDTEN bit disabled)
+  CONFIG  WDTPS = 1048576       ; Watchdog Postscaler (1:1048576)
+
+; CONFIG3H
+  CONFIG  CANMX = PORTB         ; ECAN Mux bit (ECAN TX and RX pins are located on RB2 and RB3, respectively)
+  CONFIG  MSSPMSK = MSK7        ; MSSP address masking (7 Bit address masking mode)
+  CONFIG  MCLRE = ON            ; Master Clear Enable (MCLR Enabled, RE3 Disabled)
+
+; CONFIG4L
+  CONFIG  STVREN = ON           ; Stack Overflow Reset (Enabled)
+  CONFIG  BBSIZ = BB1K          ; Boot Block Size (1K word Boot Block size)
+
+; CONFIG5L
+  CONFIG  CP0 = OFF             ; Code Protect 00800-03FFF (Disabled)
+  CONFIG  CP1 = OFF             ; Code Protect 04000-07FFF (Disabled)
+  CONFIG  CP2 = OFF             ; Code Protect 08000-0BFFF (Disabled)
+  CONFIG  CP3 = OFF             ; Code Protect 0C000-0FFFF (Disabled)
+
+; CONFIG5H
+  CONFIG  CPB = OFF             ; Code Protect Boot (Disabled)
+  CONFIG  CPD = OFF             ; Data EE Read Protect (Disabled)
+
+; CONFIG6L
+  CONFIG  WRT0 = OFF            ; Table Write Protect 00800-03FFF (Disabled)
+  CONFIG  WRT1 = OFF            ; Table Write Protect 04000-07FFF (Disabled)
+  CONFIG  WRT2 = OFF            ; Table Write Protect 08000-0BFFF (Disabled)
+  CONFIG  WRT3 = OFF            ; Table Write Protect 0C000-0FFFF (Disabled)
+
+; CONFIG6H
+  CONFIG  WRTC = OFF            ; Config. Write Protect (Disabled)
+  CONFIG  WRTB = OFF            ; Table Write Protect Boot (Disabled)
+  CONFIG  WRTD = OFF            ; Data EE Write Protect (Disabled)
+
+; CONFIG7L
+  CONFIG  EBTR0 = OFF           ; Table Read Protect 00800-03FFF (Disabled)
+  CONFIG  EBTR1 = OFF           ; Table Read Protect 04000-07FFF (Disabled)
+  CONFIG  EBTR2 = OFF           ; Table Read Protect 08000-0BFFF (Disabled)
+  CONFIG  EBTR3 = OFF           ; Table Read Protect 0C000-0FFFF (Disabled)
+
+; CONFIG7H
+  CONFIG  EBTRB = OFF           ; Table Read Protect Boot (Disabled)
+#endif
 
 ; *****************************************************************************
 #define STX             0x0F            

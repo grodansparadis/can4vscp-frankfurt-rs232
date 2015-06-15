@@ -1,6 +1,6 @@
 /* 
  * File:   main.c - Frankfurt RS-232
- * Author: Ake Hedman Grodansparadis AB, Sweden
+ * Author: Ake Hedman, Grodansparadis AB, Sweden
  *
  * Created on den 28 november 2014, 12:17
  */
@@ -35,10 +35,10 @@ uint8_t caninputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];
 fifo_t serialInputFifo;
 fifo_t canInputFifo;
 
-volatile uint32_t timer = 0; // Millisecond timer
-volatile uint32_t timekeeper = 0; // Nill to measure time
-uint8_t ledFunctionality; // Init LED functionality
-volatile uint16_t status_led_cnt; // status LED counter
+volatile uint32_t timer = 0;        // Millisecond timer
+volatile uint32_t timekeeper = 0;   // Nill to measure time
+uint8_t ledFunctionality;           // Init LED functionality
+volatile uint16_t status_led_cnt;   // status LED counter
 // increase externally by one every
 // millisecond
 uint8_t mode;           // Unit working mode
@@ -203,7 +203,7 @@ void interrupt low_priority Interrupt()
         IRXIF = 0;
     }
 
-    // Check for CAN RX interrrupt
+    // Check for CAN RX interrupt
     if ( RXBnIF ) {
 
         uint32_t id;
@@ -238,7 +238,7 @@ void interrupt low_priority Interrupt()
 
         }
 
-        // Not needed restetted in ECAN
+        // Not needed rested in ECAN
         RXBnIF = 0; // Clear CAN0 Interrupt Flag
     }
 
@@ -288,7 +288,7 @@ int main(int argc, char** argv)
     printMode();
 
     // Wait for init. sequency to bring interface to verbose mode
-    // v' pressed withing three seconds
+    // 'v' pressed withing three seconds
     if ( WORKING_MODE_VERBOSE != mode ) {
 
         uint8_t c;
@@ -1310,7 +1310,7 @@ void doModeSLCAN(void)
     // Disable interrupt
     di();
 
-    if (1 == fifo_read(&serialInputFifo, &c, 1)) {
+    if ( 1 == fifo_read( &serialInputFifo, &c, 1 ) ) {
 
         // Enable interrupts again
         ei();
@@ -1461,10 +1461,26 @@ void doModeSLCAN(void)
                 }
                 break;
 
-                // BOOT loader entry
+            // BOOT loader entry
             case 'B':
                 writeEEPROM(MODULE_EEPROM_INIT_BYTE1, 0xFF);
                 Reset();
+                break;
+                
+            // Go to VSCP/Verbose mode '@vscp' or '@verb'
+            case '@':
+                if ( 'v' == cmdbuf[1] &&
+                        's' == cmdbuf[2] &&
+                        'c' == cmdbuf[3] &&
+                        'p' == cmdbuf[4] ) {
+                    mode = WORKING_MODE_VSCP_DRIVER;
+                }
+                else if ( 'v' == cmdbuf[1] &&
+                        'e' == cmdbuf[2] &&
+                        'r' == cmdbuf[3] &&
+                        'b' == cmdbuf[4] ) {
+                    mode = WORKING_MODE_VERBOSE;
+                }
                 break;
 
             default:
