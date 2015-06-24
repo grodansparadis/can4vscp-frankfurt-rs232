@@ -22,7 +22,6 @@
       <itemPath>ECAN.def</itemPath>
       <itemPath>fifo.c</itemPath>
       <itemPath>fifo.h</itemPath>
-      <itemPath>eeprom.c</itemPath>
       <itemPath>crc8.c</itemPath>
       <itemPath>crc8.h</itemPath>
       <itemPath>hexutils.h</itemPath>

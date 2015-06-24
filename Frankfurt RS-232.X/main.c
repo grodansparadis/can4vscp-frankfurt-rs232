@@ -267,8 +267,8 @@ int main(int argc, char** argv)
 
     // If EEPROM is not initialized then restore defaults
     // before the system is initialized
-    if ( ( 0x55 != readEEPROM(MODULE_EEPROM_INIT_BYTE1) ) ||
-            ( 0xaa != readEEPROM(MODULE_EEPROM_INIT_BYTE2) ) ) {
+    if ( ( 0x55 != eeprom_read(MODULE_EEPROM_INIT_BYTE1) ) ||
+            ( 0xaa != eeprom_read(MODULE_EEPROM_INIT_BYTE2) ) ) {
         vscp_restoreDefaults();
     }
 
@@ -450,10 +450,10 @@ void init_app_ram(void)
     uart_receiveOverruns = 0;
     uart_transmitOverruns = 0;
 
-    bHex = readEEPROM(MOUDLE_EEPROM_PRINTOUT_IN_HEX);
-    mode = readEEPROM(MODULE_EEPROM_STARTUP_MODE);
+    bHex = eeprom_read(MOUDLE_EEPROM_PRINTOUT_IN_HEX);
+    mode = eeprom_read(MODULE_EEPROM_STARTUP_MODE);
 
-    rwtimeout = readEEPROM(MODULE_EEPROM_RW_TIMEOUT);
+    rwtimeout = eeprom_read(MODULE_EEPROM_RW_TIMEOUT);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -464,21 +464,21 @@ void init_app_eeprom(void)
 {
     uint8_t i;
 
-    writeEEPROM(MODULE_EEPROM_INIT_BYTE1, 0x55);
-    writeEEPROM(MODULE_EEPROM_INIT_BYTE2, 0xAA);
-    writeEEPROM(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE);
-    writeEEPROM(MOUDLE_EEPROM_SLCAN_TIMESTAMP, SLCAN_TIMESTAMP_NOT_USED);
-    writeEEPROM(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL);
-    writeEEPROM(MODULE_EEPROM_RW_TIMEOUT, DEFAULT_REGISTER_RW_TIMEOUT);
+    eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0x55);
+    eeprom_write(MODULE_EEPROM_INIT_BYTE2, 0xAA);
+    eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE);
+    eeprom_write(MOUDLE_EEPROM_SLCAN_TIMESTAMP, SLCAN_TIMESTAMP_NOT_USED);
+    eeprom_write(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL);
+    eeprom_write(MODULE_EEPROM_RW_TIMEOUT, DEFAULT_REGISTER_RW_TIMEOUT);
 
     // Set all filters to 0xff
     for (i = MODULE_EEPROM_FILTER0; i < (MODULE_EEPROM_FILTER15 + 4); i++) {
-        writeEEPROM(MODULE_EEPROM_INIT_BYTE1, 0xFF);
+        eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
     }
 
     // Set all masks 0x00
     for (i = MODULE_EEPROM_MASK0; i < (MODULE_EEPROM_MASK1 + 4); i++) {
-        writeEEPROM(MODULE_EEPROM_INIT_BYTE1, 0xFF);
+        eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
     }
 }
 
@@ -525,7 +525,7 @@ void doModeVerbose(void)
             // Enter bootloader
             if (cmdbuf == stristr(cmdbuf, "BOOT")) {
                 putsUSART((char *) "Will enter bootloader now...\r\n");
-                writeEEPROM(MODULE_EEPROM_BOOTLOADER_FLAG, 0xFF);
+                eeprom_write(MODULE_EEPROM_BOOTLOADER_FLAG, 0xFF);
                 Reset();
             }
             // Open interface
@@ -1015,13 +1015,13 @@ void doModeVerbose(void)
                 // Hex - Numbers in Hex from now on
                 if (cmdbuf == stristr(cmdbuf, "HEX")) {
                     bHex = TRUE;
-                    writeEEPROM(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_HEX);
+                    eeprom_write(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_HEX);
                     putsUSART((char *) "+OK - Numerical output now in hexadecimal\r\n");
                 }
                 // Decimal - numbers in decimal from now on
                 else if (cmdbuf == stristr(cmdbuf, "DECIMAL")) {
                     bHex = FALSE;
-                    writeEEPROM(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL);
+                    eeprom_write(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL);
                     putsUSART((char *) "+OK - Numerical output now in decimal\r\n");
                 }
                 else if (0 != stristr(cmdbuf, "RWTIMEOUT ")) {
@@ -1030,7 +1030,7 @@ void doModeVerbose(void)
                     if (rwtimeout < DEFAULT_REGISTER_RW_TIMEOUT) {
                         rwtimeout = DEFAULT_REGISTER_RW_TIMEOUT;
                     }
-                    writeEEPROM(MODULE_EEPROM_RW_TIMEOUT, rwtimeout);
+                    eeprom_write(MODULE_EEPROM_RW_TIMEOUT, rwtimeout);
                     putsUSART((char *) "+OK\r\n");
                 }
                 else if (0 != stristr(cmdbuf, "STARTIF ")) {
@@ -1040,17 +1040,17 @@ void doModeVerbose(void)
                     strcpy(cmdbuf, cmdbuf + 5);
                     if (0 != stristr(cmdbuf, "VERBOSE")) {
                         mode = WORKING_MODE_VERBOSE;
-                        writeEEPROM(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE);
+                        eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE);
                         putsUSART((char *) "+OK - Mode is now verbose\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "VSCP")) {
                         mode = WORKING_MODE_VSCP_DRIVER;
-                        writeEEPROM(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VSCP_DRIVER);
+                        eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VSCP_DRIVER);
                         putsUSART((char *) "+OK - Mode is now VSCP Driver\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "SLCAN")) {
                         mode = WORKING_MODE_SL_DRIVER;
-                        writeEEPROM(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_SL_DRIVER);
+                        eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_SL_DRIVER);
                         putsUSART((char *) "+OK - Mode is now SLCAN\r\n");
                     }
                 }
@@ -1446,12 +1446,12 @@ void doModeSLCAN(void)
                         if ('0' == cmdbuf[1]) {
                             nTimeStamp = SLCAN_TIMESTAMP_NOT_USED;
                             // Timestamp disabled
-                            writeEEPROM(MOUDLE_EEPROM_SLCAN_TIMESTAMP, SLCAN_TIMESTAMP_NOT_USED);
+                            eeprom_write(MOUDLE_EEPROM_SLCAN_TIMESTAMP, SLCAN_TIMESTAMP_NOT_USED);
                             rv = TRUE;
                         } else if ('1' == cmdbuf[1]) {
                             nTimeStamp = SLCAN_TIMESTAMP_USE;
                             // Low resolution timestamp enabled
-                            writeEEPROM(MOUDLE_EEPROM_SLCAN_TIMESTAMP,
+                            eeprom_write(MOUDLE_EEPROM_SLCAN_TIMESTAMP,
                                     SLCAN_TIMESTAMP_USE);
                             rv = TRUE;
                         } else {
@@ -1463,7 +1463,7 @@ void doModeSLCAN(void)
 
             // BOOT loader entry
             case 'B':
-                writeEEPROM(MODULE_EEPROM_INIT_BYTE1, 0xFF);
+                eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
                 Reset();
                 break;
                 
