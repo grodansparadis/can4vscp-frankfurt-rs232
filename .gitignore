@@ -372,3 +372,8 @@
 *.d
 *.err
 *.lst
+/PIC18 Bootloader/PIC18 Bootloader.X/dist/pic18f26K80/production/PIC18 Bootloader.X.production.map
+/PIC18 Bootloader/PIC18 Bootloader.X/dist/pic18f26K80/production/PIC18_Bootloader.X.production.cof
+/PIC18 Bootloader/PIC18 Bootloader.X/nbproject/Makefile-local-pic18f26K80.mk
+/PIC18 Bootloader/PIC18 Bootloader.X/nbproject/Makefile-pic18f26K80.mk
+/PIC18 Bootloader/PIC18 Bootloader.X/nbproject/Package-pic18f26K80.bash
