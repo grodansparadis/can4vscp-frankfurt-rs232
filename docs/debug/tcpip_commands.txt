@@ -1,0 +1,2 @@
+Extended read - send 0,0,37,0,0,-,1,0,0,128,128
+Extended read response  0,0,39,0,0,-,1,0,0,128,128

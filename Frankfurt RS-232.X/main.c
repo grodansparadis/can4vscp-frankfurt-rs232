@@ -41,26 +41,26 @@ uint8_t ledFunctionality;           // Init LED functionality
 volatile uint16_t status_led_cnt;   // status LED counter
 // increase externally by one every
 // millisecond
-uint8_t mode;           // Unit working mode
+uint8_t mode;                       // Unit working mode
 
-BOOL bHex = FALSE;      // Numerical printouts in hex
+BOOL bHex = FALSE;                  // Numerical printouts in hex
 
-BOOL bOpen = FALSE;     // TRUE if i/f is open
-BOOL bSilent = FALSE;   // Open but no receive
-uint8_t rwtimeout;      // Reg read/write timeout
+BOOL bOpen = FALSE;                 // TRUE if i/f is open
+BOOL bSilent = FALSE;               // Open but no receive
+uint8_t rwtimeout;                  // Reg read/write timeout
 
-volatile uint8_t canrxcount = 0; // Number of CAN messages in fifo
+volatile uint8_t canrxcount = 0;    // Number of CAN messages in fifo
 
 // Statistics
-uint32_t cntTxFrames = 0;   // Number of sent CAN frames
-uint32_t cntTxBytes = 0;    // Number of sent bytes
-uint32_t cntRxFrames = 0;   // Number of receiveed frames
-uint32_t cntRxBytes = 0;    // Number of received frames
+uint32_t cntTxFrames = 0;           // Number of sent CAN frames
+uint32_t cntTxBytes = 0;            // Number of sent bytes
+uint32_t cntRxFrames = 0;           // Number of receiveed frames
+uint32_t cntRxBytes = 0;            // Number of received frames
 
 // Error statistics
-uint32_t can_receiveOverruns = 0; // CAN receive overruns (to user)
-uint32_t can_transmitOverruns = 0; // CAN send overruns.
-uint32_t uart_receiveOverruns = 0; // UART receive overruns (user)
+uint32_t can_receiveOverruns = 0;   // CAN receive overruns (to user)
+uint32_t can_transmitOverruns = 0;  // CAN send overruns.
+uint32_t uart_receiveOverruns = 0;  // UART receive overruns (user)
 uint32_t uart_transmitOverruns = 0; // UART send overruns.
 
 uint8_t pos = 0;
@@ -69,7 +69,7 @@ char wrkbuf[80];
 
 // VSCP driver mode
 BOOL stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
-BOOL bDLE = FALSE; // True if escape character has been received.
+BOOL bDLE = FALSE;      // True if escape character has been received.
 uint8_t sequencyno = 0; // Sequency number. Increases for every frame
 
 // * * * *   Capabilities   * * * *

@@ -1,7 +1,8 @@
 Frankfurt RS-232 TODO
 =====================
 
-- Handel capabilities in driver.
+- Add change mode command to CAN4VSCP mode of Frankfurt RS-232  so it is possible to leave this mode with a utility if needed. 
+- Handle capabilities in driver.
 - ACK commands in driver.
 - Check CAN errors.
 - Debug SLCAN mode.
