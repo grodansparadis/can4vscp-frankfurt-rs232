@@ -190,7 +190,7 @@
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="tracecontrol.disablemacros" value="false"/>
-        <property key="tracecontrol.include.timestamp" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
         <property key="tracecontrol.medium" value="1"/>
         <property key="tracecontrol.portselect" value="0"/>
         <property key="tracecontrol.select" value="0"/>
@@ -252,8 +252,8 @@
         <property key="operation-mode" value="pro"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
         <property key="optimization-assembler" value="true"/>
-        <property key="optimization-assembler-files" value="false"/>
-        <property key="optimization-debug" value="false"/>
+        <property key="optimization-assembler-files" value="true"/>
+        <property key="optimization-debug" value="true"/>
         <property key="optimization-global" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
@@ -265,7 +265,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="verbose" value="false"/>
-        <property key="warning-level" value="0"/>
+        <property key="warning-level" value="9"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
@@ -323,7 +323,8 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>
@@ -357,7 +358,7 @@
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="tracecontrol.disablemacros" value="false"/>
-        <property key="tracecontrol.include.timestamp" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
         <property key="tracecontrol.medium" value="1"/>
         <property key="tracecontrol.portselect" value="0"/>
         <property key="tracecontrol.select" value="0"/>
@@ -524,7 +525,7 @@
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="tracecontrol.disablemacros" value="false"/>
-        <property key="tracecontrol.include.timestamp" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
         <property key="tracecontrol.medium" value="1"/>
         <property key="tracecontrol.portselect" value="0"/>
         <property key="tracecontrol.select" value="0"/>

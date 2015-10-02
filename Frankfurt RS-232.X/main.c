@@ -27,9 +27,19 @@
 
 #define _XTAL_FREQ 40000000
 
+uint8_t mode;                       // Unit working mode
+
+// For interrupt CAN receive
+uint8_t c;
+uint32_t id;
+uint8_t dlc;
+uint8_t data[8];
+ECAN_RX_MSG_FLAGS flags;
+
 // Buffers
-uint8_t inputBuffer[ SIZE_SERIAL_INPUT_BUFFER ];
-uint8_t caninputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];
+uint8_t serial_inputBuffer[ SIZE_SERIAL_INPUT_BUFFER ];
+uint8_t can_inputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];    
+// Framesize = 13  ext-id(4) +  dlc(1) + data(8)
 
 // fifos
 fifo_t serialInputFifo;
@@ -37,24 +47,23 @@ fifo_t canInputFifo;
 
 volatile uint32_t timer = 0;        // Millisecond timer
 volatile uint32_t timekeeper = 0;   // Nill to measure time
-uint8_t ledFunctionality;           // Init LED functionality
+uint8_t ledFunctionality;           // Init. LED functionality
 volatile uint16_t status_led_cnt;   // status LED counter
 // increase externally by one every
 // millisecond
-uint8_t mode;                       // Unit working mode
+
 
 BOOL bHex = FALSE;                  // Numerical printouts in hex
-
 BOOL bOpen = FALSE;                 // TRUE if i/f is open
 BOOL bSilent = FALSE;               // Open but no receive
 uint8_t rwtimeout;                  // Reg read/write timeout
 
-volatile uint8_t canrxcount = 0;    // Number of CAN messages in fifo
+volatile uint8_t fifo_canrxcount = 0; // Number of CAN messages in fifo
 
 // Statistics
 uint32_t cntTxFrames = 0;           // Number of sent CAN frames
 uint32_t cntTxBytes = 0;            // Number of sent bytes
-uint32_t cntRxFrames = 0;           // Number of receiveed frames
+uint32_t cntRxFrames = 0;           // Number of received frames
 uint32_t cntRxBytes = 0;            // Number of received frames
 
 // Error statistics
@@ -127,6 +136,12 @@ uint8_t vscpData[8];
 
 #endif
 
+/*
+#undef BusyUSART()
+char BusyUSART()
+{
+    return (!TXSTAbits.TRMT);
+}*/
 
 ///////////////////////////////////////////////////////////////////////////////
 // Interrupt
@@ -134,14 +149,12 @@ uint8_t vscpData[8];
 
 void interrupt low_priority Interrupt()
 {
-    uint8_t c;
-
     // Check if the interrupt is caused by RX pin
     if ( 1 == PIR1bits.RCIF ) {
 
         c = ReadUSART();
 
-        if (1 != fifo_write(&serialInputFifo, &c, 1)) {
+        if ( 1 != fifo_write( &serialInputFifo, &c, 1 ) ) {
             // we have an overrun
             uart_receiveOverruns++;
         }
@@ -206,11 +219,6 @@ void interrupt low_priority Interrupt()
     // Check for CAN RX interrupt
     if ( RXBnIF ) {
 
-        uint32_t id;
-        uint8_t dlc;
-        uint8_t data[8];
-        ECAN_RX_MSG_FLAGS flags;
-
         if ( ECANReceiveMessage((unsigned long *)&id,
                                 (BYTE*)&data,
                                 (BYTE*)&dlc,
@@ -224,11 +232,23 @@ void interrupt low_priority Interrupt()
                     ( flags & ECAN_RX_XTD_FRAME ) ) {
 
                 if  ( ( fifo_getFree( &canInputFifo ) >= (5+dlc) ) ) {
-                    fifo_write( &canInputFifo, (uint8_t *)&id, 4 );
-                    fifo_write( &canInputFifo, &dlc, 1 );
-                    fifo_write( &canInputFifo, (uint8_t *)&data, dlc );
+                    uint8_t fail = FALSE;
+                    if ( 4 != fifo_write( &canInputFifo, (uint8_t *)&id, 4 ) ) {
+                        fail = TRUE;
+                    }
+                    if ( 1 != fifo_write( &canInputFifo, &dlc, 1 ) ) {
+                        fail = TRUE;
+                    }
+                    if ( dlc != fifo_write( &canInputFifo, (uint8_t *)&data, dlc ) ) {
+                        fail = TRUE;
+                    }
 
-                    canrxcount++;   // Another CAN frame in the fifo
+                    fifo_canrxcount++;   // Another CAN frame in the fifo
+                    
+                    if ( fail ) {
+                        can_receiveOverruns++;
+                    }
+                    
                 }
                 else {
                     can_receiveOverruns++;
@@ -240,6 +260,7 @@ void interrupt low_priority Interrupt()
 
         // Not needed rested in ECAN
         RXBnIF = 0; // Clear CAN0 Interrupt Flag
+        
     }
 
     
@@ -259,8 +280,8 @@ int main(int argc, char** argv)
                                     // request.
 
     // Init. fifos
-    fifo_init( &serialInputFifo, inputBuffer, sizeof ( inputBuffer));       // UART receive
-    fifo_init( &canInputFifo, caninputBuffer, sizeof ( caninputBuffer));    // CAN receive
+    fifo_init( &serialInputFifo, serial_inputBuffer, sizeof ( serial_inputBuffer)); // UART receive
+    fifo_init( &canInputFifo, can_inputBuffer, sizeof ( can_inputBuffer ) );        // CAN receive
 
     // Init. CRC table
     init_crc8();
@@ -282,13 +303,13 @@ int main(int argc, char** argv)
     //mode = WORKING_MODE_VSCP_DRIVER;
 
     putsUSART((char*) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
-    putsUSART((char*) "Copyright (C) 2014-2015 Grodans Paradis AB, Sweden\r\n");
+    putsUSART((char*) "Copyright (C) 2014-2015 Paradise of the Frog AB, Sweden\r\n");
     putsUSART((char*) "http://www.paradiseofthefrog.com\r\n");
     printFirmwareVersion();
     printMode();
 
     // Wait for init. sequency to bring interface to verbose mode
-    // 'v' pressed withing three seconds
+    // 'v' pressed within three seconds
     if ( WORKING_MODE_VERBOSE != mode ) {
 
         uint8_t c;
@@ -314,8 +335,11 @@ int main(int argc, char** argv)
 
     ledFunctionality = STATUS_LED_ON;
 
-    // Work loop  
-    while (TRUE) {
+    ///////////////////////////////////////////////////////////////////////////
+    //                            Work loop 
+    ///////////////////////////////////////////////////////////////////////////
+     
+    while ( TRUE ) {
 
         ClrWdt(); // Feed the dog
 
@@ -356,7 +380,7 @@ int main(int argc, char** argv)
             doModeVscpNode();
         }
         else {
-            doModeVerbose(); // Just in case
+            doModeVscp();      // Just in case
         }
 
     } // While
@@ -367,7 +391,7 @@ int main(int argc, char** argv)
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Init - Initialization Routine
+// Init. - Initialization Routine
 //
 
 void init()
@@ -400,7 +424,7 @@ void init()
     RCIF = 0; // Reset RX pin flag
     RCIP = 0; // Not high priority
     RCIE = 1; // Enable RX interrupt
-    PEIE = 1; // Enable pheripheral interrupt (serial port is a pheripheral)
+    PEIE = 1; // Enable peripheral interrupt (serial port is a peripheral)
 
     // Initialize 1 ms timer
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
@@ -409,7 +433,7 @@ void init()
     // Initialize CAN
     ECANInitialize();
 
-    // Must be in Config mode to change many of settings.
+    // Must be in config. mode to change many of settings.
     //ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
     // Return to Normal mode to communicate.
@@ -439,7 +463,7 @@ void init()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// init_app_ram
+// init._app._ram
 //
 
 void init_app_ram(void)
@@ -506,15 +530,11 @@ void doModeVerbose(void)
         ei();
 
         // Save
-        cmdbuf[ pos ] = c;
-        pos++;
-
-        if (pos >= SIZE_SERIAL_INPUT_BUFFER) {
-
+        cmdbuf[ pos++ ] = c;
+        if (pos >= sizeof( cmdbuf ) ) {
             // We have garbage. Start all over again to
             // look for valid content
             pos = 0;
-
         }
 
         // Check if we have a command
@@ -563,6 +583,7 @@ void doModeVerbose(void)
                 printFirmwareVersion();
                 putsUSART((char *) "+OK\r\n");
             }
+            // Set interface mode
             else if (cmdbuf == stristr(cmdbuf, "IFMODE")) {
                 ECAN_OP_MODE ifmode = ECANGetOperationMode();
                 if ((ECAN_OP_MODE_NORMAL == ifmode) & !bSilent) {
@@ -626,11 +647,12 @@ void doModeVerbose(void)
                     vscpSize = atoi(p);
                 }
 
-                memset(vscpData, 0, 8);
+                memset( vscpData, 0, 8 );
                 for (i = 0; i < vscpSize; i++) {
                     if (NULL != (p = strtok(NULL, ","))) {
                         vscpData[ i ] = atoi(p);
-                    } else {
+                    } 
+                    else {
                         break;
                     }
                 }
@@ -694,7 +716,8 @@ void doModeVerbose(void)
                 char *p = strtok(cmdbuf, " ");
                 if (NULL != p) {
                     nodeid = atoi(p);
-                } else {
+                } 
+                else {
                     putsUSART((char *) "-ERROR - Needs nodeid\r\n");
                     return;
                 }
@@ -705,7 +728,8 @@ void doModeVerbose(void)
                     if (preg = strchr(p, ':')) {
                         page = atoi(p);
                         reg = atoi(preg + 1);
-                    } else {
+                    } 
+                    else {
                         reg = atoi(p);
                     }
 
@@ -794,7 +818,7 @@ void doModeVerbose(void)
                     return;
                 }
 
-                if (NULL != (p = strtok(NULL, " "))) {
+                if ( NULL != ( p = strtok(NULL, " ") ) ) {
 
                     char *preg;
                     if (preg = strchr(p, ':')) {
@@ -1076,7 +1100,7 @@ void doModeVerbose(void)
                 }
             }
 
-            memset(cmdbuf, 0, sizeof ( cmdbuf));
+            memset( cmdbuf, 0, sizeof( cmdbuf ) );
             pos = 0; // Start again
         }
     }
@@ -1093,7 +1117,7 @@ void doModeVscp( void )
 {
     uint8_t c;
 
-    // Fetch possible VSCP event
+    // Fetch possible multi message 
     if ( caps.maxCanalFrames > 1 ) {
         // Send multiple CANAL frames in one serial frame for speed
         // if it is possible to do so.
@@ -1108,10 +1132,18 @@ void doModeVscp( void )
     // Disable interrupt
     di();
 
-    if ( 1 == fifo_read(&serialInputFifo, &c, 1 ) ) {
-
+    if ( 1 == fifo_read( &serialInputFifo, &c, 1 ) ) {
+        
         // Enable interrupts again
         ei();
+        
+        // Check if the buffer pointer is out of bounds
+        if ( pos >= sizeof( cmdbuf ) ) {
+            // Houston we got a problem...
+            pos = 0;
+            bDLE = FALSE;
+            stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START; 
+        }
 
         if ( STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START == stateVscpDriver ) {
             if ( bDLE ) {
@@ -1129,17 +1161,29 @@ void doModeVscp( void )
             }
         }
         else if ( STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_END == stateVscpDriver ) {
+            
+            // Check if last char was DLE
             if (bDLE) {
-
+                
+                // Yes last char was DLE this is an escape sequence
                 bDLE = FALSE;
 
                 // Check for frame end
                 if (ETX == c) {
                     stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED;
-                }                    // Check for escaped DLE
+                }  
+                // Check for escaped DLE
                 else if (DLE == c) {
                     // Save
                     cmdbuf[ pos++ ] = c;
+                    if ( pos >= sizeof( cmdbuf ) ) {
+                        // We have garbage. Start all over again to
+                        // look for valid content
+                        bDLE = FALSE;
+                        pos = 0;
+                        stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
+                    }
+                    
                     return;
                 }
             }
@@ -1149,23 +1193,20 @@ void doModeVscp( void )
                     return;
                 }
                 else {
-                    // Save
+                    // This is data. Save it until the full frame is 
+                    // received.
                     cmdbuf[ pos++ ] = c;
-
-                    if (pos >= SIZE_SERIAL_INPUT_BUFFER) {
+                    if ( pos >= sizeof( cmdbuf ) ) {
                         // We have garbage. Start all over again to
                         // look for valid content
+                        bDLE = FALSE;
                         pos = 0;
                         stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
                     }
-
                     return;
                 }
             }
         }
-
-
-
 
         if (STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED == stateVscpDriver) {
 
@@ -1182,8 +1223,9 @@ void doModeVscp( void )
 
 
             // Check that the checksum is correct
-            //          Correct if zero
+            // (Correct if calculation over frame including crc is zero)
             if (calcCRC(cmdbuf, pos)) {
+                sendVSCPDriverNack();     // Failed
                 sendVSCPDriverErrorFrame(VSCP_SERIAL_DRIVER_ERROR_CHECKSUM);
             }
 
@@ -1195,16 +1237,16 @@ void doModeVscp( void )
             // * * * *  V S C P  E V E N T  * * * *
             else if (VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
-
+                sendVSCPDriverNack(); // Failed
             }
             // * * * *  C A N A L  E V E N T  * * * *
             else if (VSCP_SERIAL_DRIVER_OPERATION_CANAL ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 if ( receiveVSCPModeCanalMsg() ) {
-                    sendVSCPDriverAck(); // OK
+                    sendVSCPDriverAck();    // OK
                 }
                 else {
-                    sendVSCPDriverNack(); // Failed
+                    sendVSCPDriverNack();   // Failed
                 }
             }
             // * * * *  M U L T I  F R A M E  C A N A L  * * * *
@@ -1237,7 +1279,7 @@ void doModeVscp( void )
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 caps.maxVscpFrames = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ];
                 caps.maxCanalFrames = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ];
-                sendVSCPModeCapabilities();     // SAend our capabilities
+                sendVSCPModeCapabilities();     // Send our capabilities
             }
             // * * * *  C O M M A N D  * * * *
             else if (VSCP_SERIAL_DRIVER_OPERATION_COMMAND ==
@@ -1276,6 +1318,7 @@ void doModeVscp( void )
                         VSCP_DRIVER_COMMAND_SET_FILTER) {
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_NOOP);
                 }
+                // Mode change
 
             }
             else {
@@ -1504,7 +1547,7 @@ void doModeSLCAN(void)
         }
 
         // Get ready for next command
-        memset(cmdbuf, 0, sizeof ( cmdbuf));
+        memset( cmdbuf, 0, sizeof( cmdbuf ) );
         pos = 0;
 
     }
@@ -1530,18 +1573,18 @@ void sendEscapedUartData(uint8_t c, uint8_t *pcrc)
 {
     if (DLE == c) {
 
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
         //if (NULL != pcrc) crc8(pcrc, DLE);
 
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
         if (NULL != pcrc) crc8(pcrc, DLE);
 
     }
     else {
 
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(c);
         if (NULL != pcrc) crc8(pcrc, c);
 
@@ -1557,18 +1600,18 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
     uint8_t crc = 0;
 
     // Start of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(STX);
 
     // Operation
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ERROR);
     crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ERROR);
 
     // Channel
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -1576,10 +1619,10 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while BusyUSART(); // MSB
+    while (BusyUSART()); // MSB
     WriteUSART(0);
     crc8(&crc, 0);
-    while BusyUSART(); // LSB
+    while (BusyUSART()); // LSB
     WriteUSART(1);
     crc8(&crc, 1);
 
@@ -1590,9 +1633,9 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(ETX);
 }
 
@@ -1605,18 +1648,18 @@ void sendVSCPDriverAck(void)
     uint8_t crc = 0;
 
     // Start of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(STX);
 
     // Operation
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ACK);
     crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ACK);
 
     // Channel
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -1624,10 +1667,10 @@ void sendVSCPDriverAck(void)
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while BusyUSART(); // MSB
+    while (BusyUSART()); // MSB
     WriteUSART(0);
     crc8(&crc, 0);
-    while BusyUSART(); // LSB
+    while (BusyUSART()); // LSB
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -1635,9 +1678,9 @@ void sendVSCPDriverAck(void)
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(ETX);
 }
 
@@ -1649,18 +1692,18 @@ void sendVSCPDriverNack(void) {
     uint8_t crc = 0;
 
     // Start of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(STX);
 
     // Operation
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_NACK);
     crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_NACK);
 
     // Channel
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -1668,10 +1711,10 @@ void sendVSCPDriverNack(void) {
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while BusyUSART(); // MSB
+    while (BusyUSART()); // MSB
     WriteUSART(0);
     crc8(&crc, 0);
-    while BusyUSART(); // LSB
+    while (BusyUSART()); // LSB
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -1679,9 +1722,9 @@ void sendVSCPDriverNack(void) {
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(ETX);
 }
 
@@ -1694,18 +1737,18 @@ void sendVSCPDriverCommandReply(uint8_t cmdReplyCode, uint8_t cmdCode)
     uint8_t crc = 0;
 
     // Start of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(STX);
 
     // Operation
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_COMMAND_REPLY);
     crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_COMMAND_REPLY);
 
     // Channel
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -1713,28 +1756,28 @@ void sendVSCPDriverCommandReply(uint8_t cmdReplyCode, uint8_t cmdCode)
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while BusyUSART(); // MSB
+    while (BusyUSART()); // MSB
     WriteUSART(0);
     crc8(&crc, 0);
-    while BusyUSART(); // LSB
+    while (BusyUSART()); // LSB
     WriteUSART(2);
     crc8(&crc, 2);
 
     // Reply code 0 == OK
-    while BusyUSART();
+    while (BusyUSART());
     sendEscapedUartData(cmdReplyCode, &crc);
 
     // Rely on command
-    while BusyUSART();
+    while (BusyUSART());
     sendEscapedUartData(cmdCode, &crc);
 
     // Checksum
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(ETX);
 }
 
@@ -1812,18 +1855,18 @@ BOOL receiveSendEventCANAL(void)
         cntRxBytes += dlc;
 
         // Start of frame
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(STX);
 
         // Operation
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_CANAL);
         crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_CANAL);
 
         // Channel
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(0);
         crc8(&crc, 0);
 
@@ -1858,9 +1901,9 @@ BOOL receiveSendEventCANAL(void)
         sendEscapedUartData(crc, NULL);
 
         // End of frame
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(ETX);
 
         return TRUE;
@@ -1891,18 +1934,18 @@ BOOL receiveSendMultiEventCANAL(void)
         cntRxBytes += dlc;
 
         // Start of frame
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(STX);
 
         // Operation
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL);
         crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL);
 
         // Channel
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(0);
         crc8(&crc, 0);
 
@@ -1958,9 +2001,9 @@ BOOL receiveSendMultiEventCANAL(void)
         sendEscapedUartData(crc, NULL);
 
         // End of frame
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(ETX);
 
         return TRUE;
@@ -1993,18 +2036,18 @@ BOOL receiveSendEventVSCP(void)
         cntRxBytes += vscpSize;
 
         // Start of frame
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(STX);
 
         // Operation
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT);
         crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT);
 
         // Channel
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(0);
         crc8(&crc, 0);
 
@@ -2042,9 +2085,9 @@ BOOL receiveSendEventVSCP(void)
         sendEscapedUartData(crc, NULL);
 
         // End of frame
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(DLE);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(ETX);
 
         return TRUE;
@@ -2063,18 +2106,18 @@ BOOL sendVSCPModeCapabilities(void)
     uint8_t crc = 0;
 
     // Start of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(STX);
 
     // Operation
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_CAPS_RESPONSE);
     crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_CAPS_RESPONSE);
 
     // Channel
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(0);
     crc8(&crc, 0);
 
@@ -2094,9 +2137,9 @@ BOOL sendVSCPModeCapabilities(void)
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(DLE);
-    while BusyUSART();
+    while (BusyUSART());
     WriteUSART(ETX);
 
     return TRUE;
@@ -2118,20 +2161,20 @@ BOOL receiveSendEventSLCAN(void)
         cntRxFrames++;
         cntRxBytes += dlc;
 
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART('T');
 
         ultoa(wrkbuf, id, 16);
         // First print leading zeros so length is eight characers
         for (i = 0; i < ((uint8_t) (8 - sizeof (wrkbuf))); i++) {
-            while BusyUSART();
+            while (BusyUSART());
             WriteUSART('0');
         }
         putsUSART(wrkbuf);
 
         // Send dlc - always one digit
         itoa(wrkbuf, dlc, 16);
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(wrkbuf[0]);
 
         // Sen data
@@ -2139,7 +2182,7 @@ BOOL receiveSendEventSLCAN(void)
             itoa(wrkbuf, vscpData[i], 16);
             // Leading zero if needed
             if (2 != strlen(wrkbuf)) {
-                while BusyUSART();
+                while (BusyUSART());
                 WriteUSART('0');
             }
             // Data
@@ -2149,15 +2192,15 @@ BOOL receiveSendEventSLCAN(void)
         // If timestamp is active add it to
         if (nTimeStamp) {
             ultoa(wrkbuf, timer, 16);
-            // First print leading zeros so length is eight characers
+            // First print leading zeros so length is eight characters
             for (i = 0; i < ((uint8_t) (8 - sizeof (wrkbuf))); i++) {
-                while BusyUSART();
+                while (BusyUSART());
                 WriteUSART('0');
             }
             putsUSART(wrkbuf);
         }
 
-        while BusyUSART();
+        while (BusyUSART());
         WriteUSART(0x0d);
     }
 
@@ -2177,8 +2220,9 @@ BOOL receiveVSCPModeCanalMsg(void)
     id = ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD] << 26) |
             ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
             ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
-            cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // nodeaddress (our address)
+            cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
     dlc = cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4;
+    if ( dlc > 8 ) return FALSE;
     memcpy(data, cmdbuf + VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4, dlc);
 
     return sendCANFrame(id, dlc, data);
@@ -2419,11 +2463,11 @@ uint8_t calcCRC(uint8_t *p, uint8_t len)
 
 void test(void)
 {
-    vscpData[ 0 ] = 1; // Node id
-    vscpData[ 1 ] = 0; // Page MSB
-    vscpData[ 2 ] = 0; // Page LSB
-    vscpData[ 3 ] = 0xD0; // Offset
-    vscpData[ 4 ] = 16; // Number of regs to read
+    vscpData[ 0 ] = 1;      // Node id
+    vscpData[ 1 ] = 0;      // Page MSB
+    vscpData[ 2 ] = 0;      // Page LSB
+    vscpData[ 3 ] = 0xD0;   // Offset
+    vscpData[ 4 ] = 16;     // Number of regs to read
 
     sendVSCPFrame(VSCP_CLASS1_PROTOCOL, // class
             VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ, // Read register
@@ -2634,7 +2678,7 @@ void printGUID(uint8_t nodeid)
     uint8_t value;
     char buf[3];
 
-    memset(wrkbuf, 0, sizeof (wrkbuf));
+    memset( wrkbuf, 0, sizeof( wrkbuf ) );
     putsUSART((char *) "GUID = ");
 
     for (i = 0; i < 16; i++) {
@@ -2674,7 +2718,7 @@ void printMDF(uint8_t nodeid)
     uint8_t i;
     uint8_t value;
     char *p = wrkbuf;
-    memset(wrkbuf, 0, sizeof (wrkbuf));
+    memset( wrkbuf, 0, sizeof( wrkbuf ) );
     putsUSART((char *) "MDF = http://");
 
     for (i = 0; i < 32; i++) {
@@ -2706,7 +2750,7 @@ void printNodeFirmwareVersion(uint8_t nodeid)
     uint8_t value;
     char buf[3];
 
-    memset(wrkbuf, 0, sizeof (wrkbuf));
+    memset( wrkbuf, 0, sizeof(wrkbuf) );
     putsUSART((char *) "Firmware version = ");
 
     for (i = 0; i < 3; i++) {
@@ -3007,11 +3051,10 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
     return FALSE;
  */
 
-    if ( canrxcount ) {
-        
-        di(); // Disable interrupt
+    if ( fifo_canrxcount ) {
 
         // Get id
+        di(); // Disable interrupt
         if ( 4 != fifo_read( &canInputFifo, (uint8_t *)pid, 4 ) ) {
             ei();   // Enable interrupt
             return FALSE;
@@ -3022,6 +3065,11 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
             ei();   // Enable interrupt
             return FALSE;
         }
+        
+        // Out of bounds check
+        if ( *pdlc > 8 ) {
+            *pdlc = 0;
+        }
 
         // Get data
         if ( *pdlc != fifo_read( &canInputFifo, pdata, *pdlc ) ) {
@@ -3029,7 +3077,7 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
             return FALSE;
         }
 
-        canrxcount--;   // One less CAN frame in fifo
+        fifo_canrxcount--;   // One less CAN frame in fifo
 
         ei();   // Enable interrupt
     

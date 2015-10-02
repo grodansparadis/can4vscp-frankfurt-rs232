@@ -48,8 +48,9 @@
 
 
 #define SIZE_SERIAL_INPUT_BUFFER        128u
-#define SIZE_CAN_INPUT_FIFO             38      // Max total 512 bytes
-
+#define SIZE_CAN_INPUT_FIFO             38      // Max total 512 bytes 
+                                                // (13* this value) is total memory
+                                                // for buffer    
 // Working modes
 #define WORKING_MODE_VERBOSE            0
 #define WORKING_MODE_VSCP_DRIVER        1

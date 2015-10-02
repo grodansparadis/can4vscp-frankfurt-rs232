@@ -377,3 +377,13 @@
 /PIC18 Bootloader/PIC18 Bootloader.X/nbproject/Makefile-local-pic18f26K80.mk
 /PIC18 Bootloader/PIC18 Bootloader.X/nbproject/Makefile-pic18f26K80.mk
 /PIC18 Bootloader/PIC18 Bootloader.X/nbproject/Package-pic18f26K80.bash
+/Frankfurt RS-232.X/dist/relocated/debug/*.cmf
+/Frankfurt RS-232.X/dist/relocated/debug/*.hxl
+/Frankfurt RS-232.X/dist/relocated/debug/*.map
+/Frankfurt RS-232.X/dist/relocated/debug/*.mum
+/Frankfurt RS-232.X/dist/relocated/debug/*.dmp
+/Frankfurt RS-232.X/dist/relocated/debug/*.rlf
+/Frankfurt RS-232.X/dist/relocated/debug/*.sdb
+/Frankfurt RS-232.X/dist/relocated/debug/*.sym
+/Frankfurt RS-232.X/dist/relocated/debug/*.p1
+/Frankfurt RS-232.X/dist/relocated/debug/*.pre

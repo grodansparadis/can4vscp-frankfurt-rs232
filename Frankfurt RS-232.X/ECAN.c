@@ -687,7 +687,7 @@ BOOL ECANSendMessage( unsigned long id,
 #endif
     {
         /*
-         * Use local poiter to reduce overall code.
+         * Use local pointer to reduce overall code.
          * It will be more efficient to access using pointer instead of index.
          */
         ptr = pb[i];

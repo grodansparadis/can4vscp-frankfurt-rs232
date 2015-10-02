@@ -24,8 +24,8 @@ typedef struct {
 
 
 // Prototypes
-void fifo_init( fifo_t *f, uint8_t *buf, uint16_t size );
-uint16_t fifo_read( fifo_t *f, void *buf, uint16_t nbytes );
+void fifo_init( fifo_t *f, const void *buf, uint16_t size );
+uint16_t fifo_read( fifo_t *f, const void *buf, uint16_t nbytes );
 uint16_t fifo_write( fifo_t *f, const void *buf, uint32_t nbytes );
 uint16_t fifo_getFree( fifo_t *f );
 

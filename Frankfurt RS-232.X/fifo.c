@@ -10,7 +10,7 @@
 // This initializes the FIFO structure with the given buffer and size
 //
 
-void fifo_init(fifo_t *f, uint8_t *buf, uint16_t size)
+void fifo_init(fifo_t *f, const void *buf, uint16_t size)
 {
     f->head = 0;
     f->tail = 0;
@@ -25,7 +25,7 @@ void fifo_init(fifo_t *f, uint8_t *buf, uint16_t size)
 // The number of bytes read is returned
 //
 
-uint16_t fifo_read(fifo_t *f, void *buf, uint16_t nbytes)
+uint16_t fifo_read(fifo_t *f, const void *buf, uint16_t nbytes)
 {
     uint16_t i;
     uint8_t *p;
@@ -33,10 +33,10 @@ uint16_t fifo_read(fifo_t *f, void *buf, uint16_t nbytes)
 
     for (i = 0; i < nbytes; i++) {
 
-        if (f->tail != f->head) { // see if any data is available
-            *p++ = f->buf[ f->tail ]; // grab a byte from the buffer
-            f->tail++; // increment the tail
-            if (f->tail == f->size) { // check for wrap-around
+        if ( f->tail != f->head ) {     // see if any data is available
+            *p++ = f->buf[ f->tail ];   // grab a byte from the buffer
+            f->tail++;                  // increment the tail
+            if (f->tail >= f->size) {   // check for wrap-around
                 f->tail = 0;
             }
         }
@@ -66,14 +66,15 @@ uint16_t fifo_write(fifo_t *f, const void *buf, uint32_t nbytes)
     for ( i = 0; i < nbytes; i++ ) {
 
         // first check to see if there is space in the buffer
-        if ((f->head + 1 == f->tail) ||
-                ((f->head + 1 == f->size) && (f->tail == 0))) {
-            return i; // no more room
+        if ( ( (f->head + 1) == f->tail) ||
+                (((f->head + 1) == f->size) && (f->tail == 0))) {
+            return i; // no more room - return chars written
         }
         else {
             f->buf[ f->head ] = *p++;
             f->head++; // increment the head
-            if (f->head == f->size) { // check for wrap-around
+
+            if (f->head >= f->size) { // check for wrap-around
                 f->head = 0;
             }
         }
