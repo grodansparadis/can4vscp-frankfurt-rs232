@@ -61,7 +61,7 @@
 #define NUMERICAL_PRINTOUTMODE_DECIMAL  FALSE
 
 // Default
-#define DEFAULT_REGISTER_RW_TIMEOUT     10u // Reg r/w timeout
+#define DEFAULT_REGISTER_RW_TIMEOUT     20u // Reg r/w timeout
 
 // Baudrates 40MHz
 #define BAUDRATE_19200                  128 // BRGH=1 0,16%

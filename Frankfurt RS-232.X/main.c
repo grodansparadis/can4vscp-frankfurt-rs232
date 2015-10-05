@@ -135,12 +135,6 @@ uint8_t vscpData[8];
 
 #endif
 
-/*
-#undef BusyUSART()
-char BusyUSART()
-{
-    return (!TXSTAbits.TRMT);
-}*/
 
 ///////////////////////////////////////////////////////////////////////////////
 // Interrupt
@@ -366,6 +360,13 @@ int main(int argc, char** argv)
         if (COMSTATbits.RXBnOVFL) {
             can_receiveOverruns++;
             COMSTATbits.RXBnOVFL = 0;
+        }
+        
+        // Check for UART overflow. This should not happen in normal 
+        // mode but does while debugging.
+        if ( RCSTAbits.OERR ) {
+            RCSTAbits.CREN = 0;
+            RCSTAbits.CREN = 1;
         }
 
         if (WORKING_MODE_VERBOSE == mode) {
@@ -703,7 +704,7 @@ void doModeVerbose(void)
                 putsUSART((char *) "+OK\r\n");
             }
             // Read register of node
-            //      RREG node [page:]reg count
+            //      RREG nodeid [page:]reg count
             else if (cmdbuf == stristr(cmdbuf, "RREG")) {
 
                 uint8_t i;
@@ -734,7 +735,6 @@ void doModeVerbose(void)
                         reg = atoi(p);
                     }
 
-
                 }
                 else {
                     putsUSART((char *) "-ERROR - Needs [page:]register\r\n");
@@ -755,6 +755,10 @@ void doModeVerbose(void)
                             (reg + i) & 0xff,
                             rwtimeout,
                             &value)) {
+                        putsUSART((char *) "nodeid=");
+                        sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
+                        putsUSART(wrkbuf);
+                        while (BusyUSART());
                         putsUSART((char *) "Value for reg ");
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", page);
                         putsUSART(wrkbuf);
@@ -766,8 +770,7 @@ void doModeVerbose(void)
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", value);
                         putsUSART(wrkbuf);
                         while (BusyUSART());
-                        WriteUSART(' ');
-                        while (BusyUSART());
+                        putsUSART("\t\'");
                         if ((value > 32) && (value < 127)) {
                             WriteUSART(value);
                         }
@@ -775,19 +778,23 @@ void doModeVerbose(void)
                             WriteUSART('.');
                         }
                         while (BusyUSART());
-                        WriteUSART(' ');
+                        putsUSART("\' \t");
                         printBinary(value);
                         putsUSART((char *) "\r\n");
                     }
                     else {
                         rv = FALSE;
-                        putsUSART((char *) "-ERROR - Unable to read register ");
+                        putsUSART((char *) " nodeid=");
+                        sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
+                        putsUSART(wrkbuf);
+                        putsUSART((char *) "Unable to read register ");
+                        while (BusyUSART());
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", page);
                         putsUSART(wrkbuf);
-                        while (BusyUSART());
                         WriteUSART(':');
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", (reg + i) & 0xff);
                         putsUSART(wrkbuf);
+                        
                         putsUSART((char *) "\r\n");
                     }
                 }
@@ -801,7 +808,7 @@ void doModeVerbose(void)
 
             }
             // Write register of node
-            //      WREG node [page:]reg value1 [value2 value3 value4 value5...]
+            //      WREG nodeid [page:]reg value1 [value2 value3 value4 value5...]
             else if (cmdbuf == stristr(cmdbuf, "WREG")) {
 
                 uint8_t nodeid;
@@ -2613,8 +2620,8 @@ void printHelp(void)
     putsUSART((char *) "ERR - Display CAN error information.\r\n");
     putsUSART((char *) "HELP - Display this help information.\r\n");
     putsUSART((char *) "FIND - Find available CAN4VSCP nodes on bus.\r\n");
-    putsUSART((char *) "RREG - Read register(s) of node (Format: rreg [page:]reg [count]).\r\n");
-    putsUSART((char *) "WREG - Write register of node (Format: wreg [page:]reg content).\r\n");
+    putsUSART((char *) "RREG - Read register(s) of node (Format: rreg nodeid [page:]reg [count]).\r\n");
+    putsUSART((char *) "WREG - Write register of node (Format: wreg nodeid [page:]reg content).\r\n");
     putsUSART((char *) "INFO - Get info about an existent node on the bus (Format: info nickname).\r\n");
     putsUSART((char *) "FILTER - Set filter .\r\n");
     putsUSART((char *) "         Format: filter filterno,prio,class,type,nodeid  (filterno = 0-15).\r\n");
@@ -2623,7 +2630,7 @@ void printHelp(void)
     putsUSART((char *) "SET - Persistent functionality.\r\n");
     putsUSART((char *) "    HEX - Display numericals in hexadecimal.\r\n");
     putsUSART((char *) "    DECIMAL - Display numericals in decimal.\r\n");
-    putsUSART((char *) "    RWTIMEOUT - Set register read/write timeout. Default=10 ms .\r\n");
+    putsUSART((char *) "    RWTIMEOUT - Set register read/write timeout. Default=20 ms .\r\n");
     putsUSART((char *) "                Format: set rwtimeout timeout.\r\n");
     putsUSART((char *) "    STARTIF - Set interface state to use on startup.\r\n");
     putsUSART((char *) "    MODE - Set adapter mode that should be used on startup.\r\n");

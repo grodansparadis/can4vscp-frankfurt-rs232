@@ -15,7 +15,7 @@ ECAN_RX_DBL_BUFFERED 128
 FALSE 0
 TRUE 1
 ]
-"555
+"556
 [e E16371 _ECAN_OP_MODE `uc
 ECAN_OP_MODE_BITS 224
 ECAN_OP_MODE_NORMAL 0
@@ -24,7 +24,7 @@ ECAN_OP_MODE_LOOP 64
 ECAN_OP_MODE_LISTEN 96
 ECAN_OP_MODE_CONFIG 128
 ]
-"3022
+"3029
 [e E16340 _ECAN_TX_MSG_FLAGS `uc
 ECAN_TX_PRIORITY_BITS 3
 ECAN_TX_PRIORITY_0 0
@@ -289,93 +289,93 @@ ECAN_RX_DBL_BUFFERED 128
 [v _nibbleToChar nibbleToChar `(uc  1 s 1 nibbleToChar ]
 "71
 [v _bytesToHexString bytesToHexString `(uc  1 e 1 0 ]
-"150 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"144 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _Interrupt Interrupt `IIL(v  1 e 0 0 ]
-"276
+"270
 [v _main main `(i  1 e 2 0 ]
-"399
+"400
 [v _init init `(v  1 e 0 0 ]
-"471
+"472
 [v _init_app_ram init_app_ram `(v  1 e 0 0 ]
-"489
+"490
 [v _init_app_eeprom init_app_eeprom `(v  1 e 0 0 ]
-"516
+"517
 [v _doModeVerbose doModeVerbose `(v  1 e 0 0 ]
-"1118
+"1125
 [v _doModeVscp doModeVscp `(v  1 e 0 0 ]
-"1347
+"1354
 [v _doModeSLCAN doModeSLCAN `(v  1 e 0 0 ]
-"1565
+"1572
 [v _doModeVscpNode doModeVscpNode `(v  1 e 0 0 ]
-"1574
+"1581
 [v _sendEscapedUartData sendEscapedUartData `(v  1 e 0 0 ]
-"1600
+"1607
 [v _sendVSCPDriverErrorFrame sendVSCPDriverErrorFrame `(v  1 e 0 0 ]
-"1648
+"1655
 [v _sendVSCPDriverAck sendVSCPDriverAck `(v  1 e 0 0 ]
-"1692
+"1699
 [v _sendVSCPDriverNack sendVSCPDriverNack `(v  1 e 0 0 ]
-"1737
+"1744
 [v _sendVSCPDriverCommandReply sendVSCPDriverCommandReply `(v  1 e 0 0 ]
-"1790
+"1797
 [v _receivePrintEventVerbose receivePrintEventVerbose `(E15660  1 e 1 0 ]
-"1844
+"1851
 [v _receiveSendEventCANAL receiveSendEventCANAL `(E15660  1 e 1 0 ]
-"1921
+"1928
 [v _receiveSendMultiEventCANAL receiveSendMultiEventCANAL `(E15660  1 e 1 0 ]
-"2023
+"2030
 [v _receiveSendEventVSCP receiveSendEventVSCP `(E15660  1 e 1 0 ]
-"2106
+"2113
 [v _sendVSCPModeCapabilities sendVSCPModeCapabilities `(E15660  1 e 1 0 ]
-"2154
+"2161
 [v _receiveSendEventSLCAN receiveSendEventSLCAN `(E15660  1 e 1 0 ]
-"2216
+"2223
 [v _receiveVSCPModeCanalMsg receiveVSCPModeCanalMsg `(E15660  1 e 1 0 ]
-"2240
+"2247
 [v _receiveVSCPModeMultiCanalMsg receiveVSCPModeMultiCanalMsg `(E15660  1 e 1 0 ]
-"2254
+"2261
 [v _readRegister readRegister `(E15660  1 e 1 0 ]
-"2300
+"2307
 [v _readRegisterExtended readRegisterExtended `(E15660  1 e 1 0 ]
-"2352
+"2359
 [v _writeRegister writeRegister `(E15660  1 e 1 0 ]
-"2401
+"2408
 [v _writeRegisterExtended writeRegisterExtended `(E15660  1 e 1 0 ]
-"2452
+"2459
 [v _calcCRC calcCRC `(uc  1 e 1 0 ]
-"2468
+"2475
 [v _test test `(v  1 e 0 0 ]
-"2488
+"2495
 [v _printBinary printBinary `(v  1 e 0 0 ]
-"2507
+"2514
 [v _printStatistics printStatistics `(v  1 e 0 0 ]
-"2534
+"2541
 [v _printErrors printErrors `(v  1 e 0 0 ]
-"2598
+"2605
 [v _printHelp printHelp `(v  1 e 0 0 ]
-"2639
+"2646
 [v _findNodes findNodes `(v  1 e 0 0 ]
-"2679
+"2686
 [v _printGUID printGUID `(v  1 e 0 0 ]
-"2720
+"2727
 [v _printMDF printMDF `(v  1 e 0 0 ]
-"2751
+"2758
 [v _printNodeFirmwareVersion printNodeFirmwareVersion `(v  1 e 0 0 ]
-"2786
+"2793
 [v _vscp_restoreDefaults vscp_restoreDefaults `(v  1 e 0 0 ]
-"2796
+"2803
 [v _printFirmwareVersion printFirmwareVersion `(v  1 e 0 0 ]
-"2817
+"2824
 [v _printMode printMode `(v  1 e 0 0 ]
-"2838
+"2845
 [v _setFilter setFilter `(v  1 e 0 0 ]
-"2975
+"2982
 [v _sendVSCPFrame sendVSCPFrame `(uc  1 e 1 0 ]
-"3000
+"3007
 [v _getVSCPFrame getVSCPFrame `(uc  1 e 1 0 ]
-"3021
+"3028
 [v _sendCANFrame sendCANFrame `(uc  1 e 1 0 ]
-"3036
+"3043
 [v _getCANFrame getCANFrame `(uc  1 e 1 0 ]
 "44 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h
 [v _RXF6SIDH RXF6SIDH `VEuc  1 e 1 @3424 ]
@@ -569,7 +569,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _TXB0CON TXB0CON `VEuc  1 e 1 @3904 ]
 "24429
 [v _RXB1CON RXB1CON `VEuc  1 e 1 @3920 ]
-[s S1639 . 1 `uc 1 FILHIT0 1 0 :1:0 
+[s S1713 . 1 `uc 1 FILHIT0 1 0 :1:0 
 `uc 1 FILHIT1 1 0 :1:1 
 `uc 1 FILHIT2 1 0 :1:2 
 `uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
@@ -579,47 +579,47 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 RXFUL 1 0 :1:7 
 ]
 "24497
-[s S1648 . 1 `uc 1 . 1 0 :3:0 
+[s S1722 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXRTRRO 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXM0 1 0 :1:5 
 ]
-[s S1653 . 1 `uc 1 . 1 0 :3:0 
+[s S1727 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 FILHIT3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RTRRO 1 0 :1:5 
 ]
-[s S1658 . 1 `uc 1 RXB1FILHIT0 1 0 :1:0 
+[s S1732 . 1 `uc 1 RXB1FILHIT0 1 0 :1:0 
 ]
-[s S1660 . 1 `uc 1 . 1 0 :1:0 
+[s S1734 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXB1FILHIT1 1 0 :1:1 
 ]
-[s S1663 . 1 `uc 1 . 1 0 :2:0 
+[s S1737 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RXB1FILHIT2 1 0 :1:2 
 ]
-[s S1666 . 1 `uc 1 . 1 0 :3:0 
+[s S1740 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXB1FILHIT3 1 0 :1:3 
 ]
-[s S1669 . 1 `uc 1 . 1 0 :4:0 
+[s S1743 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RXB1FILHIT4 1 0 :1:4 
 ]
-[s S1672 . 1 `uc 1 . 1 0 :7:0 
+[s S1746 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RXB1FUL 1 0 :1:7 
 ]
-[s S1675 . 1 `uc 1 . 1 0 :5:0 
+[s S1749 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXB1M0 1 0 :1:5 
 ]
-[s S1678 . 1 `uc 1 . 1 0 :6:0 
+[s S1752 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RXB1M1 1 0 :1:6 
 ]
-[s S1681 . 1 `uc 1 . 1 0 :3:0 
+[s S1755 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RXB1RTRR0 1 0 :1:3 
 ]
-[s S1684 . 1 `uc 1 . 1 0 :5:0 
+[s S1758 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXB1RTRRO 1 0 :1:5 
 ]
-[u S1687 . 1 `S1639 1 . 1 0 `S1648 1 . 1 0 `S1653 1 . 1 0 `S1658 1 . 1 0 `S1660 1 . 1 0 `S1663 1 . 1 0 `S1666 1 . 1 0 `S1669 1 . 1 0 `S1672 1 . 1 0 `S1675 1 . 1 0 `S1678 1 . 1 0 `S1681 1 . 1 0 `S1684 1 . 1 0 ]
-[v _RXB1CONbits RXB1CONbits `VES1687  1 e 1 @3920 ]
+[u S1761 . 1 `S1713 1 . 1 0 `S1722 1 . 1 0 `S1727 1 . 1 0 `S1732 1 . 1 0 `S1734 1 . 1 0 `S1737 1 . 1 0 `S1740 1 . 1 0 `S1743 1 . 1 0 `S1746 1 . 1 0 `S1749 1 . 1 0 `S1752 1 . 1 0 `S1755 1 . 1 0 `S1758 1 . 1 0 ]
+[v _RXB1CONbits RXB1CONbits `VES1761  1 e 1 @3920 ]
 "25920
 [v _RXB0CON RXB0CON `VEuc  1 e 1 @3936 ]
 "27377
@@ -669,7 +669,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _TXERRCNT TXERRCNT `VEuc  1 e 1 @3958 ]
 "27928
 [v _ECANCON ECANCON `VEuc  1 e 1 @3959 ]
-[s S391 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S445 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -679,7 +679,7 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "29435
-[s S400 . 1 `uc 1 RB0 1 0 :1:0 
+[s S454 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -688,17 +688,17 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S409 . 1 `S391 1 . 1 0 `S400 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES409  1 e 1 @3987 ]
+[u S463 . 1 `S445 1 . 1 0 `S454 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES463  1 e 1 @3987 ]
 "29656
-[v _TRISCbits TRISCbits `VES409  1 e 1 @3988 ]
-[s S361 . 1 `uc 1 TUN 1 0 :5:0 
+[v _TRISCbits TRISCbits `VES463  1 e 1 @3988 ]
+[s S415 . 1 `uc 1 TUN 1 0 :5:0 
 `uc 1 . 1 0 :1:5 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "29867
-[s S366 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S420 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
@@ -706,8 +706,8 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 . 1 0 :2:5 
 `uc 1 INTSCR 1 0 :1:7 
 ]
-[u S374 . 1 `S361 1 . 1 0 `S366 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES374  1 e 1 @3995 ]
+[u S428 . 1 `S415 1 . 1 0 `S420 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES428  1 e 1 @3995 ]
 [s S38 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -727,7 +727,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _PIE1bits PIE1bits `VES52  1 e 1 @3997 ]
 "30013
 [v _PIR1bits PIR1bits `VES52  1 e 1 @3998 ]
-[s S2032 . 1 `uc 1 RD 1 0 :1:0 
+[s S2106 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -737,11 +737,11 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "30635
-[s S2041 . 1 `uc 1 . 1 0 :6:0 
+[s S2115 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S2044 . 1 `S2032 1 . 1 0 `S2041 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES2044  1 e 1 @4006 ]
+[u S2118 . 1 `S2106 1 . 1 0 `S2115 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES2118  1 e 1 @4006 ]
 "30679
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "30685
@@ -750,7 +750,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "30697
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S2307 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S311 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -760,25 +760,25 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 SPEN 1 0 :1:7 
 ]
 "30738
-[s S2316 . 1 `uc 1 . 1 0 :3:0 
+[s S320 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S2319 . 1 `uc 1 . 1 0 :5:0 
+[s S323 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S2322 . 1 `uc 1 . 1 0 :6:0 
+[s S326 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S2325 . 1 `uc 1 . 1 0 :6:0 
+[s S329 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S2328 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S332 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S2330 . 1 `S2307 1 . 1 0 `S2316 1 . 1 0 `S2319 1 . 1 0 `S2322 1 . 1 0 `S2325 1 . 1 0 `S2328 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES2330  1 e 1 @4011 ]
+[u S334 . 1 `S311 1 . 1 0 `S320 1 . 1 0 `S323 1 . 1 0 `S326 1 . 1 0 `S329 1 . 1 0 `S332 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES334  1 e 1 @4011 ]
 "30906
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S596 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S650 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -788,36 +788,36 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 CSRC 1 0 :1:7 
 ]
 "30966
-[s S605 . 1 `uc 1 . 1 0 :2:0 
+[s S659 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S608 . 1 `uc 1 . 1 0 :7:0 
+[s S662 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S611 . 1 `uc 1 . 1 0 :3:0 
+[s S665 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SENDB1 1 0 :1:3 
 ]
-[s S614 . 1 `uc 1 . 1 0 :4:0 
+[s S668 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S617 . 1 `uc 1 . 1 0 :1:0 
+[s S671 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S620 . 1 `uc 1 . 1 0 :6:0 
+[s S674 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S623 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S677 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S625 . 1 `uc 1 . 1 0 :5:0 
+[s S679 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[s S628 . 1 `uc 1 . 1 0 :6:0 
+[s S682 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S631 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S685 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S633 . 1 `S596 1 . 1 0 `S605 1 . 1 0 `S608 1 . 1 0 `S611 1 . 1 0 `S614 1 . 1 0 `S617 1 . 1 0 `S620 1 . 1 0 `S623 1 . 1 0 `S625 1 . 1 0 `S628 1 . 1 0 `S631 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES633  1 e 1 @4012 ]
+[u S687 . 1 `S650 1 . 1 0 `S659 1 . 1 0 `S662 1 . 1 0 `S665 1 . 1 0 `S668 1 . 1 0 `S671 1 . 1 0 `S674 1 . 1 0 `S677 1 . 1 0 `S679 1 . 1 0 `S682 1 . 1 0 `S685 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES687  1 e 1 @4012 ]
 "31203
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "31214
@@ -826,14 +826,14 @@ ECAN_RX_DBL_BUFFERED 128
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "31236
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S331 . 1 `uc 1 SCS 1 0 :2:0 
+[s S385 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "33128
-[s S337 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S391 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
@@ -841,13 +841,13 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 IRCF2 1 0 :1:6 
 ]
 "33128
-[u S344 . 1 `S331 1 . 1 0 `S337 1 . 1 0 ]
+[u S398 . 1 `S385 1 . 1 0 `S391 1 . 1 0 ]
 "33128
 "33128
-[v _OSCCONbits OSCCONbits `VES344  1 e 1 @4051 ]
+[v _OSCCONbits OSCCONbits `VES398  1 e 1 @4051 ]
 "33182
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S2209 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2283 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -855,16 +855,16 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "33203
-[s S2216 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2290 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "33203
-[u S2221 . 1 `S2209 1 . 1 0 `S2216 1 . 1 0 ]
+[u S2295 . 1 `S2283 1 . 1 0 `S2290 1 . 1 0 ]
 "33203
 "33203
-[v _T0CONbits T0CONbits `VES2221  1 e 1 @4053 ]
+[v _T0CONbits T0CONbits `VES2295  1 e 1 @4053 ]
 "33263
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "33269
@@ -988,15 +988,15 @@ ECAN_RX_DBL_BUFFERED 128
 [v _hexpowers hexpowers `C[8]ul  1 s 32 hexpowers ]
 "369
 [v _octpowers octpowers `C[12]ul  1 s 48 octpowers ]
-[s S2518 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[s S2561 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\udefs.c
-[u S2524 USART 1 `uc 1 val 1 0 `S2518 1 . 1 0 ]
-[v _USART_Status USART_Status `S2524  1 e 1 0 ]
+[u S2567 USART 1 `uc 1 val 1 0 `S2561 1 . 1 0 ]
+[v _USART_Status USART_Status `S2567  1 e 1 0 ]
 "3 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\realice\htdata.c
 [v __IT_INT_MASK _IT_INT_MASK `uc  1 e 1 0 ]
 "5
@@ -1013,7 +1013,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _crc8_table crc8_table `[256]uc  1 s 256 crc8_table ]
 "18
 [v _made_table made_table `i  1 s 2 made_table ]
-[s S1547 . 1 `uc 1 b0 1 0 :1:0 
+[s S1621 . 1 `uc 1 b0 1 0 :1:0 
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1023,8 +1023,8 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 b7 1 0 :1:7 
 ]
 "56 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\ECAN.c
-[u S1556 . 1 `uc 1 Val 1 0 `S1547 1 bits 1 0 ]
-[v __ECANRxFilterHitInfo _ECANRxFilterHitInfo `S1556  1 e 1 0 ]
+[u S1630 . 1 `uc 1 Val 1 0 `S1621 1 bits 1 0 ]
+[v __ECANRxFilterHitInfo _ECANRxFilterHitInfo `S1630  1 e 1 0 ]
 "30 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _mode mode `uc  1 e 1 0 ]
 "33
@@ -1109,33 +1109,33 @@ ECAN_RX_DBL_BUFFERED 128
 [v _vscpSize vscpSize `uc  1 e 1 0 ]
 "96
 [v _vscpData vscpData `[8]uc  1 e 8 0 ]
-"276
+"270
 [v _main main `(i  1 e 2 0 ]
 {
-"316
-[v main@c c `uc  1 a 1 131 ]
-"276
-[v main@argc argc `i  1 p 2 125 ]
-[v main@argv argv `*.2*.2uc  1 p 3 127 ]
-"390
+"310
+[v main@c c `uc  1 a 1 132 ]
+"270
+[v main@argc argc `i  1 p 2 126 ]
+[v main@argv argv `*.2*.2uc  1 p 3 128 ]
+"391
 } 0
-"1565
+"1572
 [v _doModeVscpNode doModeVscpNode `(v  1 e 0 0 ]
 {
-"1567
+"1574
 } 0
-"1347
+"1354
 [v _doModeSLCAN doModeSLCAN `(v  1 e 0 0 ]
 {
-"1440
+"1447
 [v doModeSLCAN@id id `ul  1 a 4 61 ]
-"1441
+"1448
 [v doModeSLCAN@dlc dlc `uc  1 a 1 65 ]
-"1349
+"1356
 [v doModeSLCAN@rv rv `E15660  1 a 1 67 ]
-"1348
+"1355
 [v doModeSLCAN@c c `uc  1 a 1 66 ]
-"1558
+"1565
 } 0
 "35 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\hexutils.c
 [v _hexStringToBytes hexStringToBytes `(uc  1 e 1 0 ]
@@ -1159,16 +1159,16 @@ ECAN_RX_DBL_BUFFERED 128
 [v nibbleFromChar@c c `uc  1 a 1 0 ]
 "25
 } 0
-"2154 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2161 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _receiveSendEventSLCAN receiveSendEventSLCAN `(E15660  1 e 1 0 ]
 {
-"2157
+"2164
 [v receiveSendEventSLCAN@id id `ul  1 a 4 38 ]
-"2155
+"2162
 [v receiveSendEventSLCAN@i i `i  1 a 2 43 ]
-"2156
+"2163
 [v receiveSendEventSLCAN@dlc dlc `uc  1 a 1 42 ]
-"2209
+"2216
 } 0
 "34 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ltoa.c
 [v _ultoa ultoa `(*.39uc  1 e 2 0 ]
@@ -1183,56 +1183,56 @@ ECAN_RX_DBL_BUFFERED 128
 [v ultoa@base base `i  1 p 2 28 ]
 "53
 } 0
-"1118 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"1125 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _doModeVscp doModeVscp `(v  1 e 0 0 ]
 {
-"1119
+"1126
 [v doModeVscp@c c `uc  1 a 1 87 ]
-"1340
+"1347
 } 0
-"1600
+"1607
 [v _sendVSCPDriverErrorFrame sendVSCPDriverErrorFrame `(v  1 e 0 0 ]
 {
 [v sendVSCPDriverErrorFrame@errorcode errorcode `uc  1 a 1 15 ]
-"1601
+"1608
 [v sendVSCPDriverErrorFrame@crc crc `uc  1 a 1 16 ]
-"1600
+"1607
 [v sendVSCPDriverErrorFrame@errorcode errorcode `uc  1 a 1 15 ]
-"1641
+"1648
 } 0
-"1737
+"1744
 [v _sendVSCPDriverCommandReply sendVSCPDriverCommandReply `(v  1 e 0 0 ]
 {
 [v sendVSCPDriverCommandReply@cmdReplyCode cmdReplyCode `uc  1 a 1 16 ]
-"1738
+"1745
 [v sendVSCPDriverCommandReply@crc crc `uc  1 a 1 17 ]
-"1737
+"1744
 [v sendVSCPDriverCommandReply@cmdReplyCode cmdReplyCode `uc  1 a 1 16 ]
 [v sendVSCPDriverCommandReply@cmdCode cmdCode `uc  1 p 1 15 ]
-"1783
+"1790
 } 0
-"2106
+"2113
 [v _sendVSCPModeCapabilities sendVSCPModeCapabilities `(E15660  1 e 1 0 ]
 {
-"2107
+"2114
 [v sendVSCPModeCapabilities@crc crc `uc  1 a 1 15 ]
-"2147
+"2154
 } 0
-"2240
+"2247
 [v _receiveVSCPModeMultiCanalMsg receiveVSCPModeMultiCanalMsg `(E15660  1 e 1 0 ]
 {
-"2244
+"2251
 } 0
-"2216
+"2223
 [v _receiveVSCPModeCanalMsg receiveVSCPModeCanalMsg `(E15660  1 e 1 0 ]
 {
-"2219
+"2226
 [v receiveVSCPModeCanalMsg@data data `[8]uc  1 a 8 74 ]
-"2217
+"2224
 [v receiveVSCPModeCanalMsg@id id `ul  1 a 4 82 ]
-"2218
+"2225
 [v receiveVSCPModeCanalMsg@dlc dlc `uc  1 a 1 86 ]
-"2232
+"2239
 } 0
 "13 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memcpy.c
 [v _memcpy memcpy `(*.39v  1 e 2 0 ]
@@ -1247,73 +1247,73 @@ ECAN_RX_DBL_BUFFERED 128
 [v memcpy@n n `ui  1 p 2 4 ]
 "32
 } 0
-"1648 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"1655 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _sendVSCPDriverAck sendVSCPDriverAck `(v  1 e 0 0 ]
 {
-"1649
+"1656
 [v sendVSCPDriverAck@crc crc `uc  1 a 1 15 ]
-"1686
+"1693
 } 0
-"1692
+"1699
 [v _sendVSCPDriverNack sendVSCPDriverNack `(v  1 e 0 0 ]
 {
-"1693
+"1700
 [v sendVSCPDriverNack@crc crc `uc  1 a 1 15 ]
-"1730
+"1737
 } 0
-"2452
+"2459
 [v _calcCRC calcCRC `(uc  1 e 1 0 ]
 {
-"2454
+"2461
 [v calcCRC@crc crc `uc  1 a 1 16 ]
-"2453
+"2460
 [v calcCRC@j j `uc  1 a 1 15 ]
-"2452
+"2459
 [v calcCRC@p p `*.39uc  1 p 2 12 ]
 [v calcCRC@len len `uc  1 p 1 14 ]
-"2461
+"2468
 } 0
-"1844
+"1851
 [v _receiveSendEventCANAL receiveSendEventCANAL `(E15660  1 e 1 0 ]
 {
-"1852
+"1859
 [v receiveSendEventCANAL@crc crc `uc  1 a 1 32 ]
-"1848
+"1855
 [v receiveSendEventCANAL@data data `[8]uc  1 a 8 18 ]
-"1846
+"1853
 [v receiveSendEventCANAL@id id `ul  1 a 4 27 ]
-"1847
+"1854
 [v receiveSendEventCANAL@dlc dlc `uc  1 a 1 31 ]
-"1845
+"1852
 [v receiveSendEventCANAL@i i `uc  1 a 1 26 ]
-"1914
-} 0
 "1921
+} 0
+"1928
 [v _receiveSendMultiEventCANAL receiveSendMultiEventCANAL `(E15660  1 e 1 0 ]
 {
-"1931
+"1938
 [v receiveSendMultiEventCANAL@crc crc `uc  1 a 1 33 ]
-"1927
+"1934
 [v receiveSendMultiEventCANAL@data data `[8]uc  1 a 8 18 ]
-"1925
+"1932
 [v receiveSendMultiEventCANAL@id id `ul  1 a 4 28 ]
-"1923
+"1930
 [v receiveSendMultiEventCANAL@pos pos `uc  1 a 1 34 ]
-"1926
+"1933
 [v receiveSendMultiEventCANAL@dlc dlc `uc  1 a 1 32 ]
-"1922
+"1929
 [v receiveSendMultiEventCANAL@i i `uc  1 a 1 27 ]
-"1924
+"1931
 [v receiveSendMultiEventCANAL@msgcount msgcount `uc  1 a 1 26 ]
-"2015
+"2022
 } 0
-"1574
+"1581
 [v _sendEscapedUartData sendEscapedUartData `(v  1 e 0 0 ]
 {
 [v sendEscapedUartData@c c `uc  1 a 1 14 ]
 [v sendEscapedUartData@c c `uc  1 a 1 14 ]
 [v sendEscapedUartData@pcrc pcrc `*.39uc  1 p 2 12 ]
-"1593
+"1600
 } 0
 "47 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\crc8.c
 [v _crc8 crc8 `(v  1 e 0 0 ]
@@ -1332,127 +1332,127 @@ ECAN_RX_DBL_BUFFERED 128
 [v init_crc8@crc crc `uc  1 a 1 4 ]
 "40
 } 0
-"516 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"517 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _doModeVerbose doModeVerbose `(v  1 e 0 0 ]
 {
-"824
-[v doModeVerbose@preg_1169 preg `*.35uc  1 a 2 6 ]
-"728
+"831
+[v doModeVerbose@preg_1243 preg `*.35uc  1 a 2 6 ]
+"729
 [v doModeVerbose@preg preg `*.35uc  1 a 2 4 ]
-"1017
-[v doModeVerbose@id_1222 id `ul  1 a 4 35 ]
-"964
-[v doModeVerbose@p_1210 p `*.39uc  1 a 2 59 ]
-"959
+"1024
+[v doModeVerbose@id_1296 id `ul  1 a 4 38 ]
+"971
+[v doModeVerbose@p_1284 p `*.39uc  1 a 2 63 ]
+"966
 [v doModeVerbose@mask_class mask_class `us  1 a 2 10 ]
-"957
-[v doModeVerbose@maskno maskno `uc  1 a 1 40 ]
-"961
-[v doModeVerbose@mask_nodeid mask_nodeid `uc  1 a 1 19 ]
-"960
-[v doModeVerbose@mask_type mask_type `uc  1 a 1 18 ]
-"958
-[v doModeVerbose@mask_priority mask_priority `uc  1 a 1 17 ]
-"945
+"964
+[v doModeVerbose@maskno maskno `uc  1 a 1 43 ]
+"968
+[v doModeVerbose@mask_nodeid mask_nodeid `uc  1 a 1 18 ]
+"967
+[v doModeVerbose@mask_type mask_type `uc  1 a 1 17 ]
+"965
+[v doModeVerbose@mask_priority mask_priority `uc  1 a 1 16 ]
+"952
 [v doModeVerbose@id id `ul  1 a 4 0 ]
-"889
-[v doModeVerbose@p_1190 p `*.39uc  1 a 2 57 ]
-"884
+"896
+[v doModeVerbose@p_1264 p `*.39uc  1 a 2 61 ]
+"891
 [v doModeVerbose@filter_class filter_class `us  1 a 2 8 ]
-"882
-[v doModeVerbose@filterno filterno `uc  1 a 1 39 ]
-"886
-[v doModeVerbose@filter_nodeid filter_nodeid `uc  1 a 1 16 ]
-"885
-[v doModeVerbose@filter_type filter_type `uc  1 a 1 15 ]
-"883
-[v doModeVerbose@filter_priority filter_priority `uc  1 a 1 14 ]
-"863
-[v doModeVerbose@nodeid_1176 nodeid `uc  1 a 1 47 ]
-"813
-[v doModeVerbose@p_1165 p `*.39uc  1 a 2 52 ]
-"810
-[v doModeVerbose@value_1164 value `uc  1 a 1 42 ]
-"809
-[v doModeVerbose@reg_1163 reg `uc  1 a 1 34 ]
-"808
-[v doModeVerbose@page_1162 page `uc  1 a 1 33 ]
-"807
-[v doModeVerbose@nodeid_1161 nodeid `uc  1 a 1 13 ]
-"717
-[v doModeVerbose@p_1117 p `*.39uc  1 a 2 50 ]
-"713
-[v doModeVerbose@value value `uc  1 a 1 49 ]
-"709
-[v doModeVerbose@i_1111 i `uc  1 a 1 48 ]
-"712
-[v doModeVerbose@reg reg `uc  1 a 1 46 ]
-"711
-[v doModeVerbose@page page `uc  1 a 1 45 ]
+"889
+[v doModeVerbose@filterno filterno `uc  1 a 1 42 ]
+"893
+[v doModeVerbose@filter_nodeid filter_nodeid `uc  1 a 1 15 ]
+"892
+[v doModeVerbose@filter_type filter_type `uc  1 a 1 14 ]
+"890
+[v doModeVerbose@filter_priority filter_priority `uc  1 a 1 13 ]
+"870
+[v doModeVerbose@nodeid_1250 nodeid `uc  1 a 1 51 ]
+"820
+[v doModeVerbose@p_1239 p `*.39uc  1 a 2 56 ]
+"817
+[v doModeVerbose@value_1238 value `uc  1 a 1 45 ]
+"816
+[v doModeVerbose@reg_1237 reg `uc  1 a 1 37 ]
+"815
+[v doModeVerbose@page_1236 page `uc  1 a 1 36 ]
+"814
+[v doModeVerbose@nodeid_1235 nodeid `uc  1 a 1 12 ]
+"718
+[v doModeVerbose@p_1179 p `*.39uc  1 a 2 54 ]
 "714
-[v doModeVerbose@count count `uc  1 a 1 43 ]
-"750
-[v doModeVerbose@rv rv `E15660  1 a 1 32 ]
+[v doModeVerbose@value value `uc  1 a 1 53 ]
 "710
-[v doModeVerbose@nodeid nodeid `uc  1 a 1 12 ]
-"619
-[v doModeVerbose@p p `*.39uc  1 a 2 55 ]
-"589
-[v doModeVerbose@ifmode ifmode `E16371  1 a 1 54 ]
-"517
-[v doModeVerbose@c c `uc  1 a 1 44 ]
+[v doModeVerbose@i_1173 i `uc  1 a 1 52 ]
+"713
+[v doModeVerbose@reg reg `uc  1 a 1 50 ]
+"712
+[v doModeVerbose@page page `uc  1 a 1 49 ]
+"711
+[v doModeVerbose@nodeid nodeid `uc  1 a 1 47 ]
+"715
+[v doModeVerbose@count count `uc  1 a 1 46 ]
+"750
+[v doModeVerbose@rv rv `E15660  1 a 1 35 ]
+"620
+[v doModeVerbose@p p `*.39uc  1 a 2 59 ]
+"590
+[v doModeVerbose@ifmode ifmode `E16371  1 a 1 58 ]
 "518
-[v doModeVerbose@i i `uc  1 a 1 41 ]
-"1111
+[v doModeVerbose@c c `uc  1 a 1 48 ]
+"519
+[v doModeVerbose@i i `uc  1 a 1 44 ]
+"1118
 } 0
-"2838
+"2845
 [v _setFilter setFilter `(v  1 e 0 0 ]
 {
 [v setFilter@filter filter `uc  1 a 1 10 ]
-"2844
+"2851
 [v setFilter@eidl eidl `uc  1 a 1 14 ]
-"2843
+"2850
 [v setFilter@eidh eidh `uc  1 a 1 13 ]
-"2840
+"2847
 [v setFilter@sidl sidl `uc  1 a 1 12 ]
-"2839
+"2846
 [v setFilter@sidh sidh `uc  1 a 1 11 ]
-"2838
+"2845
 [v setFilter@filter filter `uc  1 a 1 10 ]
 [v setFilter@val val `ul  1 p 4 0 ]
-"2961
+"2968
 } 0
-"2401
+"2408
 [v _writeRegisterExtended writeRegisterExtended `(E15660  1 e 1 0 ]
 {
-[v writeRegisterExtended@nodeid nodeid `uc  1 a 1 96 ]
-[v writeRegisterExtended@nodeid nodeid `uc  1 a 1 96 ]
-[v writeRegisterExtended@page page `us  1 p 2 85 ]
-[v writeRegisterExtended@reg reg `uc  1 p 1 87 ]
-[v writeRegisterExtended@timeout timeout `us  1 p 2 88 ]
-[v writeRegisterExtended@value value `*.39uc  1 p 2 90 ]
-"2445
+[v writeRegisterExtended@nodeid nodeid `uc  1 a 1 97 ]
+[v writeRegisterExtended@nodeid nodeid `uc  1 a 1 97 ]
+[v writeRegisterExtended@page page `us  1 p 2 86 ]
+[v writeRegisterExtended@reg reg `uc  1 p 1 88 ]
+[v writeRegisterExtended@timeout timeout `us  1 p 2 89 ]
+[v writeRegisterExtended@value value `*.39uc  1 p 2 91 ]
+"2452
 } 0
-"2488
+"2495
 [v _printBinary printBinary `(v  1 e 0 0 ]
 {
 [v printBinary@value value `uc  1 a 1 3 ]
-"2489
+"2496
 [v printBinary@i i `i  1 a 2 4 ]
-"2488
+"2495
 [v printBinary@value value `uc  1 a 1 3 ]
-"2500
+"2507
 } 0
-"2300
+"2307
 [v _readRegisterExtended readRegisterExtended `(E15660  1 e 1 0 ]
 {
-[v readRegisterExtended@nodeid nodeid `uc  1 a 1 96 ]
-[v readRegisterExtended@nodeid nodeid `uc  1 a 1 96 ]
-[v readRegisterExtended@page page `us  1 p 2 85 ]
-[v readRegisterExtended@reg reg `uc  1 p 1 87 ]
-[v readRegisterExtended@timeout timeout `us  1 p 2 88 ]
-[v readRegisterExtended@value value `*.39uc  1 p 2 90 ]
-"2341
+[v readRegisterExtended@nodeid nodeid `uc  1 a 1 97 ]
+[v readRegisterExtended@nodeid nodeid `uc  1 a 1 97 ]
+[v readRegisterExtended@page page `us  1 p 2 86 ]
+[v readRegisterExtended@reg reg `uc  1 p 1 88 ]
+[v readRegisterExtended@timeout timeout `us  1 p 2 89 ]
+[v readRegisterExtended@value value `*.39uc  1 p 2 91 ]
+"2348
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcpy.c
 [v _strcpy strcpy `(*.39uc  1 e 2 0 ]
@@ -1464,58 +1464,58 @@ ECAN_RX_DBL_BUFFERED 128
 [v strcpy@from from `*.39Cuc  1 p 2 2 ]
 "24
 } 0
-"2639 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2646 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _findNodes findNodes `(v  1 e 0 0 ]
 {
-"2641
-[v findNodes@i i `uc  1 a 1 104 ]
-"2642
-[v findNodes@value value `uc  1 a 1 103 ]
-"2640
-[v findNodes@nFound nFound `uc  1 a 1 102 ]
-"2671
+"2648
+[v findNodes@i i `uc  1 a 1 105 ]
+"2649
+[v findNodes@value value `uc  1 a 1 104 ]
+"2647
+[v findNodes@nFound nFound `uc  1 a 1 103 ]
+"2678
 } 0
-"2720
+"2727
 [v _printMDF printMDF `(v  1 e 0 0 ]
 {
-[v printMDF@nodeid nodeid `uc  1 a 1 94 ]
-"2723
-[v printMDF@p p `*.39uc  1 a 2 96 ]
-"2721
-[v printMDF@i i `uc  1 a 1 98 ]
-"2722
-[v printMDF@value value `uc  1 a 1 95 ]
-"2720
-[v printMDF@nodeid nodeid `uc  1 a 1 94 ]
-"2744
+[v printMDF@nodeid nodeid `uc  1 a 1 95 ]
+"2730
+[v printMDF@p p `*.39uc  1 a 2 97 ]
+"2728
+[v printMDF@i i `uc  1 a 1 99 ]
+"2729
+[v printMDF@value value `uc  1 a 1 96 ]
+"2727
+[v printMDF@nodeid nodeid `uc  1 a 1 95 ]
+"2751
 } 0
-"2679
+"2686
 [v _printGUID printGUID `(v  1 e 0 0 ]
 {
-[v printGUID@nodeid nodeid `uc  1 a 1 94 ]
-"2682
-[v printGUID@buf buf `[3]uc  1 a 3 95 ]
-"2680
-[v printGUID@i i `uc  1 a 1 99 ]
-"2681
-[v printGUID@value value `uc  1 a 1 98 ]
-"2679
-[v printGUID@nodeid nodeid `uc  1 a 1 94 ]
-"2712
+[v printGUID@nodeid nodeid `uc  1 a 1 95 ]
+"2689
+[v printGUID@buf buf `[3]uc  1 a 3 96 ]
+"2687
+[v printGUID@i i `uc  1 a 1 100 ]
+"2688
+[v printGUID@value value `uc  1 a 1 99 ]
+"2686
+[v printGUID@nodeid nodeid `uc  1 a 1 95 ]
+"2719
 } 0
-"2751
+"2758
 [v _printNodeFirmwareVersion printNodeFirmwareVersion `(v  1 e 0 0 ]
 {
-[v printNodeFirmwareVersion@nodeid nodeid `uc  1 a 1 94 ]
-"2754
-[v printNodeFirmwareVersion@buf buf `[3]uc  1 a 3 95 ]
-"2752
-[v printNodeFirmwareVersion@i i `uc  1 a 1 99 ]
-"2753
-[v printNodeFirmwareVersion@value value `uc  1 a 1 98 ]
-"2751
-[v printNodeFirmwareVersion@nodeid nodeid `uc  1 a 1 94 ]
-"2779
+[v printNodeFirmwareVersion@nodeid nodeid `uc  1 a 1 95 ]
+"2761
+[v printNodeFirmwareVersion@buf buf `[3]uc  1 a 3 96 ]
+"2759
+[v printNodeFirmwareVersion@i i `uc  1 a 1 100 ]
+"2760
+[v printNodeFirmwareVersion@value value `uc  1 a 1 99 ]
+"2758
+[v printNodeFirmwareVersion@nodeid nodeid `uc  1 a 1 95 ]
+"2786
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcat.c
 [v _strcat strcat `(*.39uc  1 e 2 0 ]
@@ -1527,37 +1527,37 @@ ECAN_RX_DBL_BUFFERED 128
 [v strcat@from from `*.35Cuc  1 p 2 2 ]
 "26
 } 0
-"2254 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2261 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _readRegister readRegister `(E15660  1 e 1 0 ]
 {
-[v readRegister@nodeid nodeid `uc  1 a 1 93 ]
-[v readRegister@nodeid nodeid `uc  1 a 1 93 ]
-[v readRegister@reg reg `uc  1 p 1 85 ]
-[v readRegister@timeout timeout `us  1 p 2 86 ]
-[v readRegister@value value `*.30uc  1 p 1 88 ]
-"2289
+[v readRegister@nodeid nodeid `uc  1 a 1 94 ]
+[v readRegister@nodeid nodeid `uc  1 a 1 94 ]
+[v readRegister@reg reg `uc  1 p 1 86 ]
+[v readRegister@timeout timeout `us  1 p 2 87 ]
+[v readRegister@value value `*.30uc  1 p 1 89 ]
+"2296
 } 0
-"2975
+"2982
 [v _sendVSCPFrame sendVSCPFrame `(uc  1 e 1 0 ]
 {
-"2976
-[v sendVSCPFrame@id id `ul  1 a 4 81 ]
-"2975
+"2983
+[v sendVSCPFrame@id id `ul  1 a 4 82 ]
+"2982
 [v sendVSCPFrame@vscpclass vscpclass `us  1 p 2 54 ]
 [v sendVSCPFrame@vscptype vscptype `uc  1 p 1 56 ]
 [v sendVSCPFrame@nodeid nodeid `uc  1 p 1 57 ]
 [v sendVSCPFrame@priority priority `uc  1 p 1 58 ]
 [v sendVSCPFrame@size size `uc  1 p 1 59 ]
-[v sendVSCPFrame@pData pData `*.29uc  1 p 1 60 ]
-"2987
+[v sendVSCPFrame@pData pData `*.39uc  1 p 2 60 ]
+"2994
 } 0
-"3021
+"3028
 [v _sendCANFrame sendCANFrame `(uc  1 e 1 0 ]
 {
 [v sendCANFrame@id id `ul  1 p 4 47 ]
 [v sendCANFrame@dlc dlc `uc  1 p 1 51 ]
 [v sendCANFrame@pdata pdata `*.39uc  1 p 2 52 ]
-"3029
+"3036
 } 0
 "617 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\ECAN.c
 [v _ECANSendMessage ECANSendMessage `(E15660  1 e 1 0 ]
@@ -1571,7 +1571,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ECANSendMessage@i i `uc  1 a 1 44 ]
 "631
 [v ECANSendMessage@temp temp `uc  1 a 1 43 ]
-[s S1547 . 1 `uc 1 b0 1 0 :1:0 
+[s S1621 . 1 `uc 1 b0 1 0 :1:0 
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1581,8 +1581,8 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 b7 1 0 :1:7 
 ]
 "634
-[u S1556 . 1 `uc 1 Val 1 0 `S1547 1 bits 1 0 ]
-[v ECANSendMessage@tempBSEL0 tempBSEL0 `S1556  1 a 1 40 ]
+[u S1630 . 1 `uc 1 Val 1 0 `S1621 1 bits 1 0 ]
+[v ECANSendMessage@tempBSEL0 tempBSEL0 `S1630  1 a 1 40 ]
 "628
 [v ECANSendMessage@j j `uc  1 a 1 39 ]
 "620
@@ -1599,24 +1599,24 @@ ECAN_RX_DBL_BUFFERED 128
 "1101
 [v __CANIDToRegs _CANIDToRegs `(v  1 e 0 0 ]
 {
-[s S1779 . 1 `uc 1 SIDL 1 0 :3:0 
+[s S1853 . 1 `uc 1 SIDL 1 0 :3:0 
 `uc 1 SIDH 1 0 :5:3 
 ]
 "1102
-[s S1782 . 1 `uc 1 SIDHU 1 0 :3:0 
+[s S1856 . 1 `uc 1 SIDHU 1 0 :3:0 
 `uc 1 EIDL_LN 1 0 :5:3 
 ]
-[s S1785 . 1 `uc 1 EIDL_UN 1 0 :3:0 
+[s S1859 . 1 `uc 1 EIDL_UN 1 0 :3:0 
 `uc 1 EIDH_LN 1 0 :5:3 
 ]
-[s S1788 . 1 `uc 1 EIDH_UN 1 0 :3:0 
+[s S1862 . 1 `uc 1 EIDH_UN 1 0 :3:0 
 `uc 1 EIDHU 1 0 :2:3 
 `uc 1 . 1 0 :3:5 
 ]
-[s S1792 . 4 `S1779 1 BYTE1 1 0 `S1782 1 BYTE2 1 1 `S1785 1 BYTE3 1 2 `S1788 1 BYTE4 1 3 ]
-[s S1797 . 4 `uc 1 BYTE_1 1 0 `uc 1 BYTE_2 1 1 `uc 1 BYTE_3 1 2 `uc 1 BYTE_4 1 3 ]
-[u S1802 _CAN_MESSAGE_ID 4 `ul 1 ID 4 0 `S1792 1 ID_VALS 4 0 `S1797 1 BYTES 4 0 ]
-[v __CANIDToRegs@Value Value `*.30S1802  1 a 1 9 ]
+[s S1866 . 4 `S1853 1 BYTE1 1 0 `S1856 1 BYTE2 1 1 `S1859 1 BYTE3 1 2 `S1862 1 BYTE4 1 3 ]
+[s S1871 . 4 `uc 1 BYTE_1 1 0 `uc 1 BYTE_2 1 1 `uc 1 BYTE_3 1 2 `uc 1 BYTE_4 1 3 ]
+[u S1876 _CAN_MESSAGE_ID 4 `ul 1 ID 4 0 `S1866 1 ID_VALS 4 0 `S1871 1 BYTES 4 0 ]
+[v __CANIDToRegs@Value Value `*.30S1876  1 a 1 9 ]
 "1101
 [v __CANIDToRegs@ptr ptr `*.39uc  1 p 2 0 ]
 [v __CANIDToRegs@val val `ul  1 p 4 2 ]
@@ -1634,20 +1634,20 @@ ECAN_RX_DBL_BUFFERED 128
 [v memset@n n `ui  1 p 2 4 ]
 "22
 } 0
-"2598 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2605 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _printHelp printHelp `(v  1 e 0 0 ]
 {
-"2631
+"2638
 } 0
-"2534
+"2541
 [v _printErrors printErrors `(v  1 e 0 0 ]
 {
-"2590
+"2597
 } 0
-"2507
+"2514
 [v _printStatistics printStatistics `(v  1 e 0 0 ]
 {
-"2527
+"2534
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atoi.c
 [v _atoi atoi `(i  1 e 2 0 ]
@@ -1737,36 +1737,36 @@ ECAN_RX_DBL_BUFFERED 128
 [v strlen@s s `*.35Cuc  1 p 2 0 ]
 "13
 } 0
-"1790 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"1797 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _receivePrintEventVerbose receivePrintEventVerbose `(E15660  1 e 1 0 ]
 {
-"1791
+"1798
 [v receivePrintEventVerbose@i i `uc  1 a 1 69 ]
-"1837
+"1844
 } 0
-"3000
+"3007
 [v _getVSCPFrame getVSCPFrame `(uc  1 e 1 0 ]
 {
-[v getVSCPFrame@pvscpclass pvscpclass `*.29us  1 a 1 27 ]
-"3001
-[v getVSCPFrame@id id `ul  1 a 4 28 ]
-"3000
-[v getVSCPFrame@pvscpclass pvscpclass `*.29us  1 a 1 27 ]
-[v getVSCPFrame@pvscptype pvscptype `*.30uc  1 p 1 18 ]
+[v getVSCPFrame@pvscpclass pvscpclass `*.29us  1 a 1 28 ]
+"3008
+[v getVSCPFrame@id id `ul  1 a 4 29 ]
+"3007
+[v getVSCPFrame@pvscpclass pvscpclass `*.29us  1 a 1 28 ]
+[v getVSCPFrame@pvscptype pvscptype `*.29uc  1 p 1 18 ]
 [v getVSCPFrame@pNodeId pNodeId `*.30uc  1 p 1 19 ]
-[v getVSCPFrame@pPriority pPriority `*.30uc  1 p 1 20 ]
+[v getVSCPFrame@pPriority pPriority `*.29uc  1 p 1 20 ]
 [v getVSCPFrame@pSize pSize `*.30uc  1 p 1 21 ]
-[v getVSCPFrame@pData pData `*.29uc  1 p 1 22 ]
-"3013
+[v getVSCPFrame@pData pData `*.39uc  1 p 2 22 ]
+"3020
 } 0
-"3036
+"3043
 [v _getCANFrame getCANFrame `(uc  1 e 1 0 ]
 {
 [v getCANFrame@pid pid `*.30ul  1 a 1 17 ]
 [v getCANFrame@pid pid `*.30ul  1 a 1 17 ]
 [v getCANFrame@pdlc pdlc `*.30uc  1 p 1 14 ]
 [v getCANFrame@pdata pdata `*.39uc  1 p 2 15 ]
-"3092
+"3099
 } 0
 "29 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\fifo.c
 [v _fifo_read fifo_read `(us  1 e 2 0 ]
@@ -1787,10 +1787,10 @@ ECAN_RX_DBL_BUFFERED 128
 {
 "1507
 [v sprintf@idx idx `uc  1 a 1 33 ]
-[s S2011 . 3 `*.30Cuc 1 _cp 1 0 `ui 1 _len 2 1 ]
+[s S2085 . 3 `*.30Cuc 1 _cp 1 0 `ui 1 _len 2 1 ]
 "533
-[u S2014 . 4 `ul 1 _val 4 0 `S2011 1 _str 3 0 ]
-[v sprintf@_val _val `S2014  1 a 4 45 ]
+[u S2088 . 4 `ul 1 _val 4 0 `S2085 1 _str 3 0 ]
+[v sprintf@_val _val `S2088  1 a 4 45 ]
 "508
 [v sprintf@flag flag `us  1 a 2 50 ]
 "501
@@ -1845,12 +1845,12 @@ ECAN_RX_DBL_BUFFERED 128
 [v isdigit@c c `uc  1 a 1 2 ]
 "15
 } 0
-"2796 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2803 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _printFirmwareVersion printFirmwareVersion `(v  1 e 0 0 ]
 {
-"2797
+"2804
 [v printFirmwareVersion@wrkbuf wrkbuf `[20]uc  1 a 20 24 ]
-"2810
+"2817
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\itoa.c
 [v _itoa itoa `(*.39uc  1 e 2 0 ]
@@ -1895,10 +1895,10 @@ ECAN_RX_DBL_BUFFERED 128
 [v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
 "31
 } 0
-"2817 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2824 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _printMode printMode `(v  1 e 0 0 ]
 {
-"2831
+"2838
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uputs.c
 [v _putsUSART putsUSART `(v  1 e 0 0 ]
@@ -1913,10 +1913,10 @@ ECAN_RX_DBL_BUFFERED 128
 [v WriteUSART@data data `uc  1 a 1 0 ]
 "23
 } 0
-"399 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"400 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _init init `(v  1 e 0 0 ]
 {
-"464
+"465
 } 0
 "168 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\ECAN.c
 [v _ECANInitialize ECANInitialize `(v  1 e 0 0 ]
@@ -1948,24 +1948,24 @@ ECAN_RX_DBL_BUFFERED 128
 "17 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c
 [v _WriteTimer0 WriteTimer0 `(v  1 e 0 0 ]
 {
-[u S2245 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[u S2319 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "18
-[v WriteTimer0@timer timer `S2245  1 a 2 2 ]
+[v WriteTimer0@timer timer `S2319  1 a 2 2 ]
 "17
 [v WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
 } 0
-"2786 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"2793 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _vscp_restoreDefaults vscp_restoreDefaults `(v  1 e 0 0 ]
 {
-"2789
+"2796
 } 0
-"489
+"490
 [v _init_app_eeprom init_app_eeprom `(v  1 e 0 0 ]
 {
-"490
+"491
 [v init_app_eeprom@i i `uc  1 a 1 4 ]
-"508
+"509
 } 0
 "31 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\write_B.c
 [v _Write_b_eep Write_b_eep `(v  1 e 0 0 ]
@@ -1982,10 +1982,10 @@ ECAN_RX_DBL_BUFFERED 128
 {
 "15
 } 0
-"471 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"472 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _init_app_ram init_app_ram `(v  1 e 0 0 ]
 {
-"482
+"483
 } 0
 "24 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\read_B.c
 [v _Read_b_eep Read_b_eep `(uc  1 e 1 0 ]
@@ -2002,20 +2002,20 @@ ECAN_RX_DBL_BUFFERED 128
 [v fifo_init@size size `us  1 p 2 4 ]
 "19
 } 0
-"150 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
+"144 C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c
 [v _Interrupt Interrupt `IIL(v  1 e 0 0 ]
 {
-"236
+"230
 [v Interrupt@fail fail `uc  1 a 1 32 ]
-"151
+"145
 [v Interrupt@c c `uc  1 a 1 31 ]
-"269
+"263
 } 0
 "17 C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c
 [v i1_WriteTimer0 WriteTimer0 `(v  1 e 0 0 ]
 {
-[u S2245 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
-[v i1WriteTimer0@timer WriteTimer0 `S2245  1 a 2 2 ]
+[u S2319 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[v i1WriteTimer0@timer WriteTimer0 `S2319  1 a 2 2 ]
 [v i1WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
 } 0
@@ -2032,7 +2032,7 @@ ECAN_RX_DBL_BUFFERED 128
 "808
 [v ECANReceiveMessage@ptr ptr `*.39uc  1 a 2 20 ]
 [v ECANReceiveMessage@savedPtr savedPtr `*.39uc  1 a 2 15 ]
-[s S1547 . 1 `uc 1 b0 1 0 :1:0 
+[s S1621 . 1 `uc 1 b0 1 0 :1:0 
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -2042,8 +2042,8 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 b7 1 0 :1:7 
 ]
 "810
-[u S1556 . 1 `uc 1 Val 1 0 `S1547 1 bits 1 0 ]
-[v ECANReceiveMessage@temp temp `S1556  1 a 1 19 ]
+[u S1630 . 1 `uc 1 Val 1 0 `S1621 1 bits 1 0 ]
+[v ECANReceiveMessage@temp temp `S1630  1 a 1 19 ]
 "805
 [v ECANReceiveMessage@mode mode `uc  1 a 1 18 ]
 "809
@@ -2058,24 +2058,24 @@ ECAN_RX_DBL_BUFFERED 128
 "1158
 [v __RegsToCANID _RegsToCANID `(v  1 e 0 0 ]
 {
-[s S1779 . 1 `uc 1 SIDL 1 0 :3:0 
+[s S1853 . 1 `uc 1 SIDL 1 0 :3:0 
 `uc 1 SIDH 1 0 :5:3 
 ]
 "1159
-[s S1782 . 1 `uc 1 SIDHU 1 0 :3:0 
+[s S1856 . 1 `uc 1 SIDHU 1 0 :3:0 
 `uc 1 EIDL_LN 1 0 :5:3 
 ]
-[s S1785 . 1 `uc 1 EIDL_UN 1 0 :3:0 
+[s S1859 . 1 `uc 1 EIDL_UN 1 0 :3:0 
 `uc 1 EIDH_LN 1 0 :5:3 
 ]
-[s S1788 . 1 `uc 1 EIDH_UN 1 0 :3:0 
+[s S1862 . 1 `uc 1 EIDH_UN 1 0 :3:0 
 `uc 1 EIDHU 1 0 :2:3 
 `uc 1 . 1 0 :3:5 
 ]
-[s S1792 . 4 `S1779 1 BYTE1 1 0 `S1782 1 BYTE2 1 1 `S1785 1 BYTE3 1 2 `S1788 1 BYTE4 1 3 ]
-[s S1797 . 4 `uc 1 BYTE_1 1 0 `uc 1 BYTE_2 1 1 `uc 1 BYTE_3 1 2 `uc 1 BYTE_4 1 3 ]
-[u S1802 _CAN_MESSAGE_ID 4 `ul 1 ID 4 0 `S1792 1 ID_VALS 4 0 `S1797 1 BYTES 4 0 ]
-[v __RegsToCANID@Value Value `*.39S1802  1 a 2 7 ]
+[s S1866 . 4 `S1853 1 BYTE1 1 0 `S1856 1 BYTE2 1 1 `S1859 1 BYTE3 1 2 `S1862 1 BYTE4 1 3 ]
+[s S1871 . 4 `uc 1 BYTE_1 1 0 `uc 1 BYTE_2 1 1 `uc 1 BYTE_3 1 2 `uc 1 BYTE_4 1 3 ]
+[u S1876 _CAN_MESSAGE_ID 4 `ul 1 ID 4 0 `S1866 1 ID_VALS 4 0 `S1871 1 BYTES 4 0 ]
+[v __RegsToCANID@Value Value `*.39S1876  1 a 2 7 ]
 "1158
 [v __RegsToCANID@ptr ptr `*.39uc  1 p 2 0 ]
 [v __RegsToCANID@val val `*.39ul  1 p 2 2 ]
