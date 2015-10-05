@@ -30,7 +30,6 @@
 uint8_t mode;                       // Unit working mode
 
 // For interrupt CAN receive
-uint8_t c;
 uint32_t id;
 uint8_t dlc;
 uint8_t data[8];
@@ -149,7 +148,9 @@ char BusyUSART()
 
 void interrupt low_priority Interrupt()
 {
-    // Check if the interrupt is caused by RX pin
+    uint8_t c;
+    
+    // Check if the interrupt is caused by UART RX
     if ( 1 == PIR1bits.RCIF ) {
 
         c = ReadUSART();
@@ -1146,7 +1147,9 @@ void doModeVscp( void )
         }
 
         if ( STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START == stateVscpDriver ) {
+            
             if ( bDLE ) {
+                
                 bDLE = FALSE;
 
                 // Check for frame start
@@ -1163,13 +1166,13 @@ void doModeVscp( void )
         else if ( STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_END == stateVscpDriver ) {
             
             // Check if last char was DLE
-            if (bDLE) {
+            if ( bDLE ) {
                 
                 // Yes last char was DLE this is an escape sequence
                 bDLE = FALSE;
 
                 // Check for frame end
-                if (ETX == c) {
+                if ( ETX == c ) {
                     stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED;
                 }  
                 // Check for escaped DLE
@@ -1183,7 +1186,6 @@ void doModeVscp( void )
                         pos = 0;
                         stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
                     }
-                    
                     return;
                 }
             }
@@ -1221,12 +1223,11 @@ void doModeVscp( void )
             // 5-n - Payload
             // len-1 - crc for frame
 
-
             // Check that the checksum is correct
             // (Correct if calculation over frame including crc is zero)
             if (calcCRC(cmdbuf, pos)) {
                 sendVSCPDriverNack();     // Failed
-                sendVSCPDriverErrorFrame(VSCP_SERIAL_DRIVER_ERROR_CHECKSUM);
+                return;
             }
 
             // * * * *  N O O P  * * * *
@@ -2220,10 +2221,12 @@ BOOL receiveVSCPModeCanalMsg(void)
     id = ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD] << 26) |
             ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
             ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
-            cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
-    dlc = cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4;
-    if ( dlc > 8 ) return FALSE;
-    memcpy(data, cmdbuf + VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4, dlc);
+                        cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
+    dlc = ( cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4 ) & 0x07;
+    if ( dlc > 8 ) {
+        return FALSE;
+    }
+    memcpy( data, cmdbuf + VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4, dlc );
 
     return sendCANFrame(id, dlc, data);
 }
