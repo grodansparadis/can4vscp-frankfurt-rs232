@@ -530,6 +530,10 @@ void doModeVerbose(void)
 
         // Enable interrupt again
         ei();
+        
+        // If local echo
+        WriteUSART( c );
+        while (BusyUSART());
 
         // Save
         cmdbuf[ pos++ ] = c;
@@ -755,15 +759,14 @@ void doModeVerbose(void)
                             (reg + i) & 0xff,
                             rwtimeout,
                             &value)) {
-                        putsUSART((char *) "nodeid=");
+                        putsUSART((char *) "+OK - nodeid=");
                         sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
                         putsUSART(wrkbuf);
-                        while (BusyUSART());
                         putsUSART((char *) "Value for reg ");
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", page);
-                        putsUSART(wrkbuf);
-                        while (BusyUSART());
+                        putsUSART(wrkbuf);                        
                         WriteUSART(':');
+                        while (BusyUSART());
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", (reg + i) & 0xff);
                         putsUSART(wrkbuf);
                         putsUSART((char *) " = ");
@@ -784,7 +787,7 @@ void doModeVerbose(void)
                     }
                     else {
                         rv = FALSE;
-                        putsUSART((char *) " nodeid=");
+                        putsUSART((char *) "-ERROR - nodeid=");
                         sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
                         putsUSART(wrkbuf);
                         putsUSART((char *) "Unable to read register ");
@@ -857,10 +860,15 @@ void doModeVerbose(void)
                         reg,
                         rwtimeout,
                         &value)) {
-                    putsUSART((char *) "+OK - Value written successfully\r\n");
+                    putsUSART((char *) "+OK - Value written successfully for ");
+                    putsUSART((char *) "nodeid=");
+                    sprintf(wrkbuf, bHex ? "0x%02X\n" : "%d\n", nodeid);
+                    putsUSART(wrkbuf);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Failed to write value\r\n");
+                    putsUSART((char *) "-ERROR - Failed to write value for ");
+                    putsUSART((char *) "nodeid=");
+                    sprintf(wrkbuf, bHex ? "0x%02X\n" : "%d\n", nodeid);
                 }
 
             }
