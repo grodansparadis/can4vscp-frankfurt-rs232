@@ -803,6 +803,8 @@ void doModeVerbose(void)
                 } 
                 else {
                     putsUSART((char *) "-ERROR - Needs nodeid\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -820,6 +822,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - Needs [page:]register\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -899,6 +903,8 @@ void doModeVerbose(void)
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
                     putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -909,6 +915,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - Needs nodeid\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -926,6 +934,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - Needs [page:]register\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -935,6 +945,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - Need a value\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -960,9 +972,12 @@ void doModeVerbose(void)
             else if (cmdbuf == stristr(cmdbuf, "INFO")) {
                 
                 uint8_t nodeid;
+                uint8_t value;
 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
                     putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
                 
@@ -973,6 +988,19 @@ void doModeVerbose(void)
                 sprintf(wrkbuf, bHex ? "0x%02X" : "%d", nodeid);
                 putsUSART(wrkbuf);
                 putsUSART((char *) "\r\n");
+                
+                if (!readRegisterExtended(nodeid,
+                            0,
+                            0xd0,
+                            rwtimeout,
+                            &value)) {
+                    putsUSART((char *) "-ERROR - Node not found.\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
+                    return;
+                }
+                
+                
                 printNodeFirmwareVersion(nodeid);
                 printGUID(nodeid);
                 printMDF(nodeid);
@@ -995,11 +1023,15 @@ void doModeVerbose(void)
                     filterno = atoi(p);
                     if (filterno > 15) {
                         putsUSART((char *) "-ERROR - Filter number can only be set to a value between 0-15.\r\n");
+                        memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                        pos = 0; // Start again
                         return;
                     }
                 }
                 else {
                     putsUSART((char *) "-ERROR - No filter number specified.\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1010,6 +1042,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - filter for priority is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1020,6 +1054,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - filter for class is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1030,6 +1066,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - filter for type is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1040,6 +1078,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - filter for nide id is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1074,11 +1114,15 @@ void doModeVerbose(void)
                     maskno = atoi(p);
                     if (maskno > 1) {
                         putsUSART((char *) "-ERROR - Mask number can only be set as 0 or 1.\r\n");
+                        memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                        pos = 0; // Start again
                         return;
                     }
                 }
                 else {
                     putsUSART((char *) "-ERROR - No mask number specified.\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1089,6 +1133,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - mask for priority is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1099,6 +1145,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - mask for class is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1109,6 +1157,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - mask for type is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -1119,6 +1169,8 @@ void doModeVerbose(void)
                 }
                 else {
                     putsUSART((char *) "-ERROR - mask for nide id is missing\r\n");
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
                 uint32_t id = ((uint32_t) mask_priority << 26) |
