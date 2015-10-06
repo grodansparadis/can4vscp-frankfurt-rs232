@@ -100,11 +100,11 @@ typedef union _BYTE_VAL
 #define ECAN_TX2_MODE_DISABLE   0
 #define ECAN_TX2_MODE_ENABLE    1
 
-    #define ECAN_INIT_NORMAL            0x00
-    #define ECAN_INIT_LOOPBACK          0x40
-    #define ECAN_INIT_CONFIGURATION     0x80
-    #define ECAN_INIT_DISABLE           0x20
-    #define ECAN_INIT_LISTEN_ONLY       0X60
+#define ECAN_INIT_NORMAL            0x00
+#define ECAN_INIT_LOOPBACK          0x40
+#define ECAN_INIT_CONFIGURATION     0x80
+#define ECAN_INIT_DISABLE           0x20
+#define ECAN_INIT_LISTEN_ONLY       0X60
 
 #define ECAN_RXFn_ENABLE        1
 #define ECAN_RXFn_DISABLE       0

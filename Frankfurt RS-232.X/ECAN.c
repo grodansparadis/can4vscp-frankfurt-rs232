@@ -492,7 +492,7 @@ void ECANInitialize(void)
 
     // SDFLC value
 
-    // Exit with speicfied mode.  If selected mode is Configuration,
+    // Exit with specified mode.  If selected mode is Configuration,
     // we do not need to do anything.
 #if ( ECAN_INIT_MODE != ECAN_INIT_CONFIGURATION )
     ECANSetOperationMode(ECAN_INIT_MODE);

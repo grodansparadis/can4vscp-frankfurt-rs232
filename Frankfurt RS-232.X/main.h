@@ -99,6 +99,13 @@
 #define SLCAN_TIMESTAMP_NOT_USED        0
 #define SLCAN_TIMESTAMP_USE             1
 
+// I/f state to use on startup
+#define STARTUP_IFMODE_CLOSE            0
+#define STARTUP_IFMODE_OPEN             1
+#define STARTUP_IFMODE_SILENT           2
+#define STARTUP_IFMODE_LISTEN           3
+#define STARTUP_IFMODE_LOOPBACK         4
+
 // EEPROM Storage
 #define MODULE_EEPROM_BOOTLOADER_FLAG   0x00	// Reserved for bootloader
                                                 // != 00 is go bootloader
@@ -108,7 +115,7 @@
 #define MODULE_EEPROM_RW_DELAY          0x04    // R/W Delay
 #define MOUDLE_EEPROM_SLCAN_TIMESTAMP   0x05    // SLCAN timestamp
 #define MOUDLE_EEPROM_PRINTOUT_IN_HEX   0x06    // HEX/DECIMAL  printout
-#define MODULE_EEPROM_STARTUP_OPEN      0x07    // Config/Open/listen/loopback
+#define MODULE_EEPROM_STARTUP_OPEN      0x07    // Close/Open/silent/listen/loopback
 #define MODULE_EEPROM_SLCAN_TIMESTAMP   0x08    // True if timestamp should be sent
 #define MODULE_EEPROM_RW_TIMEOUT        0x09    // Register/read/write timeout
 
@@ -135,6 +142,8 @@
 #define MODULE_EEPROM_MASK1             0x64	// Mask 1 - 4 bytes
 
 #define MODULE_LOCAL_ECHO               0x65	// non zero == yes
+
+#define STR_ERR_ONLY_IF_OPEN    "-ERROR - Command only works if interface is open.\r\n"
 
 // Function Prototypes
 void doModeVerbose( void );

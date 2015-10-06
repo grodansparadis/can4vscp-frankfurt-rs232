@@ -330,6 +330,37 @@ int main(int argc, char** argv)
     }
 
     ledFunctionality = STATUS_LED_ON;
+    
+    // Set mask filter in requested startup state
+    
+    // Set the port in the requested start up state
+    switch ( eeprom_read( MODULE_EEPROM_STARTUP_OPEN ) ) {
+        
+        case STARTUP_IFMODE_OPEN:
+            bSilent = FALSE;
+            ECANSetOperationMode( ECAN_OP_MODE_NORMAL );
+            break;
+            
+        case STARTUP_IFMODE_SILENT:
+            bSilent = TRUE;
+            ECANSetOperationMode( ECAN_OP_MODE_NORMAL );
+            break;    
+            
+        case STARTUP_IFMODE_LISTEN:
+            bSilent = FALSE;
+            ECANSetOperationMode( ECAN_OP_MODE_LISTEN );
+            break;    
+            
+        case STARTUP_IFMODE_LOOPBACK:
+            bSilent = FALSE;
+            ECANSetOperationMode( ECAN_OP_MODE_LOOP );
+            break;       
+            
+        default:
+            ECANSetOperationMode( ECAN_INIT_DISABLE );
+            break;
+    }
+            
 
     ///////////////////////////////////////////////////////////////////////////
     //                            Work loop 
@@ -432,6 +463,10 @@ void init()
     // Initialize 1 ms timer
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
     WriteTimer0(TIMER0_RELOAD_VALUE);
+    
+    // Initialize microsecond timer
+    //OpenTimer1( T1_SOURCE_INT & T0_PS_1_1 & T1_16BIT_RW);
+    //WriteTimer1( 0x0000 );
 
     // Initialize CAN
     ECANInitialize();
@@ -476,12 +511,40 @@ void init_app_ram(void)
     can_transmitOverruns = 0;
     uart_receiveOverruns = 0;
     uart_transmitOverruns = 0;
+    timer = 0;
 
     bHex = eeprom_read(MOUDLE_EEPROM_PRINTOUT_IN_HEX);
     mode = eeprom_read(MODULE_EEPROM_STARTUP_MODE);
     bLocalEcho = eeprom_read(MODULE_LOCAL_ECHO);
 
     rwtimeout = eeprom_read(MODULE_EEPROM_RW_TIMEOUT);
+    
+    // Set filter/mask setup values
+    
+    // Must be in Config mode to change settings.
+    ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
+
+    for (uint8_t i=0; i<15; i++ ) {
+        setFilter( i, 
+                    ( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 ) << 24 ) +
+                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 ) << 16 ) + 
+                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 ) << 8 ) +
+                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 ) ) );
+    }
+    
+    ECANSetRXM0Value( ( eeprom_read( MODULE_EEPROM_MASK0 ) << 24 ) +
+                        ( eeprom_read( MODULE_EEPROM_MASK0 + 1 ) << 16 ) + 
+                        ( eeprom_read( MODULE_EEPROM_MASK0 + 2 ) << 8 ) +
+                        ( eeprom_read( MODULE_EEPROM_MASK0 + 3 ) ), 
+                      ECAN_MSG_XTD );
+    
+    ECANSetRXM1Value( ( eeprom_read( MODULE_EEPROM_MASK1 ) << 24 ) +
+                        ( eeprom_read( MODULE_EEPROM_MASK1 + 1 ) << 16 ) + 
+                        ( eeprom_read( MODULE_EEPROM_MASK1 + 2 ) << 8 ) +
+                        ( eeprom_read( MODULE_EEPROM_MASK1 + 3 ) ), 
+                      ECAN_MSG_XTD );
+    
+    ECANSetOperationMode(ECAN_INIT_DISABLE);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -501,15 +564,15 @@ void init_app_eeprom(void)
 
     // Set all filters to 0xff
     for (i = MODULE_EEPROM_FILTER0; i < (MODULE_EEPROM_FILTER15 + 4); i++) {
-        eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
+        eeprom_write( MODULE_EEPROM_FILTER0, 0xFF );
     }
 
-    // Set all masks 0x00
+    // Set all masks 0x00 - All allowed
     for (i = MODULE_EEPROM_MASK0; i < (MODULE_EEPROM_MASK1 + 4); i++) {
-        eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
+        eeprom_write( MODULE_EEPROM_MASK0, 0x00 );
     }
     
-    eeprom_write(MODULE_LOCAL_ECHO, 0);
+    eeprom_write( MODULE_LOCAL_ECHO, 0 );
 }
 
 
@@ -579,7 +642,7 @@ void doModeVerbose(void)
             // Close interface
             else if (cmdbuf == stristr(cmdbuf, "CLOSE")) {
                 bSilent = TRUE;
-                ECANSetOperationMode(ECAN_INIT_DISABLE);
+                ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
                 putsUSART((char *) "+OK\r\n");
             }
             // Open interface in listen only mode
@@ -727,6 +790,11 @@ void doModeVerbose(void)
                 uint8_t reg;
                 uint8_t value;
                 uint8_t count = 1;
+                
+                if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
+                    putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    return;
+                }
 
                 strcpy(cmdbuf, cmdbuf + 5);
                 char *p = strtok(cmdbuf, " ");
@@ -828,6 +896,11 @@ void doModeVerbose(void)
                 uint8_t page = 0;
                 uint8_t reg;
                 uint8_t value;
+                
+                if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
+                    putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    return;
+                }
 
                 strcpy(cmdbuf, cmdbuf + 5);
                 char *p = strtok(cmdbuf, " ");
@@ -885,8 +958,14 @@ void doModeVerbose(void)
             // Read full node info
             //      INFO node-id
             else if (cmdbuf == stristr(cmdbuf, "INFO")) {
+                
                 uint8_t nodeid;
 
+                if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
+                    putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    return;
+                }
+                
                 strcpy(cmdbuf, cmdbuf + 5);
                 nodeid = atoi(cmdbuf);
 
@@ -964,7 +1043,7 @@ void doModeVerbose(void)
                     return;
                 }
 
-                // Must be in Config mode to change many of settings.
+                // Must be in Config mode to change settings.
                 ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
                 uint32_t id = ((uint32_t) filter_priority << 26) |
@@ -972,6 +1051,10 @@ void doModeVerbose(void)
                         ((uint32_t) filter_type << 8) |
                         filter_nodeid;
                 setFilter(filterno, id);
+                
+                // Go back to normal mode
+                ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
+                
                 putsUSART((char *) "+OK\r\n");
             }
             // Set Mask
@@ -1038,7 +1121,6 @@ void doModeVerbose(void)
                     putsUSART((char *) "-ERROR - mask for nide id is missing\r\n");
                     return;
                 }
-
                 uint32_t id = ((uint32_t) mask_priority << 26) |
                         ((uint32_t) mask_class << 16) |
                         ((uint32_t) mask_type << 8) |
@@ -1049,7 +1131,12 @@ void doModeVerbose(void)
 
                 maskno ? ECANSetRXM0Value(id, ECAN_MSG_XTD) :
                         ECANSetRXM1Value(id, ECAN_MSG_XTD);
+                
+                // Go back to normal mode
+                ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
+                
                 putsUSART((char *) "+OK\r\n");
+   
             }
             // Set Configuration
             //      RWTIMEOUT n  - rreg/wreg timeout
@@ -1057,6 +1144,9 @@ void doModeVerbose(void)
             //      MODE [VERBOSE|VSCP|SLCAN]
             //      HEX
             //      DECIMAL
+            //      ECHO
+            //      DEAFULTS
+            //      ?
             else if (cmdbuf == stristr(cmdbuf, "SET ")) {
 
                 // Remove "SET "
@@ -1083,8 +1173,24 @@ void doModeVerbose(void)
                     eeprom_write(MODULE_EEPROM_RW_TIMEOUT, rwtimeout);
                     putsUSART((char *) "+OK\r\n");
                 }
+                // Interface state to use at start up
                 else if (0 != stristr(cmdbuf, "STARTIF ")) {
                     strcpy(cmdbuf, cmdbuf + 8);
+                    if (0 != stristr(cmdbuf, "CLOSE")) {
+                        eeprom_write( MODULE_EEPROM_STARTUP_OPEN, STARTUP_IFMODE_CLOSE );
+                    }
+                    else if (0 != stristr(cmdbuf, "OPEN")) {
+                        eeprom_write( MODULE_EEPROM_STARTUP_OPEN, STARTUP_IFMODE_OPEN );
+                    }
+                    else if (0 != stristr(cmdbuf, "SILENT")) {
+                        eeprom_write( MODULE_EEPROM_STARTUP_OPEN, STARTUP_IFMODE_SILENT );
+                    }
+                    else if (0 != stristr(cmdbuf, "LISTEN")) {
+                        eeprom_write( MODULE_EEPROM_STARTUP_OPEN, STARTUP_IFMODE_LISTEN );
+                    }
+                    else if (0 != stristr(cmdbuf, "LOOPBACK")) {
+                        eeprom_write( MODULE_EEPROM_STARTUP_OPEN, STARTUP_IFMODE_LOOPBACK );
+                    }
                 }
                 else if (0 != stristr(cmdbuf, "MODE ")) {
                     strcpy(cmdbuf, cmdbuf + 5);
@@ -1114,16 +1220,27 @@ void doModeVerbose(void)
                     strcpy(cmdbuf, cmdbuf + 5);
                 }
                 // Enable/disable local echo  'echo on|off'
-                else if (cmdbuf == stristr(cmdbuf, "ECHO")) {
+                else if (cmdbuf == stristr(cmdbuf, "ECHO ")) {
                     strcpy(cmdbuf, cmdbuf + 5);
                     if (0 != stristr(cmdbuf, "ON")) {
                         bLocalEcho = TRUE;
+                        putsUSART((char *) "+OK - Local echo on\r\n");
+                    }
+                    else if (0 != stristr(cmdbuf, "OFF")) {
+                        bLocalEcho = FALSE;
+                        putsUSART((char *) "+OK - Local echo off\r\n");
+                    }
+                    else {
+                        putsUSART((char *) "+ERROR - Wrong argument to 'set echo'.\r\n");
                     }
                 }
-                // Sett defaults
+                // Set defaults
                 else if (cmdbuf == stristr(cmdbuf, "DEFAULTS")) {
-                    strcpy(cmdbuf, cmdbuf + 9);
                     vscp_restoreDefaults();
+                }
+                // Show current settings
+                else if (cmdbuf == stristr(cmdbuf, "?")) {
+                    
                 }
                 else {
                     putsUSART((char *) "-ERROR - Unknown 'SET' command\r\n");
@@ -2678,6 +2795,11 @@ void findNodes(void)
     uint8_t nFound = 0;
     uint8_t i;
     uint8_t value;
+    
+    if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
+        putsUSART( STR_ERR_ONLY_IF_OPEN );
+        return;
+    }
 
     putsUSART((char *) "----------------------------------------------------------------\r\n");
 
@@ -2689,7 +2811,7 @@ void findNodes(void)
                 0xE0,
                 rwtimeout,
                 &value)) {
-            putsUSART((char *) "Node found with node id = ");
+            putsUSART((char *) "\r\nNode found with node id = ");
             itoa(wrkbuf, vscpNodeId, bHex ? 16 : 10);
             putsUSART(wrkbuf);
             putsUSART((char *) "\r\n");
@@ -2699,12 +2821,17 @@ void findNodes(void)
             putsUSART((char *) "----------------------------------------------------------------\r\n");
             nFound++; // Another one found
         }
+        else {
+            WriteUSART('.');
+            BusyUSART();
+        }
 
     }
 
+    putsUSART((char *) "\r\n");
     itoa(wrkbuf, nFound, 10);
     putsUSART(wrkbuf);
-    putsUSART((char *) " nodes found\r\n");
+    putsUSART((char *) " node(s) found\r\n");
 
 }
 
