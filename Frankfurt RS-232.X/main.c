@@ -56,6 +56,7 @@ BOOL bHex = FALSE;                  // Numerical printouts in hex
 BOOL bOpen = FALSE;                 // TRUE if i/f is open
 BOOL bSilent = FALSE;               // Open but no receive
 uint8_t rwtimeout;                  // Reg read/write timeout
+BOOL bLocalEcho = FALSE;            // True for local echo.
 
 volatile uint8_t fifo_canrxcount = 0; // Number of CAN messages in fifo
 
@@ -478,6 +479,7 @@ void init_app_ram(void)
 
     bHex = eeprom_read(MOUDLE_EEPROM_PRINTOUT_IN_HEX);
     mode = eeprom_read(MODULE_EEPROM_STARTUP_MODE);
+    bLocalEcho = eeprom_read(MODULE_LOCAL_ECHO);
 
     rwtimeout = eeprom_read(MODULE_EEPROM_RW_TIMEOUT);
 }
@@ -506,6 +508,8 @@ void init_app_eeprom(void)
     for (i = MODULE_EEPROM_MASK0; i < (MODULE_EEPROM_MASK1 + 4); i++) {
         eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
     }
+    
+    eeprom_write(MODULE_LOCAL_ECHO, 0);
 }
 
 
@@ -532,8 +536,14 @@ void doModeVerbose(void)
         ei();
         
         // If local echo
-        WriteUSART( c );
-        while (BusyUSART());
+        if ( bLocalEcho ) {
+            WriteUSART( c );
+            while (BusyUSART());
+            if ( 0x0d == c ) {
+                WriteUSART( 0x0a );
+                while (BusyUSART());
+            }
+        }
 
         // Save
         cmdbuf[ pos++ ] = c;
@@ -1097,10 +1107,23 @@ void doModeVerbose(void)
                 // filterno,prio,class,type,nodeid (filterno = 0-15)
                 else if (0 != stristr(cmdbuf, "FILTER ")) {
                     strcpy(cmdbuf, cmdbuf + 7);
+                    
                 }
                 // maskno,prio,class,type,nodeid (maskno = 0 or 1)
                 else if (0 != stristr(cmdbuf, "MASK ")) {
                     strcpy(cmdbuf, cmdbuf + 5);
+                }
+                // Enable/disable local echo  'echo on|off'
+                else if (cmdbuf == stristr(cmdbuf, "ECHO")) {
+                    strcpy(cmdbuf, cmdbuf + 5);
+                    if (0 != stristr(cmdbuf, "ON")) {
+                        bLocalEcho = TRUE;
+                    }
+                }
+                // Sett defaults
+                else if (cmdbuf == stristr(cmdbuf, "DEFAULTS")) {
+                    strcpy(cmdbuf, cmdbuf + 9);
+                    vscp_restoreDefaults();
                 }
                 else {
                     putsUSART((char *) "-ERROR - Unknown 'SET' command\r\n");

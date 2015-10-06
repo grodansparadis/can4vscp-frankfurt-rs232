@@ -134,6 +134,8 @@
 #define MODULE_EEPROM_MASK0             0x60	// Mask 0 - 4 bytes
 #define MODULE_EEPROM_MASK1             0x64	// Mask 1 - 4 bytes
 
+#define MODULE_LOCAL_ECHO               0x65	// non zero == yes
+
 // Function Prototypes
 void doModeVerbose( void );
 void doModeVscp( void );
