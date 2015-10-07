@@ -146,6 +146,7 @@
 #define STR_ERR_ONLY_IF_OPEN    "-ERROR - Command only works if interface is open.\r\n"
 
 // Function Prototypes
+void checkCANBusState( void );
 void doModeVerbose( void );
 void doModeVscp( void );
 void doModeSLCAN( void );

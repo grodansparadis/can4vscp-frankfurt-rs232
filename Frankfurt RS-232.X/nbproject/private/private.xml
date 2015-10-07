@@ -14,62 +14,62 @@
             <url>main.c</url>
             <bookmark id="6">
                 <name/>
-                <line>276</line>
+                <line>275</line>
                 <key/>
             </bookmark>
             <bookmark id="2">
                 <name/>
-                <line>369</line>
+                <line>368</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>893</line>
+                <line>908</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1115</line>
+                <line>1182</line>
                 <key/>
             </bookmark>
             <bookmark id="8">
                 <name/>
-                <line>1134</line>
+                <line>1201</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1197</line>
+                <line>1264</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1213</line>
+                <line>1280</line>
                 <key/>
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>1243</line>
+                <line>1310</line>
                 <key/>
             </bookmark>
             <bookmark id="7">
                 <name/>
-                <line>1645</line>
+                <line>1712</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>1694</line>
+                <line>1761</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1825</line>
+                <line>1892</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1902</line>
+                <line>1969</line>
                 <key/>
             </bookmark>
         </file>
@@ -77,7 +77,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/fifo.c</file>
+            <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/ECAN.c</file>
+            <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/ECAN.h</file>
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.h</file>
+            <file>file:/C:/Program%20Files%20(x86)/Microchip/xc8/v1.21/sources/pic18/plib/USART/uread.c</file>
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.c</file>
         </group>
     </open-files>

@@ -46,7 +46,7 @@ fifo_t canInputFifo;
 
 volatile uint32_t timer = 0;        // Millisecond timer
 volatile uint32_t timekeeper = 0;   // Nill to measure time
-uint8_t ledFunctionality;           // Init. LED functionality
+volatile uint8_t ledFunctionality;  // Init. LED functionality
 volatile uint16_t status_led_cnt;   // status LED counter
 // increase externally by one every
 // millisecond
@@ -169,36 +169,36 @@ void interrupt low_priority Interrupt()
 
         // Status LED
         status_led_cnt++;
-        if ((STATUS_LED_VERY_SLOW_BLINK == ledFunctionality) &&
-                (status_led_cnt > 1000)) {
+        if ( ( STATUS_LED_VERY_SLOW_BLINK == ledFunctionality ) &&
+                ( status_led_cnt > 1000 ) ) {
             LATC1 = ~LATC1;
             status_led_cnt = 0;
         }
-        else if ((STATUS_LED_SLOW_BLINK == ledFunctionality) &&
-                (status_led_cnt > 400)) {
+        else if ( ( STATUS_LED_SLOW_BLINK == ledFunctionality ) &&
+                ( status_led_cnt > 400 ) ) {
             LATC1 = ~LATC1;
             status_led_cnt = 0;
         }
-        else if ((STATUS_LED_NORMAL_BLINK == ledFunctionality) &&
-                (status_led_cnt > 100)) {
+        else if ( ( STATUS_LED_NORMAL_BLINK == ledFunctionality ) &&
+                ( status_led_cnt > 100 ) ) {
             LATC1 = ~LATC1;
             status_led_cnt = 0;
         }
-        else if ((STATUS_LED_FAST_BLINK == ledFunctionality) &&
+        else if ( ( STATUS_LED_FAST_BLINK == ledFunctionality ) &&
                 (status_led_cnt > 70)) {
             LATC1 = ~LATC1;
             status_led_cnt = 0;
         }
-        else if ((STATUS_LED_VERY_FAST_BLINK == ledFunctionality) &&
-                (status_led_cnt > 40)) {
+        else if ( ( STATUS_LED_VERY_FAST_BLINK == ledFunctionality ) &&
+                ( status_led_cnt > 40 ) ) {
             LATC1 = ~LATC1;
             status_led_cnt = 0;
         }
-        else if (STATUS_LED_ON == ledFunctionality) {
+        else if ( STATUS_LED_ON == ledFunctionality ) {
             LATC1 = 1;
             status_led_cnt = 0;
         }
-        else if (STATUS_LED_OFF == ledFunctionality) {
+        else if ( STATUS_LED_OFF == ledFunctionality ) {
             LATC1 = 0;
             status_led_cnt = 0;
         }
@@ -207,9 +207,33 @@ void interrupt low_priority Interrupt()
     }
 
     // CAN error
-    if ( 1 == IRXIF ) {
-
-        IRXIF = 0;
+    if ( 1 == ERRIF ) {
+        
+        // Check if we have CAN receive overflows
+        if ( COMSTATbits.RXBnOVFL ) {
+            can_receiveOverruns++;
+            COMSTATbits.RXBnOVFL = 0;
+        }
+        
+        // Check CAN bus state and set LED status accordingly
+        if ( COMSTATbits.TXBO ) {
+            // Bus off
+            ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
+        }
+        else if ( COMSTATbits.TXBP || COMSTATbits.RXBP ) {
+            // Bus passive
+            ledFunctionality = STATUS_LED_FAST_BLINK;
+        }
+        else if ( COMSTATbits.EWARN ) {
+            // Bus warning (RX/TX)
+            ledFunctionality = STATUS_LED_NORMAL_BLINK;
+        }
+        else {
+            // OK
+            ledFunctionality = STATUS_LED_ON;
+        }
+        
+        ERRIF = 0;
     }
 
     // Check for CAN RX interrupt
@@ -370,29 +394,7 @@ int main(int argc, char** argv)
 
         ClrWdt(); // Feed the dog
 
-        // Check CAN bus state and set LED status accordingly
-        if (COMSTATbits.TXBO) {
-            // Bus off
-            ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
-        }
-        else if (COMSTATbits.TXBP || COMSTATbits.RXBP) {
-            // Bus passive
-            ledFunctionality = STATUS_LED_FAST_BLINK;
-        }
-        else if (COMSTATbits.EWARN) {
-            // Bus warning (RX/TX)
-            ledFunctionality = STATUS_LED_NORMAL_BLINK;
-        }
-        else {
-            // OK
-            ledFunctionality = STATUS_LED_ON;
-        }
-
-        // Check if we have CAN receive overflows
-        if (COMSTATbits.RXBnOVFL) {
-            can_receiveOverruns++;
-            COMSTATbits.RXBnOVFL = 0;
-        }
+        checkCANBusState();       
         
         // Check for UART overflow. This should not happen in normal 
         // mode but does while debugging.
@@ -573,6 +575,34 @@ void init_app_eeprom(void)
     }
     
     eeprom_write( MODULE_LOCAL_ECHO, 0 );
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// checkCANBusState
+//
+// Set the global ledFunctionality as of status.
+//
+
+void checkCANBusState(void)
+{
+    // Check CAN bus state and set LED status accordingly
+    if ( COMSTATbits.TXBO ) {
+        // Bus off
+        ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
+    }
+    else if ( COMSTATbits.TXBP || COMSTATbits.RXBP ) {
+        // Bus passive
+        ledFunctionality = STATUS_LED_FAST_BLINK;
+    }
+    else if ( COMSTATbits.EWARN ) {
+        // Bus warning (RX/TX)
+        ledFunctionality = STATUS_LED_NORMAL_BLINK;
+    }
+    else {
+        // OK
+        ledFunctionality = STATUS_LED_ON;
+    }
 }
 
 
@@ -793,6 +823,8 @@ void doModeVerbose(void)
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
                     putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    memset( cmdbuf, 0, sizeof( cmdbuf ) );
+                    pos = 0; // Start again
                     return;
                 }
 
@@ -2473,6 +2505,7 @@ BOOL readRegister(uint8_t nodeid, uint8_t reg, uint16_t timeout, uint8_t *value)
         while (timekeeper < timeout) {
 
             ClrWdt(); // Feed the dog
+            checkCANBusState();
 
             if (getVSCPFrame(&vscpClass,
                     &vscpType,
@@ -2522,21 +2555,22 @@ BOOL readRegisterExtended(uint8_t nodeid,
         while (timekeeper < timeout) {
 
             ClrWdt(); // Feed the dog
+            checkCANBusState();
 
-            if (getVSCPFrame(&vscpClass,
-                    &vscpType,
-                    &vscpNodeId,
-                    &vscpPriority,
-                    &vscpSize,
-                    vscpData)) {
-                if ((nodeid == vscpNodeId) &&
-                        (VSCP_CLASS1_PROTOCOL == vscpClass) &&
-                        (VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_RESPONSE == vscpType) &&
-                        (5 == vscpSize) &&
-                        (0 == vscpData[ 0 ]) &&
-                        ((page >> 8) == vscpData[ 1 ]) &&
-                        ((page & 0xff) == vscpData[ 2 ]) &&
-                        (reg == vscpData[ 3 ])) {
+            if ( getVSCPFrame( &vscpClass,
+                                &vscpType,
+                                &vscpNodeId,
+                                &vscpPriority,
+                                &vscpSize,
+                                vscpData ) ) {
+                if ( ( nodeid == vscpNodeId ) &&
+                        ( VSCP_CLASS1_PROTOCOL == vscpClass ) &&
+                        ( VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_RESPONSE == vscpType ) &&
+                        ( 5 == vscpSize ) &&
+                        ( 0 == vscpData[ 0 ] ) &&
+                        ( (page >> 8) == vscpData[ 1 ] ) &&
+                        ( (page & 0xff) == vscpData[ 2 ] ) &&
+                        ( reg == vscpData[ 3 ] ) ) {
                     *value = vscpData[ 4 ];
                     return TRUE;
                 }
@@ -2573,6 +2607,7 @@ BOOL writeRegister(uint8_t nodeid,
         while (timekeeper < timeout) {
 
             ClrWdt(); // Feed the dog
+            checkCANBusState();
 
             if (getVSCPFrame(&vscpClass,
                     &vscpType,
@@ -2623,6 +2658,7 @@ BOOL writeRegisterExtended(uint8_t nodeid,
         while (timekeeper < timeout) {
 
             ClrWdt(); // Feed the dog
+            checkCANBusState();
 
             if (getVSCPFrame(&vscpClass,
                     &vscpType,
@@ -3217,6 +3253,7 @@ int8_t getVSCPFrame(uint16_t *pvscpclass,
 {
     uint32_t id;
 
+    return FALSE;
     if (!getCANFrame(&id, pSize, pData)) {
         return FALSE;
     }
