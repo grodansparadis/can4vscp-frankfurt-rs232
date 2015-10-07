@@ -142,6 +142,7 @@
 #define MODULE_EEPROM_MASK1             0x64	// Mask 1 - 4 bytes
 
 #define MODULE_LOCAL_ECHO               0x65	// non zero == yes
+#define MODULE_TIMESTAMP                0x66    // bon zero == yes
 
 #define STR_ERR_ONLY_IF_OPEN    "-ERROR - Command only works if interface is open.\r\n"
 
@@ -201,7 +202,7 @@ void vscp_restoreDefaults( void );
 void printFirmwareVersion( void );
 void printMode( void );
 
-void setFilter( uint8_t filter, uint32_t val );
+void setFilter( uint8_t filter, uint32_t val, BOOL bPersistent );
 
 /*!
 	Send Extended ID CAN frame

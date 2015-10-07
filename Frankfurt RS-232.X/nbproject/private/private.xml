@@ -12,64 +12,54 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="8">
         <file>
             <url>main.c</url>
-            <bookmark id="6">
-                <name/>
-                <line>275</line>
-                <key/>
-            </bookmark>
             <bookmark id="2">
                 <name/>
-                <line>368</line>
+                <line>394</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>908</line>
-                <key/>
-            </bookmark>
-            <bookmark id="0">
-                <name/>
-                <line>1182</line>
+                <line>1228</line>
                 <key/>
             </bookmark>
             <bookmark id="8">
                 <name/>
-                <line>1201</line>
+                <line>1262</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1264</line>
+                <line>1323</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1280</line>
+                <line>1333</line>
                 <key/>
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>1310</line>
+                <line>1381</line>
                 <key/>
             </bookmark>
             <bookmark id="7">
                 <name/>
-                <line>1712</line>
+                <line>1783</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>1761</line>
+                <line>1832</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1892</line>
+                <line>1963</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1969</line>
+                <line>2040</line>
                 <key/>
             </bookmark>
         </file>
@@ -80,7 +70,9 @@
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/ECAN.c</file>
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/ECAN.h</file>
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.h</file>
+            <file>file:/C:/Program%20Files%20(x86)/Microchip/xc8/v1.21/sources/pic18/plib/EEP/write_B.c</file>
             <file>file:/C:/Program%20Files%20(x86)/Microchip/xc8/v1.21/sources/pic18/plib/USART/uread.c</file>
+            <file>file:/C:/Program%20Files%20(x86)/Microchip/xc8/v1.21/sources/pic18/plib/Timers/t3read.c</file>
             <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.c</file>
         </group>
     </open-files>

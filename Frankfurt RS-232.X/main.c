@@ -52,11 +52,12 @@ volatile uint16_t status_led_cnt;   // status LED counter
 // millisecond
 
 
-BOOL bHex = FALSE;                  // Numerical printouts in hex
-BOOL bOpen = FALSE;                 // TRUE if i/f is open
-BOOL bSilent = FALSE;               // Open but no receive
-uint8_t rwtimeout;                  // Reg read/write timeout
+BOOL bHex = FALSE;                  // Numerical printouts in hex.
+BOOL bOpen = FALSE;                 // TRUE if i/f is open.
+BOOL bSilent = FALSE;               // Open but no receive.
+uint8_t rwtimeout;                  // Reg read/write timeout.
 BOOL bLocalEcho = FALSE;            // True for local echo.
+BOOL bTimestamp = FALSE;            // Send timestamped frames (CAN4VSCP)
 
 volatile uint8_t fifo_canrxcount = 0; // Number of CAN messages in fifo
 
@@ -79,7 +80,7 @@ char wrkbuf[80];
 // VSCP driver mode
 BOOL stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
 BOOL bDLE = FALSE;      // True if escape character has been received.
-uint8_t sequencyno = 0; // Sequency number. Increases for every frame
+uint8_t sequencyno = 0; // Sequency number. Increases for every frame sent.
 
 // * * * *   Capabilities   * * * *
 vscp_serial_caps caps;   // Init. structure in main
@@ -466,9 +467,9 @@ void init()
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
     WriteTimer0(TIMER0_RELOAD_VALUE);
     
-    // Initialize microsecond timer
-    //OpenTimer1( T1_SOURCE_INT & T0_PS_1_1 & T1_16BIT_RW);
-    //WriteTimer1( 0x0000 );
+    // Initialize microsecond timer  10 MHz
+    OpenTimer3( T3_SOURCE_INT & T3_PS_1_1 & T3_16BIT_RW & T3_SYNC_EXT_OFF & TIMER_INT_OFF );
+    WriteTimer3( 0x0000 );
 
     // Initialize CAN
     ECANInitialize();
@@ -518,6 +519,7 @@ void init_app_ram(void)
     bHex = eeprom_read(MOUDLE_EEPROM_PRINTOUT_IN_HEX);
     mode = eeprom_read(MODULE_EEPROM_STARTUP_MODE);
     bLocalEcho = eeprom_read(MODULE_LOCAL_ECHO);
+    bTimestamp = eeprom_read(MODULE_TIMESTAMP);
 
     rwtimeout = eeprom_read(MODULE_EEPROM_RW_TIMEOUT);
     
@@ -527,11 +529,11 @@ void init_app_ram(void)
     ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
     for (uint8_t i=0; i<15; i++ ) {
-        setFilter( i, 
+        setFilter( i,
                     ( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 ) << 24 ) +
                     ( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 ) << 16 ) + 
                     ( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 ) << 8 ) +
-                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 ) ) );
+                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 ) ), FALSE );
     }
     
     ECANSetRXM0Value( ( eeprom_read( MODULE_EEPROM_MASK0 ) << 24 ) +
@@ -557,15 +559,15 @@ void init_app_eeprom(void)
 {
     uint8_t i;
 
-    eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0x55);
-    eeprom_write(MODULE_EEPROM_INIT_BYTE2, 0xAA);
-    eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE);
-    eeprom_write(MOUDLE_EEPROM_SLCAN_TIMESTAMP, SLCAN_TIMESTAMP_NOT_USED);
-    eeprom_write(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL);
-    eeprom_write(MODULE_EEPROM_RW_TIMEOUT, DEFAULT_REGISTER_RW_TIMEOUT);
+    eeprom_write( MODULE_EEPROM_INIT_BYTE1, 0x55 );
+    eeprom_write( MODULE_EEPROM_INIT_BYTE2, 0xAA );
+    eeprom_write( MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE );
+    eeprom_write( MOUDLE_EEPROM_SLCAN_TIMESTAMP, SLCAN_TIMESTAMP_NOT_USED );
+    eeprom_write( MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL );
+    eeprom_write( MODULE_EEPROM_RW_TIMEOUT, DEFAULT_REGISTER_RW_TIMEOUT );
 
     // Set all filters to 0xff
-    for (i = MODULE_EEPROM_FILTER0; i < (MODULE_EEPROM_FILTER15 + 4); i++) {
+    for ( i = MODULE_EEPROM_FILTER0; i < (MODULE_EEPROM_FILTER15 + 4); i++ ) {
         eeprom_write( MODULE_EEPROM_FILTER0, 0xFF );
     }
 
@@ -575,6 +577,8 @@ void init_app_eeprom(void)
     }
     
     eeprom_write( MODULE_LOCAL_ECHO, 0 );
+    eeprom_write( MODULE_TIMESTAMP, 0 );
+    
 }
 
 
@@ -866,13 +870,13 @@ void doModeVerbose(void)
                 }
 
                 BOOL rv = TRUE;
-                for (i = 0; i < count; i++) {
+                for ( i = 0; i < count; i++ ) {
 
-                    if (readRegisterExtended(nodeid,
-                            page,
-                            (reg + i) & 0xff,
-                            rwtimeout,
-                            &value)) {
+                    if ( readRegisterExtended( nodeid,
+                                                page,
+                                                (reg + i) & 0xff,
+                                                rwtimeout,
+                                                &value ) ) {
                         putsUSART((char *) "+OK - nodeid=");
                         sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
                         putsUSART(wrkbuf);
@@ -1031,8 +1035,7 @@ void doModeVerbose(void)
                     pos = 0; // Start again
                     return;
                 }
-                
-                
+
                 printNodeFirmwareVersion(nodeid);
                 printGUID(nodeid);
                 printMDF(nodeid);
@@ -1042,12 +1045,14 @@ void doModeVerbose(void)
             //  FILTER filterno,prio,class,type,nodeid
             //  filterno = 0-15
             else if (cmdbuf == stristr(cmdbuf, "FILTER")) {
+                
                 // RXF0 - RXF15
                 uint8_t filterno;
                 uint8_t filter_priority;
                 uint16_t filter_class;
                 uint8_t filter_type;
                 uint8_t filter_nodeid;
+                BOOL bPersistent = FALSE;
 
                 strcpy(cmdbuf, cmdbuf + 8);
                 char *p = strtok(cmdbuf, ",");
@@ -1114,6 +1119,12 @@ void doModeVerbose(void)
                     pos = 0; // Start again
                     return;
                 }
+                
+                // persistent i.e. stored in EEPROM
+                p = strtok(NULL, ",");
+                if ( NULL != stristr(p, "PERSISTENT") ) {
+                    bPersistent = TRUE;
+                }
 
                 // Must be in Config mode to change settings.
                 ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
@@ -1122,7 +1133,8 @@ void doModeVerbose(void)
                         ((uint32_t) filter_class << 16) |
                         ((uint32_t) filter_type << 8) |
                         filter_nodeid;
-                setFilter(filterno, id);
+                
+                setFilter(filterno, id, bPersistent );
                 
                 // Go back to normal mode
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
@@ -1139,6 +1151,7 @@ void doModeVerbose(void)
                 uint16_t mask_class;
                 uint8_t mask_type;
                 uint8_t mask_nodeid;
+                BOOL bPersistent = FALSE;
 
                 strcpy(cmdbuf, cmdbuf + 8);
                 char *p = strtok(cmdbuf, ",");
@@ -1219,6 +1232,21 @@ void doModeVerbose(void)
                 // Go back to normal mode
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
                 
+                if ( bPersistent ) {
+                    if ( 0 == maskno ) {
+                        eeprom_write( MODULE_EEPROM_MASK0, ( ( id >> 24 ) & 0xff ) );
+                        eeprom_write( MODULE_EEPROM_MASK0 + 1, ( ( id >> 16 ) & 0xff ) );
+                        eeprom_write( MODULE_EEPROM_MASK0 + 2, ( ( id >> 8 ) & 0xff ) );
+                        eeprom_write( MODULE_EEPROM_MASK0 + 3, ( id & 0xff ) );
+                    }
+                    else {
+                        eeprom_write( MODULE_EEPROM_MASK1, ( ( id >> 24 ) & 0xff ) );
+                        eeprom_write( MODULE_EEPROM_MASK1 + 1, ( ( id >> 16 ) & 0xff ) );
+                        eeprom_write( MODULE_EEPROM_MASK1 + 2, ( ( id >> 8 ) & 0xff ) );
+                        eeprom_write( MODULE_EEPROM_MASK1 + 3, ( id & 0xff ) );
+                    }
+                }
+                
                 putsUSART((char *) "+OK\r\n");
    
             }
@@ -1294,28 +1322,38 @@ void doModeVerbose(void)
                         putsUSART((char *) "+OK - Mode is now SLCAN\r\n");
                     }
                 }
-                // filterno,prio,class,type,nodeid (filterno = 0-15)
-                else if (0 != stristr(cmdbuf, "FILTER ")) {
-                    strcpy(cmdbuf, cmdbuf + 7);
-                    
-                }
-                // maskno,prio,class,type,nodeid (maskno = 0 or 1)
-                else if (0 != stristr(cmdbuf, "MASK ")) {
-                    strcpy(cmdbuf, cmdbuf + 5);
-                }
                 // Enable/disable local echo  'echo on|off'
                 else if (cmdbuf == stristr(cmdbuf, "ECHO ")) {
                     strcpy(cmdbuf, cmdbuf + 5);
                     if (0 != stristr(cmdbuf, "ON")) {
                         bLocalEcho = TRUE;
+                        eeprom_write( MODULE_LOCAL_ECHO, 1 );
                         putsUSART((char *) "+OK - Local echo on\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "OFF")) {
                         bLocalEcho = FALSE;
+                        eeprom_write( MODULE_LOCAL_ECHO, 0 );
                         putsUSART((char *) "+OK - Local echo off\r\n");
                     }
                     else {
                         putsUSART((char *) "+ERROR - Wrong argument to 'set echo'.\r\n");
+                    }
+                }
+                // Enable/disable timestamp  'echo on|off'
+                else if (cmdbuf == stristr(cmdbuf, "TIMESTAMP ")) {
+                    strcpy(cmdbuf, cmdbuf + 10);
+                    if (0 != stristr(cmdbuf, "ON")) {
+                        bTimestamp = TRUE;
+                        eeprom_write( MODULE_TIMESTAMP, 1 );
+                        putsUSART((char *) "+OK - Timestamp on\r\n");
+                    }
+                    else if (0 != stristr(cmdbuf, "OFF")) {
+                        bTimestamp = FALSE;
+                        eeprom_write( MODULE_TIMESTAMP, 0 );
+                        putsUSART((char *) "+OK - Timestamp off\r\n");
+                    }
+                    else {
+                        putsUSART((char *) "+ERROR - Wrong argument to 'set timestamp'.\r\n");
                     }
                 }
                 // Set defaults
@@ -2029,7 +2067,7 @@ BOOL receivePrintEventVerbose(void)
 {
     uint8_t i;
 
-    if (getVSCPFrame(&vscpClass,
+    if ( getVSCPFrame(&vscpClass,
                         &vscpType,
                         &vscpNodeId,
                         &vscpPriority,
@@ -2043,6 +2081,13 @@ BOOL receivePrintEventVerbose(void)
         putsUSART((char *) "<Prio=");
         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", vscpPriority);
         putsUSART(wrkbuf);
+        if ( bTimestamp ) {
+            putsUSART((char *) ",timestamp=");
+            uint32_t t = timer<<16;
+            t |= ReadTimer3()*10;
+            sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", (timer<<16) | ReadTimer3()*10 );
+            putsUSART(wrkbuf);
+        }
         putsUSART((char *) ",class=");
         sprintf(wrkbuf, bHex ? "0x%04X" : "%d", vscpClass);
         putsUSART(wrkbuf);
@@ -2544,12 +2589,12 @@ BOOL readRegisterExtended(uint8_t nodeid,
     vscpData[ 3 ] = reg;            // Offset into page
     vscpData[ 4 ] = 1;              // Number of regs to read
 
-    if (sendVSCPFrame(VSCP_CLASS1_PROTOCOL,         // class
-            VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ,  // Read register
-            0, // Node id (ours)
-            0, // High priority
-            5, // size
-            vscpData)) {
+    if ( sendVSCPFrame(VSCP_CLASS1_PROTOCOL,         // class
+                        VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ,  // Read register
+                        0, // Node id (ours)
+                        0, // High priority
+                        5, // size
+                        vscpData ) ) {
 
         timekeeper = 0;
         while (timekeeper < timeout) {
@@ -2794,6 +2839,10 @@ void printErrors(void)
     sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", uart_transmitOverruns);
     putsUSART(wrkbuf);
     putsUSART((char *) "\r\n");
+    
+    if (COMSTATbits.EWARN) {
+        putsUSART((char *) "Transmitter or Receiver is in Error State Warning\r\n");
+    }
 
     putsUSART((char *) "Transmit Error Counter: ");
     sprintf(wrkbuf, bHex ? "0x%02X" : "%d", TXERRCNT);
@@ -2801,33 +2850,28 @@ void printErrors(void)
     putsUSART((char *) "\r\n");
 
     if (COMSTATbits.TXWARN) {
-        putsUSART((char *) "Transmitter in Error State Warning (128 > TERRCNT ? 96)\r\n");
+        putsUSART((char *) "Transmitter in Error State Warning (128 > TXERRCNT > 96)\r\n");
     }
 
     if (COMSTATbits.TXBO) {
-        putsUSART((char *) "Transmitter in Error State Bus OFF (TERRCNT ? 256)\r\n");
+        putsUSART((char *) "Transmitter in Error State Bus OFF (TXERRCNT ? 256)\r\n");
     }
 
     if (COMSTATbits.TXBP) {
-        putsUSART((char *) "Transmitter in Error State Bus Passive (TERRCNT ? 128)\r\n");
-    }
-
+        putsUSART((char *) "Transmitter in Error State Bus Passive (TXERRCNT ? 128)\r\n");
+    } 
 
     putsUSART((char *) "Receive Error Counter: ");
     sprintf(wrkbuf, bHex ? "0x%02X" : "%d", RXERRCNT);
     putsUSART(wrkbuf);
     putsUSART((char *) "\r\n");
 
-    if (COMSTATbits.RXWARN) {
-        putsUSART((char *) "Receiver in Error State Warning (128 > RERRCNT ? 96)\r\n");
-    }
-
     if (COMSTATbits.RXBP) {
-        putsUSART((char *) "Receiver in Error State Bus Passive (RERRCNT ? 128)\r\n");
+        putsUSART((char *) "Receiver in Error State Bus Passive (RXERRCNT > 127)\r\n");
     }
 
-    if (COMSTATbits.EWARN) {
-        putsUSART((char *) "Transmitter or Receiver is in Error State Warning\r\n");
+    if (COMSTATbits.RXWARN) {
+        putsUSART((char *) "Receiver  in Error State Warning (128 > RXERRCNT > 96)\r\n");
     }
 
 }
@@ -2883,6 +2927,7 @@ void findNodes(void)
     uint8_t nFound = 0;
     uint8_t i;
     uint8_t value;
+    BOOL bDot = FALSE;
     
     if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
         putsUSART( STR_ERR_ONLY_IF_OPEN );
@@ -2895,11 +2940,14 @@ void findNodes(void)
 
         ClrWdt(); // Feed the dog
 
-        if (readRegister(i,
-                0xE0,
-                rwtimeout,
-                &value)) {
-            putsUSART((char *) "\r\nNode found with node id = ");
+        if (readRegister( i,
+                            0xE0,
+                            rwtimeout,
+                            &value ) ) {
+            if ( bDot ) {
+                putsUSART((char *) "\r\n");
+            }
+            putsUSART((char *) "Node found with node id = ");
             itoa(wrkbuf, vscpNodeId, bHex ? 16 : 10);
             putsUSART(wrkbuf);
             putsUSART((char *) "\r\n");
@@ -2910,6 +2958,7 @@ void findNodes(void)
             nFound++; // Another one found
         }
         else {
+            bDot = TRUE;
             WriteUSART('.');
             BusyUSART();
         }
@@ -3087,7 +3136,7 @@ void printMode(void)
 // setFilter
 //
 
-void setFilter(uint8_t filter, uint32_t val)
+void setFilter(uint8_t filter, uint32_t val, BOOL bPersistent )
 {
     uint8_t sidh = (long) val >> 21L;
     uint8_t sidl = (((long) val >> 13L) & 0xe0) |
@@ -3210,6 +3259,13 @@ void setFilter(uint8_t filter, uint32_t val)
             RXF15EIDL = eidl;
             break;
     }
+    
+    if ( bPersistent ) {
+        eeprom_write( MODULE_EEPROM_FILTER0 + 0 + 4*filter, ( ( id >> 24 ) & 0xff ) );
+        eeprom_write( MODULE_EEPROM_FILTER0 + 1 + 4*filter, ( ( id >> 16 ) & 0xff ) );
+        eeprom_write( MODULE_EEPROM_FILTER0 + 2 + 4*filter, ( ( id >> 8 ) & 0xff ) );
+        eeprom_write( MODULE_EEPROM_FILTER0 + 3 + 4*filter, ( id & 0xff ) );
+    }
 
 }
 
@@ -3253,7 +3309,6 @@ int8_t getVSCPFrame(uint16_t *pvscpclass,
 {
     uint32_t id;
 
-    return FALSE;
     if (!getCANFrame(&id, pSize, pData)) {
         return FALSE;
     }
@@ -3288,26 +3343,6 @@ int8_t sendCANFrame(uint32_t id, uint8_t dlc, uint8_t *pdata)
 
 int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
 {
-/*
-    ECAN_RX_MSG_FLAGS flags;
-
-    if (ECANReceiveMessage((unsigned long *) pid,
-                            (BYTE*) pdata,
-                            (BYTE*) pdlc,
-                            &flags) ) {
-
-        // RTR not interesting
-        if (flags & ECAN_RX_RTR_FRAME) return FALSE;
-
-        // Must be extended frame
-        if (!(flags & ECAN_RX_XTD_FRAME)) return FALSE;
-
-        return TRUE;
-    }
-
-    return FALSE;
- */
-
     if ( fifo_canrxcount ) {
 
         // Get id
