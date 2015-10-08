@@ -64,15 +64,37 @@
 #define DEFAULT_REGISTER_RW_TIMEOUT     20u // Reg r/w timeout
 
 // Baudrates 40MHz
-#define BAUDRATE_19200                  128 // BRGH=1 0,16%
-#define BAUDRATE_38400                  64  // BRGH=1 0.16%
-#define BAUDRATE_57600                  42  // BRGH=1 0.94%
-#define BAUDRATE_115200                 21  // BRGH=1 1.36%
-#define BAUDRATE_128000                 19  // BRGH=1 2.34%
-#define BAUDRATE_256000                 9   // BRGH=1 2.34%
-#define BAUDRATE_500000                 4   // BRGH=1 0%
-#define BAUDRATE_625000                 3   // BRGH=1 (0/0 for 0% error)
-#define BAUDRATE_1000000                2   // BRGH=1 16.67%
+#define BAUDRATE_9600                   64  // BRGH=0 0.16%
+#define BAUDRATE_19200                  128 // BRGH=1 0,16%   windows linux
+#define BAUDRATE_38400                  64  // BRGH=1 0.16%   windows linux
+#define BAUDRATE_57600                  42  // BRGH=1 0.94%   windows linux
+#define BAUDRATE_115200                 21  // BRGH=1 1.36%   windows linux
+#define BAUDRATE_128000                 19  // BRGH=1 2.34%   Works fine on Windows, Not working on Linux
+#define BAUDRATE_230400                 10  // BRGH=1 1.36%  Not working on windows, Works well in Linux
+#define BAUDRATE_256000                 9   // BRGH=1 2.34%   Works fine on windows, Not working on Linux
+#define BAUDRATE_460800                 4   // BRGH=1 8.51%   Not working on windows, Not woking on Linux
+#define BAUDRATE_500000                 4   // BRGH=1 0%      Works fine on windows, Works fine on Linux
+#define BAUDRATE_625000                 3   // BRGH=1 (0/0 for 0% error) Works bad on windows, Not working on windows
+#define BAUDRATE_921600                 2   // BRGH=1 -9.58%  Not working on windows, Works bad on Linux
+#define BAUDRATE_1000000                2   // BRGH=1 16.67%  Not working on windows, Works bad on Linux
+
+#define ENHANCED_BAUDRATE_115200        15  // BRGH=1 -0.22%
+#define ENHANCED_BAUDRATE_625000        15   // BRGH=1 0%
+#define ENHANCED_BAUDRATE_1000000       9   // BRGH=1 0%
+
+#define SET_BAUDRATE_115200             0
+#define SET_BAUDRATE_128000             1
+#define SET_BAUDRATE_230400             2
+#define SET_BAUDRATE_256000             3
+#define SET_BAUDRATE_460800             4
+#define SET_BAUDRATE_500000             5
+#define SET_BAUDRATE_625000             6
+#define SET_BAUDRATE_921600             7
+#define SET_BAUDRATE_1000000            8
+#define SET_BAUDRATE_9600               9
+#define SET_BAUDRATE_19200              10
+#define SET_BAUDRATE_38400              11
+#define SET_BAUDRATE_57600              12
 
 //
 // 10 MHz with PLL => 40 MHz
@@ -95,6 +117,11 @@
 #define VSCP_DRIVER_COMMAND_LOOPBACK    3
 #define VSCP_DRIVER_COMMAND_CLOSE       4
 #define VSCP_DRIVER_COMMAND_SET_FILTER  5
+
+// VSCP driver configuration
+#define VSCP_DRIVER_CONFIG_NOOP         0
+#define VSCP_DRIVER_CONFIG_MODE         1
+#define VSCP_DRIVER_CONFIG_TIMESTAMP    2
 
 #define SLCAN_TIMESTAMP_NOT_USED        0
 #define SLCAN_TIMESTAMP_USE             1

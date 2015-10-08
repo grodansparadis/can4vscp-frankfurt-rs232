@@ -394,8 +394,6 @@ int main(int argc, char** argv)
     while ( TRUE ) {
 
         ClrWdt(); // Feed the dog
-
-        checkCANBusState();       
         
         // Check for UART overflow. This should not happen in normal 
         // mode but does while debugging.
@@ -404,6 +402,15 @@ int main(int argc, char** argv)
             RCSTAbits.CREN = 1;
         }
 
+        di();
+        if ( fifo_getFree( &serialInputFifo ) < 100 ) {
+            PORTCbits.RC4 = 0;
+        }
+        else {
+            PORTCbits.RC4 = 1;
+        }
+        ei();
+        
         if (WORKING_MODE_VERBOSE == mode) {
             doModeVerbose();
         }
@@ -446,8 +453,12 @@ void init()
     TRISBbits.RB3 = 1; // CAN RX
 
     TRISCbits.RC1 = 0; // Status LED
+    TRISCbits.RC4 = 0; // Output: CTS
+    TRISCbits.RC5 = 1; // Input: RTS
     TRISCbits.RC6 = 0; // UART TX pin set as output
     TRISCbits.RC7 = 1; // UART RX pin set as input
+    
+    PORTCbits.RC4 = 1; // Activate clear to send
 
     // Initialize UART
     // 230400 (10), 500000 (4) and 625000 (3) 115200 (20)
@@ -455,8 +466,11 @@ void init()
                 USART_RX_INT_ON &
                 USART_ASYNCH_MODE &
                 USART_EIGHT_BIT &
+                USART_CONT_RX &
                 USART_BRGH_HIGH,
                 BAUDRATE_115200 );
+    
+    //baudUSART( BAUD_8_BIT_RATE | BAUD_AUTO_OFF );
 
     RCIF = 0; // Reset RX pin flag
     RCIP = 0; // Not high priority
@@ -530,22 +544,22 @@ void init_app_ram(void)
 
     for (uint8_t i=0; i<15; i++ ) {
         setFilter( i,
-                    ( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 ) << 24 ) +
-                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 ) << 16 ) + 
-                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 ) << 8 ) +
-                    ( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 ) ), FALSE );
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 )) << 24 ) +
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 )) << 16 ) + 
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 )) << 8 ) +
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 )) ), FALSE );
     }
     
-    ECANSetRXM0Value( ( eeprom_read( MODULE_EEPROM_MASK0 ) << 24 ) +
-                        ( eeprom_read( MODULE_EEPROM_MASK0 + 1 ) << 16 ) + 
-                        ( eeprom_read( MODULE_EEPROM_MASK0 + 2 ) << 8 ) +
-                        ( eeprom_read( MODULE_EEPROM_MASK0 + 3 ) ), 
+    ECANSetRXM0Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 )) << 24 ) +
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 1 )) << 16 ) + 
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 2 )) << 8 ) +
+                        (( eeprom_read( MODULE_EEPROM_MASK0 + 3 )) ), 
                       ECAN_MSG_XTD );
     
-    ECANSetRXM1Value( ( eeprom_read( MODULE_EEPROM_MASK1 ) << 24 ) +
-                        ( eeprom_read( MODULE_EEPROM_MASK1 + 1 ) << 16 ) + 
-                        ( eeprom_read( MODULE_EEPROM_MASK1 + 2 ) << 8 ) +
-                        ( eeprom_read( MODULE_EEPROM_MASK1 + 3 ) ), 
+    ECANSetRXM1Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 )) << 24 ) +
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 1 )) << 16 ) + 
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 2 )) << 8 ) +
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 3 )) ), 
                       ECAN_MSG_XTD );
     
     ECANSetOperationMode(ECAN_INIT_DISABLE);
@@ -826,7 +840,7 @@ void doModeVerbose(void)
                 uint8_t count = 1;
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -891,7 +905,7 @@ void doModeVerbose(void)
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", value);
                         putsUSART(wrkbuf);
                         while (BusyUSART());
-                        putsUSART("\t\'");
+                        putsUSART((const char *)"\t\'");
                         if ((value > 32) && (value < 127)) {
                             WriteUSART(value);
                         }
@@ -899,7 +913,7 @@ void doModeVerbose(void)
                             WriteUSART('.');
                         }
                         while (BusyUSART());
-                        putsUSART("\' \t");
+                        putsUSART((const char *)"\' \t");
                         printBinary(value);
                         putsUSART((char *) "\r\n");
                     }
@@ -938,7 +952,7 @@ void doModeVerbose(void)
                 uint8_t value;
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1011,7 +1025,7 @@ void doModeVerbose(void)
                 uint8_t value;
 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( STR_ERR_ONLY_IF_OPEN );
+                    putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1356,6 +1370,79 @@ void doModeVerbose(void)
                         putsUSART((char *) "+ERROR - Wrong argument to 'set timestamp'.\r\n");
                     }
                 }
+                // Set baudrate
+                else if (cmdbuf == stristr(cmdbuf, "BAUDRATE ")) {
+                    
+                    uint32_t baud;
+                    strcpy( cmdbuf, cmdbuf + 9 );
+                               
+                    baud = atoi( cmdbuf );
+                    switch( baud ) {
+                        
+                        case SET_BAUDRATE_128000:
+                            baud = BAUDRATE_128000;
+                            break;
+
+                        case SET_BAUDRATE_230400:
+                            baud = BAUDRATE_230400;
+                            break;
+                            
+                        case SET_BAUDRATE_256000:
+                            baud = BAUDRATE_256000;
+                            break;
+                            
+                        case SET_BAUDRATE_460800:
+                            baud = BAUDRATE_460800;
+                            break;
+                            
+                        case SET_BAUDRATE_500000:
+                            baud = BAUDRATE_500000;
+                            break;
+                            
+                        case SET_BAUDRATE_625000:
+                            baud = BAUDRATE_625000;
+                            break;
+                            
+                        case SET_BAUDRATE_921600:
+                            baud = BAUDRATE_921600;
+                            break;
+                            
+                        case SET_BAUDRATE_1000000:
+                            baud = BAUDRATE_1000000;
+                            break;
+                            
+                        case SET_BAUDRATE_9600:
+                            baud = BAUDRATE_9600;
+                            break;
+                            
+                        case SET_BAUDRATE_19200:
+                            baud = BAUDRATE_19200;
+                            break;
+                            
+                        case SET_BAUDRATE_38400:
+                            baud = BAUDRATE_38400;
+                            break;
+                            
+                        case SET_BAUDRATE_57600:
+                            baud = BAUDRATE_57600;
+                            break;
+                        
+                        default:
+                        case SET_BAUDRATE_115200:
+                            baud = BAUDRATE_115200;
+                            break;
+                            
+                    }
+                    
+                    putsUSART((char *) "+OK - New baudrate will be set.\r\n");
+                    CloseUSART();
+                    OpenUSART( USART_TX_INT_OFF &
+                                USART_RX_INT_ON &
+                                USART_ASYNCH_MODE &
+                                USART_EIGHT_BIT &
+                                USART_BRGH_HIGH,
+                                baud );
+                }
                 // Set defaults
                 else if (cmdbuf == stristr(cmdbuf, "DEFAULTS")) {
                     vscp_restoreDefaults();
@@ -1508,17 +1595,17 @@ void doModeVscp( void )
             }
 
             // * * * *  N O O P  * * * *
-            if (VSCP_SERIAL_DRIVER_OPERATION_NOOP ==
+            if (VSCP_SERIAL_DRIVER_FRAME_TYPE_NOOP ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 sendVSCPDriverAck(); // OK
             }
             // * * * *  V S C P  E V E N T  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_VSCP_EVENT ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 sendVSCPDriverNack(); // Failed
             }
             // * * * *  C A N A L  E V E N T  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_CANAL ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 if ( receiveVSCPModeCanalMsg() ) {
                     sendVSCPDriverAck();    // OK
@@ -1528,7 +1615,7 @@ void doModeVscp( void )
                 }
             }
             // * * * *  M U L T I  F R A M E  C A N A L  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 if (receiveVSCPModeMultiCanalMsg()) {
                     sendVSCPDriverAck(); // OK
@@ -1538,29 +1625,81 @@ void doModeVscp( void )
                 }
             }
             // * * * *  M U L T I  F R A M E  V S C P  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 sendVSCPDriverNack(); // Not supported
             }
             // * * * *  C O N F I G U R E  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_CONFIGURE ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_CONFIGURE ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
-                sendVSCPDriverNack(); // Not supported
+                // Noop
+                if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
+                        VSCP_DRIVER_CONFIG_NOOP) {
+                    sendVSCPDriverAck();
+                }
+                // Change driver mode
+                else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
+                            VSCP_DRIVER_CONFIG_MODE ) {
+                    
+                    if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
+                                cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
+                    
+                        if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 4 ) {
+                            mode = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ];
+                            eeprom_write( MODULE_EEPROM_STARTUP_MODE, 
+                                            cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ]);
+                            sendVSCPDriverAck();
+                        }
+                        else {
+                            sendVSCPDriverNack();
+                        }
+                    }
+                    else {
+                        // Wrong payload size
+                        sendVSCPDriverNack();
+                    }            
+                }
+                // Activate/deactivate timestamp
+                else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
+                            VSCP_DRIVER_CONFIG_TIMESTAMP ) {
+                    
+                    if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
+                                cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
+                    
+                        if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] ) {
+                            bTimestamp = TRUE;
+                        }
+                        else {
+                            bTimestamp = FALSE;
+                        }
+                        // Save persistent
+                        eeprom_write( MODULE_TIMESTAMP, 
+                                        cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] );
+                        sendVSCPDriverAck();
+                    }
+                    else {
+                        sendVSCPDriverNack(); // Not supported
+                    }
+                }
+                else {
+                    // Wrong payload size
+                    sendVSCPDriverNack();
+                }     
             }
             // * * * *  P O L L  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_POLL ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_POLL ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 sendVSCPDriverNack(); // Not supported
             }
             // * * * *  CAPABILITIES  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_CAPS_REQUEST ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_CAPS_REQUEST ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 caps.maxVscpFrames = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ];
                 caps.maxCanalFrames = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ];
                 sendVSCPModeCapabilities();     // Send our capabilities
             }
             // * * * *  C O M M A N D  * * * *
-            else if (VSCP_SERIAL_DRIVER_OPERATION_COMMAND ==
+            else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
                 // Noop
                 if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
@@ -1596,7 +1735,9 @@ void doModeVscp( void )
                         VSCP_DRIVER_COMMAND_SET_FILTER) {
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_NOOP);
                 }
-                // Mode change
+                else {
+                    sendVSCPDriverNack(); // Not supported
+                }
 
             }
             else {
@@ -1885,8 +2026,8 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
 
     // Operation
     while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ERROR);
-    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ERROR);
+    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_ERROR);
+    crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_ERROR);
 
     // Channel
     while (BusyUSART());
@@ -1933,8 +2074,8 @@ void sendVSCPDriverAck(void)
 
     // Operation
     while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_ACK);
-    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_ACK);
+    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_ACK);
+    crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_ACK);
 
     // Channel
     while (BusyUSART());
@@ -1977,8 +2118,8 @@ void sendVSCPDriverNack(void) {
 
     // Operation
     while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_NACK);
-    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_NACK);
+    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_NACK);
+    crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_NACK);
 
     // Channel
     while (BusyUSART());
@@ -2022,8 +2163,8 @@ void sendVSCPDriverCommandReply(uint8_t cmdReplyCode, uint8_t cmdCode)
 
     // Operation
     while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_COMMAND_REPLY);
-    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_COMMAND_REPLY);
+    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND_REPLY);
+    crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND_REPLY);
 
     // Channel
     while (BusyUSART());
@@ -2083,8 +2224,6 @@ BOOL receivePrintEventVerbose(void)
         putsUSART(wrkbuf);
         if ( bTimestamp ) {
             putsUSART((char *) ",timestamp=");
-            uint32_t t = timer<<16;
-            t |= ReadTimer3()*10;
             sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", (timer<<16) | ReadTimer3()*10 );
             putsUSART(wrkbuf);
         }
@@ -2147,8 +2286,14 @@ BOOL receiveSendEventCANAL(void)
 
         // Operation
         while (BusyUSART());
-        WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_CANAL);
-        crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_CANAL);
+        if ( bTimestamp ) {
+            WriteUSART( VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL_TIMESTAMP );
+            crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL_TIMESTAMP );
+        }
+        else {
+            WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL);
+            crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL);
+        }
 
         // Channel
         while (BusyUSART());
@@ -2171,6 +2316,15 @@ BOOL receiveSendEventCANAL(void)
         sendEscapedUartData(((id >> 16) & 0xff), &crc);
         sendEscapedUartData(((id >> 8) & 0xff), &crc);
         sendEscapedUartData((id & 0xff), &crc);
+        
+        // timestamp
+        if ( bTimestamp ) {
+            uint32_t timestamp = (timer<<16) | ReadTimer3()*10;
+            sendEscapedUartData( ((timestamp >> 24) & 0xff), &crc);
+            sendEscapedUartData(((timestamp >> 16) & 0xff), &crc);
+            sendEscapedUartData(((timestamp >> 8) & 0xff), &crc);
+            sendEscapedUartData((timestamp & 0xff), &crc);
+        }
 
         // dlc
         sendEscapedUartData(dlc, &crc);
@@ -2226,11 +2380,17 @@ BOOL receiveSendMultiEventCANAL(void)
 
         // Operation
         while (BusyUSART());
-        WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL);
-        crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_MULTI_FRAME_CANAL);
+        if ( bTimestamp ) {
+            WriteUSART( VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL_TIMESTAMP );
+            crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL_TIMESTAMP );
+        }
+        else {
+            WriteUSART( VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL );
+            crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL  );
+        }
 
         // Channel
-        while (BusyUSART());
+        while ( BusyUSART() );
         WriteUSART(0);
         crc8(&crc, 0);
 
@@ -2254,6 +2414,18 @@ BOOL receiveSendMultiEventCANAL(void)
             pos++;
             wrkbuf[ pos ] = id & 0xff;
             pos++;
+            
+            if ( bTimestamp ) {
+                uint32_t timestamp = (timer<<16) | ReadTimer3()*10;
+                wrkbuf[ pos ] = (timestamp >> 24) & 0xff;
+                pos++;
+                wrkbuf[ pos ] = (timestamp >> 16) & 0xff;
+                pos++;
+                wrkbuf[ pos ] = (timestamp >> 8) & 0xff;
+                pos++;
+                wrkbuf[ pos ] = timestamp & 0xff;
+                pos++;
+            }
 
             // dlc
             wrkbuf[ pos ] = dlc;
@@ -2328,8 +2500,8 @@ BOOL receiveSendEventVSCP(void)
 
         // Operation
         while (BusyUSART());
-        WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT);
-        crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_VSCP_EVENT);
+        WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_VSCP_EVENT);
+        crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_VSCP_EVENT);
 
         // Channel
         while (BusyUSART());
@@ -2398,8 +2570,8 @@ BOOL sendVSCPModeCapabilities(void)
 
     // Operation
     while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_OPERATION_CAPS_RESPONSE);
-    crc8(&crc, VSCP_SERIAL_DRIVER_OPERATION_CAPS_RESPONSE);
+    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_CAPS_RESPONSE);
+    crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_CAPS_RESPONSE);
 
     // Channel
     while (BusyUSART());
@@ -2930,7 +3102,7 @@ void findNodes(void)
     BOOL bDot = FALSE;
     
     if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-        putsUSART( STR_ERR_ONLY_IF_OPEN );
+        putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
         return;
     }
 
