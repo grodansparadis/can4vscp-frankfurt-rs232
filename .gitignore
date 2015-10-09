@@ -387,3 +387,13 @@
 /Frankfurt RS-232.X/dist/relocated/debug/*.sym
 /Frankfurt RS-232.X/dist/relocated/debug/*.p1
 /Frankfurt RS-232.X/dist/relocated/debug/*.pre
+/Frankfurt RS-232.X/dist/debug/production/*.cmf
+/Frankfurt RS-232.X/dist/debug/production/*.hxl
+/Frankfurt RS-232.X/dist/debug/production/*.map
+/Frankfurt RS-232.X/dist/debug/production/*.mum
+/Frankfurt RS-232.X/dist/debug/production/*.dmp
+/Frankfurt RS-232.X/dist/debug/production/*.rlf
+/Frankfurt RS-232.X/dist/debug/production/*.sdb
+/Frankfurt RS-232.X/dist/debug/production/*.sym
+/Frankfurt RS-232.X/dist/debug/production/*.p1
+/Frankfurt RS-232.X/dist/debug/production/*.pre

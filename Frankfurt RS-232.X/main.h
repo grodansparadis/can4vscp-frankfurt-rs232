@@ -95,6 +95,7 @@
 #define SET_BAUDRATE_19200              10
 #define SET_BAUDRATE_38400              11
 #define SET_BAUDRATE_57600              12
+#define SET_BAUDRATE_MAX              13
 
 //
 // 10 MHz with PLL => 40 MHz
@@ -117,11 +118,13 @@
 #define VSCP_DRIVER_COMMAND_LOOPBACK    3
 #define VSCP_DRIVER_COMMAND_CLOSE       4
 #define VSCP_DRIVER_COMMAND_SET_FILTER  5
+#define VSCP_DRIVER_COMMAND_SET_MASK    6
 
 // VSCP driver configuration
 #define VSCP_DRIVER_CONFIG_NOOP         0
 #define VSCP_DRIVER_CONFIG_MODE         1
 #define VSCP_DRIVER_CONFIG_TIMESTAMP    2
+#define VSCP_DRIVER_CONFIG_BAUDRATE     3
 
 #define SLCAN_TIMESTAMP_NOT_USED        0
 #define SLCAN_TIMESTAMP_USE             1
@@ -229,7 +232,9 @@ void vscp_restoreDefaults( void );
 void printFirmwareVersion( void );
 void printMode( void );
 
-void setFilter( uint8_t filter, uint32_t val, BOOL bPersistent );
+void setFilter( uint8_t nFilter, uint32_t filter, BOOL bPersistent );
+void setMask( uint8_t maskno, uint32_t mask, BOOL bPersistent );
+void changeBaudrate( uint8_t nBaud );
 
 /*!
 	Send Extended ID CAN frame
