@@ -6,7 +6,7 @@ Linker command line:
   --UDF=html\Frankfurt_RS-232.X.production.link.html -cs \
   -h+dist/relocated/production\Frankfurt_RS-232.X.production.sym \
   --cmf=dist/relocated/production\Frankfurt_RS-232.X.production.cmf -z \
-  -Q18F2580 -oC:\Users\GRODAN~1\AppData\Local\Temp\s1bc.6 \
+  -Q18F2580 -oC:\Users\GRODAN~1\AppData\Local\Temp\s2ng.6 \
   -Mdist/relocated/production/Frankfurt_RS-232.X.production.map -E1 \
   -ver=XC8 -ACODE=0400h-07FFFh -ACONST=0400h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-05Fh \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\GRODAN~1\AppData\Local\Temp\s1bc.obj \
+  C:\Users\GRODAN~1\AppData\Local\Temp\s2ng.obj \
   dist/relocated/production\Frankfurt_RS-232.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\GRODAN~1\AppData\Local\Temp\s1bc.obj
+C:\Users\GRODAN~1\AppData\Local\Temp\s2ng.obj
                 end_init                            77A      77A        4      20C       0
                 reset_vec                           400      400        4      200       0
                 idloc                            200000   200000        8   200000       0

@@ -7,7 +7,7 @@
  * 	Version: See project header
  * 	akhe@eurosource.se
  *
- *  Copyright (C) 1995-2013 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C) 1995-2015 Ake Hedman, Grodans Paradis AB
  *                          <akhe@grodansparadis.com>
  *
  * This software is provided 'as-is', without any express or implied
@@ -95,7 +95,7 @@
 #define SET_BAUDRATE_19200              10
 #define SET_BAUDRATE_38400              11
 #define SET_BAUDRATE_57600              12
-#define SET_BAUDRATE_MAX              13
+#define SET_BAUDRATE_MAX                13
 
 //
 // 10 MHz with PLL => 40 MHz
