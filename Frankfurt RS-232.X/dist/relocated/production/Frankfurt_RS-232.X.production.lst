@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 PRO Macro Assembler V1.21 build 54009 
-                                                                                               Tue Nov 10 11:55:28 2015
+                                                                                               Sun Nov 15 21:40:55 2015
 
 Microchip Technology Omniscient Code Generator (PRO mode) build 54009
      1                           	processor	18F2580
@@ -13886,8 +13886,8 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
  13870  000DAC  E012               	bz	l15692
  13871                           
  13872                           ; BSR set to: 2
- 13873                           ;main.c: 843: putsUSART( (const char *)"-ERROR - Command only works if interface is open
-      +                          .\r\n" );
+ 13873                           ;main.c: 843: putsUSART( (char *)"-ERROR - Command only works if interface is open.\r\n"
+      +                           );
  13874  000DAE  0E73               	movlw	high STR_50
  13875  000DB0  6E21               	movwf	?_putsUSART+1,c
  13876  000DB2  0E13               	movlw	low STR_50
@@ -14298,7 +14298,7 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
  14281  001048  A2AC               	btfss	4012,1,c	;volatile
  14282  00104A  D7FE               	goto	l619
  14283                           
- 14284                           ;main.c: 908: putsUSART((const char *)"\t\'");
+ 14284                           ;main.c: 908: putsUSART((char *)"\t\'");
  14285  00104C  0E7F               	movlw	high STR_67
  14286  00104E  6E21               	movwf	?_putsUSART+1,c
  14287  001050  0EE1               	movlw	low STR_67
@@ -14334,7 +14334,7 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
  14317  001074  A2AC               	btfss	4012,1,c	;volatile
  14318  001076  D7FE               	goto	l624
  14319                           
- 14320                           ;main.c: 916: putsUSART((const char *)"\' \t");
+ 14320                           ;main.c: 916: putsUSART((char *)"\' \t");
  14321  001078  0E7F               	movlw	high STR_68
  14322  00107A  6E21               	movwf	?_putsUSART+1,c
  14323  00107C  0EC5               	movlw	low STR_68
@@ -14592,8 +14592,8 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
  14574  0011F6  E007               	bz	l15858
  14575                           
  14576                           ; BSR set to: 2
- 14577                           ;main.c: 955: putsUSART( (const char *)"-ERROR - Command only works if interface is open
-      +                          .\r\n" );
+ 14577                           ;main.c: 955: putsUSART( (char *)"-ERROR - Command only works if interface is open.\r\n"
+      +                           );
  14578  0011F8  0E73               	movlw	high STR_50
  14579  0011FA  6E21               	movwf	?_putsUSART+1,c
  14580  0011FC  0E13               	movlw	low STR_50
@@ -14923,8 +14923,8 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
  14904  001414  E007               	bz	l15938
  14905                           
  14906                           ; BSR set to: 1
- 14907                           ;main.c: 1028: putsUSART( (const char *)"-ERROR - Command only works if interface is ope
-      +                          n.\r\n" );
+ 14907                           ;main.c: 1028: putsUSART( (char *)"-ERROR - Command only works if interface is open.\r\n
+      +                          " );
  14908  001416  0E73               	movlw	high STR_50
  14909  001418  6E21               	movwf	?_putsUSART+1,c
  14910  00141A  0E13               	movlw	low STR_50
@@ -17948,8 +17948,8 @@ Microchip Technology Omniscient Code Generator (PRO mode) build 54009
  17926  004802  E007               	bz	l17472
  17927                           
  17928                           ; BSR set to: 0
- 17929                           ;main.c: 3120: putsUSART( (const char *)"-ERROR - Command only works if interface is ope
-      +                          n.\r\n" );
+ 17929                           ;main.c: 3120: putsUSART( (char *)"-ERROR - Command only works if interface is open.\r\n
+      +                          " );
  17930  004804  0E73               	movlw	high STR_50
  17931  004806  6E21               	movwf	?_putsUSART+1,c
  17932  004808  0E13               	movlw	low STR_50
@@ -33893,7 +33893,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.21 build 54009 
-Symbol Table                                                                                   Tue Nov 10 11:55:28 2015
+Symbol Table                                                                                   Sun Nov 15 21:40:55 2015
 
         ??_receiveVSCPModeMultiCanalMsg 001F                   __end_of_doModeVerbose 1E4E  
                           printBinary@i 0023                             fifo_write@f 0001  

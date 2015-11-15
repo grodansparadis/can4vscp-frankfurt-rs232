@@ -840,7 +840,7 @@ void doModeVerbose(void)
                 uint8_t count = 1;
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
+                    putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -905,7 +905,7 @@ void doModeVerbose(void)
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", value);
                         putsUSART(wrkbuf);
                         while (BusyUSART());
-                        putsUSART((const char *)"\t\'");
+                        putsUSART((char *)"\t\'");
                         if ((value > 32) && (value < 127)) {
                             WriteUSART(value);
                         }
@@ -913,7 +913,7 @@ void doModeVerbose(void)
                             WriteUSART('.');
                         }
                         while (BusyUSART());
-                        putsUSART((const char *)"\' \t");
+                        putsUSART((char *)"\' \t");
                         printBinary(value);
                         putsUSART((char *) "\r\n");
                     }
@@ -952,7 +952,7 @@ void doModeVerbose(void)
                 uint8_t value;
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
+                    putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1025,7 +1025,7 @@ void doModeVerbose(void)
                 uint8_t value;
 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
+                    putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -3117,7 +3117,7 @@ void findNodes(void)
     BOOL bDot = FALSE;
     
     if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-        putsUSART( (const char *)STR_ERR_ONLY_IF_OPEN );
+        putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
         return;
     }
 
