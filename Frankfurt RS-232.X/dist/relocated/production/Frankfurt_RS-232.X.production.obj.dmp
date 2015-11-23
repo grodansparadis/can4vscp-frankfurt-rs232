@@ -220,7 +220,7 @@
 	109	XPSECT	25
 		text62	reloc=2 space = 00 delta = 01 class=CODE
 	110	PSECTBOUND	25
-		text62	start=0000	end=008E delta = 01 space = 0 class=CODE	GLOBAL
+		text62	start=0000	end=007A delta = 01 space = 0 class=CODE	GLOBAL
 	111	PSECT	9
 		text61	GLOBAL
 	112	XPSECT	25
@@ -520,7 +520,7 @@
 	259	XPSECT	25
 		text12	reloc=2 space = 00 delta = 01 class=CODE
 	260	PSECTBOUND	25
-		text12	start=0000	end=00EC delta = 01 space = 0 class=CODE	GLOBAL
+		text12	start=0000	end=00E6 delta = 01 space = 0 class=CODE	GLOBAL
 	261	PSECT	9
 		text11	GLOBAL
 	262	XPSECT	25
@@ -550,7 +550,7 @@
 	274	XPSECT	24
 		text7	reloc=2 space = 00 delta = 01 class=CODE
 	275	PSECTBOUND	24
-		text7	start=0000	end=03A2 delta = 01 space = 0 class=CODE	GLOBAL
+		text7	start=0000	end=03AE delta = 01 space = 0 class=CODE	GLOBAL
 	276	PSECT	8
 		text6	GLOBAL
 	277	XPSECT	24
@@ -692,52 +692,52 @@
 		__CFG_BORV$3	(abs)	0	GLOBAL	
 		__end_of_doModeVscpNode	text1	2	GLOBAL	
 		PL10	text78	1F6	GLOBAL	
-		PL20	text18	1E2	GLOBAL	
+		PL20	text80	24A	GLOBAL	
 		PL12	text22	171C	GLOBAL	
-		PL30	text42	FA	GLOBAL	
+		PL30	text29	8C	GLOBAL	
 	339	SYM	501
 		PL22	text22	1766	GLOBAL	
-		PL14	text7	304	GLOBAL	
+		PL14	text7	316	GLOBAL	
 		PL40	text22	1792	GLOBAL	
-		PL32	text29	8C	GLOBAL	
+		PL32	text42	FA	GLOBAL	
 		PL24	text94	FE	GLOBAL	
 		PL16	text57	67C	GLOBAL	
-		PL50	text92	C4	GLOBAL	
-		PL42	text78	242	GLOBAL	
-		PL34	text57	6AA	GLOBAL	
-		PL26	text7	34A	GLOBAL	
-		PL18	text80	24A	GLOBAL	
+		PL50	text22	17A6	GLOBAL	
+		PL42	text79	BE	GLOBAL	
+		PL34	text62	62	GLOBAL	
+		PL26	text7	35C	GLOBAL	
+		PL18	text18	1E2	GLOBAL	
 		PL60	text22	17D4	GLOBAL	
 		PL52	text2	3C0	GLOBAL	
-		PL44	text78	262	GLOBAL	
-		PL36	text22	1782	GLOBAL	
+		PL44	text78	242	GLOBAL	
+		PL36	text57	6AA	GLOBAL	
 		PL28	text57	69A	GLOBAL	
-		PL70	text57	6EA	GLOBAL	
-		PL62	text14	96	GLOBAL	
+		PL70	text18	1F2	GLOBAL	
+		PL62	text57	6D0	GLOBAL	
 		PL54	text56	B8	GLOBAL	
-		PL46	text78	280	GLOBAL	
-		PL38	text79	BE	GLOBAL	
+		PL46	text78	262	GLOBAL	
+		PL38	text22	1782	GLOBAL	
 		PL80	text22	181E	GLOBAL	
 		PL72	text22	17EE	GLOBAL	
-		PL64	text18	1F2	GLOBAL	
+		PL64	text15	96	GLOBAL	
 		PL56	text22	17B8	GLOBAL	
-		PL48	text22	17A6	GLOBAL	
-		PL90	text22	1834	GLOBAL	
+		PL48	text78	280	GLOBAL	
+		PL90	text92	E4	GLOBAL	
 		PL82	text57	700	GLOBAL	
 	340	SYM	493
 		PL74	text22	1806	GLOBAL	
-		PL66	text15	96	GLOBAL	
-		PL58	text57	6D0	GLOBAL	
-		PL92	text57	70E	GLOBAL	
-		PL84	text79	E4	GLOBAL	
+		PL66	text55	9C	GLOBAL	
+		PL58	text92	C4	GLOBAL	
+		PL92	text6	D2	GLOBAL	
+		PL84	text22	1834	GLOBAL	
 		PL76	text79	D2	GLOBAL	
-		PL68	text55	9C	GLOBAL	
-		PL94	text92	E6	GLOBAL	
-		PL86	text30	EA	GLOBAL	
-		PL78	text62	78	GLOBAL	
-		PL96	text92	F8	GLOBAL	
+		PL68	text14	96	GLOBAL	
+		PL94	text79	E4	GLOBAL	
+		PL86	text57	70E	GLOBAL	
+		PL78	text57	6EA	GLOBAL	
+		PL96	text30	EA	GLOBAL	
 		PL88	text92	D2	GLOBAL	
-		PL98	text6	D2	GLOBAL	
+		PL98	text92	F8	GLOBAL	
 		sendEscapedUartData@pcrc	cstackBANK0	3	GLOBAL	
 		__CFG_CPB$OFF	(abs)	0	GLOBAL	
 		getVSCPFrame@id	cstackBANK0	1C	GLOBAL	
@@ -747,36 +747,36 @@
 		_dlc	bssCOMRAM	18	GLOBAL	
 		_pos	bssBANK1	3	GLOBAL	
 		__size_of_Write_b_eep	(abs)	0	GLOBAL	
-	341	SYM	494
+	341	SYM	493
 		__size_of_writeRegisterExtended	(abs)	0	GLOBAL	
 		__end_of_writeRegisterExtended	text24	10A	GLOBAL	
-		PL100	text22	1848	GLOBAL	
-		PL110	text87	96	GLOBAL	
-		PL102	text90	96	GLOBAL	
-		PL120	text22	185A	GLOBAL	
-		PL112	text79	F8	GLOBAL	
-		PL104	text18	202	GLOBAL	
-		PL130	text22	188A	GLOBAL	
-		PL122	text57	734	GLOBAL	
-		PL114	text57	722	GLOBAL	
-		PL106	text92	10C	GLOBAL	
-		PL140	text86	32	GLOBAL	
-		PL132	text8	B6	GLOBAL	
-		PL124	text22	186A	GLOBAL	
+		PL100	text18	202	GLOBAL	
+		PL110	text57	722	GLOBAL	
+		PL102	text92	10C	GLOBAL	
+		PL120	text22	186A	GLOBAL	
+		PL112	text22	1848	GLOBAL	
+		PL104	text7	386	GLOBAL	
+		PL130	text9	CC	GLOBAL	
+		PL122	text5	17E	GLOBAL	
+		PL114	text90	96	GLOBAL	
+		PL106	text87	96	GLOBAL	
+		PL140	text91	1FE	GLOBAL	
+		PL132	text22	189A	GLOBAL	
+		PL124	text22	187A	GLOBAL	
 		PL116	text2	3CE	GLOBAL	
-		PL108	text7	374	GLOBAL	
+		PL108	text79	F8	GLOBAL	
 		PL142	text79	10A	GLOBAL	
-		PL134	text22	189A	GLOBAL	
-		PL126	text22	187A	GLOBAL	
-		PL118	text9	CC	GLOBAL	
+		PL134	text57	734	GLOBAL	
+		PL126	text8	B6	GLOBAL	
+		PL118	text22	185A	GLOBAL	
 		ReadTimer3@timer	cstackCOMRAM	20	GLOBAL	
-		PL144	text7	386	GLOBAL	
-	342	SYM	503
-		PL136	text17	1E6	GLOBAL	
-		PL128	text5	17E	GLOBAL	
+		PL144	text7	398	GLOBAL	
+	342	SYM	504
+		PL136	text86	32	GLOBAL	
+		PL128	text22	188A	GLOBAL	
 		PL146	text57	73E	GLOBAL	
-		PL138	text91	1FE	GLOBAL	
-		PL148	text7	38E	GLOBAL	
+		PL138	text17	1E6	GLOBAL	
+		PL148	text7	3A0	GLOBAL	
 		__CFG_LVP$OFF	(abs)	0	GLOBAL	
 		__end_of_changeBaudrate	text23	7C	GLOBAL	
 		__CFG_WDT$OFF	(abs)	0	GLOBAL	
@@ -831,7 +831,7 @@
 		?_itoa	cstackBANK0	9	GLOBAL	
 		i1_WriteTimer0	text89	0	GLOBAL	
 		_EEADR	(abs)	FA9	GLOBAL	
-		__end_of_printFirmwareVersion	text62	78	GLOBAL	
+		__end_of_printFirmwareVersion	text62	62	GLOBAL	
 		_BSEL0	(abs)	DF8	GLOBAL	
 	345	SYM	500
 		__end_of___lldiv	text60	76	GLOBAL	
@@ -895,38 +895,38 @@
 		__end_of_sendEscapedUartData	text19	60	GLOBAL	
 		utoa@c	cstackBANK0	8	GLOBAL	
 		utoa@v	cstackBANK0	6	GLOBAL	
-	348	SYM	500
+	348	SYM	498
 		__end_of_sprintf	text57	67C	GLOBAL	
 		__end_of_strichr	text48	3E	GLOBAL	
 		__end_of_strcspn	text44	46	GLOBAL	
 		__end_of_toupper	text50	16	GLOBAL	
 		__end_of_stristr	text47	7A	GLOBAL	
-		__end_ofPL100	text22	185A	GLOBAL	
-		__end_ofPL110	text87	A8	GLOBAL	
-		__end_ofPL102	text90	A8	GLOBAL	
-		__end_ofPL120	text22	186A	GLOBAL	
-		__end_ofPL112	text79	10A	GLOBAL	
-		__end_ofPL104	text18	214	GLOBAL	
-		__end_ofPL130	text22	189A	GLOBAL	
-		__end_ofPL122	text57	73E	GLOBAL	
-		__end_ofPL114	text57	734	GLOBAL	
-		__end_ofPL106	text92	11E	GLOBAL	
-		__end_ofPL140	text86	40	GLOBAL	
-		__end_ofPL132	text8	C4	GLOBAL	
-		__end_ofPL124	text22	187A	GLOBAL	
-	349	SYM	477
+		__end_ofPL100	text18	214	GLOBAL	
+		__end_ofPL110	text57	734	GLOBAL	
+		__end_ofPL102	text92	11E	GLOBAL	
+		__end_ofPL120	text22	187A	GLOBAL	
+		__end_ofPL112	text22	185A	GLOBAL	
+		__end_ofPL104	text7	398	GLOBAL	
+		__end_ofPL130	text9	DA	GLOBAL	
+		__end_ofPL122	text5	18C	GLOBAL	
+		__end_ofPL114	text90	A8	GLOBAL	
+		__end_ofPL106	text87	A8	GLOBAL	
+		__end_ofPL140	text91	20C	GLOBAL	
+		__end_ofPL132	text22	18AA	GLOBAL	
+		__end_ofPL124	text22	188A	GLOBAL	
+	349	SYM	479
 		__end_ofPL116	text2	3DA	GLOBAL	
-		__end_ofPL108	text7	386	GLOBAL	
+		__end_ofPL108	text79	10A	GLOBAL	
 		__end_ofPL142	text79	114	GLOBAL	
-		__end_ofPL134	text22	18AA	GLOBAL	
-		__end_ofPL126	text22	188A	GLOBAL	
-		__end_ofPL118	text9	DA	GLOBAL	
-		__end_ofPL144	text7	38E	GLOBAL	
-		__end_ofPL136	text17	1F4	GLOBAL	
-		__end_ofPL128	text5	18C	GLOBAL	
+		__end_ofPL134	text57	73E	GLOBAL	
+		__end_ofPL126	text8	C4	GLOBAL	
+		__end_ofPL118	text22	186A	GLOBAL	
+		__end_ofPL144	text7	3A0	GLOBAL	
+		__end_ofPL136	text86	40	GLOBAL	
+		__end_ofPL128	text22	189A	GLOBAL	
 		__end_ofPL146	text57	748	GLOBAL	
-		__end_ofPL138	text91	20C	GLOBAL	
-		__end_ofPL148	text7	3A2	GLOBAL	
+		__end_ofPL138	text17	1F4	GLOBAL	
+		__end_ofPL148	text7	3AE	GLOBAL	
 		__size_of_receivePrintEventVerbose	(abs)	0	GLOBAL	
 		doModeVerbose@i_1293	cstackBANK2	39	GLOBAL	
 		doModeVerbose@p_1300	cstackBANK2	3D	GLOBAL	
@@ -1391,52 +1391,52 @@
 		__end_of_strtok	text43	96	GLOBAL	
 		__end_of_strspn	text45	46	GLOBAL	
 		__end_ofPL10	text78	242	GLOBAL	
-		__end_ofPL20	text18	1F2	GLOBAL	
+		__end_ofPL20	text80	260	GLOBAL	
 		__end_ofPL12	text22	1766	GLOBAL	
-		__end_ofPL30	text42	108	GLOBAL	
+		__end_ofPL30	text29	9A	GLOBAL	
 		__end_ofPL22	text22	1782	GLOBAL	
-		__end_ofPL14	text7	34A	GLOBAL	
+		__end_ofPL14	text7	35C	GLOBAL	
 		__end_ofPL40	text22	17A6	GLOBAL	
-		__end_ofPL32	text29	9A	GLOBAL	
+		__end_ofPL32	text42	108	GLOBAL	
 		__end_ofPL24	text94	12C	GLOBAL	
 	377	SYM	492
 		__end_ofPL16	text57	69A	GLOBAL	
-		__end_ofPL50	text92	D2	GLOBAL	
-		__end_ofPL42	text78	262	GLOBAL	
-		__end_ofPL34	text57	6D0	GLOBAL	
-		__end_ofPL26	text7	374	GLOBAL	
-		__end_ofPL18	text80	260	GLOBAL	
+		__end_ofPL50	text22	17B8	GLOBAL	
+		__end_ofPL42	text79	D2	GLOBAL	
+		__end_ofPL34	text62	7A	GLOBAL	
+		__end_ofPL26	text7	386	GLOBAL	
+		__end_ofPL18	text18	1F2	GLOBAL	
 		__end_ofPL60	text22	17EE	GLOBAL	
 		__end_ofPL52	text2	3CE	GLOBAL	
-		__end_ofPL44	text78	280	GLOBAL	
-		__end_ofPL36	text22	1792	GLOBAL	
+		__end_ofPL44	text78	262	GLOBAL	
+		__end_ofPL36	text57	6D0	GLOBAL	
 		__end_ofPL28	text57	6AA	GLOBAL	
-		__end_ofPL70	text57	700	GLOBAL	
-		__end_ofPL62	text14	A4	GLOBAL	
+		__end_ofPL70	text18	202	GLOBAL	
+		__end_ofPL62	text57	6EA	GLOBAL	
 		__end_ofPL54	text56	D4	GLOBAL	
-		__end_ofPL46	text78	29E	GLOBAL	
-		__end_ofPL38	text79	D2	GLOBAL	
+		__end_ofPL46	text78	280	GLOBAL	
+		__end_ofPL38	text22	1792	GLOBAL	
 		__end_ofPL80	text22	1834	GLOBAL	
 		__end_ofPL72	text22	1806	GLOBAL	
-		__end_ofPL64	text18	202	GLOBAL	
+		__end_ofPL64	text15	A4	GLOBAL	
 	378	SYM	498
 		__end_ofPL56	text22	17D4	GLOBAL	
-		__end_ofPL48	text22	17B8	GLOBAL	
-		__end_ofPL90	text22	1848	GLOBAL	
+		__end_ofPL48	text78	29E	GLOBAL	
+		__end_ofPL90	text92	F8	GLOBAL	
 		__end_ofPL82	text57	70E	GLOBAL	
 		__end_ofPL74	text22	181E	GLOBAL	
-		__end_ofPL66	text15	A4	GLOBAL	
-		__end_ofPL58	text57	6EA	GLOBAL	
-		__end_ofPL92	text57	722	GLOBAL	
-		__end_ofPL84	text79	F8	GLOBAL	
+		__end_ofPL66	text55	AC	GLOBAL	
+		__end_ofPL58	text92	D2	GLOBAL	
+		__end_ofPL92	text6	E6	GLOBAL	
+		__end_ofPL84	text22	1848	GLOBAL	
 		__end_ofPL76	text79	E4	GLOBAL	
-		__end_ofPL68	text55	AC	GLOBAL	
-		__end_ofPL94	text92	F8	GLOBAL	
-		__end_ofPL86	text30	FE	GLOBAL	
-		__end_ofPL78	text62	8E	GLOBAL	
-		__end_ofPL96	text92	10C	GLOBAL	
-		__end_ofPL88	text92	E6	GLOBAL	
-		__end_ofPL98	text6	E6	GLOBAL	
+		__end_ofPL68	text14	A4	GLOBAL	
+		__end_ofPL94	text79	F8	GLOBAL	
+		__end_ofPL86	text57	722	GLOBAL	
+		__end_ofPL78	text57	700	GLOBAL	
+		__end_ofPL96	text30	FE	GLOBAL	
+		__end_ofPL88	text92	E4	GLOBAL	
+		__end_ofPL98	text92	10C	GLOBAL	
 		start_initialization	cinit	0	GLOBAL	
 		_ReadUSART	text95	0	GLOBAL	
 	379	SYM	477
@@ -1634,7 +1634,7 @@
 		?_fifo_init	cstackCOMRAM	1E	GLOBAL	
 		?_fifo_read	cstackCOMRAM	1E	GLOBAL	
 		_RXERRCNT	(abs)	F75	GLOBAL	
-		__end_of_doModeVscp	text7	304	GLOBAL	
+		__end_of_doModeVscp	text7	316	GLOBAL	
 		_TXERRCNT	(abs)	F76	GLOBAL	
 		__end_of__CANIDToRegs	text79	BE	GLOBAL	
 		_putsUSART	text70	0	GLOBAL	
@@ -1666,7 +1666,7 @@
 		__end_of_vscp_restoreDefaults	text67	8	GLOBAL	
 		_EECON1bits	(abs)	FA6	GLOBAL	
 		__size_of_printFirmwareVersion	(abs)	0	GLOBAL	
-		__end_of_receiveVSCPModeCanalMsg	text12	EC	GLOBAL	
+		__end_of_receiveVSCPModeCanalMsg	text12	E6	GLOBAL	
 		__Hrparam		0	GLOBAL	EXTERN
 		ECANReceiveMessage@id	cstackCOMRAM	D	GLOBAL	
 		__Lrparam		0	GLOBAL	EXTERN
@@ -2659,7 +2659,7 @@
 	    C0: 30 00 3A 00 3F 00 00                           	0.:.?..
 	525	SYM	495
 		C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f2580.h		0	FILNAM
-		C:\Users\GRODAN~1\AppData\Local\Temp\s6m4.		0	FILNAM
+		C:\Users\GRODAN~1\AppData\Local\Temp\s7hc.		0	FILNAM
 		8421	cinit	0	LINENO
 		8422	cinit	4	LINENO
 		8424	cinit	8	LINENO
@@ -4388,7 +4388,7 @@
 	     0: 00 01 00 EE 00 F0 01 0E DF 64 03 D0 00 EC 00 F0	.........d......
 	    10: 02 D0 00 EC 00 F0 F2 9E 00 01 00 0E 1F 6E 00 0E	.............n..
 	    20: 1E 6E 00 0E 21 6E 00 0E 20 6E 23 6A 01 0E 22 6E	.n..!n.. n#j.."n
-	    30: 00 EC 00 F0 1E 04 1F 10 01 E0 62 D1 F2 8E 4F 0E	..........b...O.
+	    30: 00 EC 00 F0 1E 04 1F 10 01 E0 6B D1 F2 8E 4F 0E	..........k...O.
 	    40: 01 01 00 65 03 D0 00 6B 08 6A 0B 6A 0B 66 0F D0	...e...k.j.j.f..
 	605	RELOC	497
 		0x2	RELBITS COMPLEX		6
@@ -4465,12 +4465,12 @@
 	607	TEXT	122
 		text7	0x50	0x70
 	     0: 08 50 0A E0 08 6A 00 01 00 51 02 0A 29 E1 01 0E	.P...j...Q..)...
-	    10: 0B 6E 01 01 00 6B 24 D0 01 0E 08 6E 4A D1 0B 04	.n...k$....nJ...
+	    10: 0B 6E 01 01 00 6B 24 D0 01 0E 08 6E 53 D1 0B 04	.n...k$....nS...
 	    20: 1F E1 08 50 18 E0 08 6A 00 01 00 51 03 0A 03 E1	...P...j...Q....
 	    30: 02 0E 0B 6E 15 D0 00 51 10 0A 12 E1 01 01 00 EC	...n...Q........
-	    40: 00 F0 56 C0 DF FF 00 2B 4F 0E 00 65 32 D1 08 6A	..V....+O..e2..j
-	    50: 00 6B 0B 6A 2E D1 00 01 00 51 10 0A DD E0 EE D7	.k.j.....Q......
-	    60: 0B 50 02 0A 01 E0 24 D1 0B 6A 00 0E 00 01 00 6F	.P....$..j.....o
+	    40: 00 F0 56 C0 DF FF 00 2B 4F 0E 00 65 3B D1 08 6A	..V....+O..e;..j
+	    50: 00 6B 0B 6A 37 D1 00 01 00 51 10 0A DD E0 EE D7	.k.j7....Q......
+	    60: 0B 50 02 0A 01 E0 2D D1 0B 6A 00 0E 00 01 00 6F	.P....-..j.....o
 	608	RELOC	493
 		0x0	RPSECT	bssCOMRAM	1
 		0x4	RPSECT	bssCOMRAM	1
@@ -4512,11 +4512,11 @@
 	609	TEXT	94
 		text7	0xC0	0x54
 	     0: 00 0E 00 6F 03 C0 05 F0 00 EC 00 F0 00 09 03 E0	...o............
-	    10: 00 EC 00 F0 16 D1 01 01 00 67 03 D0 00 EC 00 F0	.........g......
-	    20: 0C D1 00 05 03 E1 00 EC 00 F0 07 D1 00 51 02 0A	.............Q..
+	    10: 00 EC 00 F0 1F D1 01 01 00 67 03 D0 00 EC 00 F0	.........g......
+	    20: 15 D1 00 05 03 E1 00 EC 00 F0 10 D1 00 51 02 0A	.............Q..
 	    30: 05 E1 00 EC 00 F0 00 09 F1 E1 F5 D7 00 51 06 0A	.............Q..
 	    40: 03 E1 00 EC 00 F0 F7 D7 00 51 06 0A EC E0 00 51	.........Q.....Q
-	    50: 03 0A 5A E1                                    	..Z.
+	    50: 03 0A 63 E1                                    	..c.
 	610	RELOC	485
 		0x0	COMPLEX		1
 		low (0x5 + bssBANK1)
@@ -4590,14 +4590,14 @@
 		1579	text7	10E	LINENO
 		1582	text7	114	LINENO
 		1587	text7	11A	LINENO
-	612	TEXT	104
-		text7	0x114	0x5E
-	     0: 00 67 01 D0 E1 D7 00 05 1B E1 09 C0 50 F0 35 D9	.g..........P.5.
-	    10: 01 D0 2F D9 00 2F FD D7 00 51 02 0A 00 11 D9 E1	../../...Q......
-	    20: 04 0E 01 01 00 61 D5 D7 0B C0 2B F0 00 EC 00 F0	.....a....+.....
-	    30: 1F 6A 03 0E 1E 6E 0B C0 20 F0 00 EC 00 F0 C4 D7	.j...n.. .......
-	    40: 00 51 02 0A 1E E1 09 C0 50 F0 17 D9 01 D0 11 D9	.Q......P.......
-	    50: 00 2F FD D7 00 51 02 0A 00 11 BB E1 01 01      	./...Q........
+	612	TEXT	106
+		text7	0x114	0x60
+	     0: 00 67 01 D0 E1 D7 00 05 1E E1 09 C0 50 F0 08 0E	.g..........P...
+	    10: 00 01 00 27 3B D9 01 D0 35 D9 00 2F FD D7 00 51	...';...5../...Q
+	    20: 02 0A 00 11 D6 E1 04 0E 01 01 00 61 D2 D7 0B C0	...........a....
+	    30: 2B F0 00 EC 00 F0 1F 6A 03 0E 1E 6E 0B C0 20 F0	+......j...n.. .
+	    40: 00 EC 00 F0 C1 D7 00 51 02 0A 21 E1 09 C0 50 F0	.......Q..!...P.
+	    50: 08 0E 00 01 00 27 1A D9 01 D0 14 D9 00 2F FD D7	.....'......./..
 	613	RELOC	500
 		0x0	COMPLEX		1
 		(0xA + bssBANK1) & 0xFF
@@ -4605,143 +4605,250 @@
 		(0xA + bssBANK1) & 0xFF
 		0xA	RELBITS RPSECT	bssBANK1	12
 		0xC	RELBITS RPSECT	cstackBANK0	12
-		0x14	COMPLEX		1
+		0x12	COMPLEX		1
 		(0x50 + cstackBANK0) & 0xFF
-		0x18	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x1C	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-		0x24	COMPLEX		1
-		(0xB + bssBANK1) & 0xFF
-		0x28	RELBITS RPSECT	bssBANK1	12
-		0x2A	RELBITS RPSECT	bssBANK0	12
-		0x2C	COMPLEX		1
-		(text82 >> 0x1) & 0xFF
-		0x2E	RELBITS COMPLEX		12
-		text82 >> 0x9
-		0x30	RPSECT	cstackCOMRAM	1
-		0x34	RPSECT	cstackCOMRAM	1
-		0x36	RELBITS RPSECT	bssBANK1	12
-		0x38	RELBITS RPSECT	cstackCOMRAM	12
-		0x3A	COMPLEX		1
-		(text81 >> 0x1) & 0xFF
-		0x3C	RELBITS COMPLEX		12
-		text81 >> 0x9
-		0x40	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
-		0x46	RELBITS RPSECT	bssBANK1	12
-		0x48	RELBITS RPSECT	cstackBANK0	12
-		0x50	COMPLEX		1
+		0x1A	COMPLEX		1
 		(0x50 + cstackBANK0) & 0xFF
-		0x54	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x58	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-	614	TEXT	96
-		text7	0x172	0x56
-	     0: 00 51 04 E0 01 0E 00 01 00 6F 02 D0 00 01 00 6B	.Q.......o.....k
-	    10: 00 EC 00 F0 1F 6A 66 0E 1E 6E 0B C0 20 F0 00 EC	.....jf..n.. ...
-	    20: 00 F0 A3 D7 00 51 03 0A A5 E1 09 C0 50 F0 F6 D8	.....Q......P...
-	    30: 01 D0 F0 D8 00 2F FD D7 00 51 02 0A 00 11 9A E1	...../...Q......
-	    40: 0D 0E 01 01 00 61 96 D7 00 EC 00 F0 01 01 00 51	.....a.........Q
-	    50: 00 EC 00 F0 99 D0                              	......
-	615	RELOC	498
-		0x0	COMPLEX		1
-		(0xB + bssBANK1) & 0xFF
-		0x8	COMPLEX		1
-		(0x2A + bssBANK0) & 0xFF
-		0xE	COMPLEX		1
-		(0x2A + bssBANK0) & 0xFF
-		0x10	COMPLEX		1
-		(text82 >> 0x1) & 0xFF
-		0x12	RELBITS COMPLEX		12
-		text82 >> 0x9
-		0x14	RPSECT	cstackCOMRAM	1
-		0x18	RPSECT	cstackCOMRAM	1
-		0x1A	RELBITS RPSECT	bssBANK1	12
-		0x1C	RELBITS RPSECT	cstackCOMRAM	12
 		0x1E	COMPLEX		1
-		(text81 >> 0x1) & 0xFF
-		0x20	RELBITS COMPLEX		12
-		text81 >> 0x9
-		0x24	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
-		0x2A	RELBITS RPSECT	bssBANK1	12
-		0x2C	RELBITS RPSECT	cstackBANK0	12
-		0x34	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
-		0x38	COMPLEX		1
 		(0x51 + cstackBANK0) & 0xFF
-		0x3C	COMPLEX		1
+		0x22	COMPLEX		1
 		(0x52 + cstackBANK0) & 0xFF
+		0x2A	COMPLEX		1
+		(0xB + bssBANK1) & 0xFF
+		0x2E	RELBITS RPSECT	bssBANK1	12
+		0x30	RELBITS RPSECT	bssBANK0	12
+		0x32	COMPLEX		1
+		(text82 >> 0x1) & 0xFF
+		0x34	RELBITS COMPLEX		12
+		text82 >> 0x9
+		0x36	RPSECT	cstackCOMRAM	1
+		0x3A	RPSECT	cstackCOMRAM	1
+		0x3C	RELBITS RPSECT	bssBANK1	12
+		0x3E	RELBITS RPSECT	cstackCOMRAM	12
+		0x40	COMPLEX		1
+		(text81 >> 0x1) & 0xFF
+		0x42	RELBITS COMPLEX		12
+		text81 >> 0x9
+		0x46	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x4C	RELBITS RPSECT	bssBANK1	12
+		0x4E	RELBITS RPSECT	cstackBANK0	12
+		0x54	COMPLEX		1
+		(0x50 + cstackBANK0) & 0xFF
+		0x5C	COMPLEX		1
+		(0x50 + cstackBANK0) & 0xFF
+	614	TEXT	100
+		text7	0x174	0x5A
+	     0: 00 51 02 0A 00 11 B5 E1 01 01 00 51 04 E0 01 0E	.Q.........Q....
+	    10: 00 01 00 6F 02 D0 00 01 00 6B 00 EC 00 F0 1F 6A	...o.....k.....j
+	    20: 66 0E 1E 6E 0B C0 20 F0 00 EC 00 F0 9D D7 00 51	f..n.. ........Q
+	    30: 03 0A 9F E1 09 C0 50 F0 08 0E 00 01 00 27 F6 D8	......P......'..
+	    40: 01 D0 F0 D8 00 2F FD D7 00 51 02 0A 00 11 91 E1	...../...Q......
+	    50: 0D 0E 01 01 00 61 8D D7 00 EC                  	.....a....
+	615	RELOC	499
+		0x0	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+		0x4	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0xA	COMPLEX		1
+		(0xB + bssBANK1) & 0xFF
+		0x12	COMPLEX		1
+		(0x2A + bssBANK0) & 0xFF
+		0x18	COMPLEX		1
+		(0x2A + bssBANK0) & 0xFF
+		0x1A	COMPLEX		1
+		(text82 >> 0x1) & 0xFF
+		0x1C	RELBITS COMPLEX		12
+		text82 >> 0x9
+		0x1E	RPSECT	cstackCOMRAM	1
+		0x22	RPSECT	cstackCOMRAM	1
+		0x24	RELBITS RPSECT	bssBANK1	12
+		0x26	RELBITS RPSECT	cstackCOMRAM	12
+		0x28	COMPLEX		1
+		(text81 >> 0x1) & 0xFF
+		0x2A	RELBITS COMPLEX		12
+		text81 >> 0x9
+		0x2E	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x34	RELBITS RPSECT	bssBANK1	12
+		0x36	RELBITS RPSECT	cstackBANK0	12
+		0x3C	COMPLEX		1
+		(0x50 + cstackBANK0) & 0xFF
 		0x44	COMPLEX		1
-		(0xB + bssBANK1) & 0xFF
+		(0x50 + cstackBANK0) & 0xFF
 		0x48	COMPLEX		1
-		(text14 >> 0x1) & 0xFF
-		0x4A	RELBITS COMPLEX		12
-		text14 >> 0x9
-		0x4E	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+		0x4C	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0x54	COMPLEX		1
 		(0xB + bssBANK1) & 0xFF
-		0x50	COMPLEX		1
-		(text23 >> 0x1) & 0xFF
-		0x52	RELBITS COMPLEX		12
-		text23 >> 0x9
+		0x58	COMPLEX		1
+		(text14 >> 0x1) & 0xFF
 	616	SYM	493
 		1590	text7	11E	LINENO
-		1592	text7	134	LINENO
-		1593	text7	13C	LINENO
-		1594	text7	140	LINENO
-		1609	text7	154	LINENO
-		1612	text7	15A	LINENO
-		1614	text7	170	LINENO
-		1615	text7	176	LINENO
-		1616	text7	17C	LINENO
-		1618	text7	17E	LINENO
-		1621	text7	182	LINENO
-		1631	text7	196	LINENO
-		1634	text7	19C	LINENO
-		1636	text7	1B2	LINENO
-		1637	text7	1BA	LINENO
-		1638	text7	1BE	LINENO
-		1639	text7	1C6	LINENO
-		1655	text7	1C8	LINENO
-		1660	text7	1CE	LINENO
-		1661	text7	1D4	LINENO
-		1662	text7	1D8	LINENO
-		1663	text7	1DC	LINENO
-		1664	text7	1E0	LINENO
-		1667	text7	1E2	LINENO
-		1670	text7	1E8	LINENO
-		1671	text7	1EC	LINENO
-		1672	text7	1F6	LINENO
-		1675	text7	1F8	LINENO
-		1676	text7	1FC	LINENO
-	617	TEXT	102
-		text7	0x1C8	0x5C
-	     0: 00 51 04 0A 8C E0 00 51 08 0A 07 E1 0A C0 00 F0	.Q.....Q........
-	    10: 0B C0 01 F0 00 EC 00 F0 8C D0 00 29 01 E0 86 D0	...........)....
-	    20: 00 67 06 D0 00 0E 00 01 00 6B 00 EC 00 F0 81 D0	.g.......k......
-	    30: 00 05 0A E1 00 0E 00 EC 00 F0 01 0E 00 01 00 6F	...............o
-	    40: 00 0E 00 EC 00 F0 75 D0 00 51 02 0A 0A E1 40 0E	......u..Q....@.
-	    50: 00 EC 00 F0 02 0E 00 01 00 6F 00 0E            	.........o..
-	618	RELOC	495
-		0x0	COMPLEX		1
-		(0x5 + bssBANK1) & 0xFF
+		1592	text7	13A	LINENO
+		1593	text7	142	LINENO
+		1594	text7	146	LINENO
+		1609	text7	15A	LINENO
+		1612	text7	160	LINENO
+		1614	text7	17C	LINENO
+		1615	text7	182	LINENO
+		1616	text7	188	LINENO
+		1618	text7	18A	LINENO
+		1621	text7	18E	LINENO
+		1631	text7	1A2	LINENO
+		1634	text7	1A8	LINENO
+		1636	text7	1C4	LINENO
+		1637	text7	1CC	LINENO
+		1638	text7	1D0	LINENO
+		1639	text7	1D8	LINENO
+		1655	text7	1DA	LINENO
+		1660	text7	1E0	LINENO
+		1661	text7	1E6	LINENO
+		1662	text7	1EA	LINENO
+		1663	text7	1EE	LINENO
+		1664	text7	1F2	LINENO
+		1667	text7	1F4	LINENO
+		1670	text7	1FA	LINENO
+		1671	text7	1FE	LINENO
+		1672	text7	208	LINENO
+		1675	text7	20A	LINENO
+		1676	text7	20E	LINENO
+	617	TEXT	94
+		text7	0x1CE	0x54
+	     0: 00 F0 01 01 00 51 00 EC 00 F0 99 D0 00 51 04 0A	.....Q.......Q..
+	    10: 83 E0 00 51 08 0A 07 E1 0A C0 00 F0 0B C0 01 F0	...Q............
+	    20: 00 EC 00 F0 8C D0 00 29 01 E0 86 D0 00 67 06 D0	.......).....g..
+	    30: 00 0E 00 01 00 6B 00 EC 00 F0 81 D0 00 05 0A E1	.....k..........
+	    40: 00 0E 00 EC 00 F0 01 0E 00 01 00 6F 00 0E 00 EC	...........o....
+	    50: 00 F0 75 D0                                    	..u.
+	618	RELOC	484
+		0x0	RELBITS COMPLEX		12
+		text14 >> 0x9
+		0x4	COMPLEX		1
+		(0xB + bssBANK1) & 0xFF
 		0x6	COMPLEX		1
+		(text23 >> 0x1) & 0xFF
+		0x8	RELBITS COMPLEX		12
+		text23 >> 0x9
+		0xC	COMPLEX		1
 		(0x5 + bssBANK1) & 0xFF
-		0xC	RELBITS RPSECT	bssBANK1	12
-		0xE	RELBITS RPSECT	nvBANK0	12
-		0x10	RELBITS RPSECT	bssBANK1	12
-		0x12	RELBITS RPSECT	nvBANK0	12
-		0x14	COMPLEX		1
-		(text10 >> 0x1) & 0xFF
-		0x16	RELBITS COMPLEX		12
-		text10 >> 0x9
-		0x1A	COMPLEX		1
+		0x12	COMPLEX		1
 		(0x5 + bssBANK1) & 0xFF
+		0x18	RELBITS RPSECT	bssBANK1	12
+		0x1A	RELBITS RPSECT	nvBANK0	12
+		0x1C	RELBITS RPSECT	bssBANK1	12
+		0x1E	RELBITS RPSECT	nvBANK0	12
 		0x20	COMPLEX		1
+		(text10 >> 0x1) & 0xFF
+		0x22	RELBITS COMPLEX		12
+		text10 >> 0x9
+		0x26	COMPLEX		1
+		(0x5 + bssBANK1) & 0xFF
+		0x2C	COMPLEX		1
 		(0xA + bssBANK1) & 0xFF
-		0x28	COMPLEX		1
+		0x34	COMPLEX		1
+		(0x6 + cstackBANK0) & 0xFF
+		0x36	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x38	RELBITS COMPLEX		12
+		text9 >> 0x9
+		0x3C	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x42	COMPLEX		1
+		(text83 >> 0x1) & 0xFF
+		0x44	RELBITS COMPLEX		12
+		text83 >> 0x9
+		0x4A	COMPLEX		1
+		(0x6 + cstackBANK0) & 0xFF
+		0x4E	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x50	RELBITS COMPLEX		12
+		text9 >> 0x9
+	619	TEXT	114
+		text7	0x222	0x68
+	     0: 00 51 02 0A 0A E1 40 0E 00 EC 00 F0 02 0E 00 01	.Q....@.........
+	    10: 00 6F 00 0E 00 EC 00 F0 68 D0 00 51 03 0A 0A E1	.o......h..Q....
+	    20: 60 0E 00 EC 00 F0 03 0E 00 01 00 6F 00 0E 00 EC	`..........o....
+	    30: 00 F0 5B D0 00 51 04 0A 0A E1 20 0E 00 EC 00 F0	..[..Q.... .....
+	    40: 04 0E 00 01 00 6F 00 0E 00 EC 00 F0 4E D0 00 51	.....o......N..Q
+	    50: 05 0A 22 E1 72 D8 D8 B4 00 5D 0B E2 10 0E 01 01	..".r....]......
+	    60: 00 61 07 D0 05 0E 00 01                        	.a......
+	620	RELOC	492
+		0x0	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x8	COMPLEX		1
+		(text83 >> 0x1) & 0xFF
+		0xA	RELBITS COMPLEX		12
+		text83 >> 0x9
+		0x10	COMPLEX		1
+		(0x6 + cstackBANK0) & 0xFF
+		0x14	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x16	RELBITS COMPLEX		12
+		text9 >> 0x9
+		0x1A	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x22	COMPLEX		1
+		(text83 >> 0x1) & 0xFF
+		0x24	RELBITS COMPLEX		12
+		text83 >> 0x9
+		0x2A	COMPLEX		1
+		(0x6 + cstackBANK0) & 0xFF
+		0x2E	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x30	RELBITS COMPLEX		12
+		text9 >> 0x9
+		0x34	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x3C	COMPLEX		1
+		(text83 >> 0x1) & 0xFF
+		0x3E	RELBITS COMPLEX		12
+		text83 >> 0x9
+		0x44	COMPLEX		1
+		(0x6 + cstackBANK0) & 0xFF
+		0x48	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x4A	RELBITS COMPLEX		12
+		text9 >> 0x9
+		0x4E	COMPLEX		1
+		(0xA + bssBANK1) & 0xFF
+		0x58	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+		0x60	COMPLEX		1
+		(0xB + bssBANK1) & 0xFF
+	621	TEXT	100
+		text7	0x28A	0x5A
+	     0: 00 6F 01 0E 00 EC 00 F0 3C D0 80 0E 00 EC 00 F0	.o......<.......
+	    10: 3D D8 00 6F 00 51 72 D8 00 EC 00 F0 00 0E 00 EC	=..o.Qr.........
+	    20: 00 F0 05 0E 00 01 00 6F 00 0E 00 EC 00 F0 29 D0	.......o......).
+	    30: 00 51 06 0A 01 E0 12 D7 4C D8 D8 B4 00 5D 0B E2	.Q......L....]..
+	    40: 02 0E 01 01 00 61 07 D0 05 0E 00 01 00 6F 01 0E	.....a.......o..
+	    50: 00 EC 00 F0 16 D0 80 0E 00 EC                  	..........
+	622	RELOC	496
+		0x0	COMPLEX		1
+		(0x6 + cstackBANK0) & 0xFF
+		0x4	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x6	RELBITS COMPLEX		12
+		text9 >> 0x9
+		0xC	COMPLEX		1
+		(text83 >> 0x1) & 0xFF
+		0xE	RELBITS COMPLEX		12
+		text83 >> 0x9
+		0x12	COMPLEX		1
+		(0x54 + cstackBANK0) & 0xFF
+		0x14	COMPLEX		1
+		(0x54 + cstackBANK0) & 0xFF
+		0x18	COMPLEX		1
+		(text80 >> 0x1) & 0xFF
+		0x1A	RELBITS COMPLEX		12
+		text80 >> 0x9
+		0x1E	COMPLEX		1
+		(text83 >> 0x1) & 0xFF
+		0x20	RELBITS COMPLEX		12
+		text83 >> 0x9
+		0x26	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 		0x2A	COMPLEX		1
 		(text9 >> 0x1) & 0xFF
@@ -4749,274 +4856,171 @@
 		text9 >> 0x9
 		0x30	COMPLEX		1
 		(0xA + bssBANK1) & 0xFF
-		0x36	COMPLEX		1
-		(text83 >> 0x1) & 0xFF
-		0x38	RELBITS COMPLEX		12
-		text83 >> 0x9
-		0x3E	COMPLEX		1
-		(0x6 + cstackBANK0) & 0xFF
-		0x42	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0x44	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x48	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
-		0x50	COMPLEX		1
-		(text83 >> 0x1) & 0xFF
-		0x52	RELBITS COMPLEX		12
-		text83 >> 0x9
-		0x58	COMPLEX		1
-		(0x6 + cstackBANK0) & 0xFF
-	619	TEXT	112
-		text7	0x224	0x66
-	     0: 00 EC 00 F0 68 D0 00 51 03 0A 0A E1 60 0E 00 EC	....h..Q....`...
-	    10: 00 F0 03 0E 00 01 00 6F 00 0E 00 EC 00 F0 5B D0	.......o......[.
-	    20: 00 51 04 0A 0A E1 20 0E 00 EC 00 F0 04 0E 00 01	.Q.... .........
-	    30: 00 6F 00 0E 00 EC 00 F0 4E D0 00 51 05 0A 22 E1	.o......N..Q..".
-	    40: 72 D8 D8 B4 00 5D 0B E2 10 0E 01 01 00 61 07 D0	r....].......a..
-	    50: 05 0E 00 01 00 6F 01 0E 00 EC 00 F0 3C D0 80 0E	.....o......<...
-	    60: 00 EC 00 F0 3D D8                              	....=.
-	620	RELOC	506
-		0x0	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0x2	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x6	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
-		0xE	COMPLEX		1
-		(text83 >> 0x1) & 0xFF
-		0x10	RELBITS COMPLEX		12
-		text83 >> 0x9
-		0x16	COMPLEX		1
-		(0x6 + cstackBANK0) & 0xFF
-		0x1A	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0x1C	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x20	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
-		0x28	COMPLEX		1
-		(text83 >> 0x1) & 0xFF
-		0x2A	RELBITS COMPLEX		12
-		text83 >> 0x9
-		0x30	COMPLEX		1
-		(0x6 + cstackBANK0) & 0xFF
-		0x34	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0x36	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x3A	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
+		0x3C	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
 		0x44	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x4C	COMPLEX		1
 		(0xB + bssBANK1) & 0xFF
-		0x54	COMPLEX		1
+		0x4C	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
+		0x50	COMPLEX		1
+		(text9 >> 0x1) & 0xFF
+		0x52	RELBITS COMPLEX		12
+		text9 >> 0x9
 		0x58	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0x5A	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x60	COMPLEX		1
 		(text83 >> 0x1) & 0xFF
-		0x62	RELBITS COMPLEX		12
+	623	SYM	493
+		1677	text7	214	LINENO
+		1678	text7	220	LINENO
+		1681	text7	222	LINENO
+		1682	text7	228	LINENO
+		1683	text7	22E	LINENO
+		1684	text7	23A	LINENO
+		1687	text7	23C	LINENO
+		1688	text7	242	LINENO
+		1689	text7	248	LINENO
+		1690	text7	254	LINENO
+		1693	text7	256	LINENO
+		1694	text7	25C	LINENO
+		1695	text7	262	LINENO
+		1696	text7	26E	LINENO
+		1699	text7	270	LINENO
+		1703	text7	276	LINENO
+		1705	text7	286	LINENO
+		1706	text7	292	LINENO
+		1709	text7	294	LINENO
+		1714	text7	29A	LINENO
+		1717	text7	29E	LINENO
+		1720	text7	2A6	LINENO
+		1722	text7	2AC	LINENO
+		1727	text7	2BA	LINENO
+		1731	text7	2C4	LINENO
+		1733	text7	2D2	LINENO
+		1734	text7	2DE	LINENO
+		1737	text7	2E0	LINENO
+		1742	text7	2E8	LINENO
+	624	TEXT	90
+		text7	0x2E4	0x50
+	     0: 00 F0 17 D8 00 6F 00 51 4C D8 00 EC 00 F0 00 0E	.....o.QL.......
+	    10: 00 EC 00 F0 05 0E 00 01 00 6F 01 0E 00 EC 00 F0	.........o......
+	    20: 03 D0 02 0E 00 EC 00 F0 01 01 00 6B 0B 6A F2 8E	...........k.j..
+	    30: 12 00 0F C0 50 F0 08 0E 00 01 00 27 0E C0 51 F0	....P......'..Q.
+	    40: 10 0E 00 27 0D C0 52 F0 18 0E 00 27 0C C0 53 F0	...'..R....'..S.
+	625	RELOC	503
+		0x0	RELBITS COMPLEX		12
 		text83 >> 0x9
-	621	SYM	493
-		1677	text7	202	LINENO
-		1678	text7	20E	LINENO
-		1681	text7	210	LINENO
-		1682	text7	216	LINENO
-		1683	text7	21C	LINENO
-		1684	text7	228	LINENO
-		1687	text7	22A	LINENO
-		1688	text7	230	LINENO
-		1689	text7	236	LINENO
-		1690	text7	242	LINENO
-		1693	text7	244	LINENO
-		1694	text7	24A	LINENO
-		1695	text7	250	LINENO
-		1696	text7	25C	LINENO
-		1699	text7	25E	LINENO
-		1703	text7	264	LINENO
-		1705	text7	274	LINENO
-		1706	text7	280	LINENO
-		1709	text7	282	LINENO
-		1714	text7	288	LINENO
-		1717	text7	28C	LINENO
-		1720	text7	294	LINENO
-		1722	text7	29A	LINENO
-		1727	text7	2A8	LINENO
-		1731	text7	2B2	LINENO
-		1733	text7	2C0	LINENO
-		1734	text7	2CC	LINENO
-		1737	text7	2CE	LINENO
-		1742	text7	2D6	LINENO
-	622	TEXT	98
-		text7	0x28A	0x58
-	     0: 00 6F 00 51 72 D8 00 EC 00 F0 00 0E 00 EC 00 F0	.o.Qr...........
-	    10: 05 0E 00 01 00 6F 00 0E 00 EC 00 F0 29 D0 00 51	.....o......)..Q
-	    20: 06 0A 01 E0 1B D7 4C D8 D8 B4 00 5D 0B E2 02 0E	......L....]....
-	    30: 01 01 00 61 07 D0 05 0E 00 01 00 6F 01 0E 00 EC	...a.......o....
-	    40: 00 F0 16 D0 80 0E 00 EC 00 F0 17 D8 00 6F 00 51	.............o.Q
-	    50: 4C D8 00 EC 00 F0 00 0E                        	L.......
-	623	RELOC	503
-		0x0	COMPLEX		1
-		(0x54 + cstackBANK0) & 0xFF
-		0x2	COMPLEX		1
-		(0x54 + cstackBANK0) & 0xFF
+		0x4	COMPLEX		1
+		(0x55 + cstackBANK0) & 0xFF
 		0x6	COMPLEX		1
+		(0x55 + cstackBANK0) & 0xFF
+		0xA	COMPLEX		1
 		(text80 >> 0x1) & 0xFF
-		0x8	RELBITS COMPLEX		12
+		0xC	RELBITS COMPLEX		12
 		text80 >> 0x9
-		0xC	COMPLEX		1
+		0x10	COMPLEX		1
 		(text83 >> 0x1) & 0xFF
-		0xE	RELBITS COMPLEX		12
+		0x12	RELBITS COMPLEX		12
 		text83 >> 0x9
-		0x14	COMPLEX		1
-		(0x6 + cstackBANK0) & 0xFF
 		0x18	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0x1A	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x1E	COMPLEX		1
-		(0xA + bssBANK1) & 0xFF
-		0x2A	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x32	COMPLEX		1
-		(0xB + bssBANK1) & 0xFF
-		0x3A	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
-		0x3E	COMPLEX		1
+		0x1C	COMPLEX		1
 		(text9 >> 0x1) & 0xFF
-		0x40	RELBITS COMPLEX		12
+		0x1E	RELBITS COMPLEX		12
 		text9 >> 0x9
-		0x46	COMPLEX		1
-		(text83 >> 0x1) & 0xFF
-		0x48	RELBITS COMPLEX		12
-		text83 >> 0x9
-		0x4C	COMPLEX		1
-		(0x55 + cstackBANK0) & 0xFF
-		0x4E	COMPLEX		1
-		(0x55 + cstackBANK0) & 0xFF
-		0x52	COMPLEX		1
-		(text80 >> 0x1) & 0xFF
-		0x54	RELBITS COMPLEX		12
-		text80 >> 0x9
-	624	TEXT	92
-		text7	0x2E2	0x52
-	     0: 00 EC 00 F0 05 0E 00 01 00 6F 01 0E 00 EC 00 F0	.........o......
-	    10: 03 D0 02 0E 00 EC 00 F0 01 01 00 6B 0B 6A F2 8E	...........k.j..
-	    20: 12 00 0F C0 50 F0 08 0E 00 01 00 27 0E C0 51 F0	....P......'..Q.
-	    30: 10 0E 00 27 0D C0 52 F0 18 0E 00 27 0C C0 53 F0	...'..R....'..S.
-	    40: 00 2B 02 D0 D8 90 00 37 00 2F FC D7 00 2B 02 D0	.+.....7./...+..
-	    50: D8 90                                          	..
-	625	RELOC	501
-		0x0	COMPLEX		1
-		(text83 >> 0x1) & 0xFF
-		0x2	RELBITS COMPLEX		12
-		text83 >> 0x9
-		0x8	COMPLEX		1
-		(0x6 + cstackBANK0) & 0xFF
-		0xC	COMPLEX		1
-		(text9 >> 0x1) & 0xFF
-		0xE	RELBITS COMPLEX		12
-		text9 >> 0x9
-		0x14	COMPLEX		1
+		0x24	COMPLEX		1
 		(text8 >> 0x1) & 0xFF
-		0x16	RELBITS COMPLEX		12
+		0x26	RELBITS COMPLEX		12
 		text8 >> 0x9
-		0x1A	COMPLEX		1
-		(0x3 + bssBANK1) & 0xFF
-		0x1C	RPSECT	bssCOMRAM	1
-		0x22	RELBITS RPSECT	bssBANK1	12
-		0x24	RELBITS RPSECT	cstackBANK0	12
 		0x2A	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
-		0x2C	RELBITS RPSECT	bssBANK1	12
-		0x2E	RELBITS RPSECT	cstackBANK0	12
-		0x32	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x34	RELBITS RPSECT	bssBANK1	12
-		0x36	RELBITS RPSECT	cstackBANK0	12
+		(0x3 + bssBANK1) & 0xFF
+		0x2C	RPSECT	bssCOMRAM	1
+		0x32	RELBITS RPSECT	bssBANK1	12
+		0x34	RELBITS RPSECT	cstackBANK0	12
 		0x3A	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
+		(0x50 + cstackBANK0) & 0xFF
 		0x3C	RELBITS RPSECT	bssBANK1	12
 		0x3E	RELBITS RPSECT	cstackBANK0	12
-		0x40	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-		0x46	COMPLEX		1
-		(0x53 + cstackBANK0) & 0xFF
-		0x48	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-		0x4C	COMPLEX		1
+		0x42	COMPLEX		1
 		(0x51 + cstackBANK0) & 0xFF
-	626	TEXT	80
-		text7	0x334	0x46
-	     0: 00 37 00 2F FC D7 00 2B 02 D0 D8 90 00 37 00 2F	.7./...+.....7./
-	    10: FC D7 00 51 12 00 08 C0 50 F0 08 0E 00 01 00 27	...Q....P......'
-	    20: 01 01 00 51 00 01 00 6F 00 6B 00 2B 03 D0 D8 90	...Q...o.k.+....
-	    30: 00 37 00 37 00 2F FB D7 00 51 80 0A 80 0F 06 0C	.7.7./...Q......
-	    40: 22 6E 23 6A 24 6A                              	"n#j$j
-	627	RELOC	507
+		0x44	RELBITS RPSECT	bssBANK1	12
+		0x46	RELBITS RPSECT	cstackBANK0	12
+		0x4A	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0x4C	RELBITS RPSECT	bssBANK1	12
+		0x4E	RELBITS RPSECT	cstackBANK0	12
+	626	TEXT	78
+		text7	0x334	0x44
+	     0: 00 2B 02 D0 D8 90 00 37 00 2F FC D7 00 2B 02 D0	.+.....7./...+..
+	    10: D8 90 00 37 00 2F FC D7 00 2B 02 D0 D8 90 00 37	...7./...+.....7
+	    20: 00 2F FC D7 00 51 12 00 08 C0 50 F0 08 0E 00 01	./...Q....P.....
+	    30: 00 27 01 01 00 51 00 01 00 6F 00 6B 00 2B 03 D0	.'...Q...o.k.+..
+	    40: D8 90 00 37                                    	...7
+	627	RELOC	488
 		0x0	COMPLEX		1
-		(0x53 + cstackBANK0) & 0xFF
-		0x2	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
+		(0x52 + cstackBANK0) & 0xFF
 		0x6	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
-		0xC	COMPLEX		1
 		(0x53 + cstackBANK0) & 0xFF
-		0xE	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
+		0x8	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0xC	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
 		0x12	COMPLEX		1
 		(0x53 + cstackBANK0) & 0xFF
-		0x16	RELBITS RPSECT	bssBANK1	12
-		0x18	RELBITS RPSECT	cstackBANK0	12
-		0x1E	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
-		0x22	COMPLEX		1
-		(0x8 + bssBANK1) & 0xFF
-		0x26	COMPLEX		1
+		0x14	COMPLEX		1
 		(0x51 + cstackBANK0) & 0xFF
-		0x28	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-		0x2A	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
-		0x30	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x32	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-		0x34	COMPLEX		1
-		(0x50 + cstackBANK0) & 0xFF
-		0x38	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
-		0x40	RPSECT	cstackCOMRAM	1
-		0x42	RPSECT	cstackCOMRAM	1
-		0x44	RPSECT	cstackCOMRAM	1
-	628	TEXT	50
-		text7	0x37A	0x28
-	     0: 25 6A 10 C0 26 F0 01 01 00 51 12 00 D8 90 00 37	%j..&....Q.....7
-	    10: 00 37 12 00 08 0E 00 01 00 27 01 01 00 51 00 01	.7.......'...Q..
-	    20: 00 6F 00 6B 00 2B 12 00                        	.o.k.+..
-	629	RELOC	270
-		0x0	RPSECT	cstackCOMRAM	1
-		0x2	RELBITS RPSECT	bssBANK1	12
-		0x4	RELBITS RPSECT	cstackCOMRAM	12
-		0x8	COMPLEX		1
-		(0xB + bssBANK1) & 0xFF
-		0xE	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x10	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
 		0x18	COMPLEX		1
 		(0x50 + cstackBANK0) & 0xFF
-		0x1C	COMPLEX		1
-		(0x8 + bssBANK1) & 0xFF
+		0x1E	COMPLEX		1
+		(0x53 + cstackBANK0) & 0xFF
 		0x20	COMPLEX		1
-		(0x51 + cstackBANK0) & 0xFF
-		0x22	COMPLEX		1
-		(0x52 + cstackBANK0) & 0xFF
+		(0x50 + cstackBANK0) & 0xFF
 		0x24	COMPLEX		1
+		(0x53 + cstackBANK0) & 0xFF
+		0x28	RELBITS RPSECT	bssBANK1	12
+		0x2A	RELBITS RPSECT	cstackBANK0	12
+		0x30	COMPLEX		1
+		(0x50 + cstackBANK0) & 0xFF
+		0x34	COMPLEX		1
+		(0x8 + bssBANK1) & 0xFF
+		0x38	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+		0x3A	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0x3C	COMPLEX		1
+		(0x50 + cstackBANK0) & 0xFF
+		0x42	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+	628	TEXT	64
+		text7	0x378	0x36
+	     0: 00 37 00 2F FB D7 00 51 80 0A 80 0F 06 0C 22 6E	.7./...Q......"n
+	    10: 23 6A 24 6A 25 6A 10 C0 26 F0 01 01 00 51 12 00	#j$j%j..&....Q..
+	    20: D8 90 00 37 00 37 12 00 01 01 00 51 00 01 00 6F	...7.7.....Q...o
+	    30: 00 6B 00 2B 12 00                              	.k.+..
+	629	RELOC	376
+		0x0	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0x2	COMPLEX		1
+		(0x50 + cstackBANK0) & 0xFF
+		0x6	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0xE	RPSECT	cstackCOMRAM	1
+		0x10	RPSECT	cstackCOMRAM	1
+		0x12	RPSECT	cstackCOMRAM	1
+		0x14	RPSECT	cstackCOMRAM	1
+		0x16	RELBITS RPSECT	bssBANK1	12
+		0x18	RELBITS RPSECT	cstackCOMRAM	12
+		0x1C	COMPLEX		1
+		(0xB + bssBANK1) & 0xFF
+		0x22	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+		0x24	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0x2A	COMPLEX		1
+		(0x8 + bssBANK1) & 0xFF
+		0x2E	COMPLEX		1
+		(0x51 + cstackBANK0) & 0xFF
+		0x30	COMPLEX		1
+		(0x52 + cstackBANK0) & 0xFF
+		0x32	COMPLEX		1
 		(0x50 + cstackBANK0) & 0xFF
 	630	TEXT	90
 		text8	0x0	0x50
@@ -5119,14 +5123,14 @@
 		0x3E	COMPLEX		1
 		(0x3 + cstackBANK0) & 0xFF
 	634	SYM	507
-		1745	text7	2D8	LINENO
-		1748	text7	2E0	LINENO
-		1750	text7	2E6	LINENO
-		1760	text7	2F4	LINENO
-		1764	text7	2FA	LINENO
-		1765	text7	2FE	LINENO
-		1772	text7	300	LINENO
-		1773	text7	302	LINENO
+		1745	text7	2EA	LINENO
+		1748	text7	2F2	LINENO
+		1750	text7	2F8	LINENO
+		1760	text7	306	LINENO
+		1764	text7	30C	LINENO
+		1765	text7	310	LINENO
+		1772	text7	312	LINENO
+		1773	text7	314	LINENO
 		main.c		0	FILNAM
 		2034	text8	4	LINENO
 		2037	text8	8	LINENO
@@ -5685,16 +5689,16 @@
 		2614	text10	B8	LINENO
 		2615	text10	BC	LINENO
 		main.c		0	FILNAM
-		2715	text11	0	LINENO
+		2717	text11	0	LINENO
 		main.c		0	FILNAM
 		2695	text12	0	LINENO
-	662	TEXT	69
-		text12	0x84	0x3A
+	662	TEXT	61
+		text12	0x84	0x32
 	     0: 00 51 00 6F 00 51 00 6F 00 51 00 6F 01 01 00 51	.Q.o.Q.o.Q.o...Q
-	    10: FC 0F 07 0B 00 01 00 6F 08 0E 00 65 02 D0 00 0E	.......o...e....
-	    20: 22 D0 00 0E 1F 6E 00 0E 1E 6E 00 0E 00 6F 00 0E	"....n...n...o..
-	    30: 00 6F 2F C0 20 F0 30 C0 21 F0                  	.o/. .0.!.
-	663	RELOC	500
+	    10: FC 0F 00 01 00 6F 08 0E 00 65 01 D0 00 6F 00 0E	.....o...e...o..
+	    20: 1F 6E 00 0E 1E 6E 00 0E 00 6F 00 0E 00 6F 2F C0	.n...n...o...o/.
+	    30: 20 F0                                          	 .
+	663	RELOC	498
 		0x0	COMPLEX		1
 		(0x40 + cstackBANK0) & 0xFF
 		0x2	COMPLEX		1
@@ -5709,43 +5713,43 @@
 		(0x4E + cstackBANK0) & 0xFF
 		0xE	COMPLEX		1
 		(0x9 + bssBANK1) & 0xFF
-		0x16	COMPLEX		1
+		0x14	COMPLEX		1
 		(0x4F + cstackBANK0) & 0xFF
-		0x1A	COMPLEX		1
+		0x18	COMPLEX		1
 		(0x4F + cstackBANK0) & 0xFF
-		0x22	COMPLEX		1
+		0x1C	COMPLEX		1
+		(0x4F + cstackBANK0) & 0xFF
+		0x1E	COMPLEX		1
 		high (0x43 + cstackBANK0)
+		0x20	RPSECT	cstackCOMRAM	1
+		0x22	COMPLEX		1
+		low (0x43 + cstackBANK0)
 		0x24	RPSECT	cstackCOMRAM	1
 		0x26	COMPLEX		1
-		low (0x43 + cstackBANK0)
-		0x28	RPSECT	cstackCOMRAM	1
-		0x2A	COMPLEX		1
 		low (0xE + bssBANK1)
-		0x2C	COMPLEX		1
+		0x28	COMPLEX		1
 		(0x2F + cstackBANK0) & 0xFF
-		0x2E	COMPLEX		1
+		0x2A	COMPLEX		1
 		high (0xE + bssBANK1)
-		0x30	COMPLEX		1
+		0x2C	COMPLEX		1
 		(0x30 + cstackBANK0) & 0xFF
-		0x32	RELBITS RPSECT	cstackBANK0	12
-		0x34	RELBITS RPSECT	cstackCOMRAM	12
-		0x36	RELBITS RPSECT	cstackBANK0	12
-		0x38	RELBITS RPSECT	cstackCOMRAM	12
-	664	TEXT	57
-		text12	0xBE	0x2E
-	     0: 4F C0 22 F0 23 6A 00 EC 00 F0 4B C0 28 F0 4C C0	O.".#j....K.(.L.
-	    10: 29 F0 4D C0 2A F0 4E C0 2B F0 4F C0 2C F0 00 01	).M.*.N.+.O.,...
-	    20: 00 0E 00 6F 00 0E 00 6F 00 EC 00 F0 12 00      	...o...o......
-	665	RELOC	387
+		0x2E	RELBITS RPSECT	cstackBANK0	12
+		0x30	RELBITS RPSECT	cstackCOMRAM	12
+	664	TEXT	59
+		text12	0xB6	0x30
+	     0: 30 C0 21 F0 4F C0 22 F0 23 6A 00 EC 00 F0 4B C0	0.!.O.".#j....K.
+	    10: 28 F0 4C C0 29 F0 4D C0 2A F0 4E C0 2B F0 4F C0	(.L.).M.*.N.+.O.
+	    20: 2C F0 00 01 00 0E 00 6F 00 0E 00 6F 00 EF 00 F0	,......o...o....
+	665	RELOC	418
 		0x0	RELBITS RPSECT	cstackBANK0	12
 		0x2	RELBITS RPSECT	cstackCOMRAM	12
-		0x4	RPSECT	cstackCOMRAM	1
-		0x6	COMPLEX		1
+		0x4	RELBITS RPSECT	cstackBANK0	12
+		0x6	RELBITS RPSECT	cstackCOMRAM	12
+		0x8	RPSECT	cstackCOMRAM	1
+		0xA	COMPLEX		1
 		(text13 >> 0x1) & 0xFF
-		0x8	RELBITS COMPLEX		12
+		0xC	RELBITS COMPLEX		12
 		text13 >> 0x9
-		0xA	RELBITS RPSECT	cstackBANK0	12
-		0xC	RELBITS RPSECT	cstackBANK0	12
 		0xE	RELBITS RPSECT	cstackBANK0	12
 		0x10	RELBITS RPSECT	cstackBANK0	12
 		0x12	RELBITS RPSECT	cstackBANK0	12
@@ -5754,17 +5758,19 @@
 		0x18	RELBITS RPSECT	cstackBANK0	12
 		0x1A	RELBITS RPSECT	cstackBANK0	12
 		0x1C	RELBITS RPSECT	cstackBANK0	12
-		0x20	COMPLEX		1
-		high (0x43 + cstackBANK0)
-		0x22	COMPLEX		1
-		(0x2E + cstackBANK0) & 0xFF
+		0x1E	RELBITS RPSECT	cstackBANK0	12
+		0x20	RELBITS RPSECT	cstackBANK0	12
 		0x24	COMPLEX		1
-		low (0x43 + cstackBANK0)
+		high (0x43 + cstackBANK0)
 		0x26	COMPLEX		1
-		(0x2D + cstackBANK0) & 0xFF
+		(0x2E + cstackBANK0) & 0xFF
 		0x28	COMPLEX		1
+		low (0x43 + cstackBANK0)
+		0x2A	COMPLEX		1
+		(0x2D + cstackBANK0) & 0xFF
+		0x2C	COMPLEX		1
 		(text35 >> 0x1) & 0xFF
-		0x2A	RELBITS COMPLEX		12
+		0x2E	RELBITS COMPLEX		12
 		text35 >> 0x9
 	666	TEXT	77
 		text13	0x0	0x42
@@ -5800,41 +5806,14 @@
 		(0x22 + cstackCOMRAM) & 0xFF
 		0x3A	COMPLEX		1
 		(0x23 + cstackCOMRAM) & 0xFF
-	668	SYM	506
-		2696	text12	90	LINENO
-		2697	text12	9C	LINENO
-		2698	text12	A2	LINENO
-		2700	text12	A6	LINENO
-		2702	text12	C8	LINENO
-		2703	text12	EA	LINENO
-		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memcpy.c		0	FILNAM
-		24	text13	0	LINENO
-		25	text13	8	LINENO
-		26	text13	10	LINENO
-		27	text13	12	LINENO
-		26	text13	30	LINENO
-		32	text13	3E	LINENO
-		26	text13	40	LINENO
-		main.c		0	FILNAM
-		2082	text14	0	LINENO
-		2085	text14	4	LINENO
-		2086	text14	8	LINENO
-		2087	text14	E	LINENO
-		2088	text14	12	LINENO
-		2091	text14	18	LINENO
-		2092	text14	1C	LINENO
-		2093	text14	22	LINENO
-		2096	text14	34	LINENO
-		2097	text14	38	LINENO
-		2098	text14	3E	LINENO
-	669	TEXT	87
+	668	TEXT	87
 		text14	0x0	0x4C
 	     0: 00 01 00 6B AC A2 FE D7 10 0E 00 EC 00 F0 AC A2	...k............
 	    10: FE D7 02 0E 00 EC 00 F0 AC A2 FE D7 FB 0E 00 EC	................
 	    20: 00 F0 00 01 00 0E 00 6F 00 0E 00 6F FB 0E 00 6F	.......o...o...o
 	    30: 00 EC 00 F0 AC A2 FE D7 00 0E 00 EC 00 F0 2B D8	..............+.
 	    40: 00 EC 00 F0 00 01 00 0E 00 6F 00 0E            	.........o..
-	670	RELOC	487
+	669	RELOC	487
 		0x2	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 		0xA	COMPLEX		1
@@ -5877,6 +5856,33 @@
 		(0x4 + cstackBANK0) & 0xFF
 		0x4A	COMPLEX		1
 		low (0x6 + cstackBANK0)
+	670	SYM	506
+		2697	text12	90	LINENO
+		2699	text12	9A	LINENO
+		2700	text12	A0	LINENO
+		2702	text12	A2	LINENO
+		2704	text12	C4	LINENO
+		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memcpy.c		0	FILNAM
+		24	text13	0	LINENO
+		25	text13	8	LINENO
+		26	text13	10	LINENO
+		27	text13	12	LINENO
+		26	text13	30	LINENO
+		32	text13	3E	LINENO
+		26	text13	40	LINENO
+		main.c		0	FILNAM
+		2082	text14	0	LINENO
+		2085	text14	4	LINENO
+		2086	text14	8	LINENO
+		2087	text14	E	LINENO
+		2088	text14	12	LINENO
+		2091	text14	18	LINENO
+		2092	text14	1C	LINENO
+		2093	text14	22	LINENO
+		2096	text14	34	LINENO
+		2097	text14	38	LINENO
+		2098	text14	3E	LINENO
+		2101	text14	44	LINENO
 	671	TEXT	89
 		text14	0x4C	0x4E
 	     0: 00 6F 01 01 00 51 00 EC 00 F0 AC A2 FE D7 00 0E	.o...Q..........
@@ -5992,7 +5998,6 @@
 		0x4A	COMPLEX		1
 		low (0x6 + cstackBANK0)
 	677	SYM	500
-		2101	text14	44	LINENO
 		2104	text14	56	LINENO
 		2105	text14	5A	LINENO
 		2106	text14	62	LINENO
@@ -6020,6 +6025,7 @@
 		2148	text15	56	LINENO
 		2149	text15	5A	LINENO
 		2150	text15	62	LINENO
+		2151	text15	66	LINENO
 	678	TEXT	89
 		text15	0x4C	0x4E
 	     0: 00 6F 01 01 00 51 00 EC 00 F0 AC A2 FE D7 00 0E	.o...Q..........
@@ -6167,7 +6173,6 @@
 		0x2E	COMPLEX		1
 		(0x9 + bssBANK0) & 0xFF
 	686	SYM	496
-		2151	text15	66	LINENO
 		2152	text15	6A	LINENO
 		2153	text15	72	LINENO
 		2156	text15	76	LINENO
@@ -6176,12 +6181,12 @@
 		2161	text15	8C	LINENO
 		2162	text15	90	LINENO
 		main.c		0	FILNAM
-		2929	text16	0	LINENO
-		2931	text16	2	LINENO
-		2932	text16	6	LINENO
-		2931	text16	22	LINENO
-		2935	text16	2C	LINENO
-		2936	text16	2E	LINENO
+		2931	text16	0	LINENO
+		2933	text16	2	LINENO
+		2934	text16	6	LINENO
+		2933	text16	22	LINENO
+		2937	text16	2C	LINENO
+		2938	text16	2E	LINENO
 		main.c		0	FILNAM
 		2288	text17	0	LINENO
 		2290	text17	1C	LINENO
@@ -6195,6 +6200,7 @@
 		2304	text17	4C	LINENO
 		2305	text17	52	LINENO
 		2306	text17	58	LINENO
+		2307	text17	6A	LINENO
 	687	TEXT	85
 		text17	0x30	0x4A
 	     0: 00 23 00 23 AC A2 FE D7 10 0E 00 EC 00 F0 AC A2	.#.#............
@@ -6522,7 +6528,6 @@
 		0x2E	COMPLEX		1
 		(0x3 + cstackBANK0) & 0xFF
 	701	SYM	504
-		2307	text17	6A	LINENO
 		2309	text17	6C	LINENO
 		2310	text17	72	LINENO
 		2314	text17	84	LINENO
@@ -6550,6 +6555,7 @@
 		2358	text17	1D0	LINENO
 		2359	text17	1D4	LINENO
 		2360	text17	1DA	LINENO
+		2361	text17	1DE	LINENO
 	702	TEXT	77
 		text17	0x1AE	0x42
 	     0: 00 51 00 0F D9 6E DA 6A DF 50 00 EC 00 F0 00 01	.Q...n.j.P......
@@ -6702,7 +6708,6 @@
 		0x3C	COMPLEX		1
 		high (0x23 + cstackBANK0)
 	710	SYM	500
-		2361	text17	1DE	LINENO
 		2367	text17	1E4	LINENO
 		main.c		0	FILNAM
 		2376	text18	0	LINENO
@@ -6730,6 +6735,7 @@
 		2424	text18	AA	LINENO
 		2425	text18	B0	LINENO
 		2426	text18	B2	LINENO
+		2428	text18	B8	LINENO
 	711	TEXT	79
 		text18	0x88	0x44
 	     0: 00 6F 00 0E 00 6F 00 0E 00 6B 00 EC 00 F0 00 01	.o...o...k......
@@ -6953,43 +6959,14 @@
 		(0x4 + cstackBANK0) & 0xFF
 		0x38	COMPLEX		1
 		(0x3 + cstackBANK0) & 0xFF
-	721	SYM	504
-		2428	text18	B8	LINENO
-		2430	text18	BE	LINENO
-		2431	text18	C2	LINENO
-		2433	text18	C4	LINENO
-		2434	text18	C8	LINENO
-		2435	text18	114	LINENO
-		2437	text18	11A	LINENO
-		2439	text18	120	LINENO
-		2441	text18	126	LINENO
-		2442	text18	12A	LINENO
-		2446	text18	12E	LINENO
-		2447	text18	132	LINENO
-		2450	text18	134	LINENO
-		2451	text18	138	LINENO
-		2452	text18	152	LINENO
-		2450	text18	154	LINENO
-		2455	text18	15C	LINENO
-		2459	text18	15E	LINENO
-		2464	text18	176	LINENO
-		2465	text18	184	LINENO
-		2468	text18	194	LINENO
-		2469	text18	19A	LINENO
-		2468	text18	1B8	LINENO
-		2473	text18	1C2	LINENO
-		2476	text18	1CC	LINENO
-		2477	text18	1D0	LINENO
-		2478	text18	1D6	LINENO
-		2479	text18	1DA	LINENO
-	722	TEXT	83
+	721	TEXT	83
 		text18	0x1C6	0x48
 	     0: 00 51 00 EC 00 F0 AC A2 FE D7 10 0E 00 EC 00 F0	.Q..............
 	    10: AC A2 FE D7 03 0E 00 EC 00 F0 12 00 00 2B 00 0E	.............+..
 	    20: 00 25 D9 6E DA 6A 00 0E DA 22 12 00 00 0E 00 01	.%.n.j..."......
 	    30: 00 25 D9 6E DA 6A 00 0E DA 22 12 00 00 6F 00 0E	.%.n.j..."...o..
 	    40: 00 6F 00 0E 00 6F 00 0E                        	.o...o..
-	723	RELOC	485
+	722	RELOC	485
 		0x0	COMPLEX		1
 		(0x23 + cstackBANK0) & 0xFF
 		0x2	COMPLEX		1
@@ -7030,14 +7007,43 @@
 		(0xB + cstackBANK0) & 0xFF
 		0x46	COMPLEX		1
 		low (0x10 + cstackBANK0)
-	724	TEXT	17
+	723	TEXT	17
 		text18	0x20E	0x6
 	     0: 00 6F 00 0E 12 00                              	.o....
-	725	RELOC	58
+	724	RELOC	58
 		0x0	COMPLEX		1
 		(0xA + cstackBANK0) & 0xFF
 		0x2	COMPLEX		1
 		(0x1E + cstackBANK0) & 0xFF
+	725	SYM	504
+		2430	text18	BE	LINENO
+		2431	text18	C2	LINENO
+		2433	text18	C4	LINENO
+		2434	text18	C8	LINENO
+		2435	text18	114	LINENO
+		2437	text18	11A	LINENO
+		2439	text18	120	LINENO
+		2441	text18	126	LINENO
+		2442	text18	12A	LINENO
+		2446	text18	12E	LINENO
+		2447	text18	132	LINENO
+		2450	text18	134	LINENO
+		2451	text18	138	LINENO
+		2452	text18	152	LINENO
+		2450	text18	154	LINENO
+		2455	text18	15C	LINENO
+		2459	text18	15E	LINENO
+		2464	text18	176	LINENO
+		2465	text18	184	LINENO
+		2468	text18	194	LINENO
+		2469	text18	19A	LINENO
+		2468	text18	1B8	LINENO
+		2473	text18	1C2	LINENO
+		2476	text18	1CC	LINENO
+		2477	text18	1D0	LINENO
+		2478	text18	1D6	LINENO
+		2479	text18	1DA	LINENO
+		2486	text18	1E0	LINENO
 	726	TEXT	97
 		text19	0x0	0x56
 	     0: E8 CF 05 F0 00 01 00 51 10 0A 17 E1 AC A2 FE D7	.......Q........
@@ -7169,8 +7175,7 @@
 		0x5C	RPSECT	cstackCOMRAM	1
 		0x62	RPSECT	bssCOMRAM	1
 		0x66	RPSECT	bssCOMRAM	1
-	734	SYM	495
-		2486	text18	1E0	LINENO
+	734	SYM	494
 		main.c		0	FILNAM
 		2008	text19	4	LINENO
 		2010	text19	C	LINENO
@@ -7200,6 +7205,7 @@
 		40	text21	68	LINENO
 		main.c		0	FILNAM
 		637	text22	0	LINENO
+		638	text22	6	LINENO
 	735	TEXT	91
 		text22	0x0	0x50
 	     0: 01 01 00 67 02 D0 00 EC 00 F0 F2 9E 00 0E 1F 6E	...g...........n
@@ -7388,7 +7394,6 @@
 		0x32	RELBITS COMPLEX		12
 		(0x1848 + text22) >> 0x9
 	743	SYM	493
-		638	text22	6	LINENO
 		642	text22	A	LINENO
 		644	text22	C	LINENO
 		647	text22	32	LINENO
@@ -7417,6 +7422,7 @@
 		686	text22	110	LINENO
 		687	text22	114	LINENO
 		688	text22	11A	LINENO
+		689	text22	126	LINENO
 	744	TEXT	67
 		text22	0xFC	0x38
 	     0: 00 EC 00 F0 00 EC 00 F0 04 E1 00 01 00 51 01 01	.............Q..
@@ -7459,9 +7465,9 @@
 		0x2E	COMPLEX		1
 		high (0x5 + bssBANK1)
 		0x32	COMPLEX		1
-		((0x185A + text22) >> 0x1) & 0xFF
+		((0x189A + text22) >> 0x1) & 0xFF
 		0x34	RELBITS COMPLEX		12
-		(0x185A + text22) >> 0x9
+		(0x189A + text22) >> 0x9
 		0x36	COMPLEX		1
 		(text47 >> 0x1) & 0xFF
 	746	TEXT	67
@@ -7504,9 +7510,9 @@
 		0x2C	COMPLEX		1
 		high (0x5 + bssBANK1)
 		0x30	COMPLEX		1
-		((0x189A + text22) >> 0x1) & 0xFF
+		((0x188A + text22) >> 0x1) & 0xFF
 		0x32	RELBITS COMPLEX		12
-		(0x189A + text22) >> 0x9
+		(0x188A + text22) >> 0x9
 		0x34	COMPLEX		1
 		(text47 >> 0x1) & 0xFF
 		0x36	RELBITS COMPLEX		12
@@ -7549,9 +7555,9 @@
 		0x28	COMPLEX		1
 		high (0x5 + bssBANK1)
 		0x2C	COMPLEX		1
-		((0x188A + text22) >> 0x1) & 0xFF
+		((0x187A + text22) >> 0x1) & 0xFF
 		0x2E	RELBITS COMPLEX		12
-		(0x188A + text22) >> 0x9
+		(0x187A + text22) >> 0x9
 		0x30	COMPLEX		1
 		(text47 >> 0x1) & 0xFF
 		0x32	RELBITS COMPLEX		12
@@ -7698,7 +7704,6 @@
 		0x3A	COMPLEX		1
 		((0x16B8 + text22) >> 0x1) & 0xFF
 	756	SYM	493
-		689	text22	126	LINENO
 		691	text22	12A	LINENO
 		692	text22	146	LINENO
 		693	text22	14A	LINENO
@@ -7727,6 +7732,7 @@
 		720	text22	25A	LINENO
 		721	text22	266	LINENO
 		722	text22	26A	LINENO
+		723	text22	272	LINENO
 	757	TEXT	75
 		text22	0x248	0x40
 	     0: 00 F0 02 01 00 51 01 0E D8 A4 00 0E 01 01 00 15	.....Q..........
@@ -7999,43 +8005,13 @@
 		(text42 >> 0x1) & 0xFF
 		0x3A	RELBITS COMPLEX		12
 		text42 >> 0x9
-	769	SYM	493
-		723	text22	272	LINENO
-		724	text22	27E	LINENO
-		725	text22	282	LINENO
-		726	text22	288	LINENO
-		727	text22	294	LINENO
-		728	text22	298	LINENO
-		729	text22	29E	LINENO
-		730	text22	2AA	LINENO
-		731	text22	2AE	LINENO
-		732	text22	2B4	LINENO
-		733	text22	2C0	LINENO
-		734	text22	2C4	LINENO
-		735	text22	2CA	LINENO
-		736	text22	2D6	LINENO
-		738	text22	2DA	LINENO
-		743	text22	2EA	LINENO
-		745	text22	312	LINENO
-		748	text22	322	LINENO
-		749	text22	328	LINENO
-		750	text22	330	LINENO
-		754	text22	342	LINENO
-		755	text22	348	LINENO
-		756	text22	360	LINENO
-		760	text22	374	LINENO
-		761	text22	37C	LINENO
-		762	text22	390	LINENO
-		766	text22	3A2	LINENO
-		767	text22	3AA	LINENO
-		768	text22	3BE	LINENO
-	770	TEXT	69
+	769	TEXT	69
 		text22	0x39C	0x3A
 	     0: 00 51 01 01 00 6F 01 01 00 6B 00 EC 00 F0 00 EC	.Q...o...k......
 	    10: 00 F0 04 C0 42 F0 05 C0 43 F0 02 01 00 51 00 11	....B...C....Q..
 	    20: 09 E0 42 C0 02 F0 43 C0 03 F0 00 EC 00 F0 00 51	..B...C........Q
 	    30: 01 01 00 6F 01 01 00 6B 00 EC                  	...o...k..
-	771	RELOC	508
+	770	RELOC	508
 		0x0	COMPLEX		1
 		(0x2 + cstackBANK0) & 0xFF
 		0x4	COMPLEX		1
@@ -8074,6 +8050,36 @@
 		(0xB1 + bssBANK1) & 0xFF
 		0x38	COMPLEX		1
 		((0x16E4 + text22) >> 0x1) & 0xFF
+	771	SYM	493
+		724	text22	27E	LINENO
+		725	text22	282	LINENO
+		726	text22	288	LINENO
+		727	text22	294	LINENO
+		728	text22	298	LINENO
+		729	text22	29E	LINENO
+		730	text22	2AA	LINENO
+		731	text22	2AE	LINENO
+		732	text22	2B4	LINENO
+		733	text22	2C0	LINENO
+		734	text22	2C4	LINENO
+		735	text22	2CA	LINENO
+		736	text22	2D6	LINENO
+		738	text22	2DA	LINENO
+		743	text22	2EA	LINENO
+		745	text22	312	LINENO
+		748	text22	322	LINENO
+		749	text22	328	LINENO
+		750	text22	330	LINENO
+		754	text22	342	LINENO
+		755	text22	348	LINENO
+		756	text22	360	LINENO
+		760	text22	374	LINENO
+		761	text22	37C	LINENO
+		762	text22	390	LINENO
+		766	text22	3A2	LINENO
+		767	text22	3AA	LINENO
+		768	text22	3BE	LINENO
+		772	text22	3D0	LINENO
 	772	TEXT	73
 		text22	0x3D6	0x3E
 	     0: 00 F0 00 EC 00 F0 04 C0 42 F0 05 C0 43 F0 02 01	........B...C...
@@ -8444,7 +8450,6 @@
 		0x32	COMPLEX		1
 		(0x9 + cstackBANK0) & 0xFF
 	788	SYM	493
-		772	text22	3D0	LINENO
 		773	text22	3D8	LINENO
 		774	text22	3EC	LINENO
 		777	text22	3FE	LINENO
@@ -8473,6 +8478,7 @@
 		820	text22	582	LINENO
 		822	text22	586	LINENO
 		823	text22	5AC	LINENO
+		824	text22	5B0	LINENO
 	789	TEXT	63
 		text22	0x594	0x34
 	     0: 00 0E 00 6F 00 EC 00 F0 00 EC 00 F0 04 E1 00 01	...o............
@@ -8794,7 +8800,6 @@
 		0x3C	COMPLEX		1
 		(text70 >> 0x1) & 0xFF
 	803	SYM	493
-		824	text22	5B0	LINENO
 		825	text22	5BC	LINENO
 		827	text22	5C0	LINENO
 		828	text22	5E6	LINENO
@@ -8823,6 +8828,7 @@
 		882	text22	73E	LINENO
 		883	text22	750	LINENO
 		886	text22	758	LINENO
+		887	text22	75C	LINENO
 	804	TEXT	75
 		text22	0x722	0x40
 	     0: 00 F0 8B D7 00 EC 00 F0 00 EC 00 F0 04 C0 3D F0	..............=.
@@ -9245,7 +9251,6 @@
 		0x38	COMPLEX		1
 		high (0x107E + mediumconst)
 	822	SYM	493
-		887	text22	75C	LINENO
 		893	text22	760	LINENO
 		894	text22	78E	LINENO
 		895	text22	79A	LINENO
@@ -9274,6 +9279,7 @@
 		921	text22	91C	LINENO
 		922	text22	920	LINENO
 		923	text22	92C	LINENO
+		924	text22	962	LINENO
 	823	TEXT	63
 		text22	0x940	0x34
 	     0: 00 6F 00 0E 00 6F 00 0E 00 01 00 6F 00 0E 00 6F	.o...o.....o...o
@@ -9641,43 +9647,13 @@
 		(0x6 + cstackBANK2) & 0xFF
 		0x3A	RELBITS RPSECT	cstackBANK2	12
 		0x3C	RELBITS RPSECT	cstackBANK0	12
-	839	SYM	493
-		924	text22	962	LINENO
-		925	text22	970	LINENO
-		926	text22	97C	LINENO
-		927	text22	980	LINENO
-		928	text22	9B6	LINENO
-		929	text22	9C4	LINENO
-		930	text22	9CA	LINENO
-		931	text22	9FE	LINENO
-		933	text22	A0C	LINENO
-		887	text22	A18	LINENO
-		937	text22	A24	LINENO
-		938	text22	A28	LINENO
-		939	text22	A34	LINENO
-		941	text22	A38	LINENO
-		947	text22	A48	LINENO
-		950	text22	A70	LINENO
-		954	text22	A74	LINENO
-		955	text22	A7A	LINENO
-		961	text22	A88	LINENO
-		962	text22	A92	LINENO
-		963	text22	AA4	LINENO
-		964	text22	AAC	LINENO
-		965	text22	ABE	LINENO
-		967	text22	AC0	LINENO
-		973	text22	AD2	LINENO
-		976	text22	AE6	LINENO
-		977	text22	B08	LINENO
-		978	text22	B1A	LINENO
-		981	text22	B38	LINENO
-	840	TEXT	75
+	839	TEXT	75
 		text22	0xB0C	0x40
 	     0: 40 C0 03 F0 00 EC 00 F0 00 51 02 01 00 6F 00 29	@........Q...o.)
 	    10: 01 01 00 6F 00 0E 02 01 00 21 01 01 00 6F 00 C0	...o.....!...o..
 	    20: 02 F0 01 C0 03 F0 00 EC 00 F0 06 D0 3F C0 02 F0	............?...
 	    30: 40 C0 03 F0 00 EC 00 F0 00 51 02 01 00 6F 07 D0	@........Q...o..
-	841	RELOC	502
+	840	RELOC	502
 		0x0	RELBITS RPSECT	cstackBANK2	12
 		0x2	RELBITS RPSECT	cstackBANK0	12
 		0x4	COMPLEX		1
@@ -9716,6 +9692,36 @@
 		(0x2 + cstackBANK0) & 0xFF
 		0x3C	COMPLEX		1
 		(0x29 + cstackBANK2) & 0xFF
+	841	SYM	493
+		925	text22	970	LINENO
+		926	text22	97C	LINENO
+		927	text22	980	LINENO
+		928	text22	9B6	LINENO
+		929	text22	9C4	LINENO
+		930	text22	9CA	LINENO
+		931	text22	9FE	LINENO
+		933	text22	A0C	LINENO
+		887	text22	A18	LINENO
+		937	text22	A24	LINENO
+		938	text22	A28	LINENO
+		939	text22	A34	LINENO
+		941	text22	A38	LINENO
+		947	text22	A48	LINENO
+		950	text22	A70	LINENO
+		954	text22	A74	LINENO
+		955	text22	A7A	LINENO
+		961	text22	A88	LINENO
+		962	text22	A92	LINENO
+		963	text22	AA4	LINENO
+		964	text22	AAC	LINENO
+		965	text22	ABE	LINENO
+		967	text22	AC0	LINENO
+		973	text22	AD2	LINENO
+		976	text22	AE6	LINENO
+		977	text22	B08	LINENO
+		978	text22	B1A	LINENO
+		981	text22	B38	LINENO
+		986	text22	B4C	LINENO
 	842	TEXT	69
 		text22	0xB4C	0x3A
 	     0: 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 71 D5 00 EC	.. n...n....q...
@@ -10135,8 +10141,7 @@
 		text26 >> 0x9
 		0x34	COMPLEX		1
 		high (0xC76 + mediumconst)
-	860	SYM	499
-		986	text22	B4C	LINENO
+	860	SYM	500
 		993	text22	B5E	LINENO
 		994	text22	B72	LINENO
 		995	text22	B84	LINENO
@@ -10164,6 +10169,7 @@
 		1053	text22	D50	LINENO
 		1054	text22	D58	LINENO
 		1055	text22	D60	LINENO
+		1056	text22	D68	LINENO
 	861	TEXT	67
 		text22	0xD44	0x38
 	     0: 20 6E 00 0E 1F 6E 00 EC 00 F0 76 D4 02 01 00 51	 n...n....v....Q
@@ -10438,42 +10444,13 @@
 		(text42 >> 0x1) & 0xFF
 		0x32	RELBITS COMPLEX		12
 		text42 >> 0x9
-	873	SYM	504
-		1056	text22	D68	LINENO
-		1057	text22	D74	LINENO
-		1061	text22	D78	LINENO
-		1069	text22	DA0	LINENO
-		1071	text22	DA4	LINENO
-		1072	text22	DB0	LINENO
-		1073	text22	DBC	LINENO
-		1074	text22	DC4	LINENO
-		1075	text22	DD6	LINENO
-		1076	text22	DDC	LINENO
-		1083	text22	DEA	LINENO
-		1090	text22	DFC	LINENO
-		1091	text22	E08	LINENO
-		1092	text22	E10	LINENO
-		1093	text22	E22	LINENO
-		1095	text22	E24	LINENO
-		1102	text22	E36	LINENO
-		1103	text22	E42	LINENO
-		1104	text22	E4A	LINENO
-		1105	text22	E5E	LINENO
-		1107	text22	E60	LINENO
-		1114	text22	E70	LINENO
-		1115	text22	E80	LINENO
-		1116	text22	E88	LINENO
-		1117	text22	E9A	LINENO
-		1119	text22	E9C	LINENO
-		1126	text22	EB0	LINENO
-		1127	text22	EBC	LINENO
-	874	TEXT	67
+	873	TEXT	67
 		text22	0xE94	0x38
 	     0: 00 51 02 01 00 6F 08 D0 00 0E 20 6E 00 0E 1F 6E	.Q...o.... n...n
 	    10: 00 EC 00 F0 00 EF 00 F0 00 EC 00 F0 00 EC 00 F0	................
 	    20: 04 C0 4A F0 05 C0 4B F0 02 01 00 51 00 11 0A E0	..J...K....Q....
 	    30: 4A C0 02 F0 4B C0 03 F0                        	J...K...
-	875	RELOC	508
+	874	RELOC	508
 		0x0	COMPLEX		1
 		(0x2 + cstackBANK0) & 0xFF
 		0x4	COMPLEX		1
@@ -10512,6 +10489,35 @@
 		0x32	RELBITS RPSECT	cstackBANK0	12
 		0x34	RELBITS RPSECT	cstackBANK2	12
 		0x36	RELBITS RPSECT	cstackBANK0	12
+	875	SYM	504
+		1057	text22	D74	LINENO
+		1061	text22	D78	LINENO
+		1069	text22	DA0	LINENO
+		1071	text22	DA4	LINENO
+		1072	text22	DB0	LINENO
+		1073	text22	DBC	LINENO
+		1074	text22	DC4	LINENO
+		1075	text22	DD6	LINENO
+		1076	text22	DDC	LINENO
+		1083	text22	DEA	LINENO
+		1090	text22	DFC	LINENO
+		1091	text22	E08	LINENO
+		1092	text22	E10	LINENO
+		1093	text22	E22	LINENO
+		1095	text22	E24	LINENO
+		1102	text22	E36	LINENO
+		1103	text22	E42	LINENO
+		1104	text22	E4A	LINENO
+		1105	text22	E5E	LINENO
+		1107	text22	E60	LINENO
+		1114	text22	E70	LINENO
+		1115	text22	E80	LINENO
+		1116	text22	E88	LINENO
+		1117	text22	E9A	LINENO
+		1119	text22	E9C	LINENO
+		1126	text22	EB0	LINENO
+		1127	text22	EBC	LINENO
+		1128	text22	EC4	LINENO
 	876	TEXT	65
 		text22	0xECC	0x36
 	     0: 00 EC 00 F0 00 51 02 01 00 6F 08 D0 00 0E 20 6E	.....Q...o.... n
@@ -10829,7 +10835,6 @@
 		0x36	RELBITS RPSECT	cstackBANK2	12
 		0x38	RELBITS RPSECT	cstackBANK0	12
 	890	SYM	504
-		1128	text22	EC4	LINENO
 		1129	text22	ED6	LINENO
 		1131	text22	ED8	LINENO
 		1138	text22	EEA	LINENO
@@ -10857,6 +10862,7 @@
 		1201	text22	1054	LINENO
 		1202	text22	1060	LINENO
 		1203	text22	1068	LINENO
+		1204	text22	107C	LINENO
 	891	TEXT	71
 		text22	0x105E	0x3C
 	     0: 49 F0 02 01 00 51 00 11 0B E0 48 C0 02 F0 49 C0	I....Q....H...I.
@@ -11181,7 +11187,6 @@
 		0x3A	COMPLEX		1
 		low (0x1104 + mediumconst)
 	905	SYM	504
-		1204	text22	107C	LINENO
 		1206	text22	107E	LINENO
 		1213	text22	1090	LINENO
 		1214	text22	109C	LINENO
@@ -11209,6 +11214,7 @@
 		1290	text22	1204	LINENO
 		1291	text22	1228	LINENO
 		1292	text22	122A	LINENO
+		1293	text22	123C	LINENO
 	906	TEXT	75
 		text22	0x1214	0x40
 	     0: 00 6F 00 EC 00 F0 5A DA 04 E1 00 01 00 51 01 01	.o....Z......Q..
@@ -11354,7 +11360,7 @@
 	912	TEXT	75
 		text22	0x12BE	0x40
 	     0: 00 EC 00 F0 00 51 00 11 5B E0 4E DA 00 EC 00 F0	.....Q..[.N.....
-	    10: 00 0E 00 01 C3 DA 00 EC 00 F0 00 51 00 11 0A E0	...........Q....
+	    10: 00 0E 00 01 E3 DA 00 EC 00 F0 00 51 00 11 0A E0	...........Q....
 	    20: 00 EC 00 F0 1F 6A 07 0E 1E 6E 00 0E 20 6A 00 EC	.....j...n.. j..
 	    30: 00 F0 E3 D1 A0 DA 00 EC 00 F0 00 51 00 11 0A E0	...........Q....
 	913	RELOC	495
@@ -11404,7 +11410,7 @@
 	     0: 00 EC 00 F0 1F 6A 07 0E 1E 6E 01 0E 20 6E 00 EC	.....j...n.. n..
 	    10: 00 F0 D3 D1 00 0E 99 DA 00 EC 00 F0 00 51 00 11	.............Q..
 	    20: 0A E0 00 EC 00 F0 1F 6A 07 0E 1E 6E 02 0E 20 6E	.......j...n.. n
-	    30: 00 EC 00 F0 C2 D1 00 0E 00 01 A8 DA 00 EC 00 F0	................
+	    30: 00 EC 00 F0 C2 D1 00 0E 00 01 A0 DA 00 EC 00 F0	................
 	    40: 00 51 00 11 0A E0                              	.Q....
 	915	RELOC	506
 		0x0	COMPLEX		1
@@ -11452,7 +11458,7 @@
 	916	TEXT	79
 		text22	0x1344	0x44
 	     0: 00 EC 00 F0 1F 6A 07 0E 1E 6E 03 0E 20 6E 00 EC	.....j...n.. n..
-	    10: 00 F0 B0 D1 00 0E 00 01 9E DA 00 EC 00 F0 00 51	...............Q
+	    10: 00 F0 B0 D1 00 0E 00 01 96 DA 00 EC 00 F0 00 51	...............Q
 	    20: 00 11 01 E1 A7 D1 00 EC 00 F0 1F 6A 07 0E 1E 6E	...........j...n
 	    30: 04 0E 20 6E 00 EC 00 F0 9D D1 00 0E 00 01 00 6F	.. n...........o
 	    40: 00 0E 00 6F                                    	...o
@@ -11498,7 +11504,6 @@
 		0x42	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 	918	SYM	504
-		1293	text22	123C	LINENO
 		1294	text22	1248	LINENO
 		1295	text22	124A	LINENO
 		1296	text22	1266	LINENO
@@ -11526,6 +11531,7 @@
 		1320	text22	136A	LINENO
 		1322	text22	137C	LINENO
 		1323	text22	137E	LINENO
+		1324	text22	139A	LINENO
 	919	TEXT	59
 		text22	0x1388	0x30
 	     0: 00 0E 00 6F 00 0E 00 6F 00 EC 00 F0 00 51 00 11	...o...o.....Q..
@@ -11717,7 +11723,7 @@
 	     0: 00 F0 2B D1 00 0E 00 01 00 6F 00 0E 00 6F 00 0E	..+......o...o..
 	    10: 00 6F 00 0E 00 6F 00 EC 00 F0 2B D9 04 E1 00 01	.o...o....+.....
 	    20: 00 51 01 01 00 19 3F E1 3D D9 00 EC 00 F0 00 0E	.Q....?.=.......
-	    30: 00 01 F4 D9 00 EC 00 F0 00 51 00 11 13 E0 01 0E	.........Q......
+	    30: 00 01 EC D9 00 EC 00 F0 00 51 00 11 13 E0 01 0E	.........Q......
 	    40: 01 01 00 6F                                    	...o
 	928	RELOC	507
 		0x0	RELBITS COMPLEX		12
@@ -11766,7 +11772,7 @@
 		text22	0x14A2	0x42
 	     0: 00 EC 00 F0 1F 6A 65 0E 1E 6E 01 0E 20 6E 00 EC	.....je..n.. n..
 	    10: 00 F0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 FB D0	.... n...n......
-	    20: 00 0E 00 01 D1 D9 00 EC 00 F0 00 51 00 11 12 E0	...........Q....
+	    20: 00 0E 00 01 C9 D9 00 EC 00 F0 00 51 00 11 12 E0	...........Q....
 	    30: 01 01 00 6B 00 EC 00 F0 1F 6A 65 0E 1E 6E 00 0E	...k.....je..n..
 	    40: 20 6A                                          	 j
 	930	RELOC	491
@@ -11810,42 +11816,13 @@
 		0x38	RPSECT	cstackCOMRAM	1
 		0x3C	RPSECT	cstackCOMRAM	1
 		0x40	RPSECT	cstackCOMRAM	1
-	931	SYM	504
-		1324	text22	139A	LINENO
-		1325	text22	13A2	LINENO
-		1326	text22	13BE	LINENO
-		1327	text22	13C0	LINENO
-		1328	text22	13D2	LINENO
-		1329	text22	13DE	LINENO
-		1330	text22	13E0	LINENO
-		1331	text22	13FC	LINENO
-		1332	text22	1400	LINENO
-		1333	text22	1412	LINENO
-		1334	text22	141E	LINENO
-		1335	text22	1420	LINENO
-		1336	text22	143E	LINENO
-		1337	text22	1442	LINENO
-		1338	text22	1454	LINENO
-		1342	text22	1462	LINENO
-		1343	text22	1488	LINENO
-		1344	text22	148C	LINENO
-		1345	text22	149C	LINENO
-		1346	text22	14A2	LINENO
-		1347	text22	14B4	LINENO
-		1348	text22	14C0	LINENO
-		1349	text22	14C2	LINENO
-		1350	text22	14D2	LINENO
-		1351	text22	14D6	LINENO
-		1352	text22	14E8	LINENO
-		1353	text22	14F4	LINENO
-		1355	text22	14F6	LINENO
-	932	TEXT	61
+	931	TEXT	61
 		text22	0x14E4	0x32
 	     0: 00 EC 00 F0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0	...... n...n....
 	    10: E1 D0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 DA D0	.... n...n......
 	    20: 00 0E 00 01 00 6F 00 0E 00 6F 00 0E 00 6F 00 0E	.....o...o...o..
 	    30: 00 6F                                          	.o
-	933	RELOC	492
+	932	RELOC	492
 		0x0	COMPLEX		1
 		(text81 >> 0x1) & 0xFF
 		0x2	RELBITS COMPLEX		12
@@ -11886,10 +11863,39 @@
 		low (0x1052 + mediumconst)
 		0x30	COMPLEX		1
 		(0x8 + cstackBANK0) & 0xFF
+	933	SYM	504
+		1325	text22	13A2	LINENO
+		1326	text22	13BE	LINENO
+		1327	text22	13C0	LINENO
+		1328	text22	13D2	LINENO
+		1329	text22	13DE	LINENO
+		1330	text22	13E0	LINENO
+		1331	text22	13FC	LINENO
+		1332	text22	1400	LINENO
+		1333	text22	1412	LINENO
+		1334	text22	141E	LINENO
+		1335	text22	1420	LINENO
+		1336	text22	143E	LINENO
+		1337	text22	1442	LINENO
+		1338	text22	1454	LINENO
+		1342	text22	1462	LINENO
+		1343	text22	1488	LINENO
+		1344	text22	148C	LINENO
+		1345	text22	149C	LINENO
+		1346	text22	14A2	LINENO
+		1347	text22	14B4	LINENO
+		1348	text22	14C0	LINENO
+		1349	text22	14C2	LINENO
+		1350	text22	14D2	LINENO
+		1351	text22	14D6	LINENO
+		1352	text22	14E8	LINENO
+		1353	text22	14F4	LINENO
+		1355	text22	14F6	LINENO
+		1359	text22	1504	LINENO
 	934	TEXT	81
 		text22	0x1516	0x46
 	     0: 00 EC 00 F0 DA D8 04 E1 00 01 00 51 01 01 00 19	...........Q....
-	    10: 3E E1 00 0E 6D D9 00 EC 00 F0 00 0E 00 01 A2 D9	>...m...........
+	    10: 3E E1 00 0E 6D D9 00 EC 00 F0 00 0E 00 01 9A D9	>...m...........
 	    20: 00 EC 00 F0 00 51 00 11 12 E0 01 0E 00 6F 00 EC	.....Q.......o..
 	    30: 00 F0 1F 6A 66 0E 1E 6E 01 0E 20 6E 00 EC 00 F0	...jf..n.. n....
 	    40: 00 0E 20 6E 00 0E                              	.. n..
@@ -11938,7 +11944,7 @@
 		low (0xEBB + mediumconst)
 	936	TEXT	73
 		text22	0x155C	0x3E
-	     0: 1F 6E 00 EC 00 F0 AA D0 00 0E 00 01 80 D9 00 EC	.n..............
+	     0: 1F 6E 00 EC 00 F0 AA D0 00 0E 00 01 78 D9 00 EC	.n..........x...
 	    10: 00 F0 00 51 00 11 11 E0 00 6B 00 EC 00 F0 1F 6A	...Q.....k.....j
 	    20: 66 0E 1E 6E 00 0E 20 6A 00 EC 00 F0 00 0E 20 6E	f..n.. j...... n
 	    30: 00 0E 1F 6E 00 EC 00 F0 91 D0 00 0E 20 6E      	...n........ n
@@ -12172,7 +12178,6 @@
 		0x3A	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 	946	SYM	504
-		1359	text22	1504	LINENO
 		1360	text22	1528	LINENO
 		1361	text22	1530	LINENO
 		1362	text22	1540	LINENO
@@ -12200,6 +12205,7 @@
 		1400	text22	168A	LINENO
 		1405	text22	1698	LINENO
 		1406	text22	169E	LINENO
+		1407	text22	16AA	LINENO
 	947	TEXT	71
 		text22	0x1686	0x3C
 	     0: 00 19 17 E0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0	...... n...n....
@@ -12598,11 +12604,11 @@
 	    20: 00 0E 00 6F 00 0E 00 6F 12 00 00 6F            	...o...o...o
 	966	RELOC	505
 		0x0	COMPLEX		1
-		high (0x1196 + mediumconst)
+		high (0x11E5 + mediumconst)
 		0x2	COMPLEX		1
 		(0x9 + cstackBANK0) & 0xFF
 		0x4	COMPLEX		1
-		low (0x1196 + mediumconst)
+		low (0x11E5 + mediumconst)
 		0x6	COMPLEX		1
 		(0x8 + cstackBANK0) & 0xFF
 		0xA	COMPLEX		1
@@ -12612,11 +12618,11 @@
 		0xE	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 		0x10	COMPLEX		1
-		high (0x11E5 + mediumconst)
+		high (0x1111 + mediumconst)
 		0x12	COMPLEX		1
 		(0x9 + cstackBANK0) & 0xFF
 		0x14	COMPLEX		1
-		low (0x11E5 + mediumconst)
+		low (0x1111 + mediumconst)
 		0x16	COMPLEX		1
 		(0x8 + cstackBANK0) & 0xFF
 		0x1A	COMPLEX		1
@@ -12626,11 +12632,11 @@
 		0x1E	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 		0x20	COMPLEX		1
-		high (0x1111 + mediumconst)
+		high (0x114E + mediumconst)
 		0x22	COMPLEX		1
 		(0x9 + cstackBANK0) & 0xFF
 		0x24	COMPLEX		1
-		low (0x1111 + mediumconst)
+		low (0x114E + mediumconst)
 		0x26	COMPLEX		1
 		(0x8 + cstackBANK0) & 0xFF
 		0x2A	COMPLEX		1
@@ -12645,11 +12651,11 @@
 		0x2	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 		0x4	COMPLEX		1
-		high (0x114E + mediumconst)
+		high (0x10C2 + mediumconst)
 		0x6	COMPLEX		1
 		(0x9 + cstackBANK0) & 0xFF
 		0x8	COMPLEX		1
-		low (0x114E + mediumconst)
+		low (0x10C2 + mediumconst)
 		0xA	COMPLEX		1
 		(0x8 + cstackBANK0) & 0xFF
 		0xE	COMPLEX		1
@@ -12659,11 +12665,11 @@
 		0x12	COMPLEX		1
 		(0x6 + cstackBANK0) & 0xFF
 		0x14	COMPLEX		1
-		high (0x10C2 + mediumconst)
+		high (0x1196 + mediumconst)
 		0x16	COMPLEX		1
 		(0x9 + cstackBANK0) & 0xFF
 		0x18	COMPLEX		1
-		low (0x10C2 + mediumconst)
+		low (0x1196 + mediumconst)
 		0x1A	COMPLEX		1
 		(0x8 + cstackBANK0) & 0xFF
 	969	TEXT	135
@@ -12687,42 +12693,13 @@
 		(text77 >> 0x1) & 0xFF
 		0x7A	RELBITS COMPLEX		12
 		text77 >> 0x9
-	971	SYM	496
-		1407	text22	16AA	LINENO
-		1409	text22	16AC	LINENO
-		1413	text22	16B8	LINENO
-		1414	text22	16C8	LINENO
-		1419	text22	16CC	LINENO
-		1420	text22	16CE	LINENO
-		main.c		0	FILNAM
-		3496	text23	4	LINENO
-		3499	text23	6	LINENO
-		3503	text23	A	LINENO
-		3507	text23	E	LINENO
-		3511	text23	12	LINENO
-		3519	text23	16	LINENO
-		3523	text23	1A	LINENO
-		3531	text23	1E	LINENO
-		3535	text23	22	LINENO
-		3543	text23	26	LINENO
-		3548	text23	2A	LINENO
-		3549	text23	2E	LINENO
-		3496	text23	30	LINENO
-		3552	text23	66	LINENO
-		3558	text23	70	LINENO
-		main.c		0	FILNAM
-		2876	text24	4	LINENO
-		2877	text24	8	LINENO
-		2878	text24	10	LINENO
-		2879	text24	14	LINENO
-		2880	text24	18	LINENO
-	972	TEXT	75
+	971	TEXT	75
 		text24	0x0	0x40
 	     0: E8 CF 5A F0 5A C0 A5 F0 00 01 00 51 01 01 00 6F	..Z.Z......Q...o
 	    10: 4F C0 A7 F0 51 C0 A8 F0 54 C0 D9 FF 55 C0 DA FF	O...Q...T...U...
 	    20: DF 50 00 6F 00 01 00 6B 00 6B 26 0E 00 6F 00 6B	.P.o...k.k&..o.k
 	    30: 00 6B 05 0E 00 6F 00 0E 00 6F 00 0E 00 6F 00 EC	.k...o...o...o..
-	973	RELOC	505
+	972	RELOC	505
 		0x2	RELBITS RPSECT	cstackBANK0	12
 		0x4	RELBITS RPSECT	cstackBANK0	12
 		0x6	RELBITS RPSECT	bssBANK1	12
@@ -12760,6 +12737,35 @@
 		(0x35 + cstackBANK0) & 0xFF
 		0x3E	COMPLEX		1
 		(text34 >> 0x1) & 0xFF
+	973	SYM	496
+		1409	text22	16AC	LINENO
+		1413	text22	16B8	LINENO
+		1414	text22	16C8	LINENO
+		1419	text22	16CC	LINENO
+		1420	text22	16CE	LINENO
+		main.c		0	FILNAM
+		3498	text23	4	LINENO
+		3501	text23	6	LINENO
+		3505	text23	A	LINENO
+		3509	text23	E	LINENO
+		3513	text23	12	LINENO
+		3521	text23	16	LINENO
+		3525	text23	1A	LINENO
+		3533	text23	1E	LINENO
+		3537	text23	22	LINENO
+		3545	text23	26	LINENO
+		3550	text23	2A	LINENO
+		3551	text23	2E	LINENO
+		3498	text23	30	LINENO
+		3554	text23	66	LINENO
+		3560	text23	70	LINENO
+		main.c		0	FILNAM
+		2878	text24	4	LINENO
+		2879	text24	8	LINENO
+		2880	text24	10	LINENO
+		2881	text24	14	LINENO
+		2882	text24	18	LINENO
+		2889	text24	24	LINENO
 	974	TEXT	61
 		text24	0x40	0x32
 	     0: 00 F0 00 09 60 E0 00 6B 00 6B 00 6B 00 6B 4B D0	....`..k.k.k.kK.
@@ -12944,34 +12950,34 @@
 		0x3E	RPSECT	cstackCOMRAM	1
 		0x40	RPSECT	cstackCOMRAM	1
 	984	SYM	496
-		2887	text24	24	LINENO
-		2889	text24	46	LINENO
-		2890	text24	4E	LINENO
-		2892	text24	50	LINENO
-		2893	text24	52	LINENO
-		2900	text24	56	LINENO
-		2908	text24	90	LINENO
-		2909	text24	D6	LINENO
-		2910	text24	E2	LINENO
-		2890	text24	E6	LINENO
-		2919	text24	106	LINENO
-		2920	text24	108	LINENO
+		2891	text24	46	LINENO
+		2892	text24	4E	LINENO
+		2894	text24	50	LINENO
+		2895	text24	52	LINENO
+		2902	text24	56	LINENO
+		2910	text24	90	LINENO
+		2911	text24	D6	LINENO
+		2912	text24	E2	LINENO
+		2892	text24	E6	LINENO
+		2921	text24	106	LINENO
+		2922	text24	108	LINENO
 		main.c		0	FILNAM
-		2966	text25	0	LINENO
-		2967	text25	A	LINENO
-		2968	text25	24	LINENO
-		2969	text25	28	LINENO
-		2970	text25	2E	LINENO
-		2971	text25	30	LINENO
-		2972	text25	34	LINENO
-		2966	text25	3A	LINENO
-		2975	text25	42	LINENO
-		2966	text25	44	LINENO
+		2968	text25	0	LINENO
+		2969	text25	A	LINENO
+		2970	text25	24	LINENO
+		2971	text25	28	LINENO
+		2972	text25	2E	LINENO
+		2973	text25	30	LINENO
+		2974	text25	34	LINENO
+		2968	text25	3A	LINENO
+		2977	text25	42	LINENO
+		2968	text25	44	LINENO
 		main.c		0	FILNAM
-		2773	text26	4	LINENO
-		2774	text26	8	LINENO
-		2775	text26	10	LINENO
-		2776	text26	14	LINENO
+		2775	text26	4	LINENO
+		2776	text26	8	LINENO
+		2777	text26	10	LINENO
+		2778	text26	14	LINENO
+		2779	text26	18	LINENO
 	985	TEXT	73
 		text26	0x0	0x3E
 	     0: E8 CF 5A F0 5A C0 A5 F0 00 01 00 51 01 01 00 6F	..Z.Z......Q...o
@@ -13186,19 +13192,18 @@
 		0x1A	RELBITS RPSECT	cstackCOMRAM	12
 		0x1E	RELBITS RPSECT	cstackCOMRAM	12
 	997	SYM	506
-		2777	text26	18	LINENO
-		2784	text26	1C	LINENO
-		2786	text26	3E	LINENO
-		2787	text26	46	LINENO
-		2789	text26	48	LINENO
-		2790	text26	4A	LINENO
-		2797	text26	4E	LINENO
-		2805	text26	88	LINENO
-		2806	text26	CC	LINENO
-		2807	text26	D8	LINENO
-		2787	text26	DC	LINENO
-		2813	text26	FC	LINENO
-		2814	text26	FE	LINENO
+		2786	text26	1C	LINENO
+		2788	text26	3E	LINENO
+		2789	text26	46	LINENO
+		2791	text26	48	LINENO
+		2792	text26	4A	LINENO
+		2799	text26	4E	LINENO
+		2807	text26	88	LINENO
+		2808	text26	CC	LINENO
+		2809	text26	D8	LINENO
+		2789	text26	DC	LINENO
+		2815	text26	FC	LINENO
+		2816	text26	FE	LINENO
 		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcpy.c		0	FILNAM
 		18	text27	0	LINENO
 		19	text27	8	LINENO
@@ -13208,10 +13213,11 @@
 		24	text27	2A	LINENO
 		19	text27	2C	LINENO
 		main.c		0	FILNAM
-		3114	text28	0	LINENO
-		3117	text28	4	LINENO
-		3119	text28	6	LINENO
-		3120	text28	C	LINENO
+		3116	text28	0	LINENO
+		3119	text28	4	LINENO
+		3121	text28	6	LINENO
+		3122	text28	C	LINENO
+		3126	text28	1A	LINENO
 	998	TEXT	75
 		text28	0x0	0x40
 	     0: 00 01 00 6B 00 6B 6F 50 E0 0B 07 E0 00 0E 20 6E	...k.koP...... n
@@ -13455,34 +13461,34 @@
 		0x2	RELBITS COMPLEX		12
 		text70 >> 0x9
 	1010	SYM	500
-		3124	text28	1A	LINENO
-		3126	text28	26	LINENO
-		3128	text28	2C	LINENO
-		3133	text28	2E	LINENO
-		3134	text28	48	LINENO
-		3135	text28	4E	LINENO
-		3137	text28	5A	LINENO
-		3138	text28	66	LINENO
-		3139	text28	98	LINENO
-		3140	text28	A6	LINENO
-		3141	text28	B2	LINENO
-		3142	text28	BA	LINENO
-		3143	text28	C2	LINENO
-		3144	text28	CA	LINENO
-		3145	text28	D6	LINENO
-		3146	text28	DA	LINENO
-		3148	text28	DC	LINENO
-		3149	text28	E2	LINENO
-		3150	text28	E8	LINENO
-		3126	text28	EA	LINENO
-		3155	text28	F2	LINENO
-		3156	text28	FE	LINENO
-		3157	text28	118	LINENO
-		3158	text28	126	LINENO
-		3160	text28	132	LINENO
+		3128	text28	26	LINENO
+		3130	text28	2C	LINENO
+		3135	text28	2E	LINENO
+		3136	text28	48	LINENO
+		3137	text28	4E	LINENO
+		3139	text28	5A	LINENO
+		3140	text28	66	LINENO
+		3141	text28	98	LINENO
+		3142	text28	A6	LINENO
+		3143	text28	B2	LINENO
+		3144	text28	BA	LINENO
+		3145	text28	C2	LINENO
+		3146	text28	CA	LINENO
+		3147	text28	D6	LINENO
+		3148	text28	DA	LINENO
+		3150	text28	DC	LINENO
+		3151	text28	E2	LINENO
+		3152	text28	E8	LINENO
+		3128	text28	EA	LINENO
+		3157	text28	F2	LINENO
+		3158	text28	FE	LINENO
+		3159	text28	118	LINENO
+		3160	text28	126	LINENO
+		3162	text28	132	LINENO
 		main.c		0	FILNAM
-		3212	text29	0	LINENO
-		3213	text29	E	LINENO
+		3214	text29	0	LINENO
+		3215	text29	E	LINENO
+		3216	text29	1C	LINENO
 	1011	TEXT	71
 		text29	0x0	0x3C
 	     0: E8 CF 58 F0 00 0E 00 01 00 6F 00 0E 00 6F 01 01	..X......o...o..
@@ -13794,34 +13800,34 @@
 		low (0x59 + cstackBANK0)
 		0x10	RPSECT	cstackCOMRAM	1
 	1027	SYM	496
-		3214	text29	1C	LINENO
-		3216	text29	28	LINENO
-		3220	text29	2C	LINENO
-		3221	text29	48	LINENO
-		3222	text29	54	LINENO
-		3224	text29	5A	LINENO
-		3226	text29	5C	LINENO
-		3216	text29	6A	LINENO
-		3231	text29	72	LINENO
-		3232	text29	80	LINENO
+		3218	text29	28	LINENO
+		3222	text29	2C	LINENO
+		3223	text29	48	LINENO
+		3224	text29	54	LINENO
+		3226	text29	5A	LINENO
+		3228	text29	5C	LINENO
+		3218	text29	6A	LINENO
+		3233	text29	72	LINENO
+		3234	text29	80	LINENO
 		main.c		0	FILNAM
-		3173	text30	0	LINENO
-		3174	text30	14	LINENO
-		3176	text30	20	LINENO
-		3180	text30	24	LINENO
-		3181	text30	40	LINENO
-		3182	text30	5A	LINENO
-		3183	text30	6C	LINENO
-		3184	text30	82	LINENO
-		3185	text30	88	LINENO
-		3186	text30	8C	LINENO
-		3190	text30	92	LINENO
-		3193	text30	A8	LINENO
-		3194	text30	B0	LINENO
-		3176	text30	C6	LINENO
-		3199	text30	D0	LINENO
-		3200	text30	DE	LINENO
+		3175	text30	0	LINENO
+		3176	text30	14	LINENO
+		3178	text30	20	LINENO
+		3182	text30	24	LINENO
+		3183	text30	40	LINENO
+		3184	text30	5A	LINENO
+		3185	text30	6C	LINENO
+		3186	text30	82	LINENO
+		3187	text30	88	LINENO
+		3188	text30	8C	LINENO
+		3192	text30	92	LINENO
+		3195	text30	A8	LINENO
+		3196	text30	B0	LINENO
+		3178	text30	C6	LINENO
+		3201	text30	D0	LINENO
+		3202	text30	DE	LINENO
 		main.c		0	FILNAM
+		3247	text31	0	LINENO
 	1028	TEXT	65
 		text31	0x0	0x36
 	     0: E8 CF 58 F0 01 01 00 0E 1F 6E 00 0E 00 EC 00 F0	..X......n......
@@ -14014,19 +14020,18 @@
 		0x36	COMPLEX		1
 		0xFFFFFFFF + (high __ramtop)
 	1038	SYM	502
-		3245	text31	0	LINENO
-		3246	text31	14	LINENO
-		3248	text31	20	LINENO
-		3252	text31	24	LINENO
-		3253	text31	40	LINENO
-		3254	text31	5A	LINENO
-		3255	text31	70	LINENO
-		3257	text31	72	LINENO
-		3260	text31	88	LINENO
-		3261	text31	90	LINENO
-		3248	text31	A6	LINENO
-		3266	text31	B0	LINENO
-		3267	text31	BE	LINENO
+		3248	text31	14	LINENO
+		3250	text31	20	LINENO
+		3254	text31	24	LINENO
+		3255	text31	40	LINENO
+		3256	text31	5A	LINENO
+		3257	text31	70	LINENO
+		3259	text31	72	LINENO
+		3262	text31	88	LINENO
+		3263	text31	90	LINENO
+		3250	text31	A6	LINENO
+		3268	text31	B0	LINENO
+		3269	text31	BE	LINENO
 		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcat.c		0	FILNAM
 		18	text32	0	LINENO
 		19	text32	8	LINENO
@@ -14038,8 +14043,9 @@
 		26	text32	52	LINENO
 		21	text32	54	LINENO
 		main.c		0	FILNAM
-		2726	text33	4	LINENO
-		2727	text33	8	LINENO
+		2728	text33	4	LINENO
+		2729	text33	8	LINENO
+		2736	text33	C	LINENO
 	1039	TEXT	69
 		text33	0x0	0x3A
 	     0: E8 CF 57 F0 57 C0 A5 F0 4F C0 A6 F0 00 6B 00 6B	..W.W...O....k.k
@@ -14402,36 +14408,36 @@
 		(0x6 + bssBANK0) & 0xFF
 		0x30	COMPLEX		1
 		(0x7 + bssBANK0) & 0xFF
-	1057	SYM	507
-		2734	text33	C	LINENO
-		2736	text33	2E	LINENO
-		2737	text33	36	LINENO
-		2739	text33	38	LINENO
-		2740	text33	3A	LINENO
-		2747	text33	3E	LINENO
-		2752	text33	78	LINENO
-		2753	text33	9E	LINENO
-		2754	text33	AA	LINENO
-		2737	text33	AE	LINENO
-		2760	text33	CE	LINENO
-		2761	text33	D0	LINENO
+	1057	SYM	506
+		2738	text33	2E	LINENO
+		2739	text33	36	LINENO
+		2741	text33	38	LINENO
+		2742	text33	3A	LINENO
+		2749	text33	3E	LINENO
+		2754	text33	78	LINENO
+		2755	text33	9E	LINENO
+		2756	text33	AA	LINENO
+		2739	text33	AE	LINENO
+		2762	text33	CE	LINENO
+		2763	text33	D0	LINENO
 		main.c		0	FILNAM
-		3575	text34	0	LINENO
-		3577	text34	8C	LINENO
-		3579	text34	AE	LINENO
-		3577	text34	B0	LINENO
-		3582	text34	B2	LINENO
-		3583	text34	B4	LINENO
+		3577	text34	0	LINENO
+		3579	text34	8C	LINENO
+		3581	text34	AE	LINENO
+		3579	text34	B0	LINENO
+		3584	text34	B2	LINENO
+		3585	text34	B4	LINENO
 		main.c		0	FILNAM
-		3618	text35	0	LINENO
-		3620	text35	28	LINENO
-		3621	text35	32	LINENO
-		3624	text35	34	LINENO
-		3625	text35	36	LINENO
+		3620	text35	0	LINENO
+		3622	text35	28	LINENO
+		3623	text35	32	LINENO
+		3626	text35	34	LINENO
+		3627	text35	36	LINENO
 		ECAN.c		0	FILNAM
 		641	text36	0	LINENO
 		642	text36	A	LINENO
 		643	text36	12	LINENO
+		650	text36	1A	LINENO
 	1058	TEXT	83
 		text36	0x0	0x48
 	     0: 0F 0E 00 01 00 6F 40 0E 00 6F 0F 0E 00 6F 30 0E	.....o@..o...o0.
@@ -14562,7 +14568,6 @@
 		(0x27 + cstackBANK0) & 0xFF
 		0x50	RPSECT	cstackCOMRAM	1
 	1064	SYM	493
-		650	text36	1A	LINENO
 		651	text36	22	LINENO
 		652	text36	2A	LINENO
 		653	text36	32	LINENO
@@ -14591,6 +14596,7 @@
 		739	text36	EE	LINENO
 		742	text36	F0	LINENO
 		745	text36	112	LINENO
+		747	text36	11A	LINENO
 	1065	TEXT	77
 		text36	0xFA	0x42
 	     0: 03 C0 22 F0 04 C0 23 F0 05 C0 24 F0 06 C0 25 F0	.."...#...$...%.
@@ -14685,8 +14691,7 @@
 		(0x22 + cstackCOMRAM) & 0xFF
 		0x24	COMPLEX		1
 		(0x23 + cstackCOMRAM) & 0xFF
-	1073	SYM	505
-		747	text36	11A	LINENO
+	1073	SYM	506
 		748	text36	11E	LINENO
 		747	text36	13A	LINENO
 		752	text36	142	LINENO
@@ -14712,7 +14717,8 @@
 		22	text38	28	LINENO
 		19	text38	2A	LINENO
 		main.c		0	FILNAM
-		3073	text39	0	LINENO
+		3075	text39	0	LINENO
+		3076	text39	C	LINENO
 	1074	TEXT	59
 		text39	0x0	0x30
 	     0: 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 00 0E 20 6E	.. n...n...... n
@@ -15036,34 +15042,34 @@
 		0x2E	RELBITS COMPLEX		12
 		text70 >> 0x9
 	1088	SYM	504
-		3074	text39	C	LINENO
-		3075	text39	18	LINENO
-		3076	text39	24	LINENO
-		3077	text39	30	LINENO
-		3078	text39	3C	LINENO
-		3079	text39	48	LINENO
-		3080	text39	54	LINENO
-		3081	text39	60	LINENO
-		3082	text39	6C	LINENO
-		3083	text39	78	LINENO
-		3084	text39	84	LINENO
-		3085	text39	90	LINENO
-		3086	text39	9C	LINENO
-		3087	text39	A8	LINENO
-		3088	text39	B4	LINENO
-		3089	text39	C0	LINENO
-		3090	text39	CC	LINENO
-		3091	text39	D8	LINENO
-		3092	text39	E4	LINENO
-		3093	text39	F0	LINENO
-		3094	text39	FC	LINENO
-		3095	text39	108	LINENO
-		3096	text39	114	LINENO
-		3097	text39	120	LINENO
-		3098	text39	12C	LINENO
-		3099	text39	138	LINENO
-		3100	text39	144	LINENO
-		3101	text39	150	LINENO
+		3077	text39	18	LINENO
+		3078	text39	24	LINENO
+		3079	text39	30	LINENO
+		3080	text39	3C	LINENO
+		3081	text39	48	LINENO
+		3082	text39	54	LINENO
+		3083	text39	60	LINENO
+		3084	text39	6C	LINENO
+		3085	text39	78	LINENO
+		3086	text39	84	LINENO
+		3087	text39	90	LINENO
+		3088	text39	9C	LINENO
+		3089	text39	A8	LINENO
+		3090	text39	B4	LINENO
+		3091	text39	C0	LINENO
+		3092	text39	CC	LINENO
+		3093	text39	D8	LINENO
+		3094	text39	E4	LINENO
+		3095	text39	F0	LINENO
+		3096	text39	FC	LINENO
+		3097	text39	108	LINENO
+		3098	text39	114	LINENO
+		3099	text39	120	LINENO
+		3100	text39	12C	LINENO
+		3101	text39	138	LINENO
+		3102	text39	144	LINENO
+		3103	text39	150	LINENO
+		3104	text39	15C	LINENO
 	1089	TEXT	59
 		text39	0x150	0x30
 	     0: 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 00 0E 20 6E	.. n...n...... n
@@ -15534,34 +15540,34 @@
 		0x38	COMPLEX		1
 		low (0x2F6 + mediumconst)
 	1109	SYM	500
-		3102	text39	15C	LINENO
-		3103	text39	168	LINENO
-		3104	text39	174	LINENO
+		3105	text39	168	LINENO
+		3106	text39	174	LINENO
 		main.c		0	FILNAM
-		3010	text40	0	LINENO
-		3011	text40	C	LINENO
-		3012	text40	4C	LINENO
-		3013	text40	5A	LINENO
-		3015	text40	66	LINENO
-		3016	text40	72	LINENO
-		3017	text40	B2	LINENO
-		3018	text40	C0	LINENO
-		3020	text40	CC	LINENO
-		3021	text40	D8	LINENO
-		3022	text40	118	LINENO
-		3023	text40	126	LINENO
-		3025	text40	132	LINENO
-		3026	text40	13E	LINENO
-		3027	text40	17E	LINENO
-		3028	text40	18C	LINENO
-		3030	text40	198	LINENO
-		3031	text40	19C	LINENO
-		3034	text40	1A8	LINENO
-		3035	text40	1B4	LINENO
-		3036	text40	1EA	LINENO
-		3037	text40	1F8	LINENO
-		3039	text40	204	LINENO
-		3040	text40	208	LINENO
+		3012	text40	0	LINENO
+		3013	text40	C	LINENO
+		3014	text40	4C	LINENO
+		3015	text40	5A	LINENO
+		3017	text40	66	LINENO
+		3018	text40	72	LINENO
+		3019	text40	B2	LINENO
+		3020	text40	C0	LINENO
+		3022	text40	CC	LINENO
+		3023	text40	D8	LINENO
+		3024	text40	118	LINENO
+		3025	text40	126	LINENO
+		3027	text40	132	LINENO
+		3028	text40	13E	LINENO
+		3029	text40	17E	LINENO
+		3030	text40	18C	LINENO
+		3032	text40	198	LINENO
+		3033	text40	19C	LINENO
+		3036	text40	1A8	LINENO
+		3037	text40	1B4	LINENO
+		3038	text40	1EA	LINENO
+		3039	text40	1F8	LINENO
+		3041	text40	204	LINENO
+		3042	text40	208	LINENO
+		3045	text40	214	LINENO
 	1110	TEXT	73
 		text40	0x20E	0x3E
 	     0: 1F 6E 00 EC 00 F0 74 AA 06 D0 00 0E 20 6E 00 0E	.n....t..... n..
@@ -15975,34 +15981,34 @@
 		0x36	COMPLEX		1
 		(0xE + cstackBANK0) & 0xFF
 	1128	SYM	500
-		3043	text40	214	LINENO
-		3044	text40	218	LINENO
-		3047	text40	224	LINENO
-		3048	text40	228	LINENO
-		3051	text40	234	LINENO
-		3052	text40	240	LINENO
-		3053	text40	276	LINENO
-		3054	text40	284	LINENO
-		3056	text40	290	LINENO
-		3057	text40	294	LINENO
-		3060	text40	2A0	LINENO
-		3061	text40	2A4	LINENO
-		3064	text40	2B0	LINENO
+		3046	text40	218	LINENO
+		3049	text40	224	LINENO
+		3050	text40	228	LINENO
+		3053	text40	234	LINENO
+		3054	text40	240	LINENO
+		3055	text40	276	LINENO
+		3056	text40	284	LINENO
+		3058	text40	290	LINENO
+		3059	text40	294	LINENO
+		3062	text40	2A0	LINENO
+		3063	text40	2A4	LINENO
+		3066	text40	2B0	LINENO
 		main.c		0	FILNAM
-		2983	text41	0	LINENO
-		2984	text41	C	LINENO
-		2985	text41	4C	LINENO
-		2986	text41	5A	LINENO
-		2988	text41	66	LINENO
-		2989	text41	72	LINENO
-		2990	text41	B2	LINENO
-		2991	text41	C0	LINENO
-		2993	text41	CC	LINENO
-		2994	text41	D8	LINENO
-		2995	text41	118	LINENO
-		2996	text41	126	LINENO
-		2998	text41	132	LINENO
-		2999	text41	13E	LINENO
+		2985	text41	0	LINENO
+		2986	text41	C	LINENO
+		2987	text41	4C	LINENO
+		2988	text41	5A	LINENO
+		2990	text41	66	LINENO
+		2991	text41	72	LINENO
+		2992	text41	B2	LINENO
+		2993	text41	C0	LINENO
+		2995	text41	CC	LINENO
+		2996	text41	D8	LINENO
+		2997	text41	118	LINENO
+		2998	text41	126	LINENO
+		3000	text41	132	LINENO
+		3001	text41	13E	LINENO
+		3002	text41	17E	LINENO
 	1129	TEXT	69
 		text41	0x15E	0x3A
 	     0: 00 0E 00 6F 31 C0 0F F0 32 C0 10 F0 08 C0 11 F0	...o1...2.......
@@ -16139,39 +16145,14 @@
 		0xFFFFFFFF + (high __ramtop)
 		0x3A	COMPLEX		1
 		(0x3 + cstackBANK0) & 0xFF
-	1135	SYM	502
-		3000	text41	17E	LINENO
-		3001	text41	18C	LINENO
-		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atoi.c		0	FILNAM
-		10	text42	0	LINENO
-		11	text42	2	LINENO
-		10	text42	8	LINENO
-		12	text42	38	LINENO
-		13	text42	3E	LINENO
-		14	text42	42	LINENO
-		15	text42	56	LINENO
-		17	text42	5C	LINENO
-		18	text42	74	LINENO
-		20	text42	7C	LINENO
-		19	text42	B6	LINENO
-		21	text42	D0	LINENO
-		22	text42	D6	LINENO
-		23	text42	F0	LINENO
-		24	text42	F8	LINENO
-		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strtok.c		0	FILNAM
-		18	text43	0	LINENO
-		19	text43	6	LINENO
-		20	text43	E	LINENO
-		22	text43	14	LINENO
-		23	text43	32	LINENO
-	1136	TEXT	77
+	1135	TEXT	77
 		text43	0x0	0x42
 	     0: 00 51 00 11 04 E1 04 C0 04 F0 05 C0 05 F0 00 51	.Q.............Q
 	    10: 00 11 17 E0 04 C0 00 F0 05 C0 01 F0 06 C0 02 F0	................
 	    20: 07 C0 03 F0 00 EC 00 F0 00 01 00 51 00 27 00 51	...........Q.'.Q
 	    30: 00 23 04 C0 D9 FF 05 C0 DA FF DF 50 05 E1 04 6A	.#.........P...j
 	    40: 05 6A                                          	.j
-	1137	RELOC	500
+	1136	RELOC	500
 		0x0	COMPLEX		1
 		(0x5 + cstackBANK0) & 0xFF
 		0x2	COMPLEX		1
@@ -16208,6 +16189,31 @@
 		0x36	RELBITS RPSECT	cstackBANK0	12
 		0x3E	RPSECT	bssCOMRAM	1
 		0x40	RPSECT	bssCOMRAM	1
+	1137	SYM	500
+		3003	text41	18C	LINENO
+		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atoi.c		0	FILNAM
+		10	text42	0	LINENO
+		11	text42	2	LINENO
+		10	text42	8	LINENO
+		12	text42	38	LINENO
+		13	text42	3E	LINENO
+		14	text42	42	LINENO
+		15	text42	56	LINENO
+		17	text42	5C	LINENO
+		18	text42	74	LINENO
+		20	text42	7C	LINENO
+		19	text42	B6	LINENO
+		21	text42	D0	LINENO
+		22	text42	D6	LINENO
+		23	text42	F0	LINENO
+		24	text42	F8	LINENO
+		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strtok.c		0	FILNAM
+		18	text43	0	LINENO
+		19	text43	6	LINENO
+		20	text43	E	LINENO
+		22	text43	14	LINENO
+		23	text43	32	LINENO
+		24	text43	3E	LINENO
 	1138	TEXT	91
 		text43	0x42	0x50
 	     0: 00 6B 00 6B 26 D0 04 C0 00 F0 05 C0 01 F0 06 C0	.k.k&...........
@@ -16330,8 +16336,7 @@
 		0x3E	RELBITS RPSECT	cstackBANK0	12
 		0x40	RELBITS RPSECT	cstackCOMRAM	12
 		0x42	RELBITS RPSECT	cstackBANK0	12
-	1146	SYM	479
-		24	text43	3E	LINENO
+	1146	SYM	463
 		25	text43	48	LINENO
 		26	text43	6A	LINENO
 		27	text43	76	LINENO
@@ -17452,14 +17457,14 @@
 		20	text53	8	LINENO
 		21	text53	10	LINENO
 		main.c		0	FILNAM
-		3599	text54	0	LINENO
-		3600	text54	1A	LINENO
-		3603	text54	1E	LINENO
-		3604	text54	2A	LINENO
-		3605	text54	36	LINENO
-		3606	text54	52	LINENO
-		3608	text54	82	LINENO
-		3609	text54	84	LINENO
+		3601	text54	0	LINENO
+		3602	text54	1A	LINENO
+		3605	text54	1E	LINENO
+		3606	text54	2A	LINENO
+		3607	text54	36	LINENO
+		3608	text54	52	LINENO
+		3610	text54	82	LINENO
+		3611	text54	84	LINENO
 		main.c		0	FILNAM
 	1203	TEXT	117
 		text55	0x0	0x6A
@@ -17617,19 +17622,19 @@
 		0x2E	RPSECT	cstackCOMRAM	1
 		0x32	RPSECT	cstackCOMRAM	1
 	1211	SYM	498
-		3633	text55	4	LINENO
-		3636	text55	8	LINENO
-		3637	text55	A	LINENO
-		3638	text55	28	LINENO
-		3639	text55	2A	LINENO
-		3643	text55	30	LINENO
-		3649	text55	4C	LINENO
-		3650	text55	5A	LINENO
-		3654	text55	66	LINENO
-		3659	text55	94	LINENO
-		3661	text55	96	LINENO
-		3663	text55	98	LINENO
-		3668	text55	9A	LINENO
+		3635	text55	4	LINENO
+		3638	text55	8	LINENO
+		3639	text55	A	LINENO
+		3640	text55	28	LINENO
+		3641	text55	2A	LINENO
+		3645	text55	30	LINENO
+		3651	text55	4C	LINENO
+		3652	text55	5A	LINENO
+		3656	text55	66	LINENO
+		3661	text55	94	LINENO
+		3663	text55	96	LINENO
+		3665	text55	98	LINENO
+		3670	text55	9A	LINENO
 		fifo.c		0	FILNAM
 		32	text56	0	LINENO
 		34	text56	8	LINENO
@@ -19007,13 +19012,12 @@
 		0x16	RELBITS RPSECT	cstackCOMRAM	12
 		0x18	RELBITS RPSECT	cstackCOMRAM	12
 		0x1A	RPSECT	cstackCOMRAM	1
-	1280	TEXT	79
-		text62	0x0	0x44
-	     0: 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 00 01 34 D8	.. n...n......4.
-	    10: 00 EC 00 F0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0	...... n...n....
-	    20: AC A2 FE D7 2E 0E 00 EC 00 F0 00 01 25 D8 00 EC	............%...
-	    30: 00 F0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 AC A2	.... n...n......
-	    40: FE D7 2E 0E                                    	....
+	1280	TEXT	75
+		text62	0x0	0x40
+	     0: 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 2A D8 00 EC	.. n...n....*...
+	    10: 00 F0 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 AC A2	.... n...n......
+	    20: FE D7 2E 0E 00 EC 00 F0 1C D8 00 EC 00 F0 00 0E	................
+	    30: 20 6E 00 0E 1F 6E 00 EC 00 F0 AC A2 FE D7 2E 0E	 n...n..........
 	1281	RELOC	492
 		0x0	COMPLEX		1
 		high (0x1088 + mediumconst)
@@ -19025,37 +19029,37 @@
 		(text70 >> 0x1) & 0xFF
 		0xA	RELBITS COMPLEX		12
 		text70 >> 0x9
-		0x10	COMPLEX		1
+		0xE	COMPLEX		1
 		(text63 >> 0x1) & 0xFF
-		0x12	RELBITS COMPLEX		12
+		0x10	RELBITS COMPLEX		12
 		text63 >> 0x9
-		0x14	COMPLEX		1
+		0x12	COMPLEX		1
 		high (0xF + cstackBANK0)
-		0x16	RPSECT	cstackCOMRAM	1
-		0x18	COMPLEX		1
+		0x14	RPSECT	cstackCOMRAM	1
+		0x16	COMPLEX		1
 		low (0xF + cstackBANK0)
-		0x1A	RPSECT	cstackCOMRAM	1
-		0x1C	COMPLEX		1
+		0x18	RPSECT	cstackCOMRAM	1
+		0x1A	COMPLEX		1
 		(text70 >> 0x1) & 0xFF
-		0x1E	RELBITS COMPLEX		12
+		0x1C	RELBITS COMPLEX		12
 		text70 >> 0x9
-		0x26	COMPLEX		1
+		0x24	COMPLEX		1
 		(text71 >> 0x1) & 0xFF
-		0x28	RELBITS COMPLEX		12
+		0x26	RELBITS COMPLEX		12
 		text71 >> 0x9
-		0x2E	COMPLEX		1
+		0x2A	COMPLEX		1
 		(text63 >> 0x1) & 0xFF
-		0x30	RELBITS COMPLEX		12
+		0x2C	RELBITS COMPLEX		12
 		text63 >> 0x9
-		0x32	COMPLEX		1
+		0x2E	COMPLEX		1
 		high (0xF + cstackBANK0)
+		0x30	RPSECT	cstackCOMRAM	1
+		0x32	COMPLEX		1
+		low (0xF + cstackBANK0)
 		0x34	RPSECT	cstackCOMRAM	1
 		0x36	COMPLEX		1
-		low (0xF + cstackBANK0)
-		0x38	RPSECT	cstackCOMRAM	1
-		0x3A	COMPLEX		1
 		(text70 >> 0x1) & 0xFF
-		0x3C	RELBITS COMPLEX		12
+		0x38	RELBITS COMPLEX		12
 		text70 >> 0x9
 	1282	SYM	507
 		15	text60	8	LINENO
@@ -19076,85 +19080,69 @@
 		14	text61	4	LINENO
 		15	text61	1C	LINENO
 		main.c		0	FILNAM
-		3287	text62	0	LINENO
-		3288	text62	C	LINENO
-		3289	text62	14	LINENO
-		3290	text62	20	LINENO
-		3291	text62	24	LINENO
-		3292	text62	2A	LINENO
-		3293	text62	32	LINENO
-		3294	text62	3E	LINENO
-		3295	text62	42	LINENO
-	1283	TEXT	59
-		text62	0x44	0x30
-	     0: 00 EC 00 F0 00 01 00 0E 00 6F 00 0E 00 6F 00 6B	.........o...o.k
-	    10: 00 6B 00 6B 0A 0E 00 6F 00 EC 00 F0 00 0E 20 6E	.k.k...o...... n
-	    20: 00 0E 1F 6E 00 EC 00 F0 00 0E 20 6E 00 0E 1F 6E	...n...... n...n
-	1284	RELOC	508
+		3289	text62	0	LINENO
+		3290	text62	C	LINENO
+		3291	text62	12	LINENO
+		3292	text62	1E	LINENO
+		3293	text62	22	LINENO
+		3294	text62	2A	LINENO
+		3295	text62	2E	LINENO
+		3296	text62	3A	LINENO
+		3297	text62	3E	LINENO
+	1283	TEXT	61
+		text62	0x40	0x32
+	     0: 00 EC 00 F0 0E D8 00 EC 00 F0 00 0E 20 6E 00 0E	............ n..
+	    10: 1F 6E 00 EC 00 F0 00 0E 20 6E 00 0E 1F 6E 00 EF	.n...... n...n..
+	    20: 00 F0 00 01 00 0E 00 6F 00 0E 00 6F 00 6B 01 0E	.......o...o.k..
+	    30: 00 6F                                          	.o
+	1284	RELOC	492
 		0x0	COMPLEX		1
 		(text71 >> 0x1) & 0xFF
 		0x2	RELBITS COMPLEX		12
 		text71 >> 0x9
 		0x6	COMPLEX		1
-		high (0xF + cstackBANK0)
-		0x8	COMPLEX		1
-		(0xA + cstackBANK0) & 0xFF
-		0xA	COMPLEX		1
-		low (0xF + cstackBANK0)
-		0xC	COMPLEX		1
-		(0x9 + cstackBANK0) & 0xFF
-		0xE	COMPLEX		1
-		(0xC + cstackBANK0) & 0xFF
-		0x10	COMPLEX		1
-		(0xB + cstackBANK0) & 0xFF
-		0x12	COMPLEX		1
-		(0xE + cstackBANK0) & 0xFF
-		0x16	COMPLEX		1
-		(0xD + cstackBANK0) & 0xFF
-		0x18	COMPLEX		1
 		(text63 >> 0x1) & 0xFF
-		0x1A	RELBITS COMPLEX		12
+		0x8	RELBITS COMPLEX		12
 		text63 >> 0x9
-		0x1C	COMPLEX		1
-		high (0xF + cstackBANK0)
-		0x1E	RPSECT	cstackCOMRAM	1
-		0x20	COMPLEX		1
-		low (0xF + cstackBANK0)
-		0x22	RPSECT	cstackCOMRAM	1
-		0x24	COMPLEX		1
-		(text70 >> 0x1) & 0xFF
-		0x26	RELBITS COMPLEX		12
-		text70 >> 0x9
-		0x28	COMPLEX		1
-		high (0x4EE + mediumconst)
-		0x2A	RPSECT	cstackCOMRAM	1
-		0x2C	COMPLEX		1
-		low (0x4EE + mediumconst)
-		0x2E	RPSECT	cstackCOMRAM	1
-	1285	TEXT	37
-		text62	0x74	0x1A
-	     0: 00 EF 00 F0 00 0E 00 6F 00 0E 00 6F 00 6B 01 0E	.......o...o.k..
-	    10: 00 6F 00 6B 0A 0E 00 6F 0A 0C                  	.o.k...o..
-	1286	RELOC	264
-		0x0	COMPLEX		1
-		(text70 >> 0x1) & 0xFF
-		0x2	RELBITS COMPLEX		12
-		text70 >> 0x9
-		0x4	COMPLEX		1
-		high (0xF + cstackBANK0)
-		0x6	COMPLEX		1
-		(0xA + cstackBANK0) & 0xFF
-		0x8	COMPLEX		1
-		low (0xF + cstackBANK0)
 		0xA	COMPLEX		1
-		(0x9 + cstackBANK0) & 0xFF
-		0xC	COMPLEX		1
-		(0xC + cstackBANK0) & 0xFF
-		0x10	COMPLEX		1
-		(0xB + cstackBANK0) & 0xFF
+		high (0xF + cstackBANK0)
+		0xC	RPSECT	cstackCOMRAM	1
+		0xE	COMPLEX		1
+		low (0xF + cstackBANK0)
+		0x10	RPSECT	cstackCOMRAM	1
 		0x12	COMPLEX		1
-		(0xE + cstackBANK0) & 0xFF
+		(text70 >> 0x1) & 0xFF
+		0x14	RELBITS COMPLEX		12
+		text70 >> 0x9
 		0x16	COMPLEX		1
+		high (0x4EE + mediumconst)
+		0x18	RPSECT	cstackCOMRAM	1
+		0x1A	COMPLEX		1
+		low (0x4EE + mediumconst)
+		0x1C	RPSECT	cstackCOMRAM	1
+		0x1E	COMPLEX		1
+		(text70 >> 0x1) & 0xFF
+		0x20	RELBITS COMPLEX		12
+		text70 >> 0x9
+		0x24	COMPLEX		1
+		high (0xF + cstackBANK0)
+		0x26	COMPLEX		1
+		(0xA + cstackBANK0) & 0xFF
+		0x28	COMPLEX		1
+		low (0xF + cstackBANK0)
+		0x2A	COMPLEX		1
+		(0x9 + cstackBANK0) & 0xFF
+		0x2C	COMPLEX		1
+		(0xC + cstackBANK0) & 0xFF
+		0x30	COMPLEX		1
+		(0xB + cstackBANK0) & 0xFF
+	1285	TEXT	19
+		text62	0x72	0x8
+	     0: 00 6B 0A 0E 00 6F 0A 0C                        	.k...o..
+	1286	RELOC	58
+		0x0	COMPLEX		1
+		(0xE + cstackBANK0) & 0xFF
+		0x4	COMPLEX		1
 		(0xD + cstackBANK0) & 0xFF
 	1287	TEXT	67
 		text63	0x0	0x38
@@ -19300,9 +19288,9 @@
 		0x1C	COMPLEX		1
 		(0x1 + cstackBANK0) & 0xFF
 	1295	SYM	484
-		3296	text62	48	LINENO
-		3297	text62	60	LINENO
-		3298	text62	6C	LINENO
+		3298	text62	46	LINENO
+		3299	text62	4A	LINENO
+		3300	text62	56	LINENO
 		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\itoa.c		0	FILNAM
 		8	text63	0	LINENO
 		9	text63	4	LINENO
@@ -19570,8 +19558,8 @@
 		30	text66	40	LINENO
 		31	text66	48	LINENO
 		main.c		0	FILNAM
-		3276	text67	0	LINENO
-		3277	text67	4	LINENO
+		3278	text67	0	LINENO
+		3279	text67	4	LINENO
 		main.c		0	FILNAM
 		576	text68	0	LINENO
 		577	text68	12	LINENO
@@ -19588,12 +19576,12 @@
 		593	text68	A8	LINENO
 		594	text68	BA	LINENO
 		main.c		0	FILNAM
-		3307	text69	0	LINENO
-		3308	text69	C	LINENO
-		3309	text69	12	LINENO
-		3310	text69	1E	LINENO
-		3311	text69	24	LINENO
-		3312	text69	30	LINENO
+		3309	text69	0	LINENO
+		3310	text69	C	LINENO
+		3311	text69	12	LINENO
+		3312	text69	1E	LINENO
+		3313	text69	24	LINENO
+		3314	text69	30	LINENO
 	1310	TEXT	73
 		text69	0x0	0x3E
 	     0: 00 0E 20 6E 00 0E 1F 6E 00 EC 00 F0 00 01 00 67	.. n...n.......g
@@ -19724,12 +19712,12 @@
 		0xA	RPSECT	bssCOMRAM	1
 		0xE	RELBITS RPSECT	cstackCOMRAM	12
 	1318	SYM	499
-		3313	text69	38	LINENO
-		3314	text69	44	LINENO
-		3315	text69	4C	LINENO
-		3316	text69	58	LINENO
-		3317	text69	5A	LINENO
-		3319	text69	66	LINENO
+		3315	text69	38	LINENO
+		3316	text69	44	LINENO
+		3317	text69	4C	LINENO
+		3318	text69	58	LINENO
+		3319	text69	5A	LINENO
+		3321	text69	66	LINENO
 		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uputs.c		0	FILNAM
 		18	text70	0	LINENO
 		19	text70	4	LINENO
@@ -20694,10 +20682,10 @@
 		1127	text79	AA	LINENO
 		1129	text79	BC	LINENO
 		main.c		0	FILNAM
-		3328	text80	4	LINENO
-		3331	text80	32	LINENO
-		3332	text80	6C	LINENO
-		3333	text80	70	LINENO
+		3330	text80	4	LINENO
+		3333	text80	32	LINENO
+		3334	text80	6C	LINENO
+		3335	text80	70	LINENO
 	1371	TEXT	75
 		text80	0x3E	0x40
 	     0: 22 C0 02 F0 23 C0 03 F0 24 C0 04 F0 25 C0 05 F0	"...#...$...%...
@@ -20740,34 +20728,34 @@
 		0x38	RELBITS RPSECT	cstackBANK0	12
 		0x3C	RELBITS RPSECT	cstackBANK0	12
 	1373	SYM	504
-		3335	text80	74	LINENO
-		3338	text80	76	LINENO
-		3339	text80	7A	LINENO
-		3340	text80	7E	LINENO
-		3341	text80	82	LINENO
-		3342	text80	86	LINENO
-		3345	text80	88	LINENO
-		3346	text80	8C	LINENO
-		3347	text80	90	LINENO
-		3348	text80	94	LINENO
-		3349	text80	98	LINENO
-		3352	text80	9A	LINENO
-		3353	text80	9E	LINENO
-		3354	text80	A2	LINENO
-		3355	text80	A6	LINENO
-		3356	text80	AA	LINENO
-		3359	text80	AC	LINENO
-		3360	text80	B0	LINENO
-		3361	text80	B4	LINENO
-		3362	text80	B8	LINENO
-		3363	text80	BC	LINENO
-		3366	text80	BE	LINENO
-		3367	text80	C2	LINENO
-		3368	text80	C6	LINENO
-		3369	text80	CA	LINENO
-		3370	text80	CE	LINENO
-		3373	text80	D0	LINENO
-		3374	text80	D4	LINENO
+		3337	text80	74	LINENO
+		3340	text80	76	LINENO
+		3341	text80	7A	LINENO
+		3342	text80	7E	LINENO
+		3343	text80	82	LINENO
+		3344	text80	86	LINENO
+		3347	text80	88	LINENO
+		3348	text80	8C	LINENO
+		3349	text80	90	LINENO
+		3350	text80	94	LINENO
+		3351	text80	98	LINENO
+		3354	text80	9A	LINENO
+		3355	text80	9E	LINENO
+		3356	text80	A2	LINENO
+		3357	text80	A6	LINENO
+		3358	text80	AA	LINENO
+		3361	text80	AC	LINENO
+		3362	text80	B0	LINENO
+		3363	text80	B4	LINENO
+		3364	text80	B8	LINENO
+		3365	text80	BC	LINENO
+		3368	text80	BE	LINENO
+		3369	text80	C2	LINENO
+		3370	text80	C6	LINENO
+		3371	text80	CA	LINENO
+		3372	text80	CE	LINENO
+		3375	text80	D0	LINENO
+		3376	text80	D4	LINENO
 	1374	TEXT	159
 		text80	0x7E	0x94
 	     0: 09 C0 02 FF 0A C0 03 FF AA D0 07 C0 04 FF 08 C0	................
@@ -20815,34 +20803,34 @@
 		0x8C	RELBITS RPSECT	cstackBANK0	12
 		0x90	RELBITS RPSECT	cstackBANK0	12
 	1376	SYM	504
-		3375	text80	D8	LINENO
-		3376	text80	DC	LINENO
-		3377	text80	E0	LINENO
-		3380	text80	E2	LINENO
-		3381	text80	E6	LINENO
-		3382	text80	EA	LINENO
-		3383	text80	EE	LINENO
-		3384	text80	F2	LINENO
-		3387	text80	F4	LINENO
-		3388	text80	F8	LINENO
-		3389	text80	FC	LINENO
-		3390	text80	100	LINENO
-		3391	text80	104	LINENO
-		3394	text80	106	LINENO
-		3395	text80	10A	LINENO
-		3396	text80	10E	LINENO
-		3397	text80	112	LINENO
-		3398	text80	116	LINENO
-		3401	text80	118	LINENO
-		3402	text80	11C	LINENO
-		3403	text80	120	LINENO
-		3404	text80	124	LINENO
-		3405	text80	128	LINENO
-		3408	text80	12A	LINENO
-		3409	text80	12E	LINENO
-		3410	text80	132	LINENO
-		3411	text80	136	LINENO
-		3412	text80	13A	LINENO
+		3377	text80	D8	LINENO
+		3378	text80	DC	LINENO
+		3379	text80	E0	LINENO
+		3382	text80	E2	LINENO
+		3383	text80	E6	LINENO
+		3384	text80	EA	LINENO
+		3385	text80	EE	LINENO
+		3386	text80	F2	LINENO
+		3389	text80	F4	LINENO
+		3390	text80	F8	LINENO
+		3391	text80	FC	LINENO
+		3392	text80	100	LINENO
+		3393	text80	104	LINENO
+		3396	text80	106	LINENO
+		3397	text80	10A	LINENO
+		3398	text80	10E	LINENO
+		3399	text80	112	LINENO
+		3400	text80	116	LINENO
+		3403	text80	118	LINENO
+		3404	text80	11C	LINENO
+		3405	text80	120	LINENO
+		3406	text80	124	LINENO
+		3407	text80	128	LINENO
+		3410	text80	12A	LINENO
+		3411	text80	12E	LINENO
+		3412	text80	132	LINENO
+		3413	text80	136	LINENO
+		3414	text80	13A	LINENO
 	1377	TEXT	219
 		text80	0x112	0xD0
 	     0: 0A C0 6B FD 62 D0 07 C0 70 FD 08 C0 71 FD 09 C0	..k.b...p...q...
@@ -20894,34 +20882,34 @@
 		0xCE	COMPLEX		1
 		(text82 >> 0x1) & 0xFF
 	1379	SYM	504
-		3415	text80	13C	LINENO
-		3416	text80	140	LINENO
-		3417	text80	144	LINENO
-		3418	text80	148	LINENO
-		3419	text80	14C	LINENO
-		3422	text80	14E	LINENO
-		3423	text80	152	LINENO
-		3424	text80	156	LINENO
-		3425	text80	15A	LINENO
-		3426	text80	15E	LINENO
-		3429	text80	160	LINENO
-		3430	text80	164	LINENO
-		3431	text80	168	LINENO
-		3432	text80	16C	LINENO
-		3433	text80	170	LINENO
-		3436	text80	172	LINENO
-		3437	text80	176	LINENO
-		3438	text80	17A	LINENO
-		3439	text80	17E	LINENO
-		3440	text80	182	LINENO
-		3443	text80	184	LINENO
-		3444	text80	188	LINENO
-		3445	text80	18C	LINENO
-		3446	text80	190	LINENO
-		3447	text80	194	LINENO
-		3335	text80	196	LINENO
-		3450	text80	1DC	LINENO
-		3451	text80	1E0	LINENO
+		3417	text80	13C	LINENO
+		3418	text80	140	LINENO
+		3419	text80	144	LINENO
+		3420	text80	148	LINENO
+		3421	text80	14C	LINENO
+		3424	text80	14E	LINENO
+		3425	text80	152	LINENO
+		3426	text80	156	LINENO
+		3427	text80	15A	LINENO
+		3428	text80	15E	LINENO
+		3431	text80	160	LINENO
+		3432	text80	164	LINENO
+		3433	text80	168	LINENO
+		3434	text80	16C	LINENO
+		3435	text80	170	LINENO
+		3438	text80	172	LINENO
+		3439	text80	176	LINENO
+		3440	text80	17A	LINENO
+		3441	text80	17E	LINENO
+		3442	text80	182	LINENO
+		3445	text80	184	LINENO
+		3446	text80	188	LINENO
+		3447	text80	18C	LINENO
+		3448	text80	190	LINENO
+		3449	text80	194	LINENO
+		3337	text80	196	LINENO
+		3452	text80	1DC	LINENO
+		3453	text80	1E0	LINENO
 	1380	TEXT	81
 		text80	0x1E2	0x46
 	     0: 00 F0 32 D8 20 0E 00 25 1E 6E 00 0E 00 21 1F 6E	..2. ..%.n...!.n
@@ -21025,10 +21013,10 @@
 		0x14	RPSECT	cstackCOMRAM	1
 		0x26	RPSECT	cstackCOMRAM	1
 	1386	SYM	495
-		3452	text80	1FA	LINENO
-		3453	text80	214	LINENO
-		3454	text80	22E	LINENO
-		3457	text80	248	LINENO
+		3454	text80	1FA	LINENO
+		3455	text80	214	LINENO
+		3456	text80	22E	LINENO
+		3459	text80	248	LINENO
 		C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\write_B.c		0	FILNAM
 		33	text81	0	LINENO
 		34	text81	4	LINENO
@@ -21895,15 +21883,15 @@
 		1176	text92	62	LINENO
 	1435	TEXT	165
 		text92	0x0	0x9A
-	     0: 02 C0 06 F0 03 66 2B D0 06 50 D9 6E 6C D8 04 36	.....f+..P.nl..6
+	     0: 02 C0 06 F0 03 66 2B D0 06 50 D9 6E 62 D8 04 36	.....f+..P.nb..6
 	    10: D8 90 04 36 D8 90 04 34 DF 6E 06 50 D9 6E DA 6A	...6...4.n.P.n.j
 	    20: D9 2A DA 6A 73 D8 D8 90 04 32 00 2E FC D7 04 50	.*.js....2.....P
-	    30: 63 D8 05 0E 00 6E D8 90 04 32 00 2E FC D7 06 50	c....n...2.....P
+	    30: 59 D8 05 0E 00 6E D8 90 04 32 00 2E FC D7 06 50	Y....n...2.....P
 	    40: D9 6E DA 6A 04 50 DF 12 3D D8 DF 6A 06 50 D9 6E	.n.j.P..=..j.P.n
 	    50: DA 6A 03 0E D9 26 DA 6A 00 0E DF 6E 32 D0 32 D8	.j...&.j...n2.2.
 	    60: 55 D8 D8 90 04 36 00 2E FC D7 04 50 DF 6E 06 50	U....6.....P.n.P
-	    70: D9 6E DA 6A 03 0E D9 26 36 D8 04 32 D8 90 04 32	.n.j...&6..2...2
-	    80: D8 90 04 30 39 D8 03 0E 04 16 1C D8 04 50 DF 12	...09........P..
+	    70: D9 6E DA 6A 03 0E D9 26 2C D8 04 32 D8 90 04 32	.n.j...&,..2...2
+	    80: D8 90 04 30 2F D8 03 0E 04 16 1C D8 04 50 DF 12	...0/........P..
 	    90: 00 C0 D9 FF 01 C0 DA FF DF 50                  	.........P
 	1436	RELOC	504
 		0x0	RELBITS RPSECT	cstackCOMRAM	12
@@ -21941,12 +21929,12 @@
 	1437	TEXT	143
 		text92	0x9A	0x84
 	     0: 00 6E D8 90 04 32 D8 90 04 32 D8 90 04 32 1C 0E	.n...2...2...2..
-	    10: 04 16 0B D8 04 50 DF 12 0F D8 E1 2A E2 6A DF CF	.....P.....*.j..
-	    20: E7 FF 0A D8 DF CF E7 FF 12 00 06 50 D9 6E DA 6A	...........P.n.j
-	    30: 02 0E D9 26 DA 6A 12 00 00 4A 01 2A 00 C0 D9 FF	...&.j...J.*....
-	    40: 01 C0 DA FF 06 50 E1 6E E2 6A 12 00 DA 6A 00 C0	.....P.n.j...j..
-	    50: E1 FF 01 C0 E2 FF E7 50 00 6E D8 90 12 00 DF 6E	.......P.n.....n
-	    60: 00 4A 01 2A 00 C0 D9 FF 01 C0 DA FF DF 50 00 6E	.J.*.........P.n
+	    10: 04 16 0B D8 04 50 DF 12 22 D8 E1 2A E2 6A DF CF	.....P.."..*.j..
+	    20: E7 FF 1D D8 DF CF E7 FF 12 00 06 50 D9 6E DA 6A	...........P.n.j
+	    30: 02 0E D9 26 DA 6A 12 00 DA 6A 00 C0 E1 FF 01 C0	...&.j...j......
+	    40: E2 FF E7 50 00 6E D8 90 12 00 DF 6E 00 4A 01 2A	...P.n.....n.J.*
+	    50: 00 C0 D9 FF 01 C0 DA FF DF 50 00 6E 12 00 00 4A	.........P.n...J
+	    60: 01 2A 00 C0 D9 FF 01 C0 DA FF 06 50 E1 6E E2 6A	.*.........P.n.j
 	    70: 12 00 00 C0 E1 FF 01 C0 E2 FF E7 50 00 6E 05 0E	...........P.n..
 	    80: 00 6E 05 0C                                    	.n..
 	1438	RELOC	454
@@ -21958,21 +21946,21 @@
 		0x10	RPSECT	cstackCOMRAM	1
 		0x14	RPSECT	cstackCOMRAM	1
 		0x2A	RPSECT	cstackCOMRAM	1
-		0x38	RPSECT	cstackCOMRAM	1
-		0x3A	RPSECT	cstackCOMRAM	1
-		0x3C	RELBITS RPSECT	cstackCOMRAM	12
-		0x40	RELBITS RPSECT	cstackCOMRAM	12
-		0x44	RPSECT	cstackCOMRAM	1
-		0x4E	RELBITS RPSECT	cstackCOMRAM	12
-		0x52	RELBITS RPSECT	cstackCOMRAM	12
-		0x58	COMPLEX		1
+		0x3A	RELBITS RPSECT	cstackCOMRAM	12
+		0x3E	RELBITS RPSECT	cstackCOMRAM	12
+		0x44	COMPLEX		1
 		(0x4 + cstackCOMRAM) & 0xFF
+		0x4C	RPSECT	cstackCOMRAM	1
+		0x4E	RPSECT	cstackCOMRAM	1
+		0x50	RELBITS RPSECT	cstackCOMRAM	12
+		0x54	RELBITS RPSECT	cstackCOMRAM	12
+		0x5A	COMPLEX		1
+		(0x4 + cstackCOMRAM) & 0xFF
+		0x5E	RPSECT	cstackCOMRAM	1
 		0x60	RPSECT	cstackCOMRAM	1
-		0x62	RPSECT	cstackCOMRAM	1
-		0x64	RELBITS RPSECT	cstackCOMRAM	12
-		0x68	RELBITS RPSECT	cstackCOMRAM	12
-		0x6E	COMPLEX		1
-		(0x4 + cstackCOMRAM) & 0xFF
+		0x62	RELBITS RPSECT	cstackCOMRAM	12
+		0x66	RELBITS RPSECT	cstackCOMRAM	12
+		0x6A	RPSECT	cstackCOMRAM	1
 		0x72	RELBITS RPSECT	cstackCOMRAM	12
 		0x76	RELBITS RPSECT	cstackCOMRAM	12
 		0x7C	COMPLEX		1

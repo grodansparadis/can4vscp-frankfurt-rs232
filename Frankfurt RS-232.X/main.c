@@ -2693,9 +2693,11 @@ BOOL receiveVSCPModeCanalMsg(void)
             ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
             ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
                         cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
-    dlc = ( cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4 ) & 0x07;
+
+    dlc = ( cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4 );
+ 
     if ( dlc > 8 ) {
-        return FALSE;
+        dlc = 8;
     }
     memcpy( data, cmdbuf + VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4, dlc );
 
