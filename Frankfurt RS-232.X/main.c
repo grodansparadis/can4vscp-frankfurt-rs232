@@ -215,26 +215,29 @@ void interrupt low_priority Interrupt()
             can_receiveOverruns++;
             COMSTATbits.RXBnOVFL = 0;
         }
-        
-        // Check CAN bus state and set LED status accordingly
-        if ( COMSTATbits.TXBO ) {
-            // Bus off
-            ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
-        }
-        else if ( COMSTATbits.TXBP || COMSTATbits.RXBP ) {
-            // Bus passive
-            ledFunctionality = STATUS_LED_FAST_BLINK;
-        }
-        else if ( COMSTATbits.EWARN ) {
-            // Bus warning (RX/TX)
-            ledFunctionality = STATUS_LED_NORMAL_BLINK;
-        }
-        else {
-            // OK
-            ledFunctionality = STATUS_LED_ON;
-        }
-        
+         
         ERRIF = 0;
+    }
+    
+    // The error bits are checked outside of the error interrupt
+    // to close error conditions correctly
+
+    // Check CAN bus state and set LED status accordingly
+    if (COMSTATbits.TXBO) {
+        // Bus off
+        ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
+    } 
+    else if (COMSTATbits.TXBP || COMSTATbits.RXBP) {
+        // Bus passive
+        ledFunctionality = STATUS_LED_FAST_BLINK;
+    } 
+    else if (COMSTATbits.EWARN) {
+        // Bus warning (RX/TX)
+        ledFunctionality = STATUS_LED_NORMAL_BLINK;
+    } 
+    else {
+        // OK
+        ledFunctionality = STATUS_LED_ON;
     }
 
     // Check for CAN RX interrupt
@@ -293,7 +296,7 @@ void interrupt low_priority Interrupt()
 //
 
 int main(int argc, char** argv)
-{
+{    
     // Init. capabilities
     caps.maxVscpFrames = 1;
     caps.maxCanalFrames = 1;        // Max frames that will be sent to host
