@@ -14,69 +14,67 @@
             <url>main.c</url>
             <bookmark id="2">
                 <name/>
-                <line>401</line>
+                <line>397</line>
                 <key/>
             </bookmark>
             <bookmark id="9">
                 <name/>
-                <line>476</line>
+                <line>472</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1246</line>
+                <line>1242</line>
                 <key/>
             </bookmark>
             <bookmark id="8">
                 <name/>
-                <line>1280</line>
+                <line>1276</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1341</line>
+                <line>1337</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1351</line>
+                <line>1347</line>
                 <key/>
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>1399</line>
+                <line>1395</line>
                 <key/>
             </bookmark>
             <bookmark id="10">
                 <name/>
-                <line>1721</line>
+                <line>1717</line>
                 <key/>
             </bookmark>
             <bookmark id="7">
                 <name/>
-                <line>1837</line>
+                <line>1833</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>1886</line>
+                <line>1882</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>2017</line>
+                <line>2013</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>2094</line>
+                <line>2090</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

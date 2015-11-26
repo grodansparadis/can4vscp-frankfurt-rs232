@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=Frankfurt RS-232.X
 
 # Active Configuration
-DEFAULTCONF=debug
+DEFAULTCONF=relocated
 CONF=${DEFAULTCONF}
 
 # All Configurations
