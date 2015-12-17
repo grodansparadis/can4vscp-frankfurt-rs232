@@ -3,6 +3,14 @@
  * Author: Ake Hedman, Grodansparadis AB, Sweden
  *
  * Created on den 28 november 2014, 12:17
+ * 
+ *  This work is licensed under the Creative Common 
+ *  Attribution-NonCommercial-ShareAlike 3.0 Unported license. The full
+ *  license is available in the top folder of this project (LICENSE) or here
+ *  http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+ *  It is also available in a human readable form here 
+ *  http://creativecommons.org/licenses/by-nc-sa/3.0/
+ * 
  */
 
 #include <xc.h>
