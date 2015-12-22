@@ -14,71 +14,67 @@
             <url>main.c</url>
             <bookmark id="2">
                 <name/>
-                <line>397</line>
+                <line>405</line>
                 <key/>
             </bookmark>
             <bookmark id="9">
                 <name/>
-                <line>472</line>
+                <line>480</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1242</line>
+                <line>1250</line>
                 <key/>
             </bookmark>
             <bookmark id="8">
                 <name/>
-                <line>1276</line>
+                <line>1284</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1337</line>
+                <line>1345</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1347</line>
+                <line>1355</line>
                 <key/>
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>1395</line>
+                <line>1403</line>
                 <key/>
             </bookmark>
             <bookmark id="10">
                 <name/>
-                <line>1717</line>
+                <line>1725</line>
                 <key/>
             </bookmark>
             <bookmark id="7">
                 <name/>
-                <line>1833</line>
+                <line>1841</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>1882</line>
+                <line>1890</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>2013</line>
+                <line>2021</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>2090</line>
+                <line>2098</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/grodansparadis/development/vscp_firmware/common/vscp_type.h</file>
-            <file>file:/C:/Users/grodansparadis/development/vscp_firmware/common/vscp_firmware.c</file>
-            <file>file:/C:/Users/grodansparadis/development/vscp_firmware/common/vscp_firmware.h</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

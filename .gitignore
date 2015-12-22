@@ -406,3 +406,5 @@
 /Frankfurt RS-232.X/dist/debug/debug/*.sym
 /Frankfurt RS-232.X/dist/debug/debug/*.p1
 /Frankfurt RS-232.X/dist/debug/debug/*.pre
+/Frankfurt RS-232.X/nbproject/Makefile-genesis.properties
+/Frankfurt RS-232.X/nbproject/Makefile-variables.mk
