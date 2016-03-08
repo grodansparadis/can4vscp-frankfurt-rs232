@@ -8,7 +8,7 @@
   200008h - 2FFFFFh
   30000Eh - 30003Fh
   
- dist/relocated/production\Frankfurt_RS-232.X.production.hex ranges:
+ dist/relocated/production/Frankfurt_RS-232.X.production.hex ranges:
   400h - 403h
   418h - 6B95h
   6DECh - 7FFFh
@@ -26,7 +26,7 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/relocated/production\Frankfurt_RS-232.X.production.hex
+  1 = dist/relocated/production/Frankfurt_RS-232.X.production.hex
 00000000: ----------------------------------------------------------------
 00000400: 1111--------------------1111111111111111111111111111111111111111
 00000440: 1111111111111111111111111111111111111111111111111111111111111111

@@ -1,6 +1,7 @@
 /* 
  * File:   main.c - Frankfurt RS-232
  * Author: Ake Hedman, Grodansparadis AB, Sweden
+ * Copyright 2014-1016 Ake Hedman, Grodansparadis AB, Sweden
  *
  * Created on den 28 november 2014, 12:17
  * 
@@ -19,7 +20,7 @@
 #include <delays.h>
 #include <eeprom.h>
 #include <inttypes.h>
-#include "ecan.h"
+#include "ECAN.h"
 #include <plib/usart.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,6 +36,23 @@
 
 #define _XTAL_FREQ 40000000
 
+#if defined(_18F2580) 
+    #define VSCP_PUTS_USART     putsUSART
+    #define VSCP_WRITE_USART    putsUSART
+    #define VSCP_BUSY_USART     BusyUSART
+    #define VSCP_READ_USART     ReadUSART 
+    #define VSCP_OPEN_USART     OpenUSART
+    #define VSCP_CLOSE_USART    CloseUSART
+#else
+    #define VSCP_PUTS_USART     puts1USART
+    #define VSCP_WRITE_USART    Write1USART
+    #define VSCP_BUSY_USART     Busy1USART 
+    #define VSCP_READ_USART     Read1USART
+    #define VSCP_OPEN_USART     Open1USART 
+    #define VSCP_CLOSE_USART    Close1USART
+#endif
+
+
 uint8_t mode;                       // Unit working mode
 
 // For interrupt CAN receive
@@ -46,7 +64,7 @@ ECAN_RX_MSG_FLAGS flags;
 // Buffers
 uint8_t serial_inputBuffer[ SIZE_SERIAL_INPUT_BUFFER ];
 uint8_t can_inputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];    
-// Framesize = 13  ext-id(4) +  dlc(1) + data(8)
+// Frame size = 13  ext-id(4) +  dlc(1) + data(8)
 
 // fifos
 fifo_t serialInputFifo;
@@ -105,6 +123,8 @@ uint8_t vscpPriority;
 uint8_t vscpSize;
 uint8_t vscpData[8];
 
+#if defined(_18F2580) 
+
 #if defined(RELEASE)
 
 #pragma config WDT = ON, WDTPS = 128
@@ -145,6 +165,42 @@ uint8_t vscpData[8];
 
 #endif
 
+#else if defined(_18F25K80) || defined(_18F26K80) || defined(_18F45K80) || defined(_18F46K80) || defined(_18F65K80) || defined(_18F66K80)
+
+
+// CONFIG1L
+#pragma config SOSCSEL = DIG    // RC0/RC is I/O
+#pragma config RETEN = OFF      // Ultra low-power regulator is Disabled (Controlled by REGSLP bit).
+#pragma config INTOSCSEL = HIGH // LF-INTOSC in High-power mode during Sleep.
+#pragma config XINST = OFF      // No extended instruction set
+
+// CONFIG1H
+#pragma config FOSC = HS2       // Crystal 10 MHz
+#pragma config PLLCFG = ON      // 4 x PLL
+
+// CONFIG2H
+#pragma config WDTPS = 1048576  // Watchdog prescaler
+#pragma config BOREN = SBORDIS  // Brown out enabled
+#pragma config BORV  = 1        // 2.7V
+
+// CONFIG3H
+#pragma config CANMX = PORTB    // ECAN TX and RX pins are located on RB2 and RB3, respectively.
+#pragma config MSSPMSK = MSK7   // 7 Bit address masking mode.
+#pragma config MCLRE = ON       // MCLR Enabled, RE3 Disabled.
+
+// CONFIG4L
+#pragma config STVREN = ON      // Stack Overflow Reset enabled
+#pragma config BBSIZ = BB2K     // Boot block size 2K
+
+#ifdef DEBUG
+#pragma config WDTEN = OFF      // WDT disabled in hardware; SWDTEN bit disabled.
+#else
+#pragma config WDTEN = ON       // WDT enabled in hardware; 
+#endif
+
+
+#endif
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Interrupt
@@ -157,7 +213,7 @@ void interrupt low_priority Interrupt()
     // Check if the interrupt is caused by UART RX
     if ( 1 == PIR1bits.RCIF ) {
 
-        c = ReadUSART();
+        c = VSCP_READ_USART();
 
         if ( 1 != fifo_write( &serialInputFifo, &c, 1 ) ) {
             // we have an overrun
@@ -219,9 +275,9 @@ void interrupt low_priority Interrupt()
     if ( 1 == ERRIF ) {
         
         // Check if we have CAN receive overflows
-        if ( COMSTATbits.RXBnOVFL ) {
+        if ( COMSTATbits.RXBNOVFL ) {
             can_receiveOverruns++;
-            COMSTATbits.RXBnOVFL = 0;
+            COMSTATbits.RXBNOVFL = 0;
         }
          
         ERRIF = 0;
@@ -334,9 +390,9 @@ int main(int argc, char** argv)
 
     //mode = WORKING_MODE_VSCP_DRIVER;
 
-    putsUSART((char*) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
-    putsUSART((char*) "Copyright (C) 2014-2015 Paradise of the Frog AB, Sweden\r\n");
-    putsUSART((char*) "http://www.paradiseofthefrog.com\r\n");
+    VSCP_PUTS_USART((char*) "\r\nFrankfurt RS-232 CAN4VSCP module\r\n");
+    VSCP_PUTS_USART((char*) "Copyright (C) 2014-2015 Paradise of the Frog AB, Sweden\r\n");
+    VSCP_PUTS_USART((char*) "http://www.paradiseofthefrog.com\r\n");
     printFirmwareVersion();
     printMode();
 
@@ -346,7 +402,7 @@ int main(int argc, char** argv)
 
         uint8_t c;
 
-        putsUSART((char *) "Press 'v' within three seconds to enter verbose mode\r\n");
+        VSCP_PUTS_USART((char *) "Press 'v' within three seconds to enter verbose mode\r\n");
 
         timekeeper = 0;
         ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
@@ -357,7 +413,7 @@ int main(int argc, char** argv)
                 ei(); // Enable interrupt
                 if ('v' == c) {
                     mode = WORKING_MODE_VERBOSE;
-                    putsUSART((char *) "Temporary verbose mode set\r\n");
+                    VSCP_PUTS_USART((char *) "Temporary verbose mode set\r\n");
                     break;
                 }
             }
@@ -460,26 +516,26 @@ void init()
     OSCCONbits.IRCF2 = 1;
     OSCTUNEbits.PLLEN = 1; // Turn on PLL
 
-    TRISBbits.RB2 = 0; // CAN TX
-    TRISBbits.RB3 = 1; // CAN RX
+    TRISB2 = 0; // CAN TX
+    TRISB3 = 1; // CAN RX
 
-    TRISCbits.RC1 = 0; // Status LED
-    TRISCbits.RC4 = 0; // Output: CTS
-    TRISCbits.RC5 = 1; // Input: RTS
-    TRISCbits.RC6 = 0; // UART TX pin set as output
-    TRISCbits.RC7 = 1; // UART RX pin set as input
+    TRISC1 = 0; // Status LED
+    TRISC4 = 0; // Output: CTS
+    TRISC5 = 1; // Input: RTS
+    TRISC6 = 0; // UART TX pin set as output
+    TRISC7 = 1; // UART RX pin set as input
     
     PORTCbits.RC4 = 1; // Activate clear to send
 
     // Initialize UART
     // 230400 (10), 500000 (4) and 625000 (3) 115200 (20)
-    OpenUSART( USART_TX_INT_OFF &
-                USART_RX_INT_ON &
-                USART_ASYNCH_MODE &
-                USART_EIGHT_BIT &
-                USART_CONT_RX &
-                USART_BRGH_HIGH,
-                BAUDRATE_115200 );
+    VSCP_OPEN_USART( USART_TX_INT_OFF &
+                    USART_RX_INT_ON &
+                    USART_ASYNCH_MODE &
+                    USART_EIGHT_BIT &
+                    USART_CONT_RX &
+                    USART_BRGH_HIGH,
+                    BAUDRATE_115200 );
     
     //baudUSART( BAUD_8_BIT_RATE | BAUD_AUTO_OFF );
 
@@ -493,7 +549,11 @@ void init()
     WriteTimer0(TIMER0_RELOAD_VALUE);
     
     // Initialize microsecond timer  10 MHz
+#if defined(_18F2580)     
     OpenTimer3( T3_SOURCE_INT & T3_PS_1_1 & T3_16BIT_RW & T3_SYNC_EXT_OFF & TIMER_INT_OFF );
+#else
+    OpenTimer3( T3_SOURCE_FOSC_4 & T3_PS_1_1 & T3_16BIT_RW & T3_SYNC_EXT_OFF & TIMER_INT_OFF, 0 );
+#endif    
     WriteTimer3( 0x0000 );
 
     // Initialize CAN
@@ -659,11 +719,11 @@ void doModeVerbose(void)
         
         // If local echo
         if ( bLocalEcho ) {
-            WriteUSART( c );
-            while (BusyUSART());
+            VSCP_WRITE_USART( c );
+            while (VSCP_BUSY_USART());
             if ( 0x0d == c ) {
-                WriteUSART( 0x0a );
-                while (BusyUSART());
+                VSCP_WRITE_USART( 0x0a );
+                while (VSCP_BUSY_USART());
             }
         }
 
@@ -682,7 +742,7 @@ void doModeVerbose(void)
 
             // Enter bootloader
             if (cmdbuf == stristr(cmdbuf, "BOOT")) {
-                putsUSART((char *) "Will enter bootloader now...\r\n");
+                VSCP_PUTS_USART((char *) "Will enter bootloader now...\r\n");
                 eeprom_write(MODULE_EEPROM_BOOTLOADER_FLAG, 0xFF);
                 Reset();
             }
@@ -690,63 +750,63 @@ void doModeVerbose(void)
             else if (cmdbuf == stristr(cmdbuf, "OPEN")) {
                 bSilent = FALSE;
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Open interface but don't show receive frames
             else if (cmdbuf == stristr(cmdbuf, "SILENT")) {
                 bSilent = TRUE;
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Close interface
             else if (cmdbuf == stristr(cmdbuf, "CLOSE")) {
                 bSilent = TRUE;
                 ECANSetOperationMode( ECAN_OP_MODE_CONFIG );
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Open interface in listen only mode
             else if (cmdbuf == stristr(cmdbuf, "LOOPBACK")) {
                 bSilent = FALSE;
                 ECANSetOperationMode(ECAN_OP_MODE_LOOP);
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Open interface in loopback mode
             else if (cmdbuf == stristr(cmdbuf, "LISTEN")) {
                 bSilent = FALSE;
                 ECANSetOperationMode(ECAN_OP_MODE_LISTEN);
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Print version
             else if (cmdbuf == stristr(cmdbuf, "VERSION")) {
                 printFirmwareVersion();
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Set interface mode
             else if (cmdbuf == stristr(cmdbuf, "IFMODE")) {
                 ECAN_OP_MODE ifmode = ECANGetOperationMode();
                 if ((ECAN_OP_MODE_NORMAL == ifmode) & !bSilent) {
-                    putsUSART((char *) "+OK - Normal mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Normal mode\r\n");
                 }
                 else if ((ECAN_OP_MODE_NORMAL == ifmode) & bSilent) {
-                    putsUSART((char *) "+OK - Silent mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Silent mode\r\n");
                 }
                 else if (ECAN_OP_MODE_SLEEP == ifmode) {
-                    putsUSART((char *) "+OK - Sleep mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Sleep mode\r\n");
                 }
                 else if (ECAN_OP_MODE_LOOP == ifmode) {
-                    putsUSART((char *) "+OK - Loopback mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Loopback mode\r\n");
                 }
                 else if (ECAN_OP_MODE_LISTEN == ifmode) {
-                    putsUSART((char *) "+OK - Listen only mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Listen only mode\r\n");
                 }
                 else if (ECAN_OP_MODE_CONFIG == ifmode) {
-                    putsUSART((char *) "+OK - Closed mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Closed mode\r\n");
                 }
                 else if (ECAN_OP_MODE_BITS == ifmode) {
-                    putsUSART((char *) "+OK - Bits mode\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Bits mode\r\n");
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Unknown mode\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Unknown mode\r\n");
                 }
             }
             // Send a VSCP event
@@ -804,40 +864,40 @@ void doModeVerbose(void)
                     // Statistics
                     cntTxFrames++;
                     cntTxBytes += vscpSize;
-                    putsUSART((char *) "+OK\r\n");
+                    VSCP_PUTS_USART((char *) "+OK\r\n");
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Failed to send event.\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Failed to send event.\r\n");
                 }
             }
             // Receive event
             else if (cmdbuf == stristr(cmdbuf, "RX")) {
                 if (receivePrintEventVerbose()) {
-                    putsUSART((char *) "+OK\r\n");
+                    VSCP_PUTS_USART((char *) "+OK\r\n");
                 }
                 else {
-                    putsUSART((char *) "+OK - no events\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - no events\r\n");
                 }
             }
             // Print out statistics
             else if (cmdbuf == stristr(cmdbuf, "STAT")) {
                 printStatistics();
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // List error counters
             else if (cmdbuf == stristr(cmdbuf, "ERR")) {
                 printErrors();
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Help
             else if (cmdbuf == stristr(cmdbuf, "HELP")) {
                 printHelp();
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Find nodes on CAN4VSCP bus
             else if (cmdbuf == stristr(cmdbuf, "FIND")) {
                 findNodes();
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Read register of node
             //      RREG nodeid [page:]reg count
@@ -851,7 +911,7 @@ void doModeVerbose(void)
                 uint8_t count = 1;
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
+                    VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -863,7 +923,7 @@ void doModeVerbose(void)
                     nodeid = atoi(p);
                 } 
                 else {
-                    putsUSART((char *) "-ERROR - Needs nodeid\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Needs nodeid\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -882,7 +942,7 @@ void doModeVerbose(void)
 
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Needs [page:]register\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Needs [page:]register\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -902,54 +962,54 @@ void doModeVerbose(void)
                                                 (reg + i) & 0xff,
                                                 rwtimeout,
                                                 &value ) ) {
-                        putsUSART((char *) "+OK - nodeid=");
+                        VSCP_PUTS_USART((char *) "+OK - nodeid=");
                         sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
-                        putsUSART(wrkbuf);
-                        putsUSART((char *) "Value for reg ");
+                        VSCP_PUTS_USART(wrkbuf);
+                        VSCP_PUTS_USART((char *) "Value for reg ");
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", page);
-                        putsUSART(wrkbuf);                        
-                        WriteUSART(':');
-                        while (BusyUSART());
+                        VSCP_PUTS_USART(wrkbuf);                        
+                        VSCP_WRITE_USART(':');
+                        while (VSCP_BUSY_USART());
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", (reg + i) & 0xff);
-                        putsUSART(wrkbuf);
-                        putsUSART((char *) " = ");
+                        VSCP_PUTS_USART(wrkbuf);
+                        VSCP_PUTS_USART((char *) " = ");
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", value);
-                        putsUSART(wrkbuf);
-                        while (BusyUSART());
-                        putsUSART((char *)"\t\'");
+                        VSCP_PUTS_USART(wrkbuf);
+                        while (VSCP_BUSY_USART());
+                        VSCP_PUTS_USART((char *)"\t\'");
                         if ((value > 32) && (value < 127)) {
-                            WriteUSART(value);
+                            VSCP_WRITE_USART(value);
                         }
                         else {
-                            WriteUSART('.');
+                            VSCP_WRITE_USART('.');
                         }
-                        while (BusyUSART());
-                        putsUSART((char *)"\' \t");
+                        while (VSCP_BUSY_USART());
+                        VSCP_PUTS_USART((char *)"\' \t");
                         printBinary(value);
-                        putsUSART((char *) "\r\n");
+                        VSCP_PUTS_USART((char *) "\r\n");
                     }
                     else {
                         rv = FALSE;
-                        putsUSART((char *) "-ERROR - nodeid=");
+                        VSCP_PUTS_USART((char *) "-ERROR - nodeid=");
                         sprintf(wrkbuf, bHex ? "0x%02X - " : "%d - ", nodeid);
-                        putsUSART(wrkbuf);
-                        putsUSART((char *) "Unable to read register ");
-                        while (BusyUSART());
+                        VSCP_PUTS_USART(wrkbuf);
+                        VSCP_PUTS_USART((char *) "Unable to read register ");
+                        while (VSCP_BUSY_USART());
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", page);
-                        putsUSART(wrkbuf);
-                        WriteUSART(':');
+                        VSCP_PUTS_USART(wrkbuf);
+                        VSCP_WRITE_USART(':');
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", (reg + i) & 0xff);
-                        putsUSART(wrkbuf);
+                        VSCP_PUTS_USART(wrkbuf);
                         
-                        putsUSART((char *) "\r\n");
+                        VSCP_PUTS_USART((char *) "\r\n");
                     }
                 }
 
                 if (rv) {
-                    putsUSART((char *) "+OK\r\n");
+                    VSCP_PUTS_USART((char *) "+OK\r\n");
                 }
                 else {
-                    putsUSART((char *) "-ERROR - One or more register(s) could not be read.\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - One or more register(s) could not be read.\r\n");
                 }
 
             }
@@ -963,7 +1023,7 @@ void doModeVerbose(void)
                 uint8_t value;
                 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
+                    VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -975,7 +1035,7 @@ void doModeVerbose(void)
                     nodeid = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Needs nodeid\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Needs nodeid\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -994,7 +1054,7 @@ void doModeVerbose(void)
 
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Needs [page:]register\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Needs [page:]register\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1005,7 +1065,7 @@ void doModeVerbose(void)
                     value = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Need a value\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Need a value\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1016,14 +1076,14 @@ void doModeVerbose(void)
                         reg,
                         rwtimeout,
                         &value)) {
-                    putsUSART((char *) "+OK - Value written successfully for ");
-                    putsUSART((char *) "nodeid=");
+                    VSCP_PUTS_USART((char *) "+OK - Value written successfully for ");
+                    VSCP_PUTS_USART((char *) "nodeid=");
                     sprintf(wrkbuf, bHex ? "0x%02X\n" : "%d\n", nodeid);
-                    putsUSART(wrkbuf);
+                    VSCP_PUTS_USART(wrkbuf);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Failed to write value for ");
-                    putsUSART((char *) "nodeid=");
+                    VSCP_PUTS_USART((char *) "-ERROR - Failed to write value for ");
+                    VSCP_PUTS_USART((char *) "nodeid=");
                     sprintf(wrkbuf, bHex ? "0x%02X\n" : "%d\n", nodeid);
                 }
 
@@ -1036,7 +1096,7 @@ void doModeVerbose(void)
                 uint8_t value;
 
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-                    putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
+                    VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1045,17 +1105,17 @@ void doModeVerbose(void)
                 strcpy(cmdbuf, cmdbuf + 5);
                 nodeid = atoi(cmdbuf);
 
-                putsUSART((char *) "Info for node id = ");
+                VSCP_PUTS_USART((char *) "Info for node id = ");
                 sprintf(wrkbuf, bHex ? "0x%02X" : "%d", nodeid);
-                putsUSART(wrkbuf);
-                putsUSART((char *) "\r\n");
+                VSCP_PUTS_USART(wrkbuf);
+                VSCP_PUTS_USART((char *) "\r\n");
                 
                 if (!readRegisterExtended(nodeid,
                             0,
                             0xd0,
                             rwtimeout,
                             &value)) {
-                    putsUSART((char *) "-ERROR - Node not found.\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Node not found.\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1064,7 +1124,7 @@ void doModeVerbose(void)
                 printNodeFirmwareVersion(nodeid);
                 printGUID(nodeid);
                 printMDF(nodeid);
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Set filter
             //  FILTER filterno,prio,class,type,nodeid
@@ -1084,14 +1144,14 @@ void doModeVerbose(void)
                 if (NULL != p) {
                     filterno = atoi(p);
                     if (filterno > 15) {
-                        putsUSART((char *) "-ERROR - Filter number can only be set to a value between 0-15.\r\n");
+                        VSCP_PUTS_USART((char *) "-ERROR - Filter number can only be set to a value between 0-15.\r\n");
                         memset( cmdbuf, 0, sizeof( cmdbuf ) );
                         pos = 0; // Start again
                         return;
                     }
                 }
                 else {
-                    putsUSART((char *) "-ERROR - No filter number specified.\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - No filter number specified.\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1103,7 +1163,7 @@ void doModeVerbose(void)
                     filter_priority = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - filter for priority is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - filter for priority is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1115,7 +1175,7 @@ void doModeVerbose(void)
                     filter_class = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - filter for class is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - filter for class is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1127,7 +1187,7 @@ void doModeVerbose(void)
                     filter_type = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - filter for type is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - filter for type is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1139,7 +1199,7 @@ void doModeVerbose(void)
                     filter_nodeid = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - filter for nide id is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - filter for nide id is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1164,7 +1224,7 @@ void doModeVerbose(void)
                 // Go back to normal mode
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
                 
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Set Mask
             //  MASK maskno,prio,class,type,nodeid
@@ -1183,14 +1243,14 @@ void doModeVerbose(void)
                 if (NULL != p) {
                     maskno = atoi(p);
                     if (maskno > 1) {
-                        putsUSART((char *) "-ERROR - Mask number can only be set as 0 or 1.\r\n");
+                        VSCP_PUTS_USART((char *) "-ERROR - Mask number can only be set as 0 or 1.\r\n");
                         memset( cmdbuf, 0, sizeof( cmdbuf ) );
                         pos = 0; // Start again
                         return;
                     }
                 }
                 else {
-                    putsUSART((char *) "-ERROR - No mask number specified.\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - No mask number specified.\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1202,7 +1262,7 @@ void doModeVerbose(void)
                     mask_priority = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - mask for priority is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - mask for priority is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1214,7 +1274,7 @@ void doModeVerbose(void)
                     mask_class = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - mask for class is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - mask for class is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1226,7 +1286,7 @@ void doModeVerbose(void)
                     mask_type = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - mask for type is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - mask for type is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1238,7 +1298,7 @@ void doModeVerbose(void)
                     mask_nodeid = atoi(p);
                 }
                 else {
-                    putsUSART((char *) "-ERROR - mask for nide id is missing\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - mask for nide id is missing\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
                     pos = 0; // Start again
                     return;
@@ -1272,7 +1332,7 @@ void doModeVerbose(void)
                     }
                 }
                 
-                putsUSART((char *) "+OK\r\n");
+                VSCP_PUTS_USART((char *) "+OK\r\n");
    
             }
             // Set Configuration
@@ -1295,13 +1355,13 @@ void doModeVerbose(void)
                 if (cmdbuf == stristr(cmdbuf, "HEX")) {
                     bHex = TRUE;
                     eeprom_write(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_HEX);
-                    putsUSART((char *) "+OK - Numerical output now in hexadecimal\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Numerical output now in hexadecimal\r\n");
                 }
                 // Decimal - numbers in decimal from now on
                 else if (cmdbuf == stristr(cmdbuf, "DECIMAL")) {
                     bHex = FALSE;
                     eeprom_write(MOUDLE_EEPROM_PRINTOUT_IN_HEX, NUMERICAL_PRINTOUTMODE_DECIMAL);
-                    putsUSART((char *) "+OK - Numerical output now in decimal\r\n");
+                    VSCP_PUTS_USART((char *) "+OK - Numerical output now in decimal\r\n");
                 }
                 else if (0 != stristr(cmdbuf, "RWTIMEOUT ")) {
                     strcpy(cmdbuf, cmdbuf + 10);
@@ -1310,7 +1370,7 @@ void doModeVerbose(void)
                         rwtimeout = DEFAULT_REGISTER_RW_TIMEOUT;
                     }
                     eeprom_write(MODULE_EEPROM_RW_TIMEOUT, rwtimeout);
-                    putsUSART((char *) "+OK\r\n");
+                    VSCP_PUTS_USART((char *) "+OK\r\n");
                 }
                 // Interface state to use at start up
                 else if (0 != stristr(cmdbuf, "STARTIF ")) {
@@ -1336,17 +1396,17 @@ void doModeVerbose(void)
                     if (0 != stristr(cmdbuf, "VERBOSE")) {
                         mode = WORKING_MODE_VERBOSE;
                         eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VERBOSE);
-                        putsUSART((char *) "+OK - Mode is now verbose\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Mode is now verbose\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "VSCP")) {
                         mode = WORKING_MODE_VSCP_DRIVER;
                         eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_VSCP_DRIVER);
-                        putsUSART((char *) "+OK - Mode is now VSCP Driver\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Mode is now VSCP Driver\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "SLCAN")) {
                         mode = WORKING_MODE_SL_DRIVER;
                         eeprom_write(MODULE_EEPROM_STARTUP_MODE, WORKING_MODE_SL_DRIVER);
-                        putsUSART((char *) "+OK - Mode is now SLCAN\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Mode is now SLCAN\r\n");
                     }
                 }
                 // Enable/disable local echo  'echo on|off'
@@ -1355,15 +1415,15 @@ void doModeVerbose(void)
                     if (0 != stristr(cmdbuf, "ON")) {
                         bLocalEcho = TRUE;
                         eeprom_write( MODULE_LOCAL_ECHO, 1 );
-                        putsUSART((char *) "+OK - Local echo on\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Local echo on\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "OFF")) {
                         bLocalEcho = FALSE;
                         eeprom_write( MODULE_LOCAL_ECHO, 0 );
-                        putsUSART((char *) "+OK - Local echo off\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Local echo off\r\n");
                     }
                     else {
-                        putsUSART((char *) "+ERROR - Wrong argument to 'set echo'.\r\n");
+                        VSCP_PUTS_USART((char *) "+ERROR - Wrong argument to 'set echo'.\r\n");
                     }
                 }
                 // Enable/disable timestamp  'echo on|off'
@@ -1372,15 +1432,15 @@ void doModeVerbose(void)
                     if (0 != stristr(cmdbuf, "ON")) {
                         bTimestamp = TRUE;
                         eeprom_write( MODULE_TIMESTAMP, 1 );
-                        putsUSART((char *) "+OK - Timestamp on\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Timestamp on\r\n");
                     }
                     else if (0 != stristr(cmdbuf, "OFF")) {
                         bTimestamp = FALSE;
                         eeprom_write( MODULE_TIMESTAMP, 0 );
-                        putsUSART((char *) "+OK - Timestamp off\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - Timestamp off\r\n");
                     }
                     else {
-                        putsUSART((char *) "+ERROR - Wrong argument to 'set timestamp'.\r\n");
+                        VSCP_PUTS_USART((char *) "+ERROR - Wrong argument to 'set timestamp'.\r\n");
                     }
                 }
                 // Set baudrate
@@ -1391,11 +1451,11 @@ void doModeVerbose(void)
                                
                     baudcode = atoi( cmdbuf );
                     if ( baudcode < SET_BAUDRATE_MAX ) {
-                        putsUSART((char *) "+OK - New baudrate will be set.\r\n");
+                        VSCP_PUTS_USART((char *) "+OK - New baudrate will be set.\r\n");
                         changeBaudrate( baudcode );
                     }
                     else {
-                        putsUSART((char *) "+ERROR - Invalid baudrate.\r\n");
+                        VSCP_PUTS_USART((char *) "+ERROR - Invalid baudrate.\r\n");
                     }
                     
                 }
@@ -1408,16 +1468,16 @@ void doModeVerbose(void)
                     
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Unknown 'SET' command\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Unknown 'SET' command\r\n");
                 }
 
             }
             else {
                 if ( 0x0d == cmdbuf[ 0 ]  ) {
-                    putsUSART((char *) "+OK\r\n");
+                    VSCP_PUTS_USART((char *) "+OK\r\n");
                 }
                 else {
-                    putsUSART((char *) "-ERROR - Unknown command\r\n");
+                    VSCP_PUTS_USART((char *) "-ERROR - Unknown command\r\n");
                 }
             }
 
@@ -1814,7 +1874,7 @@ void doModeSLCAN(void)
                 // Get custom string
             case 'J':
                 if (1 == strlen(cmdbuf)) {
-                    putsUSART((char *) "JFrankfurt RS-232\r\n"); // Mimic Lawicel adapter
+                    VSCP_PUTS_USART((char *) "JFrankfurt RS-232\r\n"); // Mimic Lawicel adapter
                     rv = TRUE;
                 }
                 break;
@@ -1822,7 +1882,7 @@ void doModeSLCAN(void)
                 // Get version number
             case 'V':
                 if (1 == strlen(cmdbuf)) {
-                    putsUSART((char *) "V1011\r\n"); // Mimic Lawicel adapter
+                    VSCP_PUTS_USART((char *) "V1011\r\n"); // Mimic Lawicel adapter
                     rv = TRUE;
                 }
                 break;
@@ -1830,7 +1890,7 @@ void doModeSLCAN(void)
                 // Get serial number
             case 'N':
                 if (1 == strlen(cmdbuf)) {
-                    putsUSART((char *) "N1977\r\n"); // Mimic Lawicel adapter
+                    VSCP_PUTS_USART((char *) "N1977\r\n"); // Mimic Lawicel adapter
                     rv = TRUE;
                 }
                 break;
@@ -1913,7 +1973,7 @@ void doModeSLCAN(void)
                 // Read status flag
             case 'F':
                 if (bOpen && (strlen(cmdbuf) == 1)) {
-                    putsUSART((char *) "F00\r\n");
+                    VSCP_PUTS_USART((char *) "F00\r\n");
                 }
                 break;
 
@@ -1984,11 +2044,11 @@ void doModeSLCAN(void)
 
         if (rv) {
             // OK, send CR
-            putsUSART((char *) "\r");
+            VSCP_PUTS_USART((char *) "\r");
         }
         else {
             // Failure, send BELL
-            putsUSART((char *) "\a");
+            VSCP_PUTS_USART((char *) "\a");
         }
 
         // Get ready for next command
@@ -2018,19 +2078,19 @@ void sendEscapedUartData(uint8_t c, uint8_t *pcrc)
 {
     if (DLE == c) {
 
-        while (BusyUSART());
-        WriteUSART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
         //if (NULL != pcrc) crc8(pcrc, DLE);
 
-        while (BusyUSART());
-        WriteUSART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
         if (NULL != pcrc) crc8(pcrc, DLE);
 
     }
     else {
 
-        while (BusyUSART());
-        WriteUSART(c);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(c);
         if (NULL != pcrc) crc8(pcrc, c);
 
     }
@@ -2045,30 +2105,30 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
     uint8_t crc = 0;
 
     // Start of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(STX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(STX);
 
     // Operation
-    while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_ERROR);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_ERROR);
     crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_ERROR);
 
     // Channel
-    while (BusyUSART());
-    WriteUSART(0);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Sequency number
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while (BusyUSART()); // MSB
-    WriteUSART(0);
+    while (VSCP_BUSY_USART()); // MSB
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
-    while (BusyUSART()); // LSB
-    WriteUSART(1);
+    while (VSCP_BUSY_USART()); // LSB
+    VSCP_WRITE_USART(1);
     crc8(&crc, 1);
 
     // Payload == error code
@@ -2078,10 +2138,10 @@ void sendVSCPDriverErrorFrame(uint8_t errorcode)
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(ETX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(ETX);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2093,40 +2153,40 @@ void sendVSCPDriverAck(void)
     uint8_t crc = 0;
 
     // Start of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(STX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(STX);
 
     // Operation
-    while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_ACK);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_ACK);
     crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_ACK);
 
     // Channel
-    while (BusyUSART());
-    WriteUSART(0);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Sequency number
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while (BusyUSART()); // MSB
-    WriteUSART(0);
+    while (VSCP_BUSY_USART()); // MSB
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
-    while (BusyUSART()); // LSB
-    WriteUSART(0);
+    while (VSCP_BUSY_USART()); // LSB
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Checksum
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(ETX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(ETX);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2137,40 +2197,40 @@ void sendVSCPDriverNack(void) {
     uint8_t crc = 0;
 
     // Start of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(STX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(STX);
 
     // Operation
-    while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_NACK);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_NACK);
     crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_NACK);
 
     // Channel
-    while (BusyUSART());
-    WriteUSART(0);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Sequency number
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while (BusyUSART()); // MSB
-    WriteUSART(0);
+    while (VSCP_BUSY_USART()); // MSB
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
-    while (BusyUSART()); // LSB
-    WriteUSART(0);
+    while (VSCP_BUSY_USART()); // LSB
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Checksum
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(ETX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(ETX);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2182,48 +2242,48 @@ void sendVSCPDriverCommandReply(uint8_t cmdReplyCode, uint8_t cmdCode)
     uint8_t crc = 0;
 
     // Start of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(STX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(STX);
 
     // Operation
-    while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND_REPLY);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND_REPLY);
     crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND_REPLY);
 
     // Channel
-    while (BusyUSART());
-    WriteUSART(0);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Sequency number
     sendEscapedUartData(cmdbuf[ 2 ], &crc);
 
     // Payload length
-    while (BusyUSART()); // MSB
-    WriteUSART(0);
+    while (VSCP_BUSY_USART()); // MSB
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
-    while (BusyUSART()); // LSB
-    WriteUSART(2);
+    while (VSCP_BUSY_USART()); // LSB
+    VSCP_WRITE_USART(2);
     crc8(&crc, 2);
 
     // Reply code 0 == OK
-    while (BusyUSART());
+    while (VSCP_BUSY_USART());
     sendEscapedUartData(cmdReplyCode, &crc);
 
     // Rely on command
-    while (BusyUSART());
+    while (VSCP_BUSY_USART());
     sendEscapedUartData(cmdCode, &crc);
 
     // Checksum
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(ETX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(ETX);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2245,40 +2305,40 @@ BOOL receivePrintEventVerbose(void)
         cntRxFrames++;
         cntRxBytes += vscpSize;
 
-        putsUSART((char *) "<Prio=");
+        VSCP_PUTS_USART((char *) "<Prio=");
         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", vscpPriority);
-        putsUSART(wrkbuf);
+        VSCP_PUTS_USART(wrkbuf);
         if ( bTimestamp ) {
-            putsUSART((char *) ",timestamp=");
+            VSCP_PUTS_USART((char *) ",timestamp=");
             sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", (timer<<16) | ReadTimer3()*10 );
-            putsUSART(wrkbuf);
+            VSCP_PUTS_USART(wrkbuf);
         }
-        putsUSART((char *) ",class=");
+        VSCP_PUTS_USART((char *) ",class=");
         sprintf(wrkbuf, bHex ? "0x%04X" : "%d", vscpClass);
-        putsUSART(wrkbuf);
-        putsUSART((char *) ",type=");
+        VSCP_PUTS_USART(wrkbuf);
+        VSCP_PUTS_USART((char *) ",type=");
         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", vscpType);
-        putsUSART(wrkbuf);
-        putsUSART((char *) ",nodeid=");
+        VSCP_PUTS_USART(wrkbuf);
+        VSCP_PUTS_USART((char *) ",nodeid=");
         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", vscpNodeId);
-        putsUSART(wrkbuf);
-        putsUSART((char *) ",size=");
+        VSCP_PUTS_USART(wrkbuf);
+        VSCP_PUTS_USART((char *) ",size=");
         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", vscpSize);
-        putsUSART(wrkbuf);
+        VSCP_PUTS_USART(wrkbuf);
         if (vscpSize > 0) {
-            putsUSART((char *) ",Data=");
+            VSCP_PUTS_USART((char *) ",Data=");
             for (i = 0; i < vscpSize; i++) {
                 //itoa(wrkbuf, vscpData[i], bHex ? 16 : 10);
                 sprintf(wrkbuf, bHex ? "0x%02X" : "%d", vscpData[i]);
-                putsUSART(wrkbuf);
+                VSCP_PUTS_USART(wrkbuf);
                 if (i < (vscpSize - 1)) {
-                    putsUSART((char *) ",");
+                    VSCP_PUTS_USART((char *) ",");
                 }
             }
         } else {
-            putsUSART((char *) ",Data=none");
+            VSCP_PUTS_USART((char *) ",Data=none");
         }
-        putsUSART((char *) ">\r\n");
+        VSCP_PUTS_USART((char *) ">\r\n");
         return TRUE;
     }
 
@@ -2305,25 +2365,25 @@ BOOL receiveSendEventCANAL(void)
         cntRxBytes += dlc;
 
         // Start of frame
-        while (BusyUSART());
-        WriteUSART(DLE);
-        while (BusyUSART());
-        WriteUSART(STX);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(STX);
 
         // Operation
-        while (BusyUSART());
+        while (VSCP_BUSY_USART());
         if ( bTimestamp ) {
-            WriteUSART( VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL_TIMESTAMP );
+            VSCP_WRITE_USART( VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL_TIMESTAMP );
             crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL_TIMESTAMP );
         }
         else {
-            WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL);
+            VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL);
             crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_CANAL);
         }
 
         // Channel
-        while (BusyUSART());
-        WriteUSART(0);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(0);
         crc8(&crc, 0);
 
         // Sequency number
@@ -2366,10 +2426,10 @@ BOOL receiveSendEventCANAL(void)
         sendEscapedUartData(crc, NULL);
 
         // End of frame
-        while (BusyUSART());
-        WriteUSART(DLE);
-        while (BusyUSART());
-        WriteUSART(ETX);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(ETX);
 
         return TRUE;
     }
@@ -2399,25 +2459,25 @@ BOOL receiveSendMultiEventCANAL(void)
         cntRxBytes += dlc;
 
         // Start of frame
-        while (BusyUSART());
-        WriteUSART(DLE);
-        while (BusyUSART());
-        WriteUSART(STX);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(STX);
 
         // Operation
-        while (BusyUSART());
+        while (VSCP_BUSY_USART());
         if ( bTimestamp ) {
-            WriteUSART( VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL_TIMESTAMP );
+            VSCP_WRITE_USART( VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL_TIMESTAMP );
             crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL_TIMESTAMP );
         }
         else {
-            WriteUSART( VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL );
+            VSCP_WRITE_USART( VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL );
             crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_MULTI_FRAME_CANAL  );
         }
 
         // Channel
-        while ( BusyUSART() );
-        WriteUSART(0);
+        while ( VSCP_BUSY_USART() );
+        VSCP_WRITE_USART(0);
         crc8(&crc, 0);
 
         // Sequency number
@@ -2484,10 +2544,10 @@ BOOL receiveSendMultiEventCANAL(void)
         sendEscapedUartData(crc, NULL);
 
         // End of frame
-        while (BusyUSART());
-        WriteUSART(DLE);
-        while (BusyUSART());
-        WriteUSART(ETX);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(ETX);
 
         return TRUE;
     }
@@ -2519,19 +2579,19 @@ BOOL receiveSendEventVSCP(void)
         cntRxBytes += vscpSize;
 
         // Start of frame
-        while (BusyUSART());
-        WriteUSART(DLE);
-        while (BusyUSART());
-        WriteUSART(STX);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(STX);
 
         // Operation
-        while (BusyUSART());
-        WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_VSCP_EVENT);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_VSCP_EVENT);
         crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_VSCP_EVENT);
 
         // Channel
-        while (BusyUSART());
-        WriteUSART(0);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(0);
         crc8(&crc, 0);
 
         // Sequency number
@@ -2568,10 +2628,10 @@ BOOL receiveSendEventVSCP(void)
         sendEscapedUartData(crc, NULL);
 
         // End of frame
-        while (BusyUSART());
-        WriteUSART(DLE);
-        while (BusyUSART());
-        WriteUSART(ETX);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(DLE);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(ETX);
 
         return TRUE;
     }
@@ -2589,19 +2649,19 @@ BOOL sendVSCPModeCapabilities(void)
     uint8_t crc = 0;
 
     // Start of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(STX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(STX);
 
     // Operation
-    while (BusyUSART());
-    WriteUSART(VSCP_SERIAL_DRIVER_FRAME_TYPE_CAPS_RESPONSE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(VSCP_SERIAL_DRIVER_FRAME_TYPE_CAPS_RESPONSE);
     crc8(&crc, VSCP_SERIAL_DRIVER_FRAME_TYPE_CAPS_RESPONSE);
 
     // Channel
-    while (BusyUSART());
-    WriteUSART(0);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(0);
     crc8(&crc, 0);
 
     // Sequency number
@@ -2620,10 +2680,10 @@ BOOL sendVSCPModeCapabilities(void)
     sendEscapedUartData(crc, NULL);
 
     // End of frame
-    while (BusyUSART());
-    WriteUSART(DLE);
-    while (BusyUSART());
-    WriteUSART(ETX);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(DLE);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART(ETX);
 
     return TRUE;
 }
@@ -2644,32 +2704,32 @@ BOOL receiveSendEventSLCAN(void)
         cntRxFrames++;
         cntRxBytes += dlc;
 
-        while (BusyUSART());
-        WriteUSART('T');
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART('T');
 
         ultoa(wrkbuf, id, 16);
         // First print leading zeros so length is eight characers
         for (i = 0; i < ((uint8_t) (8 - sizeof (wrkbuf))); i++) {
-            while (BusyUSART());
-            WriteUSART('0');
+            while (VSCP_BUSY_USART());
+            VSCP_WRITE_USART('0');
         }
-        putsUSART(wrkbuf);
+        VSCP_PUTS_USART(wrkbuf);
 
         // Send dlc - always one digit
         itoa(wrkbuf, dlc, 16);
-        while (BusyUSART());
-        WriteUSART(wrkbuf[0]);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(wrkbuf[0]);
 
         // Sen data
         for (i = 0; i < dlc; i++) {
             itoa(wrkbuf, vscpData[i], 16);
             // Leading zero if needed
             if (2 != strlen(wrkbuf)) {
-                while (BusyUSART());
-                WriteUSART('0');
+                while (VSCP_BUSY_USART());
+                VSCP_WRITE_USART('0');
             }
             // Data
-            putsUSART(wrkbuf);
+            VSCP_PUTS_USART(wrkbuf);
         }
 
         // If timestamp is active add it to
@@ -2677,14 +2737,14 @@ BOOL receiveSendEventSLCAN(void)
             ultoa(wrkbuf, timer, 16);
             // First print leading zeros so length is eight characters
             for (i = 0; i < ((uint8_t) (8 - sizeof (wrkbuf))); i++) {
-                while (BusyUSART());
-                WriteUSART('0');
+                while (VSCP_BUSY_USART());
+                VSCP_WRITE_USART('0');
             }
-            putsUSART(wrkbuf);
+            VSCP_PUTS_USART(wrkbuf);
         }
 
-        while (BusyUSART());
-        WriteUSART(0x0d);
+        while (VSCP_BUSY_USART());
+        VSCP_WRITE_USART(0x0d);
     }
 
     return FALSE;
@@ -2978,11 +3038,11 @@ void printBinary(uint8_t value)
 
     for (i = 7; i >= 0; i--) {
         if (value & (1 << i)) {
-            while (BusyUSART());
-            WriteUSART('1');
+            while (VSCP_BUSY_USART());
+            VSCP_WRITE_USART('1');
         } else {
-            while (BusyUSART());
-            WriteUSART('0');
+            while (VSCP_BUSY_USART());
+            VSCP_WRITE_USART('0');
         }
     }
 }
@@ -2993,25 +3053,25 @@ void printBinary(uint8_t value)
 
 void printStatistics(void)
 {
-    putsUSART((char *) "Sent CAN frames: ");
+    VSCP_PUTS_USART((char *) "Sent CAN frames: ");
     sprintf(wrkbuf, bHex ? "0x%08X" : "%lu", cntTxFrames);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
-    putsUSART((char *) "Sent CAN bytes: ");
+    VSCP_PUTS_USART((char *) "Sent CAN bytes: ");
     sprintf(wrkbuf, bHex ? "0x%08X" : "%lu", cntTxBytes);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
-    putsUSART((char *) "Received CAN frames: ");
+    VSCP_PUTS_USART((char *) "Received CAN frames: ");
     sprintf(wrkbuf, bHex ? "0x%08X" : "%lu", cntRxFrames);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
-    putsUSART((char *) "Received CAN bytes: ");
+    VSCP_PUTS_USART((char *) "Received CAN bytes: ");
     sprintf(wrkbuf, bHex ? "0x%08X" : "%lu", cntRxBytes);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3020,58 +3080,58 @@ void printStatistics(void)
 
 void printErrors(void)
 {
-    putsUSART((char *) "CAN Receive overruns: ");
+    VSCP_PUTS_USART((char *) "CAN Receive overruns: ");
     sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", can_receiveOverruns);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
-    putsUSART((char *) "CAN Transmit overruns: ");
+    VSCP_PUTS_USART((char *) "CAN Transmit overruns: ");
     sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", can_transmitOverruns);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
-    putsUSART((char *) "UART Receive overruns: ");
+    VSCP_PUTS_USART((char *) "UART Receive overruns: ");
     sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", uart_receiveOverruns);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
-    putsUSART((char *) "UART Receive overruns: ");
+    VSCP_PUTS_USART((char *) "UART Receive overruns: ");
     sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", uart_transmitOverruns);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
     
     if (COMSTATbits.EWARN) {
-        putsUSART((char *) "Transmitter or Receiver is in Error State Warning\r\n");
+        VSCP_PUTS_USART((char *) "Transmitter or Receiver is in Error State Warning\r\n");
     }
 
-    putsUSART((char *) "Transmit Error Counter: ");
+    VSCP_PUTS_USART((char *) "Transmit Error Counter: ");
     sprintf(wrkbuf, bHex ? "0x%02X" : "%d", TXERRCNT);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
     if (COMSTATbits.TXWARN) {
-        putsUSART((char *) "Transmitter in Error State Warning (128 > TXERRCNT > 96)\r\n");
+        VSCP_PUTS_USART((char *) "Transmitter in Error State Warning (128 > TXERRCNT > 96)\r\n");
     }
 
     if (COMSTATbits.TXBO) {
-        putsUSART((char *) "Transmitter in Error State Bus OFF (TXERRCNT ? 256)\r\n");
+        VSCP_PUTS_USART((char *) "Transmitter in Error State Bus OFF (TXERRCNT ? 256)\r\n");
     }
 
     if (COMSTATbits.TXBP) {
-        putsUSART((char *) "Transmitter in Error State Bus Passive (TXERRCNT ? 128)\r\n");
+        VSCP_PUTS_USART((char *) "Transmitter in Error State Bus Passive (TXERRCNT ? 128)\r\n");
     } 
 
-    putsUSART((char *) "Receive Error Counter: ");
+    VSCP_PUTS_USART((char *) "Receive Error Counter: ");
     sprintf(wrkbuf, bHex ? "0x%02X" : "%d", RXERRCNT);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 
     if (COMSTATbits.RXBP) {
-        putsUSART((char *) "Receiver in Error State Bus Passive (RXERRCNT > 127)\r\n");
+        VSCP_PUTS_USART((char *) "Receiver in Error State Bus Passive (RXERRCNT > 127)\r\n");
     }
 
     if (COMSTATbits.RXWARN) {
-        putsUSART((char *) "Receiver  in Error State Warning (128 > RXERRCNT > 96)\r\n");
+        VSCP_PUTS_USART((char *) "Receiver  in Error State Warning (128 > RXERRCNT > 96)\r\n");
     }
 
 }
@@ -3083,38 +3143,38 @@ void printErrors(void)
 
 void printHelp(void)
 {
-    putsUSART((char *) "Help for the Frankfurt RS-232 module\r\n");
-    putsUSART((char *) "------------------------------------\r\n");
-    putsUSART((char *) "BOOT - Enter bootloader.\r\n");
-    putsUSART((char *) "OPEN - Open CAN interface in normal mode.\r\n");
-    putsUSART((char *) "SILENT - Open CAN interface in silent mode.\r\n");
-    putsUSART((char *) "LISTEN - Open CAN interface in listen only mode.\r\n");
-    putsUSART((char *) "LOOPBACK - Open CAN interface in loopback mode.\r\n");
-    putsUSART((char *) "CLOSE - Close CAN interface.\r\n");
-    putsUSART((char *) "VERSION - Display firmware version information.\r\n");
-    putsUSART((char *) "IFMODE - Display selected interface mode.\r\n");
-    putsUSART((char *) "TX - Send CAN frame .\r\n");
-    putsUSART((char *) "     Format: priority,class,type,nodeid,count,data,,,\r\n");
-    putsUSART((char *) "RX - Read CAN frame.\r\n");
-    putsUSART((char *) "STAT - Display CAN statistics.\r\n");
-    putsUSART((char *) "ERR - Display CAN error information.\r\n");
-    putsUSART((char *) "HELP - Display this help information.\r\n");
-    putsUSART((char *) "FIND - Find available CAN4VSCP nodes on bus.\r\n");
-    putsUSART((char *) "RREG - Read register(s) of node (Format: rreg nodeid [page:]reg [count]).\r\n");
-    putsUSART((char *) "WREG - Write register of node (Format: wreg nodeid [page:]reg content).\r\n");
-    putsUSART((char *) "INFO - Get info about an existent node on the bus (Format: info nickname).\r\n");
-    putsUSART((char *) "FILTER - Set filter .\r\n");
-    putsUSART((char *) "         Format: filter filterno,prio,class,type,nodeid  (filterno = 0-15).\r\n");
-    putsUSART((char *) "MASK - Set mask .\r\n");
-    putsUSART((char *) "       Format: mask maskno,prio,class,type,nodeid (maskno = 0 or 1).\r\n");
-    putsUSART((char *) "SET - Persistent functionality.\r\n");
-    putsUSART((char *) "    HEX - Display numericals in hexadecimal.\r\n");
-    putsUSART((char *) "    DECIMAL - Display numericals in decimal.\r\n");
-    putsUSART((char *) "    RWTIMEOUT - Set register read/write timeout. Default=20 ms .\r\n");
-    putsUSART((char *) "                Format: set rwtimeout timeout.\r\n");
-    putsUSART((char *) "    STARTIF - Set interface state to use on startup.\r\n");
-    putsUSART((char *) "    MODE - Set adapter mode that should be used on startup.\r\n");
-    putsUSART((char *) "           Modes: verbose|vscp|slcan\r\n");
+    VSCP_PUTS_USART((char *) "Help for the Frankfurt RS-232 module\r\n");
+    VSCP_PUTS_USART((char *) "------------------------------------\r\n");
+    VSCP_PUTS_USART((char *) "BOOT - Enter bootloader.\r\n");
+    VSCP_PUTS_USART((char *) "OPEN - Open CAN interface in normal mode.\r\n");
+    VSCP_PUTS_USART((char *) "SILENT - Open CAN interface in silent mode.\r\n");
+    VSCP_PUTS_USART((char *) "LISTEN - Open CAN interface in listen only mode.\r\n");
+    VSCP_PUTS_USART((char *) "LOOPBACK - Open CAN interface in loopback mode.\r\n");
+    VSCP_PUTS_USART((char *) "CLOSE - Close CAN interface.\r\n");
+    VSCP_PUTS_USART((char *) "VERSION - Display firmware version information.\r\n");
+    VSCP_PUTS_USART((char *) "IFMODE - Display selected interface mode.\r\n");
+    VSCP_PUTS_USART((char *) "TX - Send CAN frame .\r\n");
+    VSCP_PUTS_USART((char *) "     Format: priority,class,type,nodeid,count,data,,,\r\n");
+    VSCP_PUTS_USART((char *) "RX - Read CAN frame.\r\n");
+    VSCP_PUTS_USART((char *) "STAT - Display CAN statistics.\r\n");
+    VSCP_PUTS_USART((char *) "ERR - Display CAN error information.\r\n");
+    VSCP_PUTS_USART((char *) "HELP - Display this help information.\r\n");
+    VSCP_PUTS_USART((char *) "FIND - Find available CAN4VSCP nodes on bus.\r\n");
+    VSCP_PUTS_USART((char *) "RREG - Read register(s) of node (Format: rreg nodeid [page:]reg [count]).\r\n");
+    VSCP_PUTS_USART((char *) "WREG - Write register of node (Format: wreg nodeid [page:]reg content).\r\n");
+    VSCP_PUTS_USART((char *) "INFO - Get info about an existent node on the bus (Format: info nickname).\r\n");
+    VSCP_PUTS_USART((char *) "FILTER - Set filter .\r\n");
+    VSCP_PUTS_USART((char *) "         Format: filter filterno,prio,class,type,nodeid  (filterno = 0-15).\r\n");
+    VSCP_PUTS_USART((char *) "MASK - Set mask .\r\n");
+    VSCP_PUTS_USART((char *) "       Format: mask maskno,prio,class,type,nodeid (maskno = 0 or 1).\r\n");
+    VSCP_PUTS_USART((char *) "SET - Persistent functionality.\r\n");
+    VSCP_PUTS_USART((char *) "    HEX - Display numericals in hexadecimal.\r\n");
+    VSCP_PUTS_USART((char *) "    DECIMAL - Display numericals in decimal.\r\n");
+    VSCP_PUTS_USART((char *) "    RWTIMEOUT - Set register read/write timeout. Default=20 ms .\r\n");
+    VSCP_PUTS_USART((char *) "                Format: set rwtimeout timeout.\r\n");
+    VSCP_PUTS_USART((char *) "    STARTIF - Set interface state to use on startup.\r\n");
+    VSCP_PUTS_USART((char *) "    MODE - Set adapter mode that should be used on startup.\r\n");
+    VSCP_PUTS_USART((char *) "           Modes: verbose|vscp|slcan\r\n");
 }
 
 
@@ -3130,11 +3190,11 @@ void findNodes(void)
     BOOL bDot = FALSE;
     
     if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
-        putsUSART( (char *)STR_ERR_ONLY_IF_OPEN );
+        VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
         return;
     }
 
-    putsUSART((char *) "----------------------------------------------------------------\r\n");
+    VSCP_PUTS_USART((char *) "----------------------------------------------------------------\r\n");
 
     for (i = 1; i != 0; i++) {
 
@@ -3145,30 +3205,30 @@ void findNodes(void)
                             rwtimeout,
                             &value ) ) {
             if ( bDot ) {
-                putsUSART((char *) "\r\n");
+                VSCP_PUTS_USART((char *) "\r\n");
             }
-            putsUSART((char *) "Node found with node id = ");
+            VSCP_PUTS_USART((char *) "Node found with node id = ");
             itoa(wrkbuf, vscpNodeId, bHex ? 16 : 10);
-            putsUSART(wrkbuf);
-            putsUSART((char *) "\r\n");
+            VSCP_PUTS_USART(wrkbuf);
+            VSCP_PUTS_USART((char *) "\r\n");
             printNodeFirmwareVersion(i);
             printGUID(i);
             printMDF(i);
-            putsUSART((char *) "----------------------------------------------------------------\r\n");
+            VSCP_PUTS_USART((char *) "----------------------------------------------------------------\r\n");
             nFound++; // Another one found
         }
         else {
             bDot = TRUE;
-            WriteUSART('.');
-            BusyUSART();
+            VSCP_WRITE_USART('.');
+            VSCP_BUSY_USART();
         }
 
     }
 
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART((char *) "\r\n");
     itoa(wrkbuf, nFound, 10);
-    putsUSART(wrkbuf);
-    putsUSART((char *) " node(s) found\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) " node(s) found\r\n");
 
 }
 
@@ -3184,7 +3244,7 @@ void printGUID(uint8_t nodeid)
     char buf[3];
 
     memset( wrkbuf, 0, sizeof( wrkbuf ) );
-    putsUSART((char *) "GUID = ");
+    VSCP_PUTS_USART((char *) "GUID = ");
 
     for (i = 0; i < 16; i++) {
         if (readRegister(nodeid,
@@ -3209,8 +3269,8 @@ void printGUID(uint8_t nodeid)
 
     }
 
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 }
 
 
@@ -3224,7 +3284,7 @@ void printMDF(uint8_t nodeid)
     uint8_t value;
     char *p = wrkbuf;
     memset( wrkbuf, 0, sizeof( wrkbuf ) );
-    putsUSART((char *) "MDF = http://");
+    VSCP_PUTS_USART((char *) "MDF = http://");
 
     for (i = 0; i < 32; i++) {
         if (readRegister(nodeid,
@@ -3241,8 +3301,8 @@ void printMDF(uint8_t nodeid)
         }
     }
 
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3256,7 +3316,7 @@ void printNodeFirmwareVersion(uint8_t nodeid)
     char buf[3];
 
     memset( wrkbuf, 0, sizeof(wrkbuf) );
-    putsUSART((char *) "Firmware version = ");
+    VSCP_PUTS_USART((char *) "Firmware version = ");
 
     for (i = 0; i < 3; i++) {
         if (readRegister(nodeid,
@@ -3276,8 +3336,8 @@ void printNodeFirmwareVersion(uint8_t nodeid)
 
     }
 
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3297,18 +3357,18 @@ void vscp_restoreDefaults(void)
 void printFirmwareVersion(void)
 {
     char wrkbuf[20];
-    putsUSART((char *) "Version: ");
+    VSCP_PUTS_USART((char *) "Version: ");
     itoa(wrkbuf, FIRMWARE_MAJOR_VERSION, 10);
-    putsUSART(wrkbuf);
-    while (BusyUSART());
-    WriteUSART('.');
+    VSCP_PUTS_USART(wrkbuf);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART('.');
     itoa(wrkbuf, FIRMWARE_MINOR_VERSION, 10);
-    putsUSART(wrkbuf);
-    while (BusyUSART());
-    WriteUSART('.');
+    VSCP_PUTS_USART(wrkbuf);
+    while (VSCP_BUSY_USART());
+    VSCP_WRITE_USART('.');
     itoa(wrkbuf, FIRMWARE_SUB_MINOR_VERSION, 10);
-    putsUSART(wrkbuf);
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART(wrkbuf);
+    VSCP_PUTS_USART((char *) "\r\n");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3317,19 +3377,19 @@ void printFirmwareVersion(void)
 
 void printMode(void)
 {
-    putsUSART((char *) "Mode: ");
+    VSCP_PUTS_USART((char *) "Mode: ");
     if (WORKING_MODE_VERBOSE == mode) {
-        putsUSART((char *) "Verbose");
+        VSCP_PUTS_USART((char *) "Verbose");
     } else if (WORKING_MODE_VSCP_DRIVER == mode) {
-        putsUSART((char *) "VSCP Driver");
+        VSCP_PUTS_USART((char *) "VSCP Driver");
     } else if (WORKING_MODE_SL_DRIVER == mode) {
-        putsUSART((char *) "SL Driver");
+        VSCP_PUTS_USART((char *) "SL Driver");
     } else if (WORKING_MODE_VSCP_NODE == mode) {
-        putsUSART((char *) "VSCP Node");
+        VSCP_PUTS_USART((char *) "VSCP Node");
     } else {
-        putsUSART((char *) "Unknown (Verbose used)");
+        VSCP_PUTS_USART((char *) "Unknown (Verbose used)");
     }
-    putsUSART((char *) "\r\n");
+    VSCP_PUTS_USART((char *) "\r\n");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3561,9 +3621,11 @@ void changeBaudrate( uint8_t nBaud )
             nBaud = BAUDRATE_115200;
             break;
     }
-                    
-    CloseUSART();
-    OpenUSART( USART_TX_INT_OFF &
+     
+//#if defined(_18F2580)    
+    VSCP_CLOSE_USART(); 
+//#endif    
+    VSCP_OPEN_USART( USART_TX_INT_OFF &
                     USART_RX_INT_ON &
                     USART_ASYNCH_MODE &
                     USART_EIGHT_BIT &

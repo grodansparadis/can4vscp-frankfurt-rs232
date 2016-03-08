@@ -2,11 +2,11 @@ Microchip MPLAB XC8 Compiler V1.21 ()
 
 Linker command line:
 
---edf=C:\Program Files (x86)\Microchip\xc8\v1.21\dat\en_msgs.txt \
-  --UDF=html\Frankfurt_RS-232.X.production.link.html -cs \
-  -h+dist/relocated/production\Frankfurt_RS-232.X.production.sym \
-  --cmf=dist/relocated/production\Frankfurt_RS-232.X.production.cmf -z \
-  -Q18F2580 -oC:\Users\GRODAN~1\AppData\Local\Temp\s38c.6 \
+--edf=/opt/microchip/xc8/v1.21/dat/en_msgs.txt \
+  --UDF=html/Frankfurt_RS-232.X.production.link.html -cs \
+  -h+dist/relocated/production/Frankfurt_RS-232.X.production.sym \
+  --cmf=dist/relocated/production/Frankfurt_RS-232.X.production.cmf -z \
+  -Q18F2580 -o/tmp/cgtsGzftJ \
   -Mdist/relocated/production/Frankfurt_RS-232.X.production.map -E1 \
   -ver=XC8 -ACODE=0400h-07FFFh -ACONST=0400h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-05Fh \
@@ -22,9 +22,8 @@ Linker command line:
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
-  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\GRODAN~1\AppData\Local\Temp\s38c.obj \
-  dist/relocated/production\Frankfurt_RS-232.X.production.obj 
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtGvNdRD.obj \
+  dist/relocated/production/Frankfurt_RS-232.X.production.obj 
 
 Object code version is 3.11
 
@@ -36,12 +35,12 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\GRODAN~1\AppData\Local\Temp\s38c.obj
+/tmp/cgtGvNdRD.obj
                 end_init                            77A      77A        4      20C       0
                 reset_vec                           400      400        4      200       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
-dist/relocated/production\Frankfurt_RS-232.X.production.obj
+dist/relocated/production/Frankfurt_RS-232.X.production.obj
                 intcodelo                           418      418      362      20C       0
                 mediumconst                        6DEC     6DEC     1214     36F6       0
                 text95                             6ACA     6ACA       1E      20C       0
@@ -1865,7 +1864,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 299 in file "main.c"
+		line 307 in file "main.c"
  Parameters:    Size  Location     Type
   argc            2   20[BANK1 ] int 
   argv            3   22[BANK1 ] PTR PTR unsigned char 
@@ -1909,7 +1908,7 @@ Total ram usage:        7 bytes
 
  *************** function _doModeVscpNode *****************
  Defined at:
-		line 2001 in file "main.c"
+		line 2009 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1939,7 +1938,7 @@ Total ram usage:        0 bytes
 
  *************** function _doModeSLCAN *****************
  Defined at:
-		line 1783 in file "main.c"
+		line 1791 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2050,7 +2049,7 @@ Total ram usage:        1 bytes
 
  *************** function _receiveSendEventSLCAN *****************
  Defined at:
-		line 2628 in file "main.c"
+		line 2636 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2087,7 +2086,7 @@ Total ram usage:       10 bytes
 
  *************** function _ultoa *****************
  Defined at:
-		line 34 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ltoa.c"
+		line 34 in file "/opt/microchip/xc8/v1.21/sources/common/ltoa.c"
  Parameters:    Size  Location     Type
   buf             2   13[BANK0 ] PTR unsigned char 
 		 -> wrkbuf(80), 
@@ -2122,7 +2121,7 @@ Total ram usage:       13 bytes
 
  *************** function _doModeVscp *****************
  Defined at:
-		line 1430 in file "main.c"
+		line 1438 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2169,7 +2168,7 @@ Total ram usage:        7 bytes
 
  *************** function _sendVSCPDriverErrorFrame *****************
  Defined at:
-		line 2036 in file "main.c"
+		line 2044 in file "main.c"
  Parameters:    Size  Location     Type
   errorcode       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2202,7 +2201,7 @@ Total ram usage:        2 bytes
 
  *************** function _sendVSCPDriverCommandReply *****************
  Defined at:
-		line 2173 in file "main.c"
+		line 2181 in file "main.c"
  Parameters:    Size  Location     Type
   cmdReplyCode    1    wreg     unsigned char 
   cmdCode         1    6[BANK0 ] unsigned char 
@@ -2236,7 +2235,7 @@ Total ram usage:        3 bytes
 
  *************** function _sendVSCPModeCapabilities *****************
  Defined at:
-		line 2580 in file "main.c"
+		line 2588 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2268,7 +2267,7 @@ Total ram usage:        1 bytes
 
  *************** function _receiveVSCPModeMultiCanalMsg *****************
  Defined at:
-		line 2716 in file "main.c"
+		line 2724 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2298,7 +2297,7 @@ Total ram usage:        0 bytes
 
  *************** function _receiveVSCPModeCanalMsg *****************
  Defined at:
-		line 2690 in file "main.c"
+		line 2698 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2331,7 +2330,7 @@ Total ram usage:       33 bytes
 
  *************** function _memcpy *****************
  Defined at:
-		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memcpy.c"
+		line 13 in file "/opt/microchip/xc8/v1.21/sources/common/memcpy.c"
  Parameters:    Size  Location     Type
   d1              2   30[COMRAM] PTR void 
 		 -> receiveVSCPModeCanalMsg@data(8), vscpData(8), 
@@ -2369,7 +2368,7 @@ Total ram usage:       10 bytes
 
  *************** function _sendVSCPDriverAck *****************
  Defined at:
-		line 2084 in file "main.c"
+		line 2092 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2401,7 +2400,7 @@ Total ram usage:        1 bytes
 
  *************** function _sendVSCPDriverNack *****************
  Defined at:
-		line 2128 in file "main.c"
+		line 2136 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2433,7 +2432,7 @@ Total ram usage:        1 bytes
 
  *************** function _calcCRC *****************
  Defined at:
-		line 2932 in file "main.c"
+		line 2940 in file "main.c"
  Parameters:    Size  Location     Type
   p               2    3[BANK0 ] PTR unsigned char 
 		 -> cmdbuf(80), 
@@ -2466,7 +2465,7 @@ Total ram usage:        5 bytes
 
  *************** function _receiveSendEventCANAL *****************
  Defined at:
-		line 2285 in file "main.c"
+		line 2293 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2506,7 +2505,7 @@ Total ram usage:       23 bytes
 
  *************** function _receiveSendMultiEventCANAL *****************
  Defined at:
-		line 2377 in file "main.c"
+		line 2385 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2548,7 +2547,7 @@ Total ram usage:       25 bytes
 
  *************** function _sendEscapedUartData *****************
  Defined at:
-		line 2010 in file "main.c"
+		line 2018 in file "main.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
   pcrc            2    3[BANK0 ] PTR unsigned char 
@@ -2664,7 +2663,7 @@ Total ram usage:        7 bytes
 
  *************** function _doModeVerbose *****************
  Defined at:
-		line 635 in file "main.c"
+		line 643 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2779,7 +2778,7 @@ Total ram usage:       96 bytes
 
  *************** function _changeBaudrate *****************
  Defined at:
-		line 3500 in file "main.c"
+		line 3508 in file "main.c"
  Parameters:    Size  Location     Type
   nBaud           1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2810,7 +2809,7 @@ Total ram usage:        1 bytes
 
  *************** function _writeRegisterExtended *****************
  Defined at:
-		line 2880 in file "main.c"
+		line 2888 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
   page            2   79[BANK0 ] unsigned short 
@@ -2847,7 +2846,7 @@ Total ram usage:       12 bytes
 
  *************** function _printBinary *****************
  Defined at:
-		line 2968 in file "main.c"
+		line 2976 in file "main.c"
  Parameters:    Size  Location     Type
   value           1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -2878,7 +2877,7 @@ Total ram usage:        5 bytes
 
  *************** function _readRegisterExtended *****************
  Defined at:
-		line 2777 in file "main.c"
+		line 2785 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
   page            2   79[BANK0 ] unsigned short 
@@ -2915,7 +2914,7 @@ Total ram usage:       12 bytes
 
  *************** function _strcpy *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcpy.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/strcpy.c"
  Parameters:    Size  Location     Type
   to              2   30[COMRAM] PTR unsigned char 
 		 -> cmdbuf(80), 
@@ -2949,7 +2948,7 @@ Total ram usage:        6 bytes
 
  *************** function _findNodes *****************
  Defined at:
-		line 3118 in file "main.c"
+		line 3126 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2988,7 +2987,7 @@ Total ram usage:        6 bytes
 
  *************** function _printMDF *****************
  Defined at:
-		line 3214 in file "main.c"
+		line 3222 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3025,7 +3024,7 @@ Total ram usage:        5 bytes
 
  *************** function _printGUID *****************
  Defined at:
-		line 3173 in file "main.c"
+		line 3181 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3064,7 +3063,7 @@ Total ram usage:        6 bytes
 
  *************** function _printNodeFirmwareVersion *****************
  Defined at:
-		line 3245 in file "main.c"
+		line 3253 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3102,7 +3101,7 @@ Total ram usage:        6 bytes
 
  *************** function _strcat *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcat.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/strcat.c"
  Parameters:    Size  Location     Type
   to              2   30[COMRAM] PTR unsigned char 
 		 -> wrkbuf(80), 
@@ -3138,7 +3137,7 @@ Total ram usage:        6 bytes
 
  *************** function _readRegister *****************
  Defined at:
-		line 2730 in file "main.c"
+		line 2738 in file "main.c"
  Parameters:    Size  Location     Type
   nodeid          1    wreg     unsigned char 
   reg             1   79[BANK0 ] unsigned char 
@@ -3177,7 +3176,7 @@ Total ram usage:        9 bytes
 
  *************** function _sendVSCPFrame *****************
  Defined at:
-		line 3576 in file "main.c"
+		line 3584 in file "main.c"
  Parameters:    Size  Location     Type
   vscpclass       2   47[BANK0 ] unsigned short 
   vscptype        1   49[BANK0 ] unsigned char 
@@ -3216,7 +3215,7 @@ Total ram usage:       32 bytes
 
  *************** function _sendCANFrame *****************
  Defined at:
-		line 3622 in file "main.c"
+		line 3630 in file "main.c"
  Parameters:    Size  Location     Type
   id              4   40[BANK0 ] unsigned long 
   dlc             1   44[BANK0 ] unsigned char 
@@ -3302,7 +3301,7 @@ Total ram usage:       37 bytes
 
  *************** function _checkCANBusState *****************
  Defined at:
-		line 609 in file "main.c"
+		line 617 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3334,7 +3333,7 @@ Total ram usage:        0 bytes
 
  *************** function _memset *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memset.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/memset.c"
  Parameters:    Size  Location     Type
   p1              2   30[COMRAM] PTR void 
 		 -> wrkbuf(80), vscpData(8), cmdbuf(80), 
@@ -3372,7 +3371,7 @@ Total ram usage:        8 bytes
 
  *************** function _printHelp *****************
  Defined at:
-		line 3077 in file "main.c"
+		line 3085 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3402,7 +3401,7 @@ Total ram usage:        0 bytes
 
  *************** function _printErrors *****************
  Defined at:
-		line 3014 in file "main.c"
+		line 3022 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3433,7 +3432,7 @@ Total ram usage:       12 bytes
 
  *************** function _printStatistics *****************
  Defined at:
-		line 2987 in file "main.c"
+		line 2995 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3464,7 +3463,7 @@ Total ram usage:        8 bytes
 
  *************** function _atoi *****************
  Defined at:
-		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atoi.c"
+		line 6 in file "/opt/microchip/xc8/v1.21/sources/common/atoi.c"
  Parameters:    Size  Location     Type
   s               2    2[BANK0 ] PTR const unsigned char 
 		 -> STR_130(2), STR_128(2), STR_126(2), STR_124(2), 
@@ -3503,7 +3502,7 @@ Total ram usage:        7 bytes
 
  *************** function _strtok *****************
  Defined at:
-		line 11 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strtok.c"
+		line 11 in file "/opt/microchip/xc8/v1.21/sources/common/strtok.c"
  Parameters:    Size  Location     Type
   s1              2    4[BANK0 ] PTR unsigned char 
 		 -> NULL(0), cmdbuf(80), 
@@ -3542,7 +3541,7 @@ Total ram usage:        4 bytes
 
  *************** function _strcspn *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcspn.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/strcspn.c"
  Parameters:    Size  Location     Type
   s1              2    0[BANK0 ] PTR const unsigned char 
 		 -> NULL(0), cmdbuf(80), 
@@ -3580,7 +3579,7 @@ Total ram usage:        6 bytes
 
  *************** function _strspn *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strspn.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/strspn.c"
  Parameters:    Size  Location     Type
   s1              2    0[BANK0 ] PTR const unsigned char 
 		 -> NULL(0), cmdbuf(80), 
@@ -3618,7 +3617,7 @@ Total ram usage:        6 bytes
 
  *************** function _strchr *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strchr.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/strchr.c"
  Parameters:    Size  Location     Type
   ptr             2   30[COMRAM] PTR const unsigned char 
 		 -> STR_130(2), STR_128(2), STR_126(2), STR_124(2), 
@@ -3658,7 +3657,7 @@ Total ram usage:        6 bytes
 
  *************** function _stristr *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\stristr.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/stristr.c"
  Parameters:    Size  Location     Type
   s1              2    6[BANK0 ] PTR const unsigned char 
 		 -> NULL(0), cmdbuf(80), 
@@ -3703,7 +3702,7 @@ Total ram usage:        4 bytes
 
  *************** function _strichr *****************
  Defined at:
-		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strichr.c"
+		line 6 in file "/opt/microchip/xc8/v1.21/sources/common/strichr.c"
  Parameters:    Size  Location     Type
   ptr             2   31[COMRAM] PTR const unsigned char 
 		 -> NULL(0), cmdbuf(80), 
@@ -3735,7 +3734,7 @@ Total ram usage:        4 bytes
 
  *************** function _strnicmp *****************
  Defined at:
-		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strnicmp.c"
+		line 6 in file "/opt/microchip/xc8/v1.21/sources/common/strnicmp.c"
  Parameters:    Size  Location     Type
   s1              2    0[BANK0 ] PTR const unsigned char 
 		 -> NULL(0), cmdbuf(80), 
@@ -3779,7 +3778,7 @@ Total ram usage:        9 bytes
 
  *************** function _toupper *****************
  Defined at:
-		line 9 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\toupper.c"
+		line 9 in file "/opt/microchip/xc8/v1.21/sources/common/toupper.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -3810,7 +3809,7 @@ Total ram usage:        1 bytes
 
  *************** function _strlen *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strlen.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/strlen.c"
  Parameters:    Size  Location     Type
   s               2   30[COMRAM] PTR const unsigned char 
 		 -> printGUID@buf(3), STR_169(2), STR_168(9), STR_165(10), 
@@ -3868,7 +3867,7 @@ Total ram usage:        4 bytes
 
  *************** function _receivePrintEventVerbose *****************
  Defined at:
-		line 2226 in file "main.c"
+		line 2234 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3902,7 +3901,7 @@ Total ram usage:       24 bytes
 
  *************** function _ReadTimer3 *****************
  Defined at:
-		line 14 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3read.c"
+		line 14 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3read.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3934,7 +3933,7 @@ Total ram usage:        4 bytes
 
  *************** function _getVSCPFrame *****************
  Defined at:
-		line 3601 in file "main.c"
+		line 3609 in file "main.c"
  Parameters:    Size  Location     Type
   pvscpclass      2   12[BANK0 ] PTR unsigned short 
 		 -> vscpClass(2), 
@@ -3978,7 +3977,7 @@ Total ram usage:       20 bytes
 
  *************** function _getCANFrame *****************
  Defined at:
-		line 3637 in file "main.c"
+		line 3645 in file "main.c"
  Parameters:    Size  Location     Type
   pid             1    wreg     PTR unsigned long 
 		 -> getVSCPFrame@id(4), receiveSendEventSLCAN@id(4), receiveSendMultiEventCANAL@id(4), receiveSendEventCANAL@id(4), 
@@ -4063,7 +4062,7 @@ Total ram usage:       14 bytes
 
  *************** function _sprintf *****************
  Defined at:
-		line 493 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\doprnt.c"
+		line 493 in file "/opt/microchip/xc8/v1.21/sources/common/doprnt.c"
  Parameters:    Size  Location     Type
   sp              2   13[BANK0 ] PTR unsigned char 
 		 -> wrkbuf(80), 
@@ -4122,7 +4121,7 @@ Total ram usage:       30 bytes
 
  *************** function ___wmul *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\wmul.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/wmul.c"
  Parameters:    Size  Location     Type
   multiplier      2   34[COMRAM] unsigned int 
   multiplicand    2   36[COMRAM] unsigned int 
@@ -4157,7 +4156,7 @@ Total ram usage:        6 bytes
 
  *************** function ___llmod *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\llmod.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/llmod.c"
  Parameters:    Size  Location     Type
   dividend        4    5[BANK0 ] unsigned long 
   divisor         4    9[BANK0 ] unsigned long 
@@ -4189,7 +4188,7 @@ Total ram usage:        9 bytes
 
  *************** function ___lldiv *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lldiv.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/lldiv.c"
  Parameters:    Size  Location     Type
   dividend        4   30[COMRAM] unsigned long 
   divisor         4   34[COMRAM] unsigned long 
@@ -4222,7 +4221,7 @@ Total ram usage:       13 bytes
 
  *************** function _isdigit *****************
  Defined at:
-		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\isdigit.c"
+		line 13 in file "/opt/microchip/xc8/v1.21/sources/common/isdigit.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4253,7 +4252,7 @@ Total ram usage:        3 bytes
 
  *************** function _printFirmwareVersion *****************
  Defined at:
-		line 3290 in file "main.c"
+		line 3298 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4286,7 +4285,7 @@ Total ram usage:       20 bytes
 
  *************** function _itoa *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\itoa.c"
+		line 5 in file "/opt/microchip/xc8/v1.21/sources/common/itoa.c"
  Parameters:    Size  Location     Type
   buf             2    9[BANK0 ] PTR unsigned char 
 		 -> printFirmwareVersion@wrkbuf(20), printNodeFirmwareVersion@buf(3), printGUID@buf(3), wrkbuf(80), 
@@ -4324,7 +4323,7 @@ Total ram usage:        8 bytes
 
  *************** function _utoa *****************
  Defined at:
-		line 18 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\itoa.c"
+		line 18 in file "/opt/microchip/xc8/v1.21/sources/common/itoa.c"
  Parameters:    Size  Location     Type
   buf             2    0[BANK0 ] PTR unsigned char 
 		 -> printFirmwareVersion@wrkbuf(20), printNodeFirmwareVersion@buf(3), printGUID@buf(3), wrkbuf(80), 
@@ -4359,7 +4358,7 @@ Total ram usage:        9 bytes
 
  *************** function ___lwmod *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwmod.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/lwmod.c"
  Parameters:    Size  Location     Type
   dividend        2   30[COMRAM] unsigned int 
   divisor         2   32[COMRAM] unsigned int 
@@ -4390,7 +4389,7 @@ Total ram usage:        5 bytes
 
  *************** function ___lwdiv *****************
  Defined at:
-		line 10 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwdiv.c"
+		line 10 in file "/opt/microchip/xc8/v1.21/sources/common/lwdiv.c"
  Parameters:    Size  Location     Type
   dividend        2   30[COMRAM] unsigned int 
   divisor         2   32[COMRAM] unsigned int 
@@ -4422,7 +4421,7 @@ Total ram usage:        7 bytes
 
  *************** function _vscp_restoreDefaults *****************
  Defined at:
-		line 3280 in file "main.c"
+		line 3288 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4454,7 +4453,7 @@ Total ram usage:        0 bytes
 
  *************** function _init_app_eeprom *****************
  Defined at:
-		line 576 in file "main.c"
+		line 584 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4485,7 +4484,7 @@ Total ram usage:        1 bytes
 
  *************** function _printMode *****************
  Defined at:
-		line 3311 in file "main.c"
+		line 3319 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4515,7 +4514,7 @@ Total ram usage:        0 bytes
 
  *************** function _putsUSART *****************
  Defined at:
-		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uputs.c"
+		line 15 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uputs.c"
  Parameters:    Size  Location     Type
   data            2   31[COMRAM] PTR unsigned char 
 		 -> STR_308(3), STR_307(23), STR_306(10), STR_305(10), 
@@ -4605,7 +4604,7 @@ Total ram usage:        4 bytes
 
  *************** function _WriteUSART *****************
  Defined at:
-		line 14 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uwrite.c"
+		line 14 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uwrite.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4648,7 +4647,7 @@ Total ram usage:        1 bytes
 
  *************** function _init *****************
  Defined at:
-		line 445 in file "main.c"
+		line 453 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4714,7 +4713,7 @@ Total ram usage:        0 bytes
 
  *************** function _WriteTimer3 *****************
  Defined at:
-		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3write.c"
+		line 13 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3write.c"
  Parameters:    Size  Location     Type
   timer3          2   30[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
@@ -4744,7 +4743,7 @@ Total ram usage:        4 bytes
 
  *************** function _OpenTimer3 *****************
  Defined at:
-		line 30 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3open.c"
+		line 30 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3open.c"
  Parameters:    Size  Location     Type
   config          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4774,7 +4773,7 @@ Total ram usage:        1 bytes
 
  *************** function _OpenTimer0 *****************
  Defined at:
-		line 19 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0open.c"
+		line 19 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0open.c"
  Parameters:    Size  Location     Type
   config          1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -4804,7 +4803,7 @@ Total ram usage:        1 bytes
 
  *************** function _OpenUSART *****************
  Defined at:
-		line 74 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uopen.c"
+		line 74 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uopen.c"
  Parameters:    Size  Location     Type
   config          1    wreg     unsigned char 
   spbrg           2   30[COMRAM] unsigned int 
@@ -4836,7 +4835,7 @@ Total ram usage:        3 bytes
 
  *************** function _init_app_ram *****************
  Defined at:
-		line 528 in file "main.c"
+		line 536 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4908,7 +4907,7 @@ Total ram usage:       10 bytes
 
  *************** function _setFilter *****************
  Defined at:
-		line 3332 in file "main.c"
+		line 3340 in file "main.c"
  Parameters:    Size  Location     Type
   nFilter         1    wreg     unsigned char 
   val             4   34[COMRAM] unsigned long 
@@ -4947,7 +4946,7 @@ Total ram usage:       16 bytes
 
  *************** function _Write_b_eep *****************
  Defined at:
-		line 31 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\write_B.c"
+		line 31 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/write_B.c"
  Parameters:    Size  Location     Type
   badd            2   30[COMRAM] unsigned int 
   bdat            1   32[COMRAM] unsigned char 
@@ -4982,7 +4981,7 @@ Total ram usage:        4 bytes
 
  *************** function _Busy_eep *****************
  Defined at:
-		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\busy_eep.c"
+		line 13 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/busy_eep.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5051,7 +5050,7 @@ Total ram usage:        1 bytes
 
  *************** function _Read_b_eep *****************
  Defined at:
-		line 24 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\read_B.c"
+		line 24 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/read_B.c"
  Parameters:    Size  Location     Type
   badd            2   30[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
@@ -5082,7 +5081,7 @@ Total ram usage:        2 bytes
 
  *************** function _WriteTimer0 *****************
  Defined at:
-		line 17 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c"
+		line 17 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0write.c"
  Parameters:    Size  Location     Type
   timer0          2   30[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
@@ -5177,7 +5176,7 @@ Total ram usage:       10 bytes
 
  *************** function _Interrupt *****************
  Defined at:
-		line 146 in file "main.c"
+		line 154 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5212,7 +5211,7 @@ Total ram usage:       11 bytes
 
  *************** function i1_WriteTimer0 *****************
  Defined at:
-		line 17 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c"
+		line 17 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0write.c"
  Parameters:    Size  Location     Type
   timer0          2    0[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
@@ -5421,7 +5420,7 @@ Total ram usage:       18 bytes
 
  *************** function _ReadUSART *****************
  Defined at:
-		line 16 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uread.c"
+		line 16 in file "/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uread.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -5452,45 +5451,66 @@ Total ram usage:        1 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwdiv.c
+/opt/microchip/xc8/v1.21/sources/common/strlen.c
+		_strlen        		CODE           	686A	0000	60
+
+/opt/microchip/xc8/v1.21/sources/common/strlen.c estimated size: 60
+
+/opt/microchip/xc8/v1.21/sources/common/strcspn.c
+		_strcspn       		CODE           	66A2	0000	70
+
+/opt/microchip/xc8/v1.21/sources/common/strcspn.c estimated size: 70
+
+/opt/microchip/xc8/v1.21/sources/common/itoa.c
+		_itoa          		CODE           	6952	0000	56
+		_utoa          		CODE           	5C06	0000	160
+
+/opt/microchip/xc8/v1.21/sources/common/itoa.c estimated size: 216
+
+/opt/microchip/xc8/v1.21/sources/common/memcpy.c
+		_memcpy        		CODE           	672E	0000	66
+
+/opt/microchip/xc8/v1.21/sources/common/memcpy.c estimated size: 66
+
+/opt/microchip/xc8/v1.21/sources/common/strtok.c
+		_strtok        		CODE           	5DDC	0000	150
+
+/opt/microchip/xc8/v1.21/sources/common/strtok.c estimated size: 150
+
+/opt/microchip/xc8/v1.21/sources/common/isdigit.c
+		_isdigit       		CODE           	6A8E	0000	30
+
+/opt/microchip/xc8/v1.21/sources/common/isdigit.c estimated size: 30
+
+/opt/microchip/xc8/v1.21/sources/common/lwmod.c
+		___lwmod       		CODE           	682C	0000	62
+
+/opt/microchip/xc8/v1.21/sources/common/lwmod.c estimated size: 62
+
+/opt/microchip/xc8/v1.21/sources/common/strspn.c
+		_strspn        		CODE           	66E8	0000	70
+
+/opt/microchip/xc8/v1.21/sources/common/strspn.c estimated size: 70
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/write_B.c
+		_Write_b_eep   		CODE           	698A	0000	52
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/write_B.c estimated size: 52
+
+/opt/microchip/xc8/v1.21/sources/common/lwdiv.c
 		___lwdiv       		CODE           	6612	0000	74
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwdiv.c estimated size: 74
+/opt/microchip/xc8/v1.21/sources/common/lwdiv.c estimated size: 74
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c
-		_WriteTimer0   		CODE           	6B60	0000	18
+/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/busy_eep.c
+		_Busy_eep      		CODE           	6B8C	0000	6
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c estimated size: 18
+/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/busy_eep.c estimated size: 6
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\stristr.c
-		_stristr       		CODE           	6084	0000	122
+/opt/microchip/xc8/v1.21/sources/common/strichr.c
+		_strichr       		CODE           	67EE	0000	62
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\stristr.c estimated size: 122
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3read.c
-		_ReadTimer3    		CODE           	6B2A	0000	18
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3read.c estimated size: 18
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3write.c
-		_WriteTimer3   		CODE           	6B3C	0000	18
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3write.c estimated size: 18
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcat.c
-		_strcat        		CODE           	6568	0000	86
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcat.c estimated size: 86
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\wmul.c
-		___wmul        		CODE           	68A6	0000	60
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\wmul.c estimated size: 60
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\read_B.c
-		_Read_b_eep    		CODE           	6B4E	0000	18
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\read_B.c estimated size: 18
+/opt/microchip/xc8/v1.21/sources/common/strichr.c estimated size: 62
 
 hexutils.c
 		_hexStringToByt		CODE           	5CA6	0000	156
@@ -5583,66 +5603,25 @@ shared
 
 shared estimated size: 6482
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\doprnt.c
-		_sprintf       		CODE           	2028	0000	1660
+/opt/microchip/xc8/v1.21/sources/common/strchr.c
+		_strchr        		CODE           	64B0	0000	92
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\doprnt.c estimated size: 1660
+/opt/microchip/xc8/v1.21/sources/common/strchr.c estimated size: 92
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcspn.c
-		_strcspn       		CODE           	66A2	0000	70
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcspn.c estimated size: 70
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strnicmp.c
-		_strnicmp      		CODE           	62C6	0000	104
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strnicmp.c estimated size: 104
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\llmod.c
-		___llmod       		CODE           	6390	0000	98
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\llmod.c estimated size: 98
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\write_B.c
-		_Write_b_eep   		CODE           	698A	0000	52
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\write_B.c estimated size: 52
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\isdigit.c
-		_isdigit       		CODE           	6A8E	0000	30
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\isdigit.c estimated size: 30
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcpy.c
-		_strcpy        		CODE           	69EE	0000	46
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strcpy.c estimated size: 46
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lldiv.c
-		___lldiv       		CODE           	60FE	0000	118
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lldiv.c estimated size: 118
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\itoa.c
-		_itoa          		CODE           	6952	0000	56
-		_utoa          		CODE           	5C06	0000	160
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\itoa.c estimated size: 216
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uread.c
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uread.c
 		_ReadUSART     		CODE           	6ACA	0000	30
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uread.c estimated size: 30
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uread.c estimated size: 30
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0open.c
-		_OpenTimer0    		CODE           	6AAC	0000	30
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3read.c
+		_ReadTimer3    		CODE           	6B2A	0000	18
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0open.c estimated size: 30
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3read.c estimated size: 18
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\busy_eep.c
-		_Busy_eep      		CODE           	6B8C	0000	6
+/opt/microchip/xc8/v1.21/sources/common/memset.c
+		_memset        		CODE           	6A1C	0000	44
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\EEP\busy_eep.c estimated size: 6
+/opt/microchip/xc8/v1.21/sources/common/memset.c estimated size: 44
 
 main.c
 		_sendEscapedUar		CODE           	63F2	0000	96
@@ -5691,20 +5670,25 @@ main.c
 
 main.c estimated size: 17876
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3open.c
-		_OpenTimer3    		CODE           	6A48	0000	40
+/opt/microchip/xc8/v1.21/sources/common/atoi.c
+		_atoi          		CODE           	4DA0	0000	250
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t3open.c estimated size: 40
+/opt/microchip/xc8/v1.21/sources/common/atoi.c estimated size: 250
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strichr.c
-		_strichr       		CODE           	67EE	0000	62
+/opt/microchip/xc8/v1.21/sources/common/llmod.c
+		___llmod       		CODE           	6390	0000	98
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strichr.c estimated size: 62
+/opt/microchip/xc8/v1.21/sources/common/llmod.c estimated size: 98
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strlen.c
-		_strlen        		CODE           	686A	0000	60
+/opt/microchip/xc8/v1.21/sources/common/ltoa.c
+		_ultoa         		CODE           	50A6	0000	210
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strlen.c estimated size: 60
+/opt/microchip/xc8/v1.21/sources/common/ltoa.c estimated size: 210
+
+/opt/microchip/xc8/v1.21/sources/common/strcat.c
+		_strcat        		CODE           	6568	0000	86
+
+/opt/microchip/xc8/v1.21/sources/common/strcat.c estimated size: 86
 
 crc8.c
 		_crc8          		CODE           	68E2	0000	56
@@ -5712,15 +5696,25 @@ crc8.c
 
 crc8.c estimated size: 162
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memcpy.c
-		_memcpy        		CODE           	672E	0000	66
+/opt/microchip/xc8/v1.21/sources/common/strnicmp.c
+		_strnicmp      		CODE           	62C6	0000	104
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memcpy.c estimated size: 66
+/opt/microchip/xc8/v1.21/sources/common/strnicmp.c estimated size: 104
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strtok.c
-		_strtok        		CODE           	5DDC	0000	150
+/opt/microchip/xc8/v1.21/sources/common/lldiv.c
+		___lldiv       		CODE           	60FE	0000	118
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strtok.c estimated size: 150
+/opt/microchip/xc8/v1.21/sources/common/lldiv.c estimated size: 118
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/read_B.c
+		_Read_b_eep    		CODE           	6B4E	0000	18
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/EEP/read_B.c estimated size: 18
+
+/opt/microchip/xc8/v1.21/sources/common/toupper.c
+		_toupper       		CODE           	6B00	0000	22
+
+/opt/microchip/xc8/v1.21/sources/common/toupper.c estimated size: 22
 
 fifo.c
 		_fifo_write    		CODE           	4938	0000	254
@@ -5730,10 +5724,15 @@ fifo.c
 
 fifo.c estimated size: 638
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strspn.c
-		_strspn        		CODE           	66E8	0000	70
+/opt/microchip/xc8/v1.21/sources/common/doprnt.c
+		_sprintf       		CODE           	2028	0000	1660
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strspn.c estimated size: 70
+/opt/microchip/xc8/v1.21/sources/common/doprnt.c estimated size: 1660
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0write.c
+		_WriteTimer0   		CODE           	6B60	0000	18
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0write.c estimated size: 18
 
 ECAN.c
 		_ECANReceiveMes		CODE           	3C1A	0000	510
@@ -5746,48 +5745,48 @@ ECAN.c
 
 ECAN.c estimated size: 1532
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uwrite.c
-		_WriteUSART    		CODE           	6B16	0000	20
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uwrite.c estimated size: 20
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uputs.c
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uputs.c
 		_putsUSART     		CODE           	65BE	0000	84
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uputs.c estimated size: 84
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uputs.c estimated size: 84
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uopen.c
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uwrite.c
+		_WriteUSART    		CODE           	6B16	0000	20
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uwrite.c estimated size: 20
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0open.c
+		_OpenTimer0    		CODE           	6AAC	0000	30
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t0open.c estimated size: 30
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3write.c
+		_WriteTimer3   		CODE           	6B3C	0000	18
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3write.c estimated size: 18
+
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uopen.c
 		_OpenUSART     		CODE           	650C	0000	92
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\USART\uopen.c estimated size: 92
+/opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uopen.c estimated size: 92
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwmod.c
-		___lwmod       		CODE           	682C	0000	62
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3open.c
+		_OpenTimer3    		CODE           	6A48	0000	40
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\lwmod.c estimated size: 62
+/opt/microchip/xc8/v1.21/sources/pic18/plib/Timers/t3open.c estimated size: 40
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atoi.c
-		_atoi          		CODE           	4DA0	0000	250
+/opt/microchip/xc8/v1.21/sources/common/strcpy.c
+		_strcpy        		CODE           	69EE	0000	46
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\atoi.c estimated size: 250
+/opt/microchip/xc8/v1.21/sources/common/strcpy.c estimated size: 46
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strchr.c
-		_strchr        		CODE           	64B0	0000	92
+/opt/microchip/xc8/v1.21/sources/common/wmul.c
+		___wmul        		CODE           	68A6	0000	60
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\strchr.c estimated size: 92
+/opt/microchip/xc8/v1.21/sources/common/wmul.c estimated size: 60
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\toupper.c
-		_toupper       		CODE           	6B00	0000	22
+/opt/microchip/xc8/v1.21/sources/common/stristr.c
+		_stristr       		CODE           	6084	0000	122
 
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\toupper.c estimated size: 22
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ltoa.c
-		_ultoa         		CODE           	50A6	0000	210
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\ltoa.c estimated size: 210
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memset.c
-		_memset        		CODE           	6A1C	0000	44
-
-C:\Program Files (x86)\Microchip\xc8\v1.21\sources\common\memset.c estimated size: 44
+/opt/microchip/xc8/v1.21/sources/common/stristr.c estimated size: 122
 

@@ -408,3 +408,7 @@
 /Frankfurt RS-232.X/dist/debug/debug/*.pre
 /Frankfurt RS-232.X/nbproject/Makefile-genesis.properties
 /Frankfurt RS-232.X/nbproject/Makefile-variables.mk
+/Frankfurt RS-232.X/dist/debug_2580/
+/Frankfurt RS-232.X/dist/debug_26K80/
+/Frankfurt RS-232.X/dist/relocated_26K80/
+/Frankfurt RS-232.X/dist/relocated_2580/

@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=Frankfurt RS-232.X
 
 # Active Configuration
-DEFAULTCONF=relocated
+DEFAULTCONF=relocated_2580
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default debug relocated 
+ALLCONFS=debug_2580 relocated_2580 debug_26K80 relocated_26K80 
 
 
 # build
@@ -45,17 +45,19 @@ ALLCONFS=default debug relocated
 
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_2580 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated_2580 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_26K80 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated_26K80 clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_2580 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated_2580 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_26K80 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=relocated_26K80 build
 
 
 
