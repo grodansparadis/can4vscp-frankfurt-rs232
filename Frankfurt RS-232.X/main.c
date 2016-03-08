@@ -1,10 +1,14 @@
-/* 
- * File:   main.c - Frankfurt RS-232
- * Author: Ake Hedman, Grodansparadis AB, Sweden
- * Copyright 2014-1016 Ake Hedman, Grodansparadis AB, Sweden
+/* ******************************************************************************
+ * 	VSCP (Very Simple Control Protocol) 
+ * 	http://www.vscp.org
  *
- * Created on den 28 november 2014, 12:17
- * 
+ *  Frankfurt RS-232
+ *  ================
+ *
+ *  Copyright (C)1995-2016 Ake Hedman, Grodans Paradis AB
+ *                          http://www.grodansparadis.com
+ *                          <akhe@grodansparadis.com>
+ *
  *  This work is licensed under the Creative Common 
  *  Attribution-NonCommercial-ShareAlike 3.0 Unported license. The full
  *  license is available in the top folder of this project (LICENSE) or here
@@ -12,6 +16,10 @@
  *  It is also available in a human readable form here 
  *  http://creativecommons.org/licenses/by-nc-sa/3.0/
  * 
+ *	This file is part of VSCP - Very Simple Control Protocol 	
+ *	http://www.vscp.org
+ *
+ * ******************************************************************************
  */
 
 #include <xc.h>
