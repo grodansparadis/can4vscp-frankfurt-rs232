@@ -1,6 +1,9 @@
 Frankfurt RS-232 module
 =======================
 
+2016-04-19 AKHE - RA4 set to input to prevent collision with VCAP circuits in
+                  PIC18F2580. Brown out raised to maximum (3V & 4.6V). Valuable                    input from Anders Forsgren, AJE Electronics AB.
+2016-04-04 AKHE - Changed value of C14 to 10uF
 2015-11-23 AKHE - Version 1.1.2
 2015-11-25 AKHE - Fixed problem with warning blink for bus warnings never being turned off even if the condition is over.
 2015-11-23 AKHE - Version 1.1.1

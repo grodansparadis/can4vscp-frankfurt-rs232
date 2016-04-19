@@ -23,7 +23,6 @@
  */
 
 #include <xc.h>
-#include <p18cxxx.h>
 #include <timers.h>
 #include <delays.h>
 #include <eeprom.h>
@@ -139,7 +138,7 @@ uint8_t vscpData[8];
 #pragma config OSC = HSPLL
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 3
+#pragma config BORV = 0		// 4.6V
 #pragma config LVP = ON
 #pragma config CPB = ON
 #pragma config BBSIZ = 1024
@@ -159,7 +158,7 @@ uint8_t vscpData[8];
 #pragma config PWRT = ON
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 3
+#pragma config BORV = 0		// 4.6V
 #pragma config LVP = OFF
 #pragma config CPB = OFF
 #pragma config WRTD  = OFF
@@ -189,7 +188,7 @@ uint8_t vscpData[8];
 // CONFIG2H
 #pragma config WDTPS = 1048576  // Watchdog prescaler
 #pragma config BOREN = SBORDIS  // Brown out enabled
-#pragma config BORV  = 1        // 2.7V
+#pragma config BORV  = 0        // 3V
 
 // CONFIG3H
 #pragma config CANMX = PORTB    // ECAN TX and RX pins are located on RB2 and RB3, respectively.
@@ -523,7 +522,10 @@ void init()
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;
     OSCTUNEbits.PLLEN = 1; // Turn on PLL
-
+    
+    // RA4 input (VCAP for PIC18F26K80))
+    TRISA4 = 1;
+    
     TRISB2 = 0; // CAN TX
     TRISB3 = 1; // CAN RX
 
@@ -535,7 +537,7 @@ void init()
     
     PORTCbits.RC4 = 1; // Activate clear to send
 
-    // Initialize UART
+    // Initialise UART
     // 230400 (10), 500000 (4) and 625000 (3) 115200 (20)
     VSCP_OPEN_USART( USART_TX_INT_OFF &
                     USART_RX_INT_ON &
@@ -1744,6 +1746,7 @@ void doModeVscp( void )
             // * * * *  C O M M A N D  * * * *
             else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
+                
                 // * * * Noop * * *
                 if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_NOOP) {

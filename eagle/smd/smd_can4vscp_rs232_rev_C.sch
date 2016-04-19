@@ -16839,7 +16839,7 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <part name="J3" library="con-lstb" deviceset="MA04-1" device=""/>
 <part name="P+2" library="SUPPLY1" deviceset="+12V" device=""/>
 <part name="GND11" library="SUPPLY1" deviceset="GND" device=""/>
-<part name="C8" library="rcl" deviceset="C-EU" device="C0805" value="1 uF"/>
+<part name="C8" library="rcl" deviceset="C-EU" device="C0805" value="10 uF"/>
 <part name="GND17" library="SUPPLY1" deviceset="GND" device=""/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="R0805" value="120"/>
 <part name="PAD1" library="wirepad" deviceset="1,6/0,8" device=""/>
