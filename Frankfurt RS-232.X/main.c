@@ -5,7 +5,7 @@
  *  Frankfurt RS-232
  *  ================
  *
- *  Copyright (C)1995-2016 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C)1995-2018 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
  *                          <akhe@grodansparadis.com>
  *
@@ -1600,7 +1600,7 @@ void doModeVscp( void )
             }
         }
 
-        if (STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED == stateVscpDriver) {
+        if ( STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED == stateVscpDriver ) {
 
             // Next state is waiting for frame
             stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;

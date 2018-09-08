@@ -5,7 +5,7 @@
  *  Frankfurt RS-232
  *  ================
  *
- *  Copyright (C)1995-2016 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C)1995-2018 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
  *                          <akhe@grodansparadis.com>
  *
