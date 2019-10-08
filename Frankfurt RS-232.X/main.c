@@ -1,22 +1,22 @@
 /* ******************************************************************************
- * 	VSCP (Very Simple Control Protocol) 
+ * 	VSCP (Very Simple Control Protocol)
  * 	http://www.vscp.org
  *
  *  Frankfurt RS-232
  *  ================
  *
- *  Copyright (C)1995-2018 Ake Hedman, Grodans Paradis AB
+ *  Copyright (C)1995-2019 Ake Hedman, Grodans Paradis AB
  *                          http://www.grodansparadis.com
  *                          <akhe@grodansparadis.com>
  *
- *  This work is licensed under the Creative Common 
+ *  This work is licensed under the Creative Common
  *  Attribution-NonCommercial-ShareAlike 3.0 Unported license. The full
  *  license is available in the top folder of this project (LICENSE) or here
  *  http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
- *  It is also available in a human readable form here 
+ *  It is also available in a human readable form here
  *  http://creativecommons.org/licenses/by-nc-sa/3.0/
- * 
- *	This file is part of VSCP - Very Simple Control Protocol 	
+ *
+ *	This file is part of VSCP - Very Simple Control Protocol
  *	http://www.vscp.org
  *
  * ******************************************************************************
@@ -43,19 +43,19 @@
 
 #define _XTAL_FREQ 40000000
 
-#if defined(_18F2580) 
+#if defined(_18F2580)
     #define VSCP_PUTS_USART     putsUSART
     #define VSCP_WRITE_USART    putsUSART
     #define VSCP_BUSY_USART     BusyUSART
-    #define VSCP_READ_USART     ReadUSART 
+    #define VSCP_READ_USART     ReadUSART
     #define VSCP_OPEN_USART     OpenUSART
     #define VSCP_CLOSE_USART    CloseUSART
 #else
     #define VSCP_PUTS_USART     puts1USART
     #define VSCP_WRITE_USART    Write1USART
-    #define VSCP_BUSY_USART     Busy1USART 
+    #define VSCP_BUSY_USART     Busy1USART
     #define VSCP_READ_USART     Read1USART
-    #define VSCP_OPEN_USART     Open1USART 
+    #define VSCP_OPEN_USART     Open1USART
     #define VSCP_CLOSE_USART    Close1USART
 #endif
 
@@ -70,7 +70,7 @@ ECAN_RX_MSG_FLAGS flags;
 
 // Buffers
 uint8_t serial_inputBuffer[ SIZE_SERIAL_INPUT_BUFFER ];
-uint8_t can_inputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];    
+uint8_t can_inputBuffer[ 13 * SIZE_CAN_INPUT_FIFO ];
 // Frame size = 13  ext-id(4) +  dlc(1) + data(8)
 
 // fifos
@@ -130,7 +130,7 @@ uint8_t vscpPriority;
 uint8_t vscpSize;
 uint8_t vscpData[8];
 
-#if defined(_18F2580) 
+#if defined(_18F2580)
 
 #if defined(RELEASE)
 
@@ -202,7 +202,7 @@ uint8_t vscpData[8];
 #ifdef DEBUG
 #pragma config WDTEN = OFF      // WDT disabled in hardware; SWDTEN bit disabled.
 #else
-#pragma config WDTEN = ON       // WDT enabled in hardware; 
+#pragma config WDTEN = ON       // WDT enabled in hardware;
 #endif
 
 
@@ -216,7 +216,7 @@ uint8_t vscpData[8];
 void interrupt low_priority Interrupt()
 {
     uint8_t c;
-    
+
     // Check if the interrupt is caused by UART RX
     if ( 1 == PIR1bits.RCIF ) {
 
@@ -280,16 +280,16 @@ void interrupt low_priority Interrupt()
 
     // CAN error
     if ( 1 == ERRIF ) {
-        
+
         // Check if we have CAN receive overflows
         if ( COMSTATbits.RXBNOVFL ) {
             can_receiveOverruns++;
             COMSTATbits.RXBNOVFL = 0;
         }
-         
+
         ERRIF = 0;
     }
-    
+
     // The error bits are checked outside of the error interrupt
     // to close error conditions correctly
 
@@ -297,15 +297,15 @@ void interrupt low_priority Interrupt()
     if (COMSTATbits.TXBO) {
         // Bus off
         ledFunctionality = STATUS_LED_VERY_FAST_BLINK;
-    } 
+    }
     else if (COMSTATbits.TXBP || COMSTATbits.RXBP) {
         // Bus passive
         ledFunctionality = STATUS_LED_FAST_BLINK;
-    } 
+    }
     else if (COMSTATbits.EWARN) {
         // Bus warning (RX/TX)
         ledFunctionality = STATUS_LED_NORMAL_BLINK;
-    } 
+    }
     else {
         // OK
         ledFunctionality = STATUS_LED_ON;
@@ -339,11 +339,11 @@ void interrupt low_priority Interrupt()
                     }
 
                     fifo_canrxcount++;   // Another CAN frame in the fifo
-                    
+
                     if ( fail ) {
                         can_receiveOverruns++;
                     }
-                    
+
                 }
                 else {
                     can_receiveOverruns++;
@@ -355,10 +355,10 @@ void interrupt low_priority Interrupt()
 
         // Not needed rested in ECAN
         RXBnIF = 0; // Clear CAN0 Interrupt Flag
-        
+
     }
 
-    
+
 
 }
 
@@ -367,7 +367,7 @@ void interrupt low_priority Interrupt()
 //
 
 int main(int argc, char** argv)
-{    
+{
     // Init. capabilities
     caps.maxVscpFrames = 1;
     caps.maxCanalFrames = 1;        // Max frames that will be sent to host
@@ -429,47 +429,47 @@ int main(int argc, char** argv)
     }
 
     ledFunctionality = STATUS_LED_ON;
-    
+
     // Set mask filter in requested startup state
-    
+
     // Set the port in the requested start up state
     switch ( eeprom_read( MODULE_EEPROM_STARTUP_OPEN ) ) {
-        
+
         case STARTUP_IFMODE_OPEN:
             bSilent = FALSE;
             ECANSetOperationMode( ECAN_OP_MODE_NORMAL );
             break;
-            
+
         case STARTUP_IFMODE_SILENT:
             bSilent = TRUE;
             ECANSetOperationMode( ECAN_OP_MODE_NORMAL );
-            break;    
-            
+            break;
+
         case STARTUP_IFMODE_LISTEN:
             bSilent = FALSE;
             ECANSetOperationMode( ECAN_OP_MODE_LISTEN );
-            break;    
-            
+            break;
+
         case STARTUP_IFMODE_LOOPBACK:
             bSilent = FALSE;
             ECANSetOperationMode( ECAN_OP_MODE_LOOP );
-            break;       
-            
+            break;
+
         default:
             ECANSetOperationMode( ECAN_INIT_DISABLE );
             break;
     }
-            
+
 
     ///////////////////////////////////////////////////////////////////////////
-    //                            Work loop 
+    //                            Work loop
     ///////////////////////////////////////////////////////////////////////////
-     
+
     while ( TRUE ) {
 
         ClrWdt(); // Feed the dog
-        
-        // Check for UART overflow. This should not happen in normal 
+
+        // Check for UART overflow. This should not happen in normal
         // mode but does while debugging.
         if ( RCSTAbits.OERR ) {
             RCSTAbits.CREN = 0;
@@ -484,7 +484,7 @@ int main(int argc, char** argv)
             PORTCbits.RC4 = 1;
         }
         ei();
-        
+
         if (WORKING_MODE_VERBOSE == mode) {
             doModeVerbose();
         }
@@ -522,10 +522,10 @@ void init()
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;
     OSCTUNEbits.PLLEN = 1; // Turn on PLL
-    
+
     // RA4 input (VCAP for PIC18F26K80))
     TRISA4 = 1;
-    
+
     TRISB2 = 0; // CAN TX
     TRISB3 = 1; // CAN RX
 
@@ -534,7 +534,7 @@ void init()
     TRISC5 = 1; // Input: RTS
     TRISC6 = 0; // UART TX pin set as output
     TRISC7 = 1; // UART RX pin set as input
-    
+
     PORTCbits.RC4 = 1; // Activate clear to send
 
     // Initialise UART
@@ -546,7 +546,7 @@ void init()
                     USART_CONT_RX &
                     USART_BRGH_HIGH,
                     BAUDRATE_115200 );
-    
+
     //baudUSART( BAUD_8_BIT_RATE | BAUD_AUTO_OFF );
 
     RCIF = 0; // Reset RX pin flag
@@ -557,13 +557,13 @@ void init()
     // Initialize 1 ms timer
     OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_8);
     WriteTimer0(TIMER0_RELOAD_VALUE);
-    
+
     // Initialize microsecond timer  10 MHz
-#if defined(_18F2580)     
+#if defined(_18F2580)
     OpenTimer3( T3_SOURCE_INT & T3_PS_1_1 & T3_16BIT_RW & T3_SYNC_EXT_OFF & TIMER_INT_OFF );
 #else
     OpenTimer3( T3_SOURCE_FOSC_4 & T3_PS_1_1 & T3_16BIT_RW & T3_SYNC_EXT_OFF & TIMER_INT_OFF, 0 );
-#endif    
+#endif
     WriteTimer3( 0x0000 );
 
     // Initialize CAN
@@ -617,32 +617,32 @@ void init_app_ram(void)
     bTimestamp = eeprom_read(MODULE_TIMESTAMP);
 
     rwtimeout = eeprom_read(MODULE_EEPROM_RW_TIMEOUT);
-    
+
     // Set filter/mask setup values
-    
+
     // Must be in Config mode to change settings.
     ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
     for (uint8_t i=0; i<15; i++ ) {
         setFilter( i,
                     ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 )) << 24 ) +
-                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 )) << 16 ) + 
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 )) << 16 ) +
                     ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 )) << 8 ) +
                     ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 )) ), FALSE );
     }
-    
+
     ECANSetRXM0Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 )) << 24 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 1 )) << 16 ) + 
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 1 )) << 16 ) +
                         ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 2 )) << 8 ) +
-                        (( eeprom_read( MODULE_EEPROM_MASK0 + 3 )) ), 
+                        (( eeprom_read( MODULE_EEPROM_MASK0 + 3 )) ),
                       ECAN_MSG_XTD );
-    
+
     ECANSetRXM1Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 )) << 24 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 1 )) << 16 ) + 
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 1 )) << 16 ) +
                         ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 2 )) << 8 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 3 )) ), 
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 3 )) ),
                       ECAN_MSG_XTD );
-    
+
     ECANSetOperationMode(ECAN_INIT_DISABLE);
 }
 
@@ -670,10 +670,10 @@ void init_app_eeprom(void)
     for (i = MODULE_EEPROM_MASK0; i < (MODULE_EEPROM_MASK1 + 4); i++) {
         eeprom_write( MODULE_EEPROM_MASK0, 0x00 );
     }
-    
+
     eeprom_write( MODULE_LOCAL_ECHO, 0 );
     eeprom_write( MODULE_TIMESTAMP, 0 );
-    
+
 }
 
 
@@ -726,7 +726,7 @@ void doModeVerbose(void)
 
         // Enable interrupt again
         ei();
-        
+
         // If local echo
         if ( bLocalEcho ) {
             VSCP_WRITE_USART( c );
@@ -859,7 +859,7 @@ void doModeVerbose(void)
                 for (i = 0; i < vscpSize; i++) {
                     if (NULL != (p = strtok(NULL, ","))) {
                         vscpData[ i ] = atoi(p);
-                    } 
+                    }
                     else {
                         break;
                     }
@@ -919,7 +919,7 @@ void doModeVerbose(void)
                 uint8_t reg;
                 uint8_t value;
                 uint8_t count = 1;
-                
+
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
                     VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
@@ -931,7 +931,7 @@ void doModeVerbose(void)
                 char *p = strtok(cmdbuf, " ");
                 if (NULL != p) {
                     nodeid = atoi(p);
-                } 
+                }
                 else {
                     VSCP_PUTS_USART((char *) "-ERROR - Needs nodeid\r\n");
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
@@ -945,7 +945,7 @@ void doModeVerbose(void)
                     if (preg = strchr(p, ':')) {
                         page = atoi(p);
                         reg = atoi(preg + 1);
-                    } 
+                    }
                     else {
                         reg = atoi(p);
                     }
@@ -977,7 +977,7 @@ void doModeVerbose(void)
                         VSCP_PUTS_USART(wrkbuf);
                         VSCP_PUTS_USART((char *) "Value for reg ");
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", page);
-                        VSCP_PUTS_USART(wrkbuf);                        
+                        VSCP_PUTS_USART(wrkbuf);
                         VSCP_WRITE_USART(':');
                         while (VSCP_BUSY_USART());
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", (reg + i) & 0xff);
@@ -1010,7 +1010,7 @@ void doModeVerbose(void)
                         VSCP_WRITE_USART(':');
                         sprintf(wrkbuf, bHex ? "0x%02X" : "%d", (reg + i) & 0xff);
                         VSCP_PUTS_USART(wrkbuf);
-                        
+
                         VSCP_PUTS_USART((char *) "\r\n");
                     }
                 }
@@ -1031,7 +1031,7 @@ void doModeVerbose(void)
                 uint8_t page = 0;
                 uint8_t reg;
                 uint8_t value;
-                
+
                 if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
                     VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
                     memset( cmdbuf, 0, sizeof( cmdbuf ) );
@@ -1101,7 +1101,7 @@ void doModeVerbose(void)
             // Read full node info
             //      INFO node-id
             else if (cmdbuf == stristr(cmdbuf, "INFO")) {
-                
+
                 uint8_t nodeid;
                 uint8_t value;
 
@@ -1111,7 +1111,7 @@ void doModeVerbose(void)
                     pos = 0; // Start again
                     return;
                 }
-                
+
                 strcpy(cmdbuf, cmdbuf + 5);
                 nodeid = atoi(cmdbuf);
 
@@ -1119,7 +1119,7 @@ void doModeVerbose(void)
                 sprintf(wrkbuf, bHex ? "0x%02X" : "%d", nodeid);
                 VSCP_PUTS_USART(wrkbuf);
                 VSCP_PUTS_USART((char *) "\r\n");
-                
+
                 if (!readRegisterExtended(nodeid,
                             0,
                             0xd0,
@@ -1140,7 +1140,7 @@ void doModeVerbose(void)
             //  FILTER filterno,prio,class,type,nodeid
             //  filterno = 0-15
             else if (cmdbuf == stristr(cmdbuf, "FILTER")) {
-                
+
                 // RXF0 - RXF15
                 uint8_t filterno;
                 uint8_t filter_priority;
@@ -1214,7 +1214,7 @@ void doModeVerbose(void)
                     pos = 0; // Start again
                     return;
                 }
-                
+
                 // persistent i.e. stored in EEPROM
                 p = strtok(NULL, ",");
                 if ( NULL != stristr(p, "PERSISTENT") ) {
@@ -1228,12 +1228,12 @@ void doModeVerbose(void)
                         ((uint32_t) filter_class << 16) |
                         ((uint32_t) filter_type << 8) |
                         filter_nodeid;
-                
+
                 setFilter(filterno, id, bPersistent );
-                
+
                 // Go back to normal mode
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                
+
                 VSCP_PUTS_USART((char *) "+OK\r\n");
             }
             // Set Mask
@@ -1323,10 +1323,10 @@ void doModeVerbose(void)
 
                 maskno ? ECANSetRXM0Value(id, ECAN_MSG_XTD) :
                         ECANSetRXM1Value(id, ECAN_MSG_XTD);
-                
+
                 // Go back to normal mode
                 ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                
+
                 if ( bPersistent ) {
                     if ( 0 == maskno ) {
                         eeprom_write( MODULE_EEPROM_MASK0, ( ( id >> 24 ) & 0xff ) );
@@ -1341,9 +1341,9 @@ void doModeVerbose(void)
                         eeprom_write( MODULE_EEPROM_MASK1 + 3, ( id & 0xff ) );
                     }
                 }
-                
+
                 VSCP_PUTS_USART((char *) "+OK\r\n");
-   
+
             }
             // Set Configuration
             //      RWTIMEOUT n  - rreg/wreg timeout
@@ -1455,10 +1455,10 @@ void doModeVerbose(void)
                 }
                 // Set baudrate
                 else if (cmdbuf == stristr(cmdbuf, "BAUDRATE ")) {
-                    
+
                     uint32_t baudcode;
                     strcpy( cmdbuf, cmdbuf + 9 );
-                               
+
                     baudcode = atoi( cmdbuf );
                     if ( baudcode < SET_BAUDRATE_MAX ) {
                         VSCP_PUTS_USART((char *) "+OK - New baudrate will be set.\r\n");
@@ -1467,7 +1467,7 @@ void doModeVerbose(void)
                     else {
                         VSCP_PUTS_USART((char *) "+ERROR - Invalid baudrate.\r\n");
                     }
-                    
+
                 }
                 // Set defaults
                 else if (cmdbuf == stristr(cmdbuf, "DEFAULTS")) {
@@ -1475,7 +1475,7 @@ void doModeVerbose(void)
                 }
                 // Show current settings
                 else if (cmdbuf == stristr(cmdbuf, "?")) {
-                    
+
                 }
                 else {
                     VSCP_PUTS_USART((char *) "-ERROR - Unknown 'SET' command\r\n");
@@ -1508,7 +1508,7 @@ void doModeVscp( void )
 {
     uint8_t c;
 
-    // Fetch possible multi message 
+    // Fetch possible multi message
     if ( caps.maxCanalFrames > 1 ) {
         // Send multiple CANAL frames in one serial frame for speed
         // if it is possible to do so.
@@ -1524,22 +1524,22 @@ void doModeVscp( void )
     di();
 
     if ( 1 == fifo_read( &serialInputFifo, &c, 1 ) ) {
-        
+
         // Enable interrupts again
         ei();
-        
+
         // Check if the buffer pointer is out of bounds
         if ( pos >= sizeof( cmdbuf ) ) {
             // Houston we got a problem...
             pos = 0;
             bDLE = FALSE;
-            stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START; 
+            stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START;
         }
 
         if ( STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_START == stateVscpDriver ) {
-            
+
             if ( bDLE ) {
-                
+
                 bDLE = FALSE;
 
                 // Check for frame start
@@ -1554,17 +1554,17 @@ void doModeVscp( void )
             }
         }
         else if ( STATE_VSCP_SERIAL_DRIVER_WAIT_FOR_FRAME_END == stateVscpDriver ) {
-            
+
             // Check if last char was DLE
             if ( bDLE ) {
-                
+
                 // Yes last char was DLE this is an escape sequence
                 bDLE = FALSE;
 
                 // Check for frame end
                 if ( ETX == c ) {
                     stateVscpDriver = STATE_VSCP_SERIAL_DRIVER_FRAME_RECEIVED;
-                }  
+                }
                 // Check for escaped DLE
                 else if (DLE == c) {
                     // Save
@@ -1585,7 +1585,7 @@ void doModeVscp( void )
                     return;
                 }
                 else {
-                    // This is data. Save it until the full frame is 
+                    // This is data. Save it until the full frame is
                     // received.
                     cmdbuf[ pos++ ] = c;
                     if ( pos >= sizeof( cmdbuf ) ) {
@@ -1658,21 +1658,21 @@ void doModeVscp( void )
             // * * * *  C O N F I G U R E  * * * *
             else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_CONFIGURE ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
-                // * * * Noop * * * 
+                // * * * Noop * * *
                 if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_CONFIG_NOOP) {
                     sendVSCPDriverAck();
                 }
-                // * * * Change driver mode * * * 
+                // * * * Change driver mode * * *
                 else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                             VSCP_DRIVER_CONFIG_MODE ) {
-                    
+
                     if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
                                 cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
-                    
+
                         if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 4 ) {
                             mode = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ];
-                            eeprom_write( MODULE_EEPROM_STARTUP_MODE, 
+                            eeprom_write( MODULE_EEPROM_STARTUP_MODE,
                                             cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ]);
                             sendVSCPDriverAck();
                         }
@@ -1683,15 +1683,15 @@ void doModeVscp( void )
                     else {
                         // Wrong payload size
                         sendVSCPDriverNack();
-                    }            
+                    }
                 }
-                // * * * Activate/deactivate timestamp * * * 
+                // * * * Activate/deactivate timestamp * * *
                 else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                             VSCP_DRIVER_CONFIG_TIMESTAMP ) {
-                    
+
                     if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
                                 cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
-                    
+
                         if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] ) {
                             bTimestamp = TRUE;
                         }
@@ -1699,7 +1699,7 @@ void doModeVscp( void )
                             bTimestamp = FALSE;
                         }
                         // Save persistent
-                        eeprom_write( MODULE_TIMESTAMP, 
+                        eeprom_write( MODULE_TIMESTAMP,
                                         cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] );
                         sendVSCPDriverAck();
                     }
@@ -1707,16 +1707,16 @@ void doModeVscp( void )
                         sendVSCPDriverNack(); // Not supported
                     }
                 }
-                // * * * Baudrate * * * 
+                // * * * Baudrate * * *
                 else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                             VSCP_DRIVER_CONFIG_BAUDRATE ) {
-                    
+
                     if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
                                 cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
-                    
+
                         if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < SET_BAUDRATE_MAX ) {
                             sendVSCPDriverAck();
-                            changeBaudrate( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] );                            
+                            changeBaudrate( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] );
                         }
                         else {
                             sendVSCPDriverNack();
@@ -1729,7 +1729,7 @@ void doModeVscp( void )
                 else {
                     // Wrong payload size
                     sendVSCPDriverNack();
-                }     
+                }
             } // configuration
             // * * * *  P O L L  * * * *
             else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_POLL ==
@@ -1746,40 +1746,40 @@ void doModeVscp( void )
             // * * * *  C O M M A N D  * * * *
             else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_COMMAND ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
-                
+
                 // * * * Noop * * *
                 if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_NOOP) {
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_NOOP);
                 }
-                // * * * Open * * * 
+                // * * * Open * * *
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_OPEN) {
                     ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_OPEN);
                 }
-                // * * * Loopback * * * 
+                // * * * Loopback * * *
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_LISTEN) {
                     ECANSetOperationMode(ECAN_OP_MODE_LOOP);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_LISTEN);
-                }                    
-                // * * * Listen * * * 
+                }
+                // * * * Listen * * *
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_LOOPBACK) {
                     ECANSetOperationMode(ECAN_OP_MODE_LISTEN);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_LOOPBACK);
                 }
-                // * * * Close * * * 
+                // * * * Close * * *
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_CLOSE) {
                     ECANSetOperationMode(ECAN_INIT_DISABLE);
                     sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_CLOSE);
                 }
-                // * * * Set filter * * * 
+                // * * * Set filter * * *
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_SET_FILTER) {
-                    
+
                     if ( ( ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 +
                             cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] ) < 6 ) &&
                             ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 16 ) ) {
@@ -1789,25 +1789,25 @@ void doModeVscp( void )
                     else {
                         // Must be in Config mode to change settings.
                         ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
-                    
-                        uint8_t filter = ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 + 
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 + 
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 + 
+
+                        uint8_t filter = ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 +
+                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 +
+                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 +
                                         cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 5 ];
-                        setFilter( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ], 
-                                    filter, 
+                        setFilter( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ],
+                                    filter,
                                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 6 ] );
-                
+
                         // Go back to normal mode
                         ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                    
+
                         sendVSCPDriverCommandReply(0, VSCP_DRIVER_COMMAND_SET_FILTER);
                     }
                 }
-                // * * * Set mask * * * 
+                // * * * Set mask * * *
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_SET_MASK) {
-                    
+
                     if ( ( ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 +
                             cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] ) < 6 ) &&
                             ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 2 ) ) {
@@ -1817,18 +1817,18 @@ void doModeVscp( void )
                     else {
                         // Must be in Config mode to change settings.
                         ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
-                    
-                        uint8_t mask = ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 + 
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 + 
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 + 
+
+                        uint8_t mask = ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 +
+                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 +
+                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 +
                                         cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 5 ];
-                        setFilter( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ], 
-                                    mask, 
+                        setFilter( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ],
+                                    mask,
                                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 6 ] );
-                
+
                         // Go back to normal mode
                         ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                    
+
                         sendVSCPDriverCommandReply(1, VSCP_DRIVER_COMMAND_SET_FILTER);
                     }
                 }
@@ -2025,7 +2025,7 @@ void doModeSLCAN(void)
                 eeprom_write(MODULE_EEPROM_INIT_BYTE1, 0xFF);
                 Reset();
                 break;
-                
+
             // Go to VSCP/Verbose mode '@vscp' or '@verb'
             case '@':
                 if ( 'v' == cmdbuf[1] &&
@@ -2413,7 +2413,7 @@ BOOL receiveSendEventCANAL(void)
         sendEscapedUartData(((id >> 16) & 0xff), &crc);
         sendEscapedUartData(((id >> 8) & 0xff), &crc);
         sendEscapedUartData((id & 0xff), &crc);
-        
+
         // timestamp
         if ( bTimestamp ) {
             uint32_t timestamp = (timer<<16) | ReadTimer3()*10;
@@ -2495,7 +2495,7 @@ BOOL receiveSendMultiEventCANAL(void)
         sendEscapedUartData(sequencyno, &crc);
         sequencyno++;
 
-        
+
 
 
         // * * * *  P A Y L O A D  * * * *
@@ -2511,7 +2511,7 @@ BOOL receiveSendMultiEventCANAL(void)
             pos++;
             wrkbuf[ pos ] = id & 0xff;
             pos++;
-            
+
             if ( bTimestamp ) {
                 uint32_t timestamp = (timer<<16) | ReadTimer3()*10;
                 wrkbuf[ pos ] = (timestamp >> 24) & 0xff;
@@ -2564,7 +2564,7 @@ BOOL receiveSendMultiEventCANAL(void)
     }
 
     return FALSE;
-    
+
 }
 
 
@@ -2777,7 +2777,7 @@ BOOL receiveVSCPModeCanalMsg(void)
                         cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
 
     dlc = ( cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4 );
- 
+
     if ( dlc > 8 ) {
         dlc = 8;
     }
@@ -3110,7 +3110,7 @@ void printErrors(void)
     sprintf(wrkbuf, bHex ? "0x%08lX" : "%lu", uart_transmitOverruns);
     VSCP_PUTS_USART(wrkbuf);
     VSCP_PUTS_USART((char *) "\r\n");
-    
+
     if (COMSTATbits.EWARN) {
         VSCP_PUTS_USART((char *) "Transmitter or Receiver is in Error State Warning\r\n");
     }
@@ -3130,7 +3130,7 @@ void printErrors(void)
 
     if (COMSTATbits.TXBP) {
         VSCP_PUTS_USART((char *) "Transmitter in Error State Bus Passive (TXERRCNT ? 128)\r\n");
-    } 
+    }
 
     VSCP_PUTS_USART((char *) "Receive Error Counter: ");
     sprintf(wrkbuf, bHex ? "0x%02X" : "%d", RXERRCNT);
@@ -3199,7 +3199,7 @@ void findNodes(void)
     uint8_t i;
     uint8_t value;
     BOOL bDot = FALSE;
-    
+
     if ( ECAN_OP_MODE_NORMAL != ECANGetOperationMode() ) {
         VSCP_PUTS_USART( (char *)STR_ERR_ONLY_IF_OPEN );
         return;
@@ -3530,7 +3530,7 @@ void setFilter(uint8_t nFilter, uint32_t val, BOOL bPersistent )
             RXF15EIDL = eidl;
             break;
     }
-    
+
     if ( bPersistent ) {
         eeprom_write( MODULE_EEPROM_FILTER0 + 0 + 4*nFilter, ( ( id >> 24 ) & 0xff ) );
         eeprom_write( MODULE_EEPROM_FILTER0 + 1 + 4*nFilter, ( ( id >> 16 ) & 0xff ) );
@@ -3551,10 +3551,10 @@ void setMask( uint8_t nMask, uint32_t mask, BOOL bPersistent )
 
     nMask ? ECANSetRXM0Value(mask, ECAN_MSG_XTD) :
                 ECANSetRXM1Value(mask, ECAN_MSG_XTD);
-                
+
     // Go back to normal mode
     ECANSetOperationMode(ECAN_OP_MODE_NORMAL);
-                
+
     if ( bPersistent ) {
         if ( 0 == nMask ) {
             eeprom_write( MODULE_EEPROM_MASK0, ( ( id >> 24 ) & 0xff ) );
@@ -3578,7 +3578,7 @@ void setMask( uint8_t nMask, uint32_t mask, BOOL bPersistent )
 void changeBaudrate( uint8_t nBaud )
 {
     switch( nBaud ) {
-                        
+
         case SET_BAUDRATE_128000:
             nBaud = BAUDRATE_128000;
             break;
@@ -3586,62 +3586,62 @@ void changeBaudrate( uint8_t nBaud )
         case SET_BAUDRATE_230400:
             nBaud = BAUDRATE_230400;
             break;
-                            
+
         case SET_BAUDRATE_256000:
             nBaud = BAUDRATE_256000;
             break;
-                            
+
         case SET_BAUDRATE_460800:
             nBaud = BAUDRATE_460800;
             break;
-                            
+
         case SET_BAUDRATE_500000:
             nBaud = BAUDRATE_500000;
             break;
-                            
+
         case SET_BAUDRATE_625000:
             nBaud = BAUDRATE_625000;
             break;
-                            
+
         case SET_BAUDRATE_921600:
             nBaud = BAUDRATE_921600;
             break;
-                            
+
         case SET_BAUDRATE_1000000:
             nBaud = BAUDRATE_1000000;
             break;
-                            
+
         case SET_BAUDRATE_9600:
             nBaud = BAUDRATE_9600;
             break;
-                            
+
         case SET_BAUDRATE_19200:
             nBaud = BAUDRATE_19200;
             break;
-                            
+
         case SET_BAUDRATE_38400:
             nBaud = BAUDRATE_38400;
             break;
-                            
+
         case SET_BAUDRATE_57600:
             nBaud = BAUDRATE_57600;
             break;
-                 
-        case SET_BAUDRATE_115200:    
-        default:            
+
+        case SET_BAUDRATE_115200:
+        default:
             nBaud = BAUDRATE_115200;
             break;
     }
-     
-//#if defined(_18F2580)    
-    VSCP_CLOSE_USART(); 
-//#endif    
+
+//#if defined(_18F2580)
+    VSCP_CLOSE_USART();
+//#endif
     VSCP_OPEN_USART( USART_TX_INT_OFF &
                     USART_RX_INT_ON &
                     USART_ASYNCH_MODE &
                     USART_EIGHT_BIT &
                     USART_BRGH_HIGH,
-                    nBaud );    
+                    nBaud );
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -3730,7 +3730,7 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
             ei();   // Enable interrupt
             return FALSE;
         }
-        
+
         // Out of bounds check
         if ( *pdlc > 8 ) {
             *pdlc = 0;
@@ -3745,11 +3745,10 @@ int8_t getCANFrame(uint32_t *pid, uint8_t *pdlc, uint8_t *pdata)
         fifo_canrxcount--;   // One less CAN frame in fifo
 
         ei();   // Enable interrupt
-    
+
         return TRUE;
     }
 
     return FALSE;
-    
-}
 
+}

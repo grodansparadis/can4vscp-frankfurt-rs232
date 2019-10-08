@@ -17448,6 +17448,7 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <pinref part="J6" gate="G$1" pin="3"/>
 <wire x1="292.1" y1="96.52" x2="287.02" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="287.02" y1="96.52" x2="287.02" y2="88.9" width="0.1524" layer="91"/>
+<label x="287.02" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RXIF" class="0">
@@ -17460,6 +17461,7 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <pinref part="J5" gate="G$1" pin="3"/>
 <wire x1="335.28" y1="96.52" x2="330.2" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="96.52" x2="330.2" y2="88.9" width="0.1524" layer="91"/>
+<label x="330.2" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TXTTL" class="0">
@@ -17472,6 +17474,7 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <pinref part="J6" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="101.6" x2="287.02" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="287.02" y1="101.6" x2="287.02" y2="111.76" width="0.1524" layer="91"/>
+<label x="287.02" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RXTTL" class="0">
@@ -17484,6 +17487,7 @@ wide body 7.5 mm/JEDEC MO-119AA</description>
 <pinref part="J5" gate="G$1" pin="1"/>
 <wire x1="335.28" y1="101.6" x2="330.2" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="101.6" x2="330.2" y2="111.76" width="0.1524" layer="91"/>
+<label x="330.2" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$8" class="0">

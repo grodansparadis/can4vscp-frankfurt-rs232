@@ -12,6 +12,34 @@
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../../vscp_firmware/pic/common</sourceRootElem>
+                <sourceRootElem>../../vscp_firmware/common</sourceRootElem>
+                <sourceRootElem>../../vscp_software/src/vscp/common</sourceRootElem>
+                <sourceRootElem>.</sourceRootElem>
+                <sourceRootElem>../../vscp-firmware/common</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>debug_2580</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>relocated_2580</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>debug_26K80</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>relocated_26K80</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
         </data>
     </configuration>
 </project>
