@@ -45,14 +45,14 @@
 
 #if defined(_18F2580)
     #define VSCP_PUTS_USART     putsUSART
-    #define VSCP_WRITE_USART    putsUSART
+    #define VSCP_WRITE_USART    putcUSART
     #define VSCP_BUSY_USART     BusyUSART
     #define VSCP_READ_USART     ReadUSART
     #define VSCP_OPEN_USART     OpenUSART
     #define VSCP_CLOSE_USART    CloseUSART
 #else
     #define VSCP_PUTS_USART     puts1USART
-    #define VSCP_WRITE_USART    Write1USART
+    #define VSCP_WRITE_USART    putc1USART
     #define VSCP_BUSY_USART     Busy1USART
     #define VSCP_READ_USART     Read1USART
     #define VSCP_OPEN_USART     Open1USART
