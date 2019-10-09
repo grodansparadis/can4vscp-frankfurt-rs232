@@ -13,9 +13,9 @@
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>../../vscp_firmware/pic/common</sourceRootElem>
-                <sourceRootElem>../../vscp_firmware/common</sourceRootElem>
-                <sourceRootElem>../../vscp_software/src/vscp/common</sourceRootElem>
+                <sourceRootElem>../../vscp-firmware/pic/common</sourceRootElem>
+                <sourceRootElem>../../vscp-firmware/common</sourceRootElem>
+                <sourceRootElem>../../vscp/src/vscp/common</sourceRootElem>
                 <sourceRootElem>.</sourceRootElem>
                 <sourceRootElem>../../vscp-firmware/common</sourceRootElem>
             </sourceRootList>

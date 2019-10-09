@@ -524,7 +524,9 @@ void init()
     OSCTUNEbits.PLLEN = 1; // Turn on PLL
 
     // RA4 input (VCAP for PIC18F26K80))
+#if defined(_18F2580)    
     TRISA4 = 1;
+#endif    
 
     TRISB2 = 0; // CAN TX
     TRISB3 = 1; // CAN RX
@@ -625,21 +627,21 @@ void init_app_ram(void)
 
     for (uint8_t i=0; i<15; i++ ) {
         setFilter( i,
-                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 )) << 24 ) +
-                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 )) << 16 ) +
-                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 )) << 8 ) +
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + i*4 )) << 24 ) |
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 1 + i*4 )) << 16 ) |
+                    ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 2 + i*4 )) << 8 ) |
                     ((uint32_t)( eeprom_read( MODULE_EEPROM_FILTER0 + 3 + i*4 )) ), FALSE );
     }
 
-    ECANSetRXM0Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 )) << 24 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 1 )) << 16 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 2 )) << 8 ) +
+    ECANSetRXM0Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 )) << 24 ) |
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 1 )) << 16 ) |
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK0 + 2 )) << 8 ) |
                         (( eeprom_read( MODULE_EEPROM_MASK0 + 3 )) ),
                       ECAN_MSG_XTD );
 
-    ECANSetRXM1Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 )) << 24 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 1 )) << 16 ) +
-                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 2 )) << 8 ) +
+    ECANSetRXM1Value( ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 )) << 24 ) |
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 1 )) << 16 ) |
+                        ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 2 )) << 8 ) |
                         ((uint32_t)( eeprom_read( MODULE_EEPROM_MASK1 + 3 )) ),
                       ECAN_MSG_XTD );
 
@@ -1224,9 +1226,9 @@ void doModeVerbose(void)
                 // Must be in Config mode to change settings.
                 ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
-                uint32_t id = ((uint32_t) filter_priority << 26) |
-                        ((uint32_t) filter_class << 16) |
-                        ((uint32_t) filter_type << 8) |
+                uint32_t id = ((uint32_t)filter_priority << 26) |
+                        ((uint32_t)filter_class << 16) |
+                        ((uint32_t)filter_type << 8) |
                         filter_nodeid;
 
                 setFilter(filterno, id, bPersistent );
@@ -1313,9 +1315,9 @@ void doModeVerbose(void)
                     pos = 0; // Start again
                     return;
                 }
-                uint32_t id = ((uint32_t) mask_priority << 26) |
-                        ((uint32_t) mask_class << 16) |
-                        ((uint32_t) mask_type << 8) |
+                uint32_t id = ((uint32_t)mask_priority << 26) |
+                        ((uint32_t)mask_class << 16) |
+                        ((uint32_t)mask_type << 8) |
                         mask_nodeid;
 
                 // Must be in Config mode to change many of settings.
@@ -1658,6 +1660,7 @@ void doModeVscp( void )
             // * * * *  C O N F I G U R E  * * * *
             else if (VSCP_SERIAL_DRIVER_FRAME_TYPE_CONFIGURE ==
                     cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_TYPE ]) {
+                
                 // * * * Noop * * *
                 if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_CONFIG_NOOP) {
@@ -1665,18 +1668,20 @@ void doModeVscp( void )
                 }
                 // * * * Change driver mode * * *
                 else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
-                            VSCP_DRIVER_CONFIG_MODE ) {
-
-                    if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
+                        VSCP_DRIVER_CONFIG_MODE ) {
+                     
+                    if ( 2 == ( ( ((uint16_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]) << 8 ) |
                                 cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
-
+                         
                         if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 4 ) {
                             mode = cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ];
                             eeprom_write( MODULE_EEPROM_STARTUP_MODE,
                                             cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ]);
+                             
                             sendVSCPDriverAck();
                         }
                         else {
+                            sendVSCPDriverCommandReply(0x66, 0x66); 
                             sendVSCPDriverNack();
                         }
                     }
@@ -1689,7 +1694,7 @@ void doModeVscp( void )
                 else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                             VSCP_DRIVER_CONFIG_TIMESTAMP ) {
 
-                    if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
+                    if ( 2 == ( ( (uint16_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 ) |
                                 cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
 
                         if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] ) {
@@ -1711,7 +1716,7 @@ void doModeVscp( void )
                 else if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                             VSCP_DRIVER_CONFIG_BAUDRATE ) {
 
-                    if ( 2 == ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ]<<8 +
+                    if ( 2 == ( ( (uint16_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 ) |
                                 cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB ] ) ) {
 
                         if ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < SET_BAUDRATE_MAX ) {
@@ -1780,7 +1785,7 @@ void doModeVscp( void )
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_SET_FILTER) {
 
-                    if ( ( ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 +
+                    if ( ( ( ( (uint16_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 ) |
                             cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] ) < 6 ) &&
                             ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 16 ) ) {
                         // Payload is to small
@@ -1790,9 +1795,9 @@ void doModeVscp( void )
                         // Must be in Config mode to change settings.
                         ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
-                        uint8_t filter = ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 +
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 +
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 +
+                        uint8_t filter = (((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 ) |
+                                        (((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 ) |
+                                        (((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 ) |
                                         cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 5 ];
                         setFilter( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ],
                                     filter,
@@ -1808,7 +1813,7 @@ void doModeVscp( void )
                 else if (cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD ] ==
                         VSCP_DRIVER_COMMAND_SET_MASK) {
 
-                    if ( ( ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 +
+                    if ( ( ( ( (uint16_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] << 8 ) |
                             cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_MSB ] ) < 6 ) &&
                             ( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ] < 2 ) ) {
                         // Payload is to small
@@ -1818,9 +1823,9 @@ void doModeVscp( void )
                         // Must be in Config mode to change settings.
                         ECANSetOperationMode(ECAN_OP_MODE_CONFIG);
 
-                        uint8_t mask = ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 +
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 +
-                                        ((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 +
+                        uint8_t mask =  (((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2 ]) << 24 ) |
+                                        (((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3 ]) << 16 ) |
+                                        (((uint32_t)cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 4 ]) << 8 ) |
                                         cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 5 ];
                         setFilter( cmdbuf[ VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1 ],
                                     mask,
@@ -1959,7 +1964,10 @@ void doModeSLCAN(void)
                         break;
                     }
 
-                    id = (uint32_t) wrkbuf[0] << 24 + (uint32_t) wrkbuf[1] << 16 + (uint32_t) wrkbuf[2] << 8 + wrkbuf[3];
+                    id = ((uint32_t)wrkbuf[0] << 24) |
+                         ((uint32_t)wrkbuf[1] << 16) |
+                         ((uint32_t)wrkbuf[2] << 8) |
+                                    wrkbuf[3];
                     dlc = vscpData[4];
 
                     // Check if we have valid data
@@ -2771,10 +2779,10 @@ BOOL receiveVSCPModeCanalMsg(void)
     uint8_t dlc;
     uint8_t data[8];
 
-    id = ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD] << 26) |
-            ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
-            ((uint32_t) cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
-                        cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
+    id = ((uint32_t)cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD] << 26) |
+         ((uint32_t)cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 1] << 16) |
+         ((uint32_t)cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 2] << 8) |
+                    cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_PAYLOAD + 3]; // node address (our address)
 
     dlc = ( cmdbuf[VSCP_SERIAL_DRIVER_POS_FRAME_SIZE_PAYLOAD_LSB] - 4 );
 
@@ -3655,9 +3663,9 @@ int8_t sendVSCPFrame(uint16_t vscpclass,
                         uint8_t size,
                         uint8_t *pData)
 {
-    uint32_t id = ((uint32_t) priority << 26) |
-            ((uint32_t) vscpclass << 16) |
-            ((uint32_t) vscptype << 8) |
+    uint32_t id = ((uint32_t)priority << 26) |
+            ((uint32_t)vscpclass << 16) |
+            ((uint32_t)vscptype << 8) |
             nodeid; // nodeaddress (our address)
 
     if (!sendCANFrame(id, size, pData)) {

@@ -36,9 +36,9 @@
     <itemPath>../../vscp-firmware/common/vscp_serial.h</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../../vscp_firmware/pic/common</Elem>
-    <Elem>../../vscp_firmware/common</Elem>
-    <Elem>../../vscp_software/src/vscp/common</Elem>
+    <Elem>../../vscp-firmware/pic/common</Elem>
+    <Elem>../../vscp-firmware/common</Elem>
+    <Elem>../../vscp/src/vscp/common</Elem>
     <Elem>.</Elem>
     <Elem>../../vscp-firmware/common</Elem>
   </sourceRootList>
@@ -90,7 +90,7 @@
         <property key="define-macros" value="DEBUG"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value=".;.../vscp-firmware/pic/common;../../vscp-firmware/common;../../vscp/src/vscp/common;../../../vscp-firmware/pic/common"/>
+                  value="../../vscp-firmware/pic/common;../../vscp-firmware/common;../../vscp/src/vscp/common"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -283,7 +283,7 @@
         <property key="define-macros" value="DEBUG"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value=".;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp-software\src\vscp\common"/>
+                  value="../../vscp-firmware/pic/common;../../vscp-firmware/common;../../vscp/src/vscp/common"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -476,7 +476,7 @@
         <property key="define-macros" value="DEBUG"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value=".;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp\src\vscp\common"/>
+                  value="../../vscp-firmware/pic/common;../../vscp-firmware/common;../../vscp/src/vscp/common"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -669,7 +669,7 @@
         <property key="define-macros" value="DEBUG"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
-                  value=".;..\..\vscp-firmware\pic\common;..\..\vscp-firmware\common;..\..\vscp\src\vscp\common"/>
+                  value="../../vscp-firmware/pic/common;../../vscp-firmware/common;../../vscp/src/vscp/common"/>
         <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>

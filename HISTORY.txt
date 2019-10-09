@@ -1,6 +1,8 @@
 Frankfurt RS-232 module
 =======================
 
+2019-10-09 AKHE - Version 1.1.4 - Fixed problem that prevented mode switching when
+                  in VSCP serial protocol mode. 
 2016-04-19 AKHE - RA4 set to input to prevent collision with VCAP circuits in
                   PIC18F2580. Brown out raised to maximum (3V & 4.6V). Valuable                    input from Anders Forsgren, AJE Electronics AB.
 2016-04-04 AKHE - Changed value of C14 to 10uF
