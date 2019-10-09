@@ -19,62 +19,66 @@
             </bookmark>
             <bookmark id="9">
                 <name/>
-                <line>546</line>
+                <line>548</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>1320</line>
+                <line>1322</line>
                 <key/>
             </bookmark>
             <bookmark id="8">
                 <name/>
-                <line>1354</line>
+                <line>1356</line>
                 <key/>
             </bookmark>
             <bookmark id="1">
                 <name/>
-                <line>1415</line>
+                <line>1417</line>
                 <key/>
             </bookmark>
             <bookmark id="3">
                 <name/>
-                <line>1425</line>
+                <line>1427</line>
                 <key/>
             </bookmark>
             <bookmark id="4">
                 <name/>
-                <line>1473</line>
+                <line>1475</line>
                 <key/>
             </bookmark>
             <bookmark id="10">
                 <name/>
-                <line>1796</line>
+                <line>1801</line>
                 <key/>
             </bookmark>
             <bookmark id="7">
                 <name/>
-                <line>1912</line>
+                <line>1917</line>
                 <key/>
             </bookmark>
             <bookmark id="5">
                 <name/>
-                <line>1961</line>
+                <line>1966</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>2092</line>
+                <line>2100</line>
                 <key/>
             </bookmark>
             <bookmark id="0">
                 <name/>
-                <line>2169</line>
+                <line>2177</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.h</file>
+            <file>file:/home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/main.c</file>
+            <file>file:/home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt%20RS-232.X/vscp_serial.h</file>
+        </group>
     </open-files>
 </project-private>
