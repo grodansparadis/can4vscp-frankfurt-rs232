@@ -17,7 +17,6 @@
                 <sourceRootElem>../../vscp-firmware/common</sourceRootElem>
                 <sourceRootElem>../../vscp/src/vscp/common</sourceRootElem>
                 <sourceRootElem>.</sourceRootElem>
-                <sourceRootElem>../../vscp-firmware/common</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

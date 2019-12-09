@@ -138,7 +138,7 @@ uint8_t vscpData[8];
 #pragma config OSC = HSPLL
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 0		// 4.6V
+#pragma config BORV = 2		// 2.8V
 #pragma config LVP = ON
 #pragma config CPB = ON
 #pragma config BBSIZ = 1024
@@ -158,7 +158,7 @@ uint8_t vscpData[8];
 #pragma config PWRT = ON
 #pragma config BOREN = BOACTIVE
 #pragma config STVREN = ON
-#pragma config BORV = 0		// 4.6V
+#pragma config BORV = 2		// 2.8V
 #pragma config LVP = OFF
 #pragma config CPB = OFF
 #pragma config WRTD  = OFF

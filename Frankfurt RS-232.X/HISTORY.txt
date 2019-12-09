@@ -1,6 +1,8 @@
 Frankfurt RS-232 module
 =======================
 
+2019-10-30 AKHE - Firmware 1.1.5
+2019-10-30 AKHE - RELEASE flag set for relocated code and brown out now 2.8V
 2016-03-08 AKHE - Adopted for PIC18F26K80.
 2015-11-23 AKHE - Version 1.1.1
 2015-11-23 AKHE - Some frames with eight bytes of data was sent wrongly. Fixed!
