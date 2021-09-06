@@ -1,0 +1,336 @@
+====== The verbose mode ======
+
+The verbose mode is intended for diagnostics of a CAN4VSCP bus just by using a simple terminal program. When you power up the module and it is set to start in verbose mode  you will see something like this
+
+{{ :verbose_helo.png?500 |}}
+
+You can always issue the **help** command to get syntax end help about available commands.
+
+When the modules is powered there is a short time where it is possible to force it to go into text mode. You do this in the following way.
+
+Connect to it through a terminal program and power it up and continuously press 'v' in three seconds after the welcome text comes up. This bring the module into verbose mode even if set to be in some other mode.
+
+If you want to make it stay in verbose mode issue "set mode verbose" otherwise just repower the module to make it enter the mode that was set before.
+
+
+Here is a description of all available commands. 
+
+
+====== HELP ====== 
+Display this help information.
+
+
+Something like this will be shown
+
+{{ ::verbose_help.png?500 |}}
+
+====== BOOT ====== 
+
+Enter boot loader.
+
+The module will respond with
+
+  +OK
+
+and after that it has entered the boot loader. There is only one way to exit the boot loader mode and that is by updating the firmware. So use the command with care.
+
+====== OPEN ====== 
+
+Open CAN interface in **normal mode**.
+
+The module will respond with
+
+  +OK
+
+when the  connection to the CAN4VSCP bus is open. Frames sent on the bus will asynchronously be received hereafter.
+
+Note that you can mix the **open**, **silent**, **listen** and **loopback** without using **close** in between.
+
+See the RX command for receive frame format.
+
+====== SILENT ====== 
+
+Open CAN interface in **silent mode**.
+
+The module will respond with
+
+  +OK
+
+when the  connection to the CAN4VSCP bus is open. This command is the same as the **open** command with the difference that it does not display received frames asynchronously. You have to poll for them using the **RX** command.
+
+Note that you can mix the **open**, **silent**, **listen** and **loopback** without using **close** in between.
+
+====== LISTEN ====== 
+
+Open CAN interface in **listen only mode**.
+
+The module will respond with
+
+  +OK
+
+when the  connection to the CAN4VSCP bus is open. In this mode the module just listens passively to traffic on the CAN4VSCP bus. You can not send events.
+
+Note that you can mix the **open**, **silent**, **listen** and **loopback** without useing **close** in between.
+
+====== LOOPBACK ======  
+
+Open CAN interface in **loopback mode**.
+
+The module will respond with
+
+  +OK
+
+when the device is in loopback mode.
+
+Use this mode to test the interface of the adapter.
+
+Note that you can mix the **open**, **silent**, **listen** and **loopback** without useing **close** in between.
+
+====== CLOSE ====== 
+
+Close CAN interface.
+
+The module will respond with
+
+  +OK
+
+when the CAN4VSCP interface is closed.   
+
+====== VERSION ====== 
+
+Display firmware version information.
+
+====== IFMODE ====== 
+
+Display selected interface mode.
+
+The module will respond with the current selected interface mode. Possible responses are
+
+  * +OK - Closed mode
+  * +OK - Normal mode 
+  * +OK - Silent mode 
+  * +OK - Listen mode
+  * +OK - Loopback mode
+
+====== TX ====== 
+
+Send CAN frame .
+     
+**Format:**\\ 
+  priority[, timestamp], class,type,nodeid,count,data,,,
+
+timestamp is optional and is enabled with **set timestamp on**. The module will respond with 
+
+  +OK
+
+when the event is sent on the CAN4VSCP bus.  
+
+**Example without timestamp**\\ 
+  <Prio=7,class=20,type=9,nodeid=1,size=3,Data=0,11,1>
+
+**Example with timestamp**\\
+  <Prio=7,timestamp=2815789188,class=20,type=9,nodeid=1,size=3,Data=0,11,1>
+
+====== RX ====== 
+
+Read CAN frame.
+
+The format for the frame is 
+
+  <priority,class,type,nodeid,count,data,,,>
+
+which look like this for a real frame
+
+  <Prio=7,class=20,type=9,nodeid=2,size=3,Data=0,2,3> 
+  +OK
+
+If no event(s) are available to read
+
+  +OK - no events 
+
+will be send back.
+
+
+====== STAT ====== 
+Display CAN statistics.
+
+The result of the command is
+
+  Sent CAN frames: 0
+  Sent CAN bytes: 0
+  Received CAN frames: 165
+  Received CAN bytes: 618 
+
+====== ERR ====== 
+
+Display CAN error information.
+
+The result of the command is
+
+  CAN Receive overruns: 0
+  CAN Transmit overruns: 0
+  UART Receive overruns: 0
+  UART Receive overruns: 0
+  Transmit Error Counter: 0
+  Receive Error Counter: 0 
+
+
+====== FIND ====== 
+Find available CAN4VSCP nodes on bus.
+
+The output from the command looks like this
+
+{{ :command_find.png?700 |}}
+
+As noted the node id, the GUID, the MDF and the firmware version of the devices is returned.
+
+====== RREG ====== 
+Read register(s) of a node.
+
+  Format: rreg nodeid [page:]reg [count]).
+  
+Values between [] are optional. Page is zero if not give, count is one if not given.  
+
+**Example**
+
+Read the MDF registers for node 1
+
+  rreg 1 224 32
+
+which is the same as
+
+  rreg 1 0:224 32
+
+
+====== WREG ====== 
+Write register of node. 
+
+  Format: wreg nodeid [page:]reg content.
+  
+Values between [] are optional. Page is zero if not give.
+
+**Example**
+
+Write 55 to register 0 on page 0 for node 1.
+
+  wreg 1 55 0
+
+which is the same as
+
+  wreg 1 0:55 0
+
+    
+====== INFO ====== 
+Get info about an existent node on the bus.
+
+  Format: info nickname.
+  
+  
+
+====== FILTER ====== 
+Set filter .
+         
+**Format:**\\ 
+  filter filterno,prio,class,type,nodeid[,persistent]  
+
+where(filterno = 0-15). The last optional parameter **"persistent"** will save the filter setting into persistent storage if set. 
+
+====== MASK ====== 
+Set mask.
+  
+**Format:**\\  
+
+  mask maskno,prio,class,type,nodeid[,persistent] 
+  
+where (maskno = 0 or 1). The last optional parameter **"persistent"** will save the filter setting into persistent storage if set.
+
+====== SET ====== 
+
+Set persistent functionality.
+
+== HEX == 
+
+Display numbers in hexadecimal.
+
+== DECIMAL == 
+Display numbers in decimal.
+
+== RWTIMEOUT == 
+Set register read/write timeout. Default=20 ms .
+ 
+__Format:__ \\ 
+    set rwtimeout timeout
+
+== STARTIF == 
+Set interface state to use on startup.
+
+__Format:__ \\ 
+    set startif close|open|silent|listen|loopback
+
+== MODE == 
+Set adapter mode that should be used on startup. 
+
+__Format:__ \\ 
+    set mode verbose|vscp|slcan
+
+== ECHO == 
+Set local echo on or off.
+
+__Format:__ \\ 
+   set echo on|off
+
+== TIMESTAMP == 
+Set timestamp on or off. When on, timestamps will be included in incoming frames.   
+
+== BAUDRATE ==
+With this setting you can temporarily change the baudrate of the serial line. Restarting the module makes it go back to the default baudrate 115200 baud again. The following settings are available
+
+^  Baudrate  ^  Code  ^  Error  ^  Windows  ^  Linux  ^
+|  115200  |  0  |  -1.36%  |  yes  |  yes  |
+|  128000  |  1  |  -2.34%  |  yes  |  no  |
+|  230400  |  2  |  -1.36%  |  no  |  yes  |
+|  256000  |  3  |  -2.34%  |  yes  |  no  |
+|  460800  |  4  |  8.51%  |  no  |  no  |
+|  500000  |  5  |  0%  |  yes  |  yes  |
+|  625000  |  6  |  0%  |  bad  |  no  |
+|  921600  |  7  |  -9.58%  |  no  |  bad  |
+|  1000000  |  8  |  16.67%  |  no  |  bad  |
+|  9600  |  9  |  0.16%  |  yes  |  yes  |
+|  19200  |  10  |  0,16%  |  yes  |  yes  |
+|  38400  |  11  |  0,16%  |  yes  |  yes  |
+|  57600  |  12  |  0.94%  |  yes  |  yes  |
+
+Tests on Windows and Linux has been done on a Windows 10 machine and an Ubuntu machine with the USB serial adapter that ship with Frankfurt RS-232.
+
+**Format:**\\ 
+  set baudrate code
+
+where the code is picked from the table above.  
+
+== DEFAULTS == 
+Set all persistent values to there default value.
+
+__Format:__ \\ 
+   set defaults 
+
+
+===== Using with the vscpl1drv-can4vscp driver =====
+
+If you intend to use Frankfurt RS-232 with the [[https://github.com/grodansparadis/vscpl1drv-can4vscp|vscpl1drv-can4vscp]]  set the interface to __always open__ and mode to __vscp__ with the commands
+
+<code>
+set startif open
+set mode vscp
+</code>
+
+This ensures fail safe operation. If you want to have debug output from the driver set the drivers dlags value to **0x80000000** and add in any additional flags. Debug output will be written to /var/log/debug on your machine (Linyx/Unix).
+
+\\ 
+---- 
+{{ :grodan_logo.png?100 |}}
+\\ 
+<html><center></html>
+**Paradise of the Frog AB** Brattbergavägen 17 820 50 LOS SWEDEN\\  
+**email:** [[info@grodansparadis.com]] **phone:** +46 (0)8 40011835 \\ 
+**web:**[[http://www.grodansparadis.com]] \\ 
+<html></center></html>
