@@ -1,0 +1,43 @@
+1425567842	87.249.166.212	C	the_can4vscp_mode	admin	created	
+1426262386	87.249.166.212	E	the_can4vscp_mode	admin		
+1426262570	87.249.166.212	E	the_can4vscp_mode	admin		
+1426262726	87.249.166.212	E	the_can4vscp_mode	admin		
+1426263243	87.249.166.212	E	the_can4vscp_mode	admin		
+1426263343	87.249.166.212	E	the_can4vscp_mode	admin		
+1426263692	87.249.166.212	E	the_can4vscp_mode	admin		
+1426349627	87.249.166.212	E	the_can4vscp_mode	admin		
+1426349666	87.249.166.212	E	the_can4vscp_mode	admin	[Available commands] 	
+1426351301	87.249.166.212	E	the_can4vscp_mode	admin		
+1426351674	87.249.166.212	E	the_can4vscp_mode	admin	[Available commands for driver] 	
+1426611257	87.249.166.212	E	the_can4vscp_mode	admin		
+1436278647	87.249.163.243	E	the_can4vscp_mode	admin	[Available commands for driver] 	
+1444117421	87.249.163.243	E	the_can4vscp_mode	admin		
+1444299068	87.249.163.243	E	the_can4vscp_mode	admin		
+1444299231	87.249.163.243	E	the_can4vscp_mode	admin	[Set mode] 	
+1444299298	87.249.163.243	E	the_can4vscp_mode	admin	[Enable/disable timestamp] 	
+1444299399	87.249.163.243	E	the_can4vscp_mode	admin		
+1444299452	87.249.163.243	E	the_can4vscp_mode	admin		
+1444299656	87.249.163.243	E	the_can4vscp_mode	admin	[Set mode] 	
+1444299674	87.249.163.243	E	the_can4vscp_mode	admin	[Set mode] 	
+1444299688	87.249.163.243	E	the_can4vscp_mode	admin		
+1444299724	87.249.163.243	E	the_can4vscp_mode	admin	[The CAN4VSCP mode] 	
+1444299734	87.249.163.243	E	the_can4vscp_mode	admin	[Available configuration settings for driver] 	
+1444299746	87.249.163.243	E	the_can4vscp_mode	admin	[Available configuration settings for driver] 	
+1444299793	87.249.163.243	E	the_can4vscp_mode	admin		
+1444299819	87.249.163.243	E	the_can4vscp_mode	admin	[Set mode] 	
+1444300064	87.249.163.243	E	the_can4vscp_mode	admin	[Set mode] 	
+1444380008	87.249.163.243	E	the_can4vscp_mode	admin	[Available configuration settings for driver] 	
+1444380134	87.249.163.243	E	the_can4vscp_mode	admin		
+1444380803	87.249.163.243	E	the_can4vscp_mode	admin	[Available commands for driver] 	
+1444384063	87.249.163.243	E	the_can4vscp_mode	admin	[Available commands for driver] 	
+1444388136	87.249.163.243	E	the_can4vscp_mode	admin	[Available commands for driver] 	
+1444388502	87.249.163.243	E	the_can4vscp_mode	admin	[Set mask] 	
+1444388545	87.249.163.243	E	the_can4vscp_mode	admin	[Set mask] 	
+1444388716	87.249.163.243	E	the_can4vscp_mode	admin	[Set filter] 	
+1444388778	87.249.163.243	E	the_can4vscp_mode	admin		
+1444388803	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444388813	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444388842	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444388856	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444388872	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444391598	87.249.163.243	E	the_can4vscp_mode	admin	[Set baudrate] 	

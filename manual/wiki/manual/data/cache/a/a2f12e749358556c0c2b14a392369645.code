@@ -1,0 +1,8 @@
+<span class="sc-1">&lt;!-- The can4vscp driver  --&gt;</span>
+<span class="sc3"><span class="re1">&lt;driver</span> <span class="re0">enable</span>=<span class="st0">&quot;true&quot;</span> <span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;name<span class="re2">&gt;</span></span></span>can4vscp<span class="sc3"><span class="re1">&lt;/name<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;config<span class="re2">&gt;</span></span></span>com10<span class="sc3"><span class="re1">&lt;/config<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;path<span class="re2">&gt;</span></span></span>/usr/local/lib/xapdrv.so<span class="sc3"><span class="re1">&lt;/path<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;flags<span class="re2">&gt;</span></span></span>0<span class="sc3"><span class="re1">&lt;/flags<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;guid<span class="re2">&gt;</span></span></span>00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00<span class="sc3"><span class="re1">&lt;/guid<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/driver<span class="re2">&gt;</span></span></span>

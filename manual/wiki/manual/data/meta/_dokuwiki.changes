@@ -1,0 +1,20 @@
+1444388856	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444388872	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
+1444391598	87.249.163.243	E	the_can4vscp_mode	admin	[Set baudrate] 	
+1447277680	87.249.163.243	E	introduction	admin		
+1447278755	87.249.163.243	E	introduction	admin	[Introduction] 	
+1447278836	87.249.163.243	E	introduction	admin		
+1447278862	87.249.163.243	E	introduction	admin	[Frankfurt RS-232 have three working modes:] 	
+1447279204	87.249.163.243	E	hardware	admin	[Connectors] 	
+1447279253	87.249.163.243	E	hardware	admin	[TTL Connector] 	
+1447279402	87.249.163.243	E	hardware	admin	[PIC programming Connector] 	
+1511865551	87.249.163.243	E	getting_started	admin			0
+1511866674	87.249.163.243	E	start	admin			-7
+1511866730	87.249.163.243	E	start	admin			14
+1511866862	87.249.163.243	E	change_log_1	admin			97
+1511867007	87.249.163.243	E	start	admin			13
+1518107389	127.0.0.1	E	faq		external edit		0
+1518107389	127.0.0.1	E	the_verbose_mode		external edit		0
+1572447107	87.249.163.243	E	faq	admin			3
+1572456770	87.249.163.243	E	the_verbose_mode	admin			292
+1572457017	87.249.163.243	E	the_verbose_mode	admin	[Using with the vscpl1drv-can4vscp driver] 		249

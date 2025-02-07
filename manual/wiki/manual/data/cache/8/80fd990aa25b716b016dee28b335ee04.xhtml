@@ -1,0 +1,643 @@
+
+<h1 class="sectionedit1" id="the_verbose_mode">The verbose mode</h1>
+<div class="level1">
+
+<p>
+The verbose mode is intended for diagnostics of a CAN4VSCP bus just by using a simple terminal program. When you power up the module and it is set to start in verbose mode  you will see something like this
+</p>
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=the_verbose_mode&amp;media=verbose_helo.png" class="media" title="verbose_helo.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=500&amp;tok=637626&amp;media=verbose_helo.png" class="mediacenter" alt="" width="500" /></a>
+</p>
+
+<p>
+You can always issue the <strong>help</strong> command to get syntax end help about available commands.
+</p>
+
+<p>
+When the modules is powered there is a short time where it is possible to force it to go into text mode. You do this in the following way.
+</p>
+
+<p>
+Connect to it through a terminal program and power it up and continuously press &#039;v&#039; in three seconds after the welcome text comes up. This bring the module into verbose mode even if set to be in some other mode.
+</p>
+
+<p>
+If you want to make it stay in verbose mode issue “set mode verbose” otherwise just repower the module to make it enter the mode that was set before.
+</p>
+
+<p>
+Here is a description of all available commands. 
+</p>
+
+</div>
+<!-- EDIT1 SECTION "The verbose mode" [1-918] -->
+<h1 class="sectionedit2" id="help">HELP</h1>
+<div class="level1">
+
+<p>
+Display this help information.
+</p>
+
+<p>
+Something like this will be shown
+</p>
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=the_verbose_mode&amp;media=verbose_help.png" class="media" title="verbose_help.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=500&amp;tok=dc281c&amp;media=verbose_help.png" class="mediacenter" alt="" width="500" /></a>
+</p>
+
+</div>
+<!-- EDIT2 SECTION "HELP" [919-1037] -->
+<h1 class="sectionedit3" id="boot">BOOT</h1>
+<div class="level1">
+
+<p>
+Enter boot loader.
+</p>
+
+<p>
+The module will respond with
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+and after that it has entered the boot loader. There is only one way to exit the boot loader mode and that is by updating the firmware. So use the command with care.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "BOOT" [1038-1282] -->
+<h1 class="sectionedit4" id="open">OPEN</h1>
+<div class="level1">
+
+<p>
+Open CAN interface in <strong>normal mode</strong>.
+</p>
+
+<p>
+The module will respond with
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+when the  connection to the CAN4VSCP bus is open. Frames sent on the bus will asynchronously be received hereafter.
+</p>
+
+<p>
+Note that you can mix the <strong>open</strong>, <strong>silent</strong>, <strong>listen</strong> and <strong>loopback</strong> without using <strong>close</strong> in between.
+</p>
+
+<p>
+See the RX command for receive frame format.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "OPEN" [1283-1656] -->
+<h1 class="sectionedit5" id="silent">SILENT</h1>
+<div class="level1">
+
+<p>
+Open CAN interface in <strong>silent mode</strong>.
+</p>
+
+<p>
+The module will respond with
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+when the  connection to the CAN4VSCP bus is open. This command is the same as the <strong>open</strong> command with the difference that it does not display received frames asynchronously. You have to poll for them using the <strong>RX</strong> command.
+</p>
+
+<p>
+Note that you can mix the <strong>open</strong>, <strong>silent</strong>, <strong>listen</strong> and <strong>loopback</strong> without using <strong>close</strong> in between.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "SILENT" [1657-2098] -->
+<h1 class="sectionedit6" id="listen">LISTEN</h1>
+<div class="level1">
+
+<p>
+Open CAN interface in <strong>listen only mode</strong>.
+</p>
+
+<p>
+The module will respond with
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+when the  connection to the CAN4VSCP bus is open. In this mode the module just listens passively to traffic on the CAN4VSCP bus. You can not send events.
+</p>
+
+<p>
+Note that you can mix the <strong>open</strong>, <strong>silent</strong>, <strong>listen</strong> and <strong>loopback</strong> without useing <strong>close</strong> in between.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "LISTEN" [2099-2472] -->
+<h1 class="sectionedit7" id="loopback">LOOPBACK</h1>
+<div class="level1">
+
+<p>
+Open CAN interface in <strong>loopback mode</strong>.
+</p>
+
+<p>
+The module will respond with
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+when the device is in loopback mode.
+</p>
+
+<p>
+Use this mode to test the interface of the adapter.
+</p>
+
+<p>
+Note that you can mix the <strong>open</strong>, <strong>silent</strong>, <strong>listen</strong> and <strong>loopback</strong> without useing <strong>close</strong> in between.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "LOOPBACK" [2473-2782] -->
+<h1 class="sectionedit8" id="close">CLOSE</h1>
+<div class="level1">
+
+<p>
+Close CAN interface.
+</p>
+
+<p>
+The module will respond with
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+when the CAN4VSCP interface is closed.   
+</p>
+
+</div>
+<!-- EDIT8 SECTION "CLOSE" [2783-2906] -->
+<h1 class="sectionedit9" id="version">VERSION</h1>
+<div class="level1">
+
+<p>
+Display firmware version information.
+</p>
+
+</div>
+<!-- EDIT9 SECTION "VERSION" [2907-2969] -->
+<h1 class="sectionedit10" id="ifmode">IFMODE</h1>
+<div class="level1">
+
+<p>
+Display selected interface mode.
+</p>
+
+<p>
+The module will respond with the current selected interface mode. Possible responses are
+</p>
+<ul>
+<li class="level1"><div class="li"> +OK - Closed mode</div>
+</li>
+<li class="level1"><div class="li"> +OK - Normal mode </div>
+</li>
+<li class="level1"><div class="li"> +OK - Silent mode </div>
+</li>
+<li class="level1"><div class="li"> +OK - Listen mode</div>
+</li>
+<li class="level1"><div class="li"> +OK - Loopback mode</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "IFMODE" [2970-3231] -->
+<h1 class="sectionedit11" id="tx">TX</h1>
+<div class="level1">
+
+<p>
+Send CAN frame .
+</p>
+
+<p>
+<strong>Format:</strong><br/>
+
+</p>
+<pre class="code">priority[, timestamp], class,type,nodeid,count,data,,,</pre>
+
+<p>
+timestamp is optional and is enabled with <strong>set timestamp on</strong>. The module will respond with 
+</p>
+<pre class="code">+OK</pre>
+
+<p>
+when the event is sent on the CAN4VSCP bus.  
+</p>
+
+<p>
+<strong>Example without timestamp</strong><br/>
+
+</p>
+<pre class="code">&lt;Prio=7,class=20,type=9,nodeid=1,size=3,Data=0,11,1&gt;</pre>
+
+<p>
+<strong>Example with timestamp</strong><br/>
+
+</p>
+<pre class="code">&lt;Prio=7,timestamp=2815789188,class=20,type=9,nodeid=1,size=3,Data=0,11,1&gt;</pre>
+
+</div>
+<!-- EDIT11 SECTION "TX" [3232-3690] -->
+<h1 class="sectionedit12" id="rx">RX</h1>
+<div class="level1">
+
+<p>
+Read CAN frame.
+</p>
+
+<p>
+The format for the frame is 
+</p>
+<pre class="code">&lt;priority,class,type,nodeid,count,data,,,&gt;</pre>
+
+<p>
+which look like this for a real frame
+</p>
+<pre class="code">&lt;Prio=7,class=20,type=9,nodeid=2,size=3,Data=0,2,3&gt; 
++OK</pre>
+
+<p>
+If no event(s) are available to read
+</p>
+<pre class="code">+OK - no events </pre>
+
+<p>
+will be send back.
+</p>
+
+</div>
+<!-- EDIT12 SECTION "RX" [3691-3982] -->
+<h1 class="sectionedit13" id="stat">STAT</h1>
+<div class="level1">
+
+<p>
+Display CAN statistics.
+</p>
+
+<p>
+The result of the command is
+</p>
+<pre class="code">Sent CAN frames: 0
+Sent CAN bytes: 0
+Received CAN frames: 165
+Received CAN bytes: 618 </pre>
+
+</div>
+<!-- EDIT13 SECTION "STAT" [3983-4153] -->
+<h1 class="sectionedit14" id="err">ERR</h1>
+<div class="level1">
+
+<p>
+Display CAN error information.
+</p>
+
+<p>
+The result of the command is
+</p>
+<pre class="code">CAN Receive overruns: 0
+CAN Transmit overruns: 0
+UART Receive overruns: 0
+UART Receive overruns: 0
+Transmit Error Counter: 0
+Receive Error Counter: 0 </pre>
+
+</div>
+<!-- EDIT14 SECTION "ERR" [4154-4400] -->
+<h1 class="sectionedit15" id="find">FIND</h1>
+<div class="level1">
+
+<p>
+Find available CAN4VSCP nodes on bus.
+</p>
+
+<p>
+The output from the command looks like this
+</p>
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=the_verbose_mode&amp;media=command_find.png" class="media" title="command_find.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=700&amp;tok=7ba3ef&amp;media=command_find.png" class="mediacenter" alt="" width="700" /></a>
+</p>
+
+<p>
+As noted the node id, the GUID, the MDF and the firmware version of the devices is returned.
+</p>
+
+</div>
+<!-- EDIT15 SECTION "FIND" [4401-4628] -->
+<h1 class="sectionedit16" id="rreg">RREG</h1>
+<div class="level1">
+
+<p>
+Read register(s) of a node.
+</p>
+<pre class="code">Format: rreg nodeid [page:]reg [count]).</pre>
+
+<p>
+Values between [] are optional. Page is zero if not give, count is one if not given.  
+</p>
+
+<p>
+<strong>Example</strong>
+</p>
+
+<p>
+Read the MDF registers for node 1
+</p>
+<pre class="code">rreg 1 224 32</pre>
+
+<p>
+which is the same as
+</p>
+<pre class="code">rreg 1 0:224 32</pre>
+
+</div>
+<!-- EDIT16 SECTION "RREG" [4629-4918] -->
+<h1 class="sectionedit17" id="wreg">WREG</h1>
+<div class="level1">
+
+<p>
+Write register of node. 
+</p>
+<pre class="code">Format: wreg nodeid [page:]reg content.</pre>
+
+<p>
+Values between [] are optional. Page is zero if not give.
+</p>
+
+<p>
+<strong>Example</strong>
+</p>
+
+<p>
+Write 55 to register 0 on page 0 for node 1.
+</p>
+<pre class="code">wreg 1 55 0</pre>
+
+<p>
+which is the same as
+</p>
+<pre class="code">wreg 1 0:55 0</pre>
+
+</div>
+<!-- EDIT17 SECTION "WREG" [4919-5186] -->
+<h1 class="sectionedit18" id="info">INFO</h1>
+<div class="level1">
+
+<p>
+Get info about an existent node on the bus.
+</p>
+<pre class="code">Format: info nickname.</pre>
+
+</div>
+<!-- EDIT18 SECTION "INFO" [5187-5283] -->
+<h1 class="sectionedit19" id="filter">FILTER</h1>
+<div class="level1">
+
+<p>
+Set filter .
+</p>
+
+<p>
+<strong>Format:</strong><br/>
+
+</p>
+<pre class="code">filter filterno,prio,class,type,nodeid[,persistent]  </pre>
+
+<p>
+where(filterno = 0-15). The last optional parameter <strong>“persistent”</strong> will save the filter setting into persistent storage if set. 
+</p>
+
+</div>
+<!-- EDIT19 SECTION "FILTER" [5284-5532] -->
+<h1 class="sectionedit20" id="mask">MASK</h1>
+<div class="level1">
+
+<p>
+Set mask.
+</p>
+
+<p>
+<strong>Format:</strong><br/>
+
+</p>
+<pre class="code">mask maskno,prio,class,type,nodeid[,persistent] </pre>
+
+<p>
+where (maskno = 0 or 1). The last optional parameter <strong>“persistent”</strong> will save the filter setting into persistent storage if set.
+</p>
+
+</div>
+<!-- EDIT20 SECTION "MASK" [5533-5768] -->
+<h1 class="sectionedit21" id="set">SET</h1>
+<div class="level1">
+
+<p>
+Set persistent functionality.
+</p>
+
+</div>
+
+<h5 id="hex">HEX</h5>
+<div class="level5">
+
+<p>
+Display numbers in hexadecimal.
+</p>
+
+</div>
+
+<h5 id="decimal">DECIMAL</h5>
+<div class="level5">
+
+<p>
+Display numbers in decimal.
+</p>
+
+</div>
+
+<h5 id="rwtimeout">RWTIMEOUT</h5>
+<div class="level5">
+
+<p>
+Set register read/write timeout. Default=20 ms .
+</p>
+
+<p>
+<em class="u">Format:</em> <br/>
+
+</p>
+<pre class="code">  set rwtimeout timeout</pre>
+
+</div>
+
+<h5 id="startif">STARTIF</h5>
+<div class="level5">
+
+<p>
+Set interface state to use on startup.
+</p>
+
+<p>
+<em class="u">Format:</em> <br/>
+
+</p>
+<pre class="code">  set startif close|open|silent|listen|loopback</pre>
+
+</div>
+
+<h5 id="mode">MODE</h5>
+<div class="level5">
+
+<p>
+Set adapter mode that should be used on startup. 
+</p>
+
+<p>
+<em class="u">Format:</em> <br/>
+
+</p>
+<pre class="code">  set mode verbose|vscp|slcan</pre>
+
+</div>
+
+<h5 id="echo">ECHO</h5>
+<div class="level5">
+
+<p>
+Set local echo on or off.
+</p>
+
+<p>
+<em class="u">Format:</em> <br/>
+
+</p>
+<pre class="code"> set echo on|off</pre>
+
+</div>
+
+<h5 id="timestamp">TIMESTAMP</h5>
+<div class="level5">
+
+<p>
+Set timestamp on or off. When on, timestamps will be included in incoming frames.   
+</p>
+
+</div>
+
+<h5 id="baudrate">BAUDRATE</h5>
+<div class="level5">
+
+<p>
+With this setting you can temporarily change the baudrate of the serial line. Restarting the module makes it go back to the default baudrate 115200 baud again. The following settings are available
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Baudrate  </th><th class="col1 centeralign">  Code  </th><th class="col2 centeralign">  Error  </th><th class="col3 centeralign">  Windows  </th><th class="col4 centeralign">  Linux  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  115200  </td><td class="col1 centeralign">  0  </td><td class="col2 centeralign">  -1.36%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  128000  </td><td class="col1 centeralign">  1  </td><td class="col2 centeralign">  -2.34%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  230400  </td><td class="col1 centeralign">  2  </td><td class="col2 centeralign">  -1.36%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  256000  </td><td class="col1 centeralign">  3  </td><td class="col2 centeralign">  -2.34%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  460800  </td><td class="col1 centeralign">  4  </td><td class="col2 centeralign">  8.51%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  500000  </td><td class="col1 centeralign">  5  </td><td class="col2 centeralign">  0%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  625000  </td><td class="col1 centeralign">  6  </td><td class="col2 centeralign">  0%  </td><td class="col3 centeralign">  bad  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  921600  </td><td class="col1 centeralign">  7  </td><td class="col2 centeralign">  -9.58%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  bad  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  1000000  </td><td class="col1 centeralign">  8  </td><td class="col2 centeralign">  16.67%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  bad  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  9600  </td><td class="col1 centeralign">  9  </td><td class="col2 centeralign">  0.16%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  19200  </td><td class="col1 centeralign">  10  </td><td class="col2 centeralign">  0,16%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  38400  </td><td class="col1 centeralign">  11  </td><td class="col2 centeralign">  0,16%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  57600  </td><td class="col1 centeralign">  12  </td><td class="col2 centeralign">  0.94%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+</table></div>
+<!-- EDIT22 TABLE [6645-7276] -->
+<p>
+Tests on Windows and Linux has been done on a Windows 10 machine and an Ubuntu machine with the USB serial adapter that ship with Frankfurt RS-232.
+</p>
+
+<p>
+<strong>Format:</strong><br/>
+
+</p>
+<pre class="code">set baudrate code</pre>
+
+<p>
+where the code is picked from the table above.  
+</p>
+
+</div>
+
+<h5 id="defaults">DEFAULTS</h5>
+<div class="level5">
+
+<p>
+Set all persistent values to there default value.
+</p>
+
+<p>
+<em class="u">Format:</em> <br/>
+
+</p>
+<pre class="code"> set defaults </pre>
+
+<p>
+<br/>
+
+</p>
+<hr />
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=the_verbose_mode&amp;media=grodan_logo.png" class="media" title="grodan_logo.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=100&amp;tok=9032da&amp;media=grodan_logo.png" class="mediacenter" alt="" width="100" /></a>
+<br/>
+
+<center>
+<strong>Paradise of the Frog AB</strong> Brattbergavägen 17 820 50 LOS SWEDEN<br/>
+
+<strong>email:</strong> <a href="mailto:&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;">&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;</a> <strong>phone:</strong> +46 (0)8 40011835 <br/>
+
+<strong>web:</strong><a href="http://www.grodansparadis.com" class="urlextern" title="http://www.grodansparadis.com" rel="nofollow">http://www.grodansparadis.com</a> <br/>
+
+</center>
+</p>
+
+</div>
+<!-- EDIT21 SECTION "SET" [5769-] -->

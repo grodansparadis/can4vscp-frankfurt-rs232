@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- generator="FeedCreator 1.8" -->
+<?xml-stylesheet href="https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/feed.php">
+        <title>Frankfurt RS-232 &amp; TTL module</title>
+        <description></description>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/</link>
+        <image rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico" />
+       <dc:date>2020-10-28T01:45:56+0100</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=faq&amp;rev=1572447107&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1511867007&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1511866862&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1511865551&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1447279402&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1447278862&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1444391598&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=works_config.jpg&amp;ns=&amp;rev=1433167148&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=verify_error.png&amp;ns=&amp;rev=1426609087&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader12.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader11.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader10.png&amp;ns=&amp;rev=1426607513&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader8.png&amp;ns=&amp;rev=1426607512&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader9.png&amp;ns=&amp;rev=1426607512&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader7.png&amp;ns=&amp;rev=1426607510&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader4.png&amp;ns=&amp;rev=1426607510&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader6.png&amp;ns=&amp;rev=1426607509&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader5.png&amp;ns=&amp;rev=1426607509&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader3.png&amp;ns=&amp;rev=1426607508&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico">
+        <title>Frankfurt RS-232 & TTL module</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/</link>
+        <url>https://www.grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico</url>
+    </image>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2019-10-30T18:36:57+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>the_verbose_mode - [Using with the vscpl1drv-can4vscp driver] </title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff</link>
+        <description>The verbose mode
+
+The verbose mode is intended for diagnostics of a CAN4VSCP bus just by using a simple terminal program. When you power up the module and it is set to start in verbose mode  you will see something like this
+
+
+
+You can always issue the</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=faq&amp;rev=1572447107&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2019-10-30T15:51:47+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>faq</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=faq&amp;rev=1572447107&amp;do=diff</link>
+        <description>faq - Frequently Asked Questions
+
+Can the Frankfurt RS-232 module be used as a general CAN-interface adapter?
+
+The Frankfurt RS-232 is built to be a low cost alternative to connect CAN4VSCP equipment to a PC or other high end device. Therefore it can only handle 125kbps as bus speed on the CAN-bus (CAN4VSCP). If you look for a good general CAN adapter we recommend the</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1511867007&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-28T12:03:27+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>start</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1511867007&amp;do=diff</link>
+        <description>Frankfurt RS-232/TTL module
+
+Document reversion: 2016-11-28 change log
+
+Copyright © 2000-2015 Grodans Paradis AB, &lt;info@grodansparadis.com&gt; 
+
+[ Photo is first hand soldered prototype ]
+
+This documentation is for the Frankfurt RS-232 module
+and the Frankfurt TTL module. Both modules are available for international purchase from the FrogShop.
+
+	*  Introduction
+	*  Getting Started
+	*  Hardware
+	*  CAN4VSCP cabling
+	*  Installing the module
+	*  The verbose mode
+	*  The CAN4VSCP mode
+	*  The SLCAN mo…</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1511866862&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-28T12:01:02+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>change_log_1</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1511866862&amp;do=diff</link>
+        <description>Change Log for Frankfurt RS-232
+
+	*  2016-11-28 AKHE - Driver has changed name vscpl1drv_can4vscp.so is now vscpl1drv-can4vscp.so
+	*  2015-10-08 AKHE - Implemented baudrate change command/configuration.
+	*  2015-10-08 AKHE - Implemented hardware handshake.</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1511865551&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-28T11:39:11+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>getting_started</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1511865551&amp;do=diff</link>
+        <description>Getting started
+
+You need
+
+	*  RJ-45 patch cables or similar.
+	*  A stable +9V- +28V DC power source.
+	*  At least one additional CAN4VSCP module.
+	*  A host computer with a serial or USB interface.
+
+The Frankfurt RS-232 is powered from the CAN4VSCP bus.</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1447279402&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-11-11T23:03:22+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>hardware - [PIC programming Connector] </title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1447279402&amp;do=diff</link>
+        <description>Hardware
+
+Most current information
+
+You can find the most current information about the Frankfurt RS-232 module at 
+&lt;http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html&gt;. On the site you can also find links to the latest firmware, drivers and schematics etc for its use. 
+
+The raw facts
+ Parameter  Value</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1447278862&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-11-11T22:54:22+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>introduction - [Frankfurt RS-232 have three working modes:] </title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1447278862&amp;do=diff</link>
+        <description>Introduction
+
+[ The picture is the first hand soldered prototype of the Frankfurt RS-232 module ]
+
+Frankfurt RS-232 interfaces serial RS-232 to the CAN4VSCP bus and is powered from the CAN4VSCP bus. It is delivered with a USB to serial adapter free of charge so it can also be connected to host computers that does not have a RS-232 port. It is also possible to order the Frankfurt RS-232 module in a 3.3V TTL version (and at special orders as a 5V TTL version) that works with hardware that does not…</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1444391598&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-10-09T13:53:18+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>the_can4vscp_mode - [Set baudrate] </title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1444391598&amp;do=diff</link>
+        <description>The CAN4VSCP mode
+
+This mode export a standard VSCP serial interface. The CAN4VSCP driver can be used to export this interface to a CANAL interface which in turn can be used by the VSCP daemon, VSCP Works and other software that can work with a CANAL interface.
+
+An end user does not have to worry about any of this of course. He/she just use the</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=works_config.jpg&amp;ns=&amp;rev=1433167148&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-06-01T15:59:08+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>works_config.jpg - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=works_config.jpg&amp;ns=&amp;rev=1433167148&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=500&amp;h=290&amp;t=1518107387&amp;amp;tok=5428a2&amp;amp;media=works_config.jpg&quot; alt=&quot;works_config.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=verify_error.png&amp;ns=&amp;rev=1426609087&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T17:18:07+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>verify_error.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=verify_error.png&amp;ns=&amp;rev=1426609087&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=345&amp;h=160&amp;t=1518107385&amp;amp;tok=c43f79&amp;amp;media=verify_error.png&quot; alt=&quot;verify_error.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader12.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:55+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader12.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader12.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107387&amp;amp;tok=654552&amp;amp;media=bootloader12.png&quot; alt=&quot;bootloader12.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader11.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:55+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader11.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader11.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107386&amp;amp;tok=783c60&amp;amp;media=bootloader11.png&quot; alt=&quot;bootloader11.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader10.png&amp;ns=&amp;rev=1426607513&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:53+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader10.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader10.png&amp;ns=&amp;rev=1426607513&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107384&amp;amp;tok=31fcb8&amp;amp;media=bootloader10.png&quot; alt=&quot;bootloader10.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader8.png&amp;ns=&amp;rev=1426607512&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:52+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader8.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader8.png&amp;ns=&amp;rev=1426607512&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107384&amp;amp;tok=181d2e&amp;amp;media=bootloader8.png&quot; alt=&quot;bootloader8.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader9.png&amp;ns=&amp;rev=1426607512&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:52+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader9.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader9.png&amp;ns=&amp;rev=1426607512&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107384&amp;amp;tok=2f638e&amp;amp;media=bootloader9.png&quot; alt=&quot;bootloader9.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader7.png&amp;ns=&amp;rev=1426607510&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:50+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader7.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader7.png&amp;ns=&amp;rev=1426607510&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107388&amp;amp;tok=0be782&amp;amp;media=bootloader7.png&quot; alt=&quot;bootloader7.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader4.png&amp;ns=&amp;rev=1426607510&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:50+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader4.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader4.png&amp;ns=&amp;rev=1426607510&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107388&amp;amp;tok=7c2efa&amp;amp;media=bootloader4.png&quot; alt=&quot;bootloader4.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader6.png&amp;ns=&amp;rev=1426607509&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:49+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader6.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader6.png&amp;ns=&amp;rev=1426607509&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107388&amp;amp;tok=41d3ef&amp;amp;media=bootloader6.png&quot; alt=&quot;bootloader6.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader5.png&amp;ns=&amp;rev=1426607509&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:49+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader5.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader5.png&amp;ns=&amp;rev=1426607509&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107385&amp;amp;tok=ceeda9&amp;amp;media=bootloader5.png&quot; alt=&quot;bootloader5.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader3.png&amp;ns=&amp;rev=1426607508&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2015-03-17T16:51:48+0100</dc:date>
+        <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
+        <title>bootloader3.png - created</title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader3.png&amp;ns=&amp;rev=1426607508&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://www.grodansparadis.com/frankfurt/rs232/manual/lib/exe/fetch.php?w=499&amp;h=472&amp;t=1518107387&amp;amp;tok=8ec163&amp;amp;media=bootloader3.png&quot; alt=&quot;bootloader3.png&quot; /&gt;</description>
+    </item>
+</rdf:RDF>

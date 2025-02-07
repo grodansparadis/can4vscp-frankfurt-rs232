@@ -1,0 +1,112 @@
+
+<h1 class="sectionedit1" id="using_with_the_vscp_daemon">Using with the VSCP Daemon</h1>
+<div class="level1">
+
+<p>
+Full info about the driver is <a href="http://www.vscp.org/docs/vscpd/doku.php?id=level1_driver_can4vscp" class="urlextern" title="http://www.vscp.org/docs/vscpd/doku.php?id=level1_driver_can4vscp" rel="nofollow">here</a>
+</p>
+
+<p>
+Add the driver to the <strong>vscpd.conf</strong> file in the &lt;level1driver&gt; section. 
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Using with the VSCP Daemon&quot;,&quot;hid&quot;:&quot;using_with_the_vscp_daemon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-224&quot;} -->
+<h2 class="sectionedit2" id="windows">Windows</h2>
+<div class="level2">
+<pre class="code xml"><span class="sc-1">&lt;!-- The can4vscp driver  --&gt;</span>
+<span class="sc3"><span class="re1">&lt;driver</span> <span class="re0">enable</span>=<span class="st0">&quot;true&quot;</span> <span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;name<span class="re2">&gt;</span></span></span>can4vscp<span class="sc3"><span class="re1">&lt;/name<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;config<span class="re2">&gt;</span></span></span>com10<span class="sc3"><span class="re1">&lt;/config<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;path<span class="re2">&gt;</span></span></span>c:\somewhere\vscpl1_can4vscpdrv.dll<span class="sc3"><span class="re1">&lt;/path<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;flags<span class="re2">&gt;</span></span></span>0<span class="sc3"><span class="re1">&lt;/flags<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;guid<span class="re2">&gt;</span></span></span>00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00<span class="sc3"><span class="re1">&lt;/guid<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/driver<span class="re2">&gt;</span></span></span></pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Windows&quot;,&quot;hid&quot;:&quot;windows&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;225-522&quot;} -->
+<h2 class="sectionedit3" id="unix">Unix</h2>
+<div class="level2">
+<pre class="code xml"><span class="sc3"><span class="re1">&lt;driver</span> <span class="re0">enable</span>=<span class="st0">&quot;true&quot;</span> <span class="re2">&gt;</span></span>
+   <span class="sc3"><span class="re1">&lt;name<span class="re2">&gt;</span></span></span>can4vscp<span class="sc3"><span class="re1">&lt;/name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;path<span class="re2">&gt;</span></span></span>/home/akhe/vscp_software/src/vscp/drivers/level1/can4vscp/linux/vscpl1drv_can4vscp.so<span class="sc3"><span class="re1">&lt;/path<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;config<span class="re2">&gt;</span></span></span>/dev/ttyUSB2<span class="sc3"><span class="re1">&lt;/config<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;guid<span class="re2">&gt;</span></span></span>00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00<span class="sc3"><span class="re1">&lt;/guid<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/driver<span class="re2">&gt;</span></span></span></pre>
+
+<p>
+then restart the vscp daemon to load the driver.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Unix&quot;,&quot;hid&quot;:&quot;unix&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;523-868&quot;} -->
+<h2 class="sectionedit4" id="explanations">Explanations</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="driver_enable">driver enable</h4>
+<div class="level4">
+
+<p>
+Set to <strong>true</strong> to activate the driver or <strong>false</strong> to disable it.
+</p>
+
+</div>
+
+<h4 id="name">name</h4>
+<div class="level4">
+
+<p>
+Set to anything you like. This is just an identifier for the driver.
+</p>
+
+</div>
+
+<h4 id="path">path</h4>
+<div class="level4">
+
+<p>
+The full path to the driver
+</p>
+
+</div>
+
+<h4 id="config">config</h4>
+<div class="level4">
+
+<p>
+The serial adapter the Frankfurt RS-232 module is connected to.
+</p>
+
+</div>
+
+<h4 id="guid">guid</h4>
+<div class="level4">
+
+<p>
+The GUID for the driver. Will be used if not non-zero which is the default. If zero or not given the GUID of the interface of the daemon will be used.
+</p>
+
+<p>
+<br/>
+
+</p>
+<hr />
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=using_with_vscp_daemon&amp;media=grodan_logo.png" class="media" title="grodan_logo.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=100&amp;tok=9032da&amp;media=grodan_logo.png" class="mediacenter" alt="" width="100" /></a>
+<br/>
+
+<center>
+<strong>Paradise of the Frog AB</strong> Brattbergavägen 17 820 50 LOS SWEDEN<br/>
+
+<strong>email:</strong> <a href="mailto:&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;">&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;</a> <strong>phone:</strong> +46 (0)8 40011835 <br/>
+
+<strong>web:</strong><a href="http://www.grodansparadis.com" class="urlextern" title="http://www.grodansparadis.com" rel="nofollow">http://www.grodansparadis.com</a> <br/>
+
+</center>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Explanations&quot;,&quot;hid&quot;:&quot;explanations&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:4,&quot;range&quot;:&quot;869-&quot;} -->

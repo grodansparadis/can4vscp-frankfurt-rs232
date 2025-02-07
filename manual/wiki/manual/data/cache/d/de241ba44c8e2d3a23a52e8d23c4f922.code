@@ -1,0 +1,6 @@
+<span class="sc3"><span class="re1">&lt;driver</span> <span class="re0">enable</span>=<span class="st0">&quot;true&quot;</span> <span class="re2">&gt;</span></span>
+   <span class="sc3"><span class="re1">&lt;name<span class="re2">&gt;</span></span></span>can4vscp<span class="sc3"><span class="re1">&lt;/name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;path<span class="re2">&gt;</span></span></span>/home/akhe/vscp_software/src/vscp/drivers/level1/can4vscp/linux/vscpl1drv_can4vscp.so<span class="sc3"><span class="re1">&lt;/path<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;config<span class="re2">&gt;</span></span></span>/dev/ttyUSB2<span class="sc3"><span class="re1">&lt;/config<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;guid<span class="re2">&gt;</span></span></span>00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00<span class="sc3"><span class="re1">&lt;/guid<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/driver<span class="re2">&gt;</span></span></span>

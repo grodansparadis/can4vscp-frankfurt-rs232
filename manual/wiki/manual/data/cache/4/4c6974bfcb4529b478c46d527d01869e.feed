@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- generator="FeedCreator 1.8" -->
+<?xml-stylesheet href="https://grodansparadis.com/frankfurt/rs232/manual/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/feed.php">
+        <title>Frankfurt RS-232 &amp; TTL module</title>
+        <description></description>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/</link>
+        <image rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico" />
+       <dc:date>2020-05-12T18:37:55+0200</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp_cabling&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=data_coding&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=decision_matrix&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=download_page&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=faq&amp;rev=1572447107&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=globally_unique_identifiers&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=installing_the_module&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_i_events&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_ii_events&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_ii_specifics&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=module_description_file&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=physical_level_lower_level_protocols&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=register_abstraction_model&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=replacing_the_firmware&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_slcan_mode&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_beaglebone&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_carambola&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_raspberry_pi&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_software&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_vscp_daemon&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_vscp_works&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_boot_loader_algorithm&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_level_i_specifics&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_multicast&amp;rev=1518107389&amp;do=diff"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico">
+        <title>Frankfurt RS-232 & TTL module</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/</link>
+        <url>https://grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico</url>
+    </image>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp_cabling&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>can4vscp_cabling</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp_cabling&amp;rev=1518107389&amp;do=diff</link>
+        <description>CAN4VSCP Cabling
+
+Cable length
+
+CAN4VSCP always communicate with 125kbps. This means that if you use a good quality cable it can be up to a maximum of 500 meters using AWG24AWG24 or similar (CAT5) . Actual length depend on the environment and other parameters. Drops with a maximum length of 24 meters can be taken from this cable and the sum of all drops must not exceed a total of 120 meters.</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>change_log_1</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1518107389&amp;do=diff</link>
+        <description>Change Log for Frankfurt RS-232
+
+	*  2016-11-28 AKHE - Driver has changed name vscpl1drv_can4vscp.so is now vscpl1drv-can4vscp.so
+	*  2015-10-08 AKHE - Implemented baudrate change command/configuration.
+	*  2015-10-08 AKHE - Implemented hardware handshake.</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=data_coding&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>data_coding</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=data_coding&amp;rev=1518107389&amp;do=diff</link>
+        <description>Data coding</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=decision_matrix&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>decision_matrix</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=decision_matrix&amp;rev=1518107389&amp;do=diff</link>
+        <description>Decision Matrix</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=download_page&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>download_page</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=download_page&amp;rev=1518107389&amp;do=diff</link>
+        <description>Download drivers for Frankfurt RS-232
+
+You can use the Frankfurt RS-232 with your own code either by writing code for the CAN4VSCP serial driver which expose a CANAL interface (AKA Level I interface) or written directly to interface one of the modes of the Frankfurt RS-232 module (verbose, CAN4VSCP or</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=faq&amp;rev=1572447107&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2019-10-30T15:51:47+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>faq</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=faq&amp;rev=1572447107&amp;do=diff</link>
+        <description>faq - Frequently Asked Questions
+
+Can the Frankfurt RS-232 module be used as a general CAN-interface adapter?
+
+The Frankfurt RS-232 is built to be a low cost alternative to connect CAN4VSCP equipment to a PC or other high end device. Therefore it can only handle 125kbps as bus speed on the CAN-bus (CAN4VSCP). If you look for a good general CAN adapter we recommend the</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>getting_started</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1518107389&amp;do=diff</link>
+        <description>Getting started
+
+You need
+
+	*  RJ-45 patch cables or similar.
+	*  A stable +9V- +28V DC power source.
+	*  At least one additional CAN4VSCP module.
+	*  A host computer with a serial or USB interface.
+
+The Frankfurt RS-232 is powered from the CAN4VSCP bus.</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=globally_unique_identifiers&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>globally_unique_identifiers</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=globally_unique_identifiers&amp;rev=1518107389&amp;do=diff</link>
+        <description>Globally Unique Identifiers</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>hardware</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1518107389&amp;do=diff</link>
+        <description>Hardware
+
+Most current information
+
+You can find the most current information about the Frankfurt RS-232 module at 
+&lt;http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html&gt;. On the site you can also find links to the latest firmware, drivers and schematics etc for its use. 
+
+The raw facts
+ Parameter  Value</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=installing_the_module&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>installing_the_module</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=installing_the_module&amp;rev=1518107389&amp;do=diff</link>
+        <description>Installing the module
+
+
+
+
+----------
+
+Copyright (c) 2000-2015 Åke Hedman, Paradise of the Frog / Grodans Paradis AB</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>introduction</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1518107389&amp;do=diff</link>
+        <description>Introduction
+
+[ The picture is the first hand soldered prototype of the Frankfurt RS-232 module ]
+
+Frankfurt RS-232 interfaces serial RS-232 to the CAN4VSCP bus and is powered from the CAN4VSCP bus. It is delivered with a USB to serial adapter free of charge so it can also be connected to host computers that does not have a RS-232 port. It is also possible to order the Frankfurt RS-232 module in a 3.3V TTL version (and at special orders as a 5V TTL version) that works with hardware that does not…</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_i_events&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>level_i_events</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_i_events&amp;rev=1518107389&amp;do=diff</link>
+        <description>Level I Events</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_ii_events&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>level_ii_events</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_ii_events&amp;rev=1518107389&amp;do=diff</link>
+        <description>Level II Events</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_ii_specifics&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>level_ii_specifics</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=level_ii_specifics&amp;rev=1518107389&amp;do=diff</link>
+        <description>VSCP Level II Specifics</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=module_description_file&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>module_description_file</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=module_description_file&amp;rev=1518107389&amp;do=diff</link>
+        <description>Module Description File</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=physical_level_lower_level_protocols&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>physical_level_lower_level_protocols</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=physical_level_lower_level_protocols&amp;rev=1518107389&amp;do=diff</link>
+        <description>Physical Level/Lower level protocols</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=register_abstraction_model&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>register_abstraction_model</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=register_abstraction_model&amp;rev=1518107389&amp;do=diff</link>
+        <description>Register Abstraction Model</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=replacing_the_firmware&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>replacing_the_firmware</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=replacing_the_firmware&amp;rev=1518107389&amp;do=diff</link>
+        <description>Updating the firmware
+
+New firmware is released from time to time for all our modules. We expect this to be true also for the Frankfurt RS-232 as it is an active project. The process of updating the firmware of the module is a simple one. Just follow the steps outlined here.</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>start</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1518107389&amp;do=diff</link>
+        <description>Frankfurt RS-232/TTL module
+
+Document reversion: 2016-11-28 change log
+
+Copyright © 2000-2015 Grodans Paradis AB, &lt;info@grodansparadis.com&gt; 
+
+[ Photo is first hand soldered prototype ]
+
+This documentation is for the Frankfurt RS-232 module
+and the Frankfurt TTL module. Both modules are available for international purchase from the FrogShop.
+
+	*  Introduction
+	*  Getting Started
+	*  Hardware
+	*  CAN4VSCP cabling
+	*  Installing the module
+	*  The verbose mode
+	*  The CAN4VSCP mode
+	*  The SLCAN mo…</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>the_can4vscp_mode</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1518107389&amp;do=diff</link>
+        <description>The CAN4VSCP mode
+
+This mode export a standard VSCP serial interface. The CAN4VSCP driver can be used to export this interface to a CANAL interface which in turn can be used by the VSCP daemon, VSCP Works and other software that can work with a CANAL interface.
+
+An end user does not have to worry about any of this of course. He/she just use the</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_slcan_mode&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>the_slcan_mode</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_slcan_mode&amp;rev=1518107389&amp;do=diff</link>
+        <description>The SLCAN mode
+
+The SLCAN mode is for use with the socketcan interface available on Linux. SLCAN is a CAN driver for several 'low cost' CAN interfaces that are attached via serial lines or via USB-to-serial adapters using the LAWICEL ASCII protocol You can use the standard socketcan tools in this mode.</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2019-10-30T18:36:57+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>the_verbose_mode</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff</link>
+        <description>The verbose mode
+
+The verbose mode is intended for diagnostics of a CAN4VSCP bus just by using a simple terminal program. When you power up the module and it is set to start in verbose mode  you will see something like this
+
+
+
+You can always issue the</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_beaglebone&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>using_with_beaglebone</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_beaglebone&amp;rev=1518107389&amp;do=diff</link>
+        <description>Using with Beaglebone
+
+The instructions for Raspberry Pi works pretty well. At least for the Debian/Ubuntu codebase.
+
+
+
+
+----------
+
+
+
+
+
+Paradise of the Frog AB Brattbergavägen 17 820 50 LOS SWEDEN
+
+email: &lt;info@grodansparadis.com&gt; phone: +46 (0)8 40011835 
+
+web:&lt;http://www.grodansparadis.com&gt;</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_carambola&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>using_with_carambola</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_carambola&amp;rev=1518107389&amp;do=diff</link>
+        <description>Using with Carambola
+
+Carambola is a nice wifi unit available from 8devices.  You can read more about it here.
+
+
+
+
+----------
+
+
+
+
+
+Paradise of the Frog AB Brattbergavägen 17 820 50 LOS SWEDEN
+
+email: &lt;info@grodansparadis.com&gt; phone: +46 (0)8 40011835 
+
+web:&lt;http://www.grodansparadis.com&gt;</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_raspberry_pi&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>using_with_raspberry_pi</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_raspberry_pi&amp;rev=1518107389&amp;do=diff</link>
+        <description>Using with Raspberry Pi
+
+Making sure it works
+
+The USB serial adapter that is shipped with Frankfurt RS-232 s identified by Raspberry Pi as ch341. lsusb (sudo apt-get install usbutils) will show something like
+ Bus 001 Device 004: ID 1a86:7523 QinHeng Electronics HL-340 USB-Serial adapter</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_software&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>using_with_software</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_software&amp;rev=1518107389&amp;do=diff</link>
+        <description>Using with your own software
+
+Info will be added.
+
+
+
+
+----------
+
+
+
+
+
+Paradise of the Frog AB Brattbergavägen 17 820 50 LOS SWEDEN
+
+email: &lt;info@grodansparadis.com&gt; phone: +46 (0)8 40011835 
+
+web:&lt;http://www.grodansparadis.com&gt;</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_vscp_daemon&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>using_with_vscp_daemon</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_vscp_daemon&amp;rev=1518107389&amp;do=diff</link>
+        <description>Using with the VSCP Daemon
+
+Full info about the driver is here
+
+Add the driver to the vscpd.conf file in the &lt;level1driver&gt; section. 
+
+Windows
+
+
+&lt;!-- The can4vscp driver  --&gt;
+&lt;driver enable=&quot;true&quot; &gt;
+    &lt;name&gt;can4vscp&lt;/name&gt;
+    &lt;config&gt;com10&lt;/config&gt;
+    &lt;path&gt;c:\somewhere\vscpl1_can4vscpdrv.dll&lt;/path&gt;
+    &lt;flags&gt;0&lt;/flags&gt;
+    &lt;guid&gt;00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00&lt;/guid&gt;
+&lt;/driver&gt;</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_vscp_works&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>using_with_vscp_works</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_vscp_works&amp;rev=1518107389&amp;do=diff</link>
+        <description>Using with VSCP Works
+
+All options for the driver is described here
+
+Just add the driver to use it
+
+
+
+Description
+
+Enter a description that have meaning to you
+
+Path
+
+Set the full path to the driver file vscpl1_can4vscpdrv.dll/so
+
+Device Configuration String</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_boot_loader_algorithm&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>vscp_boot_loader_algorithm</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_boot_loader_algorithm&amp;rev=1518107389&amp;do=diff</link>
+        <description>VSCP boot loader algorithm</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_level_i_specifics&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>vscp_level_i_specifics</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_level_i_specifics&amp;rev=1518107389&amp;do=diff</link>
+        <description>VSCP Level I Specifics</description>
+    </item>
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_multicast&amp;rev=1518107389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2018-02-08T17:29:49+0200</dc:date>
+        <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
+        <title>vscp_multicast</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=vscp_multicast&amp;rev=1518107389&amp;do=diff</link>
+        <description>VSCP Multicast</description>
+    </item>
+</rdf:RDF>

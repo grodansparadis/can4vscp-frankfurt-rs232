@@ -1,0 +1,68 @@
+
+<h1 class="sectionedit1" id="using_with_raspberry_pi">Using with Raspberry Pi</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Using with Raspberry Pi&quot;,&quot;hid&quot;:&quot;using_with_raspberry_pi&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-39&quot;} -->
+<h2 class="sectionedit2" id="making_sure_it_works">Making sure it works</h2>
+<div class="level2">
+
+<p>
+The USB serial adapter that is shipped with Frankfurt RS-232 s identified by Raspberry Pi as ch341. <strong>lsusb</strong> (<em>sudo apt-get install usbutils</em>) will show something like
+</p>
+<pre class="code"> Bus 001 Device 004: ID 1a86:7523 QinHeng Electronics HL-340 USB-Serial adapter</pre>
+
+<p>
+If you issue <strong>lsmod</strong> you should have a line like
+</p>
+<pre class="code"> usbserial              31088  1 ch341</pre>
+
+<p>
+then normally you have the serial port as <strong>/dev/ttyUSB0</strong>
+</p>
+
+<p>
+and can open it using <strong>minicom</strong> (<em>sudo apt-get install minicom</em>) with
+</p>
+<pre class="code"> sudo minicom --baudrate 115200 --device /dev/ttySUB0</pre>
+
+<p>
+You may want to change permissions for who can access the serial driver with
+</p>
+<pre class="code"> sudo chmod a+rw /dev/ttyUSB0</pre>
+
+<p>
+which let all users use the serial channel.   
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Making sure it works&quot;,&quot;hid&quot;:&quot;making_sure_it_works&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;40-773&quot;} -->
+<h2 class="sectionedit3" id="using_with_vscp_software">Using with VSCP software</h2>
+<div class="level2">
+
+<p>
+If using the non TTL version just see instructions <a href="/frankfurt/rs232/manual/doku.php?id=using_with_vscp_daemon" class="wikilink1" title="using_with_vscp_daemon">Using with the VSCP Daemon</a> and <a href="/frankfurt/rs232/manual/doku.php?id=using_with_vscp_works" class="wikilink1" title="using_with_vscp_works">Using with VSCP Works</a>.
+</p>
+
+<p>
+<br/>
+
+</p>
+<hr />
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=using_with_raspberry_pi&amp;media=grodan_logo.png" class="media" title="grodan_logo.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=100&amp;tok=9032da&amp;media=grodan_logo.png" class="mediacenter" alt="" width="100" /></a>
+<br/>
+
+<center>
+<strong>Paradise of the Frog AB</strong> Brattbergavägen 17 820 50 LOS SWEDEN<br/>
+
+<strong>email:</strong> <a href="mailto:&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;">&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;</a> <strong>phone:</strong> +46 (0)8 40011835 <br/>
+
+<strong>web:</strong><a href="http://www.grodansparadis.com" class="urlextern" title="http://www.grodansparadis.com" rel="nofollow">http://www.grodansparadis.com</a> <br/>
+
+</center>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Using with VSCP software&quot;,&quot;hid&quot;:&quot;using_with_vscp_software&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;774-&quot;} -->

@@ -1,0 +1,359 @@
+
+<h1 class="sectionedit1" id="the_can4vscp_mode">The CAN4VSCP mode</h1>
+<div class="level1">
+
+<p>
+This mode export a <a href="http://www.vscp.org/docs/vscpspec/doku.php?id=physical_level_lower_level_protocols#vscp_over_a_serial_channel_rs-232" class="urlextern" title="http://www.vscp.org/docs/vscpspec/doku.php?id=physical_level_lower_level_protocols#vscp_over_a_serial_channel_rs-232" rel="nofollow">standard VSCP serial interface</a>. The CAN4VSCP driver can be used to export this interface to a <a href="http://www.vscp.org/docs/vscpd/doku.php?id=canal_interface_specification" class="urlextern" title="http://www.vscp.org/docs/vscpd/doku.php?id=canal_interface_specification" rel="nofollow">CANAL interface</a> which in turn can be used by the <a href="http://www.vscp.org/docs/vscpd/doku.php?id=start" class="urlextern" title="http://www.vscp.org/docs/vscpd/doku.php?id=start" rel="nofollow">VSCP daemon</a>, <a href="http://www.vscp.org/docs/vscpworks/doku.php?id=start" class="urlextern" title="http://www.vscp.org/docs/vscpworks/doku.php?id=start" rel="nofollow">VSCP Works</a> and other software that can work with a CANAL interface.
+</p>
+
+<p>
+An end user does not have to worry about any of this of course. He/she just use the <a href="http://www.vscp.org/docs/vscpd/doku.php?id=level1_driver_can4vscp" class="urlextern" title="http://www.vscp.org/docs/vscpd/doku.php?id=level1_driver_can4vscp" rel="nofollow">CAN4VSCP driver</a> that is available both for Windows and Linux.
+</p>
+
+<p>
+The CAN4VSCP driver is installed with the <a href="https://sourceforge.net/projects/m2m/files/VSCP%20Software/" class="urlextern" title="https://sourceforge.net/projects/m2m/files/VSCP%20Software/" rel="nofollow">VSCP &amp; Friends</a> package on windows and with the <a href="https://github.com/grodansparadis/vscp_software" class="urlextern" title="https://github.com/grodansparadis/vscp_software" rel="nofollow">source package</a> on Linux
+</p>
+
+</div>
+<!-- EDIT1 SECTION "The CAN4VSCP mode" [1-1034] -->
+<h2 class="sectionedit2" id="available_commands_for_driver">Available commands for driver</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Code </th><th class="col1"> Command </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 0 </td><td class="col1"> NOOP - No operation. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 1 </td><td class="col1"> Open connection to CAN4VSCP bus in normal mode. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> 2 </td><td class="col1"> Open connection to CAN4VSCP bus in listen only mode. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 3 </td><td class="col1"> Open connection to CAN4VSCP bus in loopback mode. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> 4 </td><td class="col1"> Close connection to CAN4VSCP bus. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> 5 </td><td class="col1"> Set filter. One of fifteen. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> 6 </td><td class="col1"> Set mask. One of two. </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [1078-1408] -->
+<p>
+For all of the above a command reply frame (op=254) is replied from the node with a 0 (==OK) as payload if the operation was carried out.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Available commands for driver" [1035-1548] -->
+<h3 class="sectionedit4" id="noop">NOOP</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 0  </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1605-1656] -->
+</div>
+<!-- EDIT4 SECTION "NOOP" [1549-1657] -->
+<h3 class="sectionedit6" id="open">Open</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 1  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1714-1764] -->
+</div>
+<!-- EDIT6 SECTION "Open" [1658-1765] -->
+<h3 class="sectionedit8" id="listen">Listen</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 2  </td>
+	</tr>
+</table></div>
+<!-- EDIT9 TABLE [1824-1874] -->
+</div>
+<!-- EDIT8 SECTION "Listen" [1766-1875] -->
+<h3 class="sectionedit10" id="loopback">Loopback</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 3  </td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [1936-1986] -->
+</div>
+<!-- EDIT10 SECTION "Loopback" [1876-1988] -->
+<h3 class="sectionedit12" id="close">Close</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 4  </td>
+	</tr>
+</table></div>
+<!-- EDIT13 TABLE [2046-2096] -->
+</div>
+<!-- EDIT12 SECTION "Close" [1989-2098] -->
+<h3 class="sectionedit14" id="set_filter">Set filter</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 5  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  1  </td><td class="col1 centeralign">  Filer number to set 0-15  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  2-5 </td><td class="col1 centeralign">  32-bit filter MSB first  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  6  </td><td class="col1 centeralign">  Nonzero if filter should be stored persistently  </td>
+	</tr>
+</table></div>
+<!-- EDIT15 TABLE [2161-2345] -->
+</div>
+<!-- EDIT14 SECTION "Set filter" [2099-2346] -->
+<h3 class="sectionedit16" id="set_mask">Set mask</h3>
+<div class="level3">
+
+<p>
+The payload has the following content.
+</p>
+<div class="table sectionedit17"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  pos  </th><th class="col1 centeralign">  content  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  Command code = 6  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  1  </td><td class="col1 centeralign">  Mask number to set 0-1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  2-5 </td><td class="col1 centeralign">  32-bit mask MSB first  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  6  </td><td class="col1 centeralign">  Nonzero if mask should be stored persistently  </td>
+	</tr>
+</table></div>
+<!-- EDIT17 TABLE [2407-2585] -->
+</div>
+<!-- EDIT16 SECTION "Set mask" [2347-2587] -->
+<h2 class="sectionedit18" id="available_configuration_settings_for_driver">Available configuration settings for driver</h2>
+<div class="level2">
+
+<p>
+Settings have an op-code in byte zero of the payload and can use the rest of the payload, up to the size it needs for 
+</p>
+<div class="table sectionedit19"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Code </th><th class="col1"> Payload size </th><th class="col2"> Command </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 0 </td><td class="col1"> x </td><td class="col2"> NOOP - No operation. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 1 </td><td class="col1"> 2 </td><td class="col2"> Set mode. The change is persistent. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> 2 </td><td class="col1"> 2 </td><td class="col2"> Enable disable timestamp. The change is persistent. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 3 </td><td class="col1"> 2 </td><td class="col2"> Set baudrate. NOT persistent </td>
+	</tr>
+</table></div>
+<!-- EDIT19 TABLE [2765-2984] -->
+</div>
+<!-- EDIT18 SECTION "Available configuration settings for driver" [2588-2985] -->
+<h3 class="sectionedit20" id="noop1">NOOP</h3>
+<div class="level3">
+
+<p>
+No operation. Nothing happens other than that an ACK is returned.
+</p>
+
+</div>
+<!-- EDIT20 SECTION "NOOP" [2986-3067] -->
+<h3 class="sectionedit21" id="set_mode">Set mode</h3>
+<div class="level3">
+
+<p>
+Set the mode of the device. Second byte of the payload contains the requested mode. The change is persistent.
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> Mode </th><th class="col1"> Description </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 0 </td><td class="col1"> Verbose. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 1 </td><td class="col1"> CAN4VSCP (this mode). </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> 2 </td><td class="col1"> SLCAN. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 3 </td><td class="col1"> VSCP serial node. </td>
+	</tr>
+</table></div>
+<!-- EDIT22 TABLE [3198-3308] -->
+</div>
+<!-- EDIT21 SECTION "Set mode" [3068-3309] -->
+<h3 class="sectionedit23" id="enable_disable_timestamp">Enable/disable timestamp</h3>
+<div class="level3">
+
+<p>
+Enable or disable timestamp.  Set payload byte 2 to zero to disable or to non zero to enable. The change is persistent.
+</p>
+
+</div>
+<!-- EDIT23 SECTION "Enable/disable timestamp" [3310-3465] -->
+<h3 class="sectionedit24" id="set_baudrate">Set baudrate</h3>
+<div class="level3">
+
+<p>
+With this setting you can temporarily change the baudrate of the serial line. Restarting the module makes it go back to the default baudrate 115200 baud again. The following settings are available
+</p>
+<div class="table sectionedit25"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Baudrate  </th><th class="col1 centeralign">  Code  </th><th class="col2 centeralign">  Error  </th><th class="col3 centeralign">  Windows  </th><th class="col4 centeralign">  Linux  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  115200  </td><td class="col1 centeralign">  0  </td><td class="col2 centeralign">  -1.36%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  128000  </td><td class="col1 centeralign">  1  </td><td class="col2 centeralign">  -2.34%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  230400  </td><td class="col1 centeralign">  2  </td><td class="col2 centeralign">  -1.36%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  256000  </td><td class="col1 centeralign">  3  </td><td class="col2 centeralign">  -2.34%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  460800  </td><td class="col1 centeralign">  4  </td><td class="col2 centeralign">  8.51%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  500000  </td><td class="col1 centeralign">  5  </td><td class="col2 centeralign">  0%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  625000  </td><td class="col1 centeralign">  6  </td><td class="col2 centeralign">  0%  </td><td class="col3 centeralign">  bad  </td><td class="col4 centeralign">  no  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  921600  </td><td class="col1 centeralign">  7  </td><td class="col2 centeralign">  -9.58%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  bad  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  1000000  </td><td class="col1 centeralign">  8  </td><td class="col2 centeralign">  16.67%  </td><td class="col3 centeralign">  no  </td><td class="col4 centeralign">  bad  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  9600  </td><td class="col1 centeralign">  9  </td><td class="col2 centeralign">  0.16%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  19200  </td><td class="col1 centeralign">  10  </td><td class="col2 centeralign">  0,16%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  38400  </td><td class="col1 centeralign">  11  </td><td class="col2 centeralign">  0,16%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  57600  </td><td class="col1 centeralign">  12  </td><td class="col2 centeralign">  0.94%  </td><td class="col3 centeralign">  yes  </td><td class="col4 centeralign">  yes  </td>
+	</tr>
+</table></div>
+<!-- EDIT25 TABLE [3688-4319] -->
+<p>
+Tests on Windows and Linux has been done on a Windows 10 machine and on a Ubuntu machine with the USB serial adapter that ship with Frankfurt RS-232.
+</p>
+
+<p>
+<br/>
+
+</p>
+<hr />
+
+<p>
+<a href="/frankfurt/rs232/manual/lib/exe/detail.php?id=the_can4vscp_mode&amp;media=grodan_logo.png" class="media" title="grodan_logo.png"><img src="/frankfurt/rs232/manual/lib/exe/fetch.php?w=100&amp;tok=9032da&amp;media=grodan_logo.png" class="mediacenter" alt="" width="100" /></a>
+<br/>
+
+<center>
+<strong>Paradise of the Frog AB</strong> Brattbergavägen 17 820 50 LOS SWEDEN<br/>
+
+<strong>email:</strong> <a href="mailto:&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;">&#x69;&#x6e;&#x66;&#x6f;&#x40;&#x67;&#x72;&#x6f;&#x64;&#x61;&#x6e;&#x73;&#x70;&#x61;&#x72;&#x61;&#x64;&#x69;&#x73;&#x2e;&#x63;&#x6f;&#x6d;</a> <strong>phone:</strong> +46 (0)8 40011835 <br/>
+
+<strong>web:</strong><a href="http://www.grodansparadis.com" class="urlextern" title="http://www.grodansparadis.com" rel="nofollow">http://www.grodansparadis.com</a> <br/>
+
+</center>
+</p>
+
+</div>
+<!-- EDIT24 SECTION "Set baudrate" [3466-] -->
