@@ -34,9 +34,9 @@
 #include <string.h>
 #include "fifo.h"
 #include "version.h"
-#include <vscp_class.h>
-#include <vscp_type.h>
-#include <vscp_serial.h>
+#include <vscp-class.h>
+#include <vscp-type.h>
+#include <vscp-serial.h>
 #include "hexutils.h"
 #include "crc8.h"
 #include "main.h"

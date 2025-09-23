@@ -30,24 +30,18 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
 COMPARISON_BUILD=
 else
 COMPARISON_BUILD=
-endif
-
-ifdef SUB_IMAGE_ADDRESS
-
-else
-SUB_IMAGE_ADDRESS_COMMAND=
 endif
 
 # Object Directory
@@ -88,90 +82,90 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-relocated_26K80.mk dist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-relocated_26K80.mk ${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=18F26K80
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
 	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=realice  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/main.p1 main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/main.p1 main.c 
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/ECAN.p1: ECAN.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ECAN.p1: ECAN.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ECAN.p1.d 
 	@${RM} ${OBJECTDIR}/ECAN.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=realice  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/ECAN.p1 ECAN.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/ECAN.p1 ECAN.c 
 	@-${MV} ${OBJECTDIR}/ECAN.d ${OBJECTDIR}/ECAN.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/ECAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/fifo.p1: fifo.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/fifo.p1: fifo.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/fifo.p1.d 
 	@${RM} ${OBJECTDIR}/fifo.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=realice  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/fifo.p1 fifo.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/fifo.p1 fifo.c 
 	@-${MV} ${OBJECTDIR}/fifo.d ${OBJECTDIR}/fifo.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/fifo.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/crc8.p1: crc8.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/crc8.p1: crc8.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/crc8.p1.d 
 	@${RM} ${OBJECTDIR}/crc8.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=realice  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/crc8.p1 crc8.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/crc8.p1 crc8.c 
 	@-${MV} ${OBJECTDIR}/crc8.d ${OBJECTDIR}/crc8.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/crc8.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/hexutils.p1: hexutils.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/hexutils.p1: hexutils.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/hexutils.p1.d 
 	@${RM} ${OBJECTDIR}/hexutils.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=realice  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/hexutils.p1 hexutils.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/hexutils.p1 hexutils.c 
 	@-${MV} ${OBJECTDIR}/hexutils.d ${OBJECTDIR}/hexutils.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/hexutils.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
 	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/main.p1 main.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/main.p1 main.c 
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/ECAN.p1: ECAN.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ECAN.p1: ECAN.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ECAN.p1.d 
 	@${RM} ${OBJECTDIR}/ECAN.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/ECAN.p1 ECAN.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/ECAN.p1 ECAN.c 
 	@-${MV} ${OBJECTDIR}/ECAN.d ${OBJECTDIR}/ECAN.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/ECAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/fifo.p1: fifo.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/fifo.p1: fifo.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/fifo.p1.d 
 	@${RM} ${OBJECTDIR}/fifo.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/fifo.p1 fifo.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/fifo.p1 fifo.c 
 	@-${MV} ${OBJECTDIR}/fifo.d ${OBJECTDIR}/fifo.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/fifo.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/crc8.p1: crc8.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/crc8.p1: crc8.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/crc8.p1.d 
 	@${RM} ${OBJECTDIR}/crc8.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/crc8.p1 crc8.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/crc8.p1 crc8.c 
 	@-${MV} ${OBJECTDIR}/crc8.d ${OBJECTDIR}/crc8.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/crc8.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/hexutils.p1: hexutils.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/hexutils.p1: hexutils.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/hexutils.p1.d 
 	@${RM} ${OBJECTDIR}/hexutils.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/hexutils.p1 hexutils.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist -DXPRJ_relocated_26K80=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib $(COMPARISON_BUILD)  --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/hexutils.p1 hexutils.c 
 	@-${MV} ${OBJECTDIR}/hexutils.d ${OBJECTDIR}/hexutils.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/hexutils.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -186,15 +180,17 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
-	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.map  -D__DEBUG=1  --debugger=realice  -DXPRJ_relocated_26K80=$(CND_CONF)  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD)  -odist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
-	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.hex 
+${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+	@${MKDIR} ${DISTDIR} 
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -m${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.map  -D__DEBUG=1  --debugger=none  -DXPRJ_relocated_26K80=$(CND_CONF)    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD)  -o${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	@${RM} ${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.hex 
+	
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
-	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.map  -DXPRJ_relocated_26K80=$(CND_CONF)  --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DDEBUG -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD)  -odist/${CND_CONF}/${IMAGE_TYPE}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+	@${MKDIR} ${DISTDIR} 
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -m${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.map  -DXPRJ_relocated_26K80=$(CND_CONF)    --double=32 --float=32 --emi=wordwrite --opt=+asm,-asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -DRELEASE -P -N255 -I"../../vscp-firmware/pic/common" -I"../../vscp-firmware/common" -I"../../vscp/src/vscp/common" --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,+file --html --codeoffset=0x400 --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD)  -o${DISTDIR}/Frankfurt_RS-232.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	
 	
 endif
 
@@ -208,13 +204,13 @@ endif
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/relocated_26K80
-	${RM} -r dist/relocated_26K80
+	${RM} -r ${OBJECTDIR}
+	${RM} -r ${DISTDIR}
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(wildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif
