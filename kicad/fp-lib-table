@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "smd_can4vscp_rs232_rev_C")(type "KiCad")(uri "$(KIPRJMOD)/smd_can4vscp_rs232_rev_C.pretty")(options "")(descr ""))
+)
