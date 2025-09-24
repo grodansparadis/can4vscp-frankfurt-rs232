@@ -22,7 +22,39 @@ The Swedish company Lawicel AB and Lars Wictorsson created a serial protocol for
 
 It is possible to have hundreds of Frankfurt RS-232 modules connected to a host computer where each in turn is connected to hundreds of nodes, thereby building very large and complex systems. Together with cards like Raspberry Pi, Beaglebone and others it is possible to have distributed control systems controlled over Ethernet and TCP/IP. 
 
+<hr>
 
+## Project files
+
+### User manual
+  * [User Manual](https://grodansparadis.github.io/can4vscp_frankfurt_rs232/#)
+
+### Schematic, PCB, 3D files etc
+  * [Schematics reversion B](./eagle/paris_revb_sch.png)
+ * Hardware design files is made in [KiCad](https://kicad.org) and can be found in the `kicad` directory. Valid from reversion B of the hardware.
+   * Gerber files for PCB production can be found in the `gerber` directory (in the `kicad` folder).
+ * Eagle schema and board files for reversion A and B can be found in the `eagle` directory. Only the KiCad version is actively updated.
+
+ ### Firmware
+
+ The firmware is developed in [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) using the [XC8 compiler](https://www.microchip.com/mplab/compilers).
+
+  * Binary release files is available [here](https://github.com/grodansparadis/can4vscp_paris/releases)
+
+### MDF - Module Description File(s)
+  * [MDF file version: 1.1.3 Release date: 2022-03-25](http://www.eurosource.se/paris_010.xml)
+  * [MDF file version: 0.0.2 Release date: 2009-10-07](http://www.eurosource.se/paris_001.xml)
+
+### Support
+If you need support, please open an issue in the [GitHub repository](https://github.com/grodansparadis/can4vscp_kelvin_ntc10k/issues).
+
+### Buy a ready made modules
+You can buy a ready made module from [Grodans Paradis](http://www.grodansparadis.com).
+
+### Project related links
+  * [VSCP project](https://www.vscp.org)
+  * [VSCP Documentation site](https://docs.vscp.org/)
+  * [VSCP Wiki](https://github.com/grodansparadis/vscp/wiki)
 
 
 <hr>
