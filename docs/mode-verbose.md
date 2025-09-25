@@ -1,25 +1,16 @@
 # The verbose mode
 
-The verbose mode is intended for diagnostics of a CAN4VSCP bus just by
-using a simple terminal program. When you power up the module and it is
-set to start in verbose mode you will see something like this
+The verbose mode is intended for diagnostics of a CAN4VSCP bus just by using a simple terminal program. When you power up the module and it is set to start in verbose mode you will see something like this
 
-![](/verbose_helo.png){.align-center width="500" query="?500"}
+![](./images/verbose_helo.png)
 
-You can always issue the **help** command to get syntax end help about
-available commands.
+You can always issue the **help** command to get syntax end help about available commands.
 
-When the modules is powered there is a short time where it is possible
-to force it to go into text mode. You do this in the following way.
+When the modules is powered there is a short time where it is possible to force it to go into text mode. You do this in the following way.
 
-Connect to it through a terminal program and power it up and
-continuously press \'v\' in three seconds after the welcome text comes
-up. This bring the module into verbose mode even if set to be in some
-other mode.
+Connect to it through a terminal program and power it up and continuously press \'v\' in three seconds after the welcome text comes up. This bring the module into verbose mode even if set to be in some other mode.
 
-If you want to make it stay in verbose mode issue \"set mode verbose\"
-otherwise just repower the module to make it enter the mode that was set
-before.
+If you want to make it stay in verbose mode issue \"set mode verbose\" otherwise just repower the module to make it enter the mode that was set before.
 
 Here is a description of all available commands.
 
@@ -29,7 +20,7 @@ Display this help information.
 
 Something like this will be shown
 
-![](//verbose_help.png){.align-center width="500" query="?500"}
+![](./images/verbose_help.png)
 
 # BOOT
 
@@ -37,11 +28,11 @@ Enter boot loader.
 
 The module will respond with
 
-    +OK
+```text
+  +OK
+```
 
-and after that it has entered the boot loader. There is only one way to
-exit the boot loader mode and that is by updating the firmware. So use
-the command with care.
+and after that it has entered the boot loader. There is only one way to exit the boot loader mode and that is by updating the firmware. So use the command with care.
 
 # OPEN
 
@@ -49,10 +40,11 @@ Open CAN interface in **normal mode**.
 
 The module will respond with
 
-    +OK
+```text
+  +OK
+```
 
-when the connection to the CAN4VSCP bus is open. Frames sent on the bus
-will asynchronously be received hereafter.
+when the connection to the CAN4VSCP bus is open. Frames sent on the bus will asynchronously be received hereafter.
 
 Note that you can mix the **open**, **silent**, **listen** and
 **loopback** without using **close** in between.
@@ -65,12 +57,11 @@ Open CAN interface in **silent mode**.
 
 The module will respond with
 
-    +OK
+```text
+  +OK
+```
 
-when the connection to the CAN4VSCP bus is open. This command is the
-same as the **open** command with the difference that it does not
-display received frames asynchronously. You have to poll for them using
-the **RX** command.
+when the connection to the CAN4VSCP bus is open. This command is the same as the **open** command with the difference that it does not display received frames asynchronously. You have to poll for them using the **RX** command.
 
 Note that you can mix the **open**, **silent**, **listen** and
 **loopback** without using **close** in between.
@@ -81,14 +72,14 @@ Open CAN interface in **listen only mode**.
 
 The module will respond with
 
-    +OK
+```text
+  +OK
+```
 
-when the connection to the CAN4VSCP bus is open. In this mode the module
-just listens passively to traffic on the CAN4VSCP bus. You can not send
-events.
+when the connection to the CAN4VSCP bus is open. In this mode the module just listens passively to traffic on the CAN4VSCP bus. You can not send events.
 
 Note that you can mix the **open**, **silent**, **listen** and
-**loopback** without useing **close** in between.
+**loopback** without using **close** in between.
 
 # LOOPBACK
 
@@ -96,14 +87,16 @@ Open CAN interface in **loopback mode**.
 
 The module will respond with
 
-    +OK
+```text
+  +OK
+```
 
 when the device is in loopback mode.
 
 Use this mode to test the interface of the adapter.
 
 Note that you can mix the **open**, **silent**, **listen** and
-**loopback** without useing **close** in between.
+**loopback** without using **close** in between.
 
 # CLOSE
 
@@ -111,7 +104,9 @@ Close CAN interface.
 
 The module will respond with
 
-    +OK
+```text
+  +OK
+```
 
 when the CAN4VSCP interface is closed.
 
@@ -138,21 +133,30 @@ Send CAN frame .
 
 **Format:**\
 
-    priority[, timestamp], class,type,nodeid,count,data,,,
+```text
+  priority[, timestamp], class,type,nodeid,count,data,,,
+```
 
 timestamp is optional and is enabled with **set timestamp on**. The
 module will respond with
 
-    +OK
+```text
+  +OK
+```
 
 when the event is sent on the CAN4VSCP bus.
 
-**Example without timestamp**\
+**Example without timestamp**
 
-    <Prio=7,class=20,type=9,nodeid=1,size=3,Data=0,11,1>
+```text
+  <Prio=7,class=20,type=9,nodeid=1,size=3,Data=0,11,1>
+```
 
-**Example with timestamp**\
-\<Prio=7,timestamp=2815789188,class=20,type=9,nodeid=1,size=3,Data=0,11,1\>
+**Example with timestamp**
+
+```text
+  <Prio=7,timestamp=2815789188,class=20,type=9,nodeid=1,size=3,Data=0,11,1\>
+```
 
 # RX
 
@@ -160,16 +164,23 @@ Read CAN frame.
 
 The format for the frame is
 
-    <priority,class,type,nodeid,count,data,,,>
+```text
+  <priority,class,type,nodeid,count,data,,,>
+```
+
 
 which look like this for a real frame
 
-    <Prio=7,class=20,type=9,nodeid=2,size=3,Data=0,2,3> 
-    +OK
+```text
+  <Prio=7,class=20,type=9,nodeid=2,size=3,Data=0,2,3> 
+  +OK
+```  
 
 If no event(s) are available to read
 
-    +OK - no events 
+```text
+  +OK - no events 
+```
 
 will be send back.
 
@@ -179,10 +190,12 @@ Display CAN statistics.
 
 The result of the command is
 
-    Sent CAN frames: 0
-    Sent CAN bytes: 0
-    Received CAN frames: 165
-    Received CAN bytes: 618 
+```text
+  Sent CAN frames: 0
+  Sent CAN bytes: 0
+  Received CAN frames: 165
+  Received CAN bytes: 618 
+```
 
 # ERR
 
@@ -190,12 +203,14 @@ Display CAN error information.
 
 The result of the command is
 
-    CAN Receive overruns: 0
-    CAN Transmit overruns: 0
-    UART Receive overruns: 0
-    UART Receive overruns: 0
-    Transmit Error Counter: 0
-    Receive Error Counter: 0 
+```text
+  CAN Receive overruns: 0
+  CAN Transmit overruns: 0
+  UART Receive overruns: 0
+  UART Receive overruns: 0
+  Transmit Error Counter: 0
+  Receive Error Counter: 0
+```
 
 # FIND
 
@@ -203,7 +218,7 @@ Find available CAN4VSCP nodes on bus.
 
 The output from the command looks like this
 
-![](/command_find.png){.align-center width="700" query="?700"}
+![](./images/command_find.png)
 
 As noted the node id, the GUID, the MDF and the firmware version of the
 devices is returned.
@@ -212,169 +227,198 @@ devices is returned.
 
 Read register(s) of a node.
 
-    Format: rreg nodeid [page:]reg [count]).
+## Format:
 
-Values between \[\] are optional. Page is zero if not give, count is one
-if not given.
+```text
+  rreg nodeid [page:]reg [count]).
+```    
 
-**Example**
+Values between \[\] are optional. Page is zero if not give, count is one if not given.
+
+## Example
 
 Read the MDF registers for node 1
 
-    rreg 1 224 32
+```text
+  rreg 1 224 32
+```
 
 which is the same as
 
-    rreg 1 0:224 32
+```text
+  rreg 1 0:224 32
+```
 
 # WREG
 
 Write register of node.
 
-    Format: wreg nodeid [page:]reg content.
+## Format:
+
+```text
+  wreg nodeid [page:]reg content.
+``` 
 
 Values between \[\] are optional. Page is zero if not give.
 
-**Example**
+## Example
 
 Write 55 to register 0 on page 0 for node 1.
 
-    wreg 1 55 0
+```text
+  wreg 1 55 0
+```
 
 which is the same as
 
-    wreg 1 0:55 0
+```text
+  wreg 1 0:55 0
+```
 
 # INFO
 
 Get info about an existent node on the bus.
 
-    Format: info nickname.
+### Format:
+
+```text
+  info nickname.
+```
 
 # FILTER
 
 Set filter .
 
-**Format:**\
+### Format:
 
-    filter filterno,prio,class,type,nodeid[,persistent]  
+```text
+  filter filterno,prio,class,type,nodeid[,persistent]  
+```
 
-where(filterno = 0-15). The last optional parameter **\"persistent\"**
-will save the filter setting into persistent storage if set.
+where(filterno = 0-15). 
+
+The last optional parameter **\"persistent\"** will save the filter setting into persistent storage if set.
 
 # MASK
 
 Set mask.
 
-**Format:**\
+## Format:
 
-    mask maskno,prio,class,type,nodeid[,persistent] 
+```text
+  mask maskno,prio,class,type,nodeid[,persistent] 
+```
 
-where (maskno = 0 or 1). The last optional parameter **\"persistent\"**
-will save the filter setting into persistent storage if set.
+where (maskno = 0 or 1). 
+
+The last optional parameter **\"persistent\"** will save the filter setting into persistent storage if set.
 
 # SET
 
 Set persistent functionality.
 
-##### HEX
+## HEX
 
 Display numbers in hexadecimal.
 
-##### DECIMAL
+## DECIMAL
 
 Display numbers in decimal.
 
-##### RWTIMEOUT
+## RWTIMEOUT
 
-Set register read/write timeout. Default=20 ms .
+Set register read/write timeout. Default is 20 ms .
 
-[Format:]{.underline}\
+### Format:
 
-      set rwtimeout timeout
+```text
+  set rwtimeout timeout
+```
 
-##### STARTIF
+## STARTIF
 
 Set interface state to use on startup.
 
-[Format:]{.underline}\
+### Format:
 
-      set startif close|open|silent|listen|loopback
+```text
+  set startif close|open|silent|listen|loopback
+```
 
-##### MODE
+## MODE
 
 Set adapter mode that should be used on startup.
 
-[Format:]{.underline}\
+### Format:
 
-      set mode verbose|vscp|slcan
+```text
+  set mode verbose|vscp|slcan
+```
 
-##### ECHO
+## ECHO
 
 Set local echo on or off.
 
-[Format:]{.underline}\
+### Format:
 
-     set echo on|off
+```text
+  set echo on|off
+```  
 
-##### TIMESTAMP
+## TIMESTAMP
 
 Set timestamp on or off. When on, timestamps will be included in
 incoming frames.
 
-##### BAUDRATE
+## BAUDRATE
 
-With this setting you can temporarily change the baudrate of the serial
-line. Restarting the module makes it go back to the default baudrate
-115200 baud again. The following settings are available
+With this setting you can temporarily change the baudrate of the serial line. Restarting the module makes it go back to the default baudrate 115200 baud again. The following settings are available
 
-   Baudrate   Code   Error    Windows   Linux
-  ---------- ------ -------- --------- -------
-    115200     0     -1.36%     yes      yes
-    128000     1     -2.34%     yes      no
-    230400     2     -1.36%     no       yes
-    256000     3     -2.34%     yes      no
-    460800     4     8.51%      no       no
-    500000     5       0%       yes      yes
-    625000     6       0%       bad      no
-    921600     7     -9.58%     no       bad
-   1000000     8     16.67%     no       bad
-     9600      9     0.16%      yes      yes
-    19200      10    0,16%      yes      yes
-    38400      11    0,16%      yes      yes
-    57600      12    0.94%      yes      yes
+| Baudrate | Code | Error | Windows | Linux |
+|----------|------|-------|---------|-------|
+| 115200   | 0    | -1.36%| yes     | yes   |
+| 128000   | 1    | -2.34%| yes     | no    |
+| 230400   | 2    | -1.36%| no      | yes   |
+| 256000   | 3    | -2.34%| yes     | no    |
+| 460800   | 4    | 8.51% | no      | no    |
+| 500000   | 5    | 0%    | yes     | yes   |
+| 625000   | 6    | 0%    | bad     | no    |
+| 921600   | 7    | -9.58%| no      | bad   |
+| 1000000  | 8    | 16.67%| no      | bad   |
+| 9600    | 9    | 0.16% | yes     | yes   |
+| 19200   | 10   | 0.16% | yes     | yes   |
+| 38400   | 11   | 0.16% | yes     | yes   |
+| 57600   | 12   | 0.94% | yes     | yes   |
 
-Tests on Windows and Linux has been done on a Windows 10 machine and an
-Ubuntu machine with the USB serial adapter that ship with Frankfurt
-RS-232.
+Tests on Windows and Linux has been done on a Windows 10 machine and an Ubuntu machine with the USB serial adapter that ship with Frankfurt RS-232.
 
-**Format:**\
+### Format:
 
-    set baudrate code
+```text
+  set baudrate code
+```
 
 where the code is picked from the table above.
 
-##### DEFAULTS
+## DEFAULTS
 
 Set all persistent values to there default value.
 
-[Format:]{.underline}\
+### Format:
 
-     set defaults 
+```text
+  set defaults
+```
 
 ## Using with the vscpl1drv-can4vscp driver
 
-If you intend to use Frankfurt RS-232 with the
-[vscpl1drv-can4vscp](https://github.com/grodansparadis/vscpl1drv-can4vscp)
-set the interface to [always open]{.underline} and mode to
-[vscp]{.underline} with the commands
+If you intend to use Frankfurt RS-232 with the [vscpl1drv-can4vscp](https://github.com/grodansparadis/vscpl1drv-can4vscp) set the interface to **always open** and mode to **vscp** with the commands
 
-    set startif open
-    set mode vscp
+```text
+  set startif open
+  set mode vscp
+```    
 
-This ensures fail safe operation. If you want to have debug output from
-the driver set the drivers dlags value to **0x80000000** and add in any
-additional flags. Debug output will be written to /var/log/debug on your
-machine (Linyx/Unix).
+This ensures fail safe operation. If you want to have debug output from the driver set the drivers dlags value to **0x80000000** and add in any additional flags. Debug output will be written to /var/log/debug on your machine (Linux/Unix).
 
 [filename](./bottom-copyright.md ':include')

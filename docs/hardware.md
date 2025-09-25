@@ -11,23 +11,23 @@ schematics etc for its use.
 
   | Parameter | Value |
   | --------- | ----- |
-  | Current hardware reversion |     B       |
-  | Current firmware version    |    1.0.0   |
-  | Supply voltage               |   +9-+28 VDC|
-  | PCB Size                      |  42mm x 72mm|
-  | Power requirements             | 0.1W       |
-  | Communication: CAN4VSCP (CAN) |  125 kbps  |
+  | Current hardware reversion    |     B        |
+  | Current firmware version      |    1.0.0     |
+  | Supply voltage                |   +9-+28 VDC |
+  | PCB Size                      |  42mm x 72mm |
+  | Power requirements            | 0.1W         |
+  | Communication: CAN4VSCP (CAN) |  125 kbps        |
   | Communication: RS-232         |  115200 baud N81 |
 
 ## Schematics
 
-![](/frankfurt-schema-rev-b.png)
+![](./images/frankfurt-schema-rev-b.png)
 
 Schematics: Rev B
 
-## Connectors
+  ## Connectors
 
-![](//frankfurt_rs232_connectors.png){width="600" query="?600"}
+![](./images/frankfurt_rs232_connectors.png)
 
 ### RJ-XX pin-out
 
@@ -40,28 +40,25 @@ common RJ45 connectors.
 Recommended connector is RJ-45,RJ-12 or RJ-11 with pin out as in this
 table.
 
-  Pin     Use         RJ-11   RJ-12   RJ-45   Patch Cable wire color T568B
-  ------- ----------- ------- ------- ------- ------------------------------
-  1       +9-28V DC   \-      \-      RJ-45   Orange/White
-  2 1     +9-28V DC   \-      RJ-12   RJ-45   Orange
-  3 2 1   +9-28V DC   RJ-11   RJ-12   RJ-45   Green/White
-  4 3 2   CANH        RJ-11   RJ-12   RJ-45   Blue
-  5 4 3   CANL        RJ-11   RJ-12   RJ-45   Blue/White
-  6 5 4   GND         RJ-11   RJ-12   RJ-45   Green
-  7 6     GND         \-      RJ-12   RJ-45   Brown/White
-  8       GND         \-      \-      RJ-45   Brown
+| Pin | Use | RJ-11 | RJ-12 | RJ-45 | Patch Cable wire color T568B |
+|-----|-----|-------|-------|-------|------------------------------|
+| 1 | +9-28V DC | - | - | RJ-45 | Orange/White |
+| 2 1 | +9-28V DC | - | RJ-12 | RJ-45 | Orange |
+| 3 2 1 | +9-28V DC | RJ-11 | RJ-12 | RJ-45 | Green/White |
+| 4 3 2 | CANH | RJ-11 | RJ-12 | RJ-45 | Blue |
+| 5 4 3 | CANL | RJ-11 | RJ-12 | RJ-45 | Blue/White |
+| 6 5 4 | GND | RJ-11 | RJ-12 | RJ-45 | Green |
+| 7 6 | GND | - | RJ-12 | RJ-45 | Brown/White |
+| 8 | GND | - | - | RJ-45 | Brown |
 
 \
 
-![RJ-11/12/45 pin-out](/rj45.jpg){.align-center width="300"
-query="?300"}
+![RJ-11/12/45 pin-out](./images/rj45.jpg)
 
 **RJ-11/12/45 pin-out**
 
-:!: Always use a pair of twisted wires for CANH/CANL for best noise
-immunity. If the EIA/TIA 56B standard is used this condition will be
-satisfied. This is good as most Ethernet networks already is wired this
-way.
+Always use a pair of twisted wires for CANH/CANL for best noise
+immunity. If the EIA/TIA 56B standard is used this condition will be satisfied. This is good as most Ethernet networks already is wired this way.
 
 ### RS-232 connector pin-out
 
@@ -70,84 +67,77 @@ product.
 
 The RS-232 female is numbered like this if you look into it
 
-![](/2000px-rs232_buchse_9pol_male.svg.png){width="300" query="?300"}
+<img src="./images/2000px-rs232_buchse_9pol_male.svg.png" alt="drawing" width="200"/>
 
 coupled like this
 
-![](/rs232_femail_connector.png){width="300" query="?300"}
+  ![](./images/rs232_female_connector.png)
 
-  pin   Description
-  ----- -------------------------------------
-  1     unconnected
-  2     Transmit data from Frankfurt RS-232
-  3     Receive data to Frankfurt RS-232
-  4     unconnected
-  5     Signal ground
-  6     unconnected
-  7     RTS (Request to send)
-  8     CTS (Clear to send)
-  1     unconnected
+| Pin | Description |
+|-----|-------------|
+| 1 | unconnected |
+| 2 | Transmit data from Frankfurt RS-232 |
+| 3 | Receive data to Frankfurt RS-232 |
+| 4 | unconnected |
+| 5 | Signal ground |
+| 6 | unconnected |
+| 7 | RTS (Request to send) |
+| 8 | CTS (Clear to send) |
+| 9 | unconnected |
 
-:!: RTS/CTS is currently not used.
+RTS/CTS is currently not used.
 
+#### Host connection
 Connect to host like this
 
-![](//e-8wwww-17-grus-000.gif){width="400" query="?400"}
+![](./images/e-8wwww-17-grus-000.gif)
 
 a standard straight RS-232 cable will work fine.
 
 ### TTL Connector
 
-:!: The TTL connector have use only on the TTL versions of the module.
+The TTL connector have use only on the TTL versions of the module.
 
-  Pin   Description
-  ----- -------------------------
-  1     Power from CAN4VSCP bus
-  2     TTL level RX
-  3     TTL level TX
-  4     GND
+| Pin | Description |
+|-----|-------------|
+| 1   | Power from CAN4VSCP bus |
+| 2   | TTL level RX |
+| 3   | TTL level TX |
+| 4   | GND |
 
-\
 
-![](/frankfurt_rs232_rxtx_connector.png){.align-center width="600"
-query="?600"}
+
+![](./images/frankfurt_rs232_rxtx_connector.png)
 
 ### PIC programming Connector
 
-  pin   Description
-  ----- -------------
-  1     Reset
-  2     VCC
-  3     GND
-  4     PGD
-  5     PGC
-  6     LWPGM
+  | Pin | Description |
+  |-----|-------------|
+  | 1   | Reset       |
+  | 2   | VCC         |
+  | 3   | GND        |
+  | 4   | PGD        |
+  | 5   | PGC        |
+  | 6   | LWPGM      |
 
-\
 
-![](//frankfurt_rs232_prg_connector.png){width="600" query="?600"}
+![](./images/frankfurt_rs232_prg_connector.png)
 
 ### Functionality of the status LED
 
-The LED is used to indicate a working device. It will light steady when
-the firmware is running and no faults are detected and it will blink
-with different frequency when there are bus errors and warnings as of
-the table below.
+The LED is used to indicate a working device. It will light steady when the firmware is running and no faults are detected. It will blink with different frequency when there are bus errors and warnings as of the table below.
 
-  LED                  Description
-  -------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Steady Powered.      No error. Firmware running.
-  Slow blinking        Bus error warning. Something is wrong on the CAN4VSCP bus.
-  Fast blinking        Bus passive. The node will not flag errors on the bus anymore but will still send and receive.
-  Very fast blinking   Bus off. Something is very wrong of the CAN4VSCP bus and the driver to the bus has unconnected itself from the bus. When the bus behaves as normal again it will automatically connect again. The problem can typically be shorted CANH/CANL, only one devices on the bus, a device with wrong bitrate on the bus. To not terminate both ends of the bus with a 120 ohm resistor can also give this problem.
+  | LED                  | Description |
+  |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Steady Powered.      | No error. Firmware running.
+  | Slow blinking        | Bus error warning. Something is wrong on the CAN4VSCP bus.
+  | Fast blinking        | Bus passive. The node will not flag errors on the bus anymore but will still send and receive.
+  | Very fast blinking   | Bus off. Something is very wrong of the CAN4VSCP bus and the driver to the bus has unconnected itself from the bus. When the bus behaves as normal again it will automatically connect again. The problem can typically be shorted CANH/CANL, only one devices on the bus, a device with wrong bitrate on the bus. To not terminate both ends of the bus with a 120 ohm resistor can also give this problem.|
 
 ### CAN
 
-CAN4VSCP is a CAN based bus running at 125 kbps with the addition of DC
-power. If you are interested in how CAN works you have a pretty good
-intro [here](http://www.eeherald.com/section/design-guide/esmod9.html).
+CAN4VSCP is a CAN based bus running at 125 kbps with the addition of DC power. If you are interested in how CAN works you have a pretty good intro [here](http://www.eeherald.com/section/design-guide/esmod9.html).
 
-CAN is known to be robust and is there for used in vehicles and in the
-industry.
+CAN is known to be robust and has been used in vehicles and in the industry for decades.
 
 [filename](./bottom-copyright.md ':include')

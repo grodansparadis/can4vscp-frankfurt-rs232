@@ -8,8 +8,6 @@ this mode.
 
 :!: The Frankfurt RS-232 just implements a limited command set of SLCAN,
 just the commands needed to make the Frankfurt RS-232 usable with
-socketcan for VSCP. Please contact [Lawicel AB](http://www.lawicel.com/)
-to buy a unit that confirms to the full set of commands if you have that
-need.
+socketcan for VSCP. 
 
 [filename](./bottom-copyright.md ':include')

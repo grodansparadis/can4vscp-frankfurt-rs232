@@ -1,5 +1,6 @@
 # Change Log for Frankfurt RS-232
 
+-   2025-09-25 AKHE - Moved documentation to github.
 -   2016-11-28 AKHE - Driver has changed name vscpl1drv_can4vscp.so is
     now vscpl1drv-can4vscp.so
 -   2015-10-08 AKHE - Implemented baudrate change command/configuration.
