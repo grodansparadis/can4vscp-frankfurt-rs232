@@ -1,0 +1,24 @@
+# faq - Frequently Asked Questions
+
+#### Can the Frankfurt RS-232 module be used as a general CAN-interface adapter?
+
+The Frankfurt RS-232 is built to be a low cost alternative to connect
+CAN4VSCP equipment to a PC or other high end device. Therefore it can
+only handle 125kbps as bus speed on the CAN-bus (CAN4VSCP). If you look
+for a good general CAN adapter we recommend the
+[USB2CAN](http://www.frogshop.se/index.php?route=product/product&path=59&product_id=56)
+or the [CANUSB](http://canusb.com/).
+
+#### Does the Frankfurt RS-232 module have galvanic isolation to the CAN bus ?
+
+No. The upcoming module Frankfurt USB will have this protection and if
+there is a demand for an isolated RS-232 version we will provide one.
+
+\
+\-\-\-- ![](/grodan_logo.png){.align-center width="100" query="?100"}\
+`<center>`{=html} **Paradise of the Frog AB** Brattbergavägen 17 820 50
+LOS SWEDEN\
+**email:** [info@grodansparadis.com](info@grodansparadis.com) **phone:**
++46 (0)8 40011835\
+**web:**<http://www.grodansparadis.com>\
+`</center>`{=html}
