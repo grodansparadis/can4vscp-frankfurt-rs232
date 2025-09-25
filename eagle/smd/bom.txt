@@ -1,4 +1,4 @@
-CAN4VSCP_RS232
+can4vscp-RS232
 ==============
 
 C17,C18,C19,C20 Kondensator 0805 100 nF (4) 

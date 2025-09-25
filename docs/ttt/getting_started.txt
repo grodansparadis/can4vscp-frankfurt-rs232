@@ -7,7 +7,7 @@ You need
   * At least one additional CAN4VSCP module.
   * A host computer with a serial or USB interface.
 
-The Frankfurt RS-232 is powered from the CAN4VSCP bus. [[http://www.grodansparadis.com/wiki/doku.php?id=connecting_can4vscp_devices_together|This article]] have information on how the bus is powered and set up. Follow it for a reliable setup. Don't forget the 120 ohm terminators at each end of the bus. __They are important!__  You can activate the on board terminator on the Frankfurt RS-232 if it is located at one end of your bus.
+The Frankfurt RS-232 is powered from the CAN4VSCP bus. [[http://www.grodansparadis.com/wiki/doku.php?id=connecting_can4vscp-devices_together|This article]] have information on how the bus is powered and set up. Follow it for a reliable setup. Don't forget the 120 ohm terminators at each end of the bus. __They are important!__  You can activate the on board terminator on the Frankfurt RS-232 if it is located at one end of your bus.
 
 When you power the module by inserting the Rj-45 cable the red LED on the board should light up to indicate it is alive. This is not just a power indicator LED. It used to indicate certain bus errors as well
 

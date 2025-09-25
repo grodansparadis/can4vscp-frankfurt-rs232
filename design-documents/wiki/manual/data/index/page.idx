@@ -14,11 +14,11 @@ level_i_events
 level_ii_events
 getting_started
 the_verbose_mode
-the_can4vscp_mode
+the_can4vscp-mode
 the_slcan_mode
 wiki:syntax
 hardware
-can4vscp_cabling
+can4vscp-cabling
 installing_the_module
 replacing_the_firmware
 using_with_vscp_daemon

@@ -14,7 +14,7 @@ level_i_events
 level_ii_events
 getting_started
 the_verbode_mode
-the_can4vscp_mode
+the_can4vscp-mode
 the_slcan_mode
 the_verbose_mode
 playground:playground
@@ -24,7 +24,7 @@ wiki:syntax
 wiki:nonexisting
 wiki:dokuwiki
 hardware
-can4vscp_cabling
+can4vscp-cabling
 installing_the_module
 canal_interface
 replacing_the_firmware

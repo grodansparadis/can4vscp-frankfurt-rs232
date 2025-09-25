@@ -15,7 +15,7 @@ After install you can find the executable under the Microchip folder in the star
 As with all our modules you can find the firmware for the Frankfurt RS-232 on [[http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html|the product page]] under the firmware tab. If in doubt which version to download use the latest.  
 
 ===== Where is the source for the firmware? =====
-You can find the latest source for the firmware [[https://github.com/grodansparadis/can4vscp_frankfurt_rs232|here]].
+You can find the latest source for the firmware [[https://github.com/grodansparadis/can4vscp-frankfurt_rs232|here]].
 ===== Setting communication parameters =====
 You should  set communication parameters to use before you start. You find them under the menu /program/start of the bootloader program. This will bring up this dialog
 

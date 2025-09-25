@@ -7,13 +7,13 @@ project. The process of updating the firmware of the module is a simple one.
 ## Where is the firmware?
 
 Firmware is available in the Github repository
-<https://github.com/grodansparadis/can4vscp_frankfurt_rs232/releases> and the [MDF of the module](https://github.com/grodansparadis/can4vscp_frankfurt_rs232/tree/master/mdf) folder.
+<https://github.com/grodansparadis/can4vscp-frankfurt_rs232/releases> and the [MDF of the module](https://github.com/grodansparadis/can4vscp-frankfurt_rs232/tree/master/mdf) folder.
 
 
 ## Where is the source for the firmware?
 
 You can find the latest source for the firmware
-[here](https://github.com/grodansparadis/can4vscp_frankfurt_rs232).
+[here](https://github.com/grodansparadis/can4vscp-frankfurt_rs232).
 
 ## Replacing/updating the bootloader on the module
 

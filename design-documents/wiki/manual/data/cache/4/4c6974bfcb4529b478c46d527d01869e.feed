@@ -14,7 +14,7 @@
        <dc:date>2020-05-12T18:37:55+0200</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp_cabling&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp-cabling&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=change_log_1&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=data_coding&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=decision_matrix&amp;rev=1518107389&amp;do=diff"/>
@@ -33,7 +33,7 @@
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=register_abstraction_model&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=replacing_the_firmware&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=start&amp;rev=1518107389&amp;do=diff"/>
-                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1518107389&amp;do=diff"/>
+                <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp-mode&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_slcan_mode&amp;rev=1518107389&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_verbose_mode&amp;rev=1572457017&amp;do=diff"/>
                 <rdf:li rdf:resource="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=using_with_beaglebone&amp;rev=1518107389&amp;do=diff"/>
@@ -53,12 +53,12 @@
         <link>https://grodansparadis.com/frankfurt/rs232/manual/</link>
         <url>https://grodansparadis.com/frankfurt/rs232/manual/lib/tpl/simple_sidebar/images/favicon.ico</url>
     </image>
-    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp_cabling&amp;rev=1518107389&amp;do=diff">
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp-cabling&amp;rev=1518107389&amp;do=diff">
         <dc:format>text/html</dc:format>
         <dc:date>2018-02-08T17:29:49+0200</dc:date>
         <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
-        <title>can4vscp_cabling</title>
-        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp_cabling&amp;rev=1518107389&amp;do=diff</link>
+        <title>can4vscp-cabling</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=can4vscp-cabling&amp;rev=1518107389&amp;do=diff</link>
         <description>CAN4VSCP Cabling
 
 Cable length
@@ -267,12 +267,12 @@ and the Frankfurt TTL module. Both modules are available for international purch
 	*  The CAN4VSCP mode
 	*  The SLCAN mo…</description>
     </item>
-    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1518107389&amp;do=diff">
+    <item rdf:about="https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp-mode&amp;rev=1518107389&amp;do=diff">
         <dc:format>text/html</dc:format>
         <dc:date>2018-02-08T17:29:49+0200</dc:date>
         <dc:creator>Anonymous (anonymous@undisclosed.example.com)</dc:creator>
-        <title>the_can4vscp_mode</title>
-        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1518107389&amp;do=diff</link>
+        <title>the_can4vscp-mode</title>
+        <link>https://grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp-mode&amp;rev=1518107389&amp;do=diff</link>
         <description>The CAN4VSCP mode
 
 This mode export a standard VSCP serial interface. The CAN4VSCP driver can be used to export this interface to a CANAL interface which in turn can be used by the VSCP daemon, VSCP Works and other software that can work with a CANAL interface.

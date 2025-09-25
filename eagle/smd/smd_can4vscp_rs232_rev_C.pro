@@ -1,6 +1,6 @@
 EAGLE AutoRouter Statistics:
 
-Job           : C:/Users/grodansparadis/development/can4vscp_frankfurt_rs232/eagle/smd/smd_can4vscp_rs232_rev_C.brd
+Job           : C:/Users/grodansparadis/development/can4vscp-frankfurt_rs232/eagle/smd/smd_can4vscp-rs232_rev_C.brd
 
 Start at      : 21:22:02 (2015-04-20)
 End at        : 21:22:03 (2015-04-20)

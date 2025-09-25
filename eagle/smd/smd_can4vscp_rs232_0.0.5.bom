@@ -1,17 +1,17 @@
-Partlist exported from C:/Users/akhe/Documents/development/hardware_zeus/can4vscp/can4vscp_rs232/eagle/smd/smd_can4vscp_rs232_0.0.5.sch at 2011-10-03 11:13:18
+Partlist exported from C:/Users/akhe/Documents/development/hardware_zeus/can4vscp/can4vscp-rs232/eagle/smd/smd_can4vscp-rs232_0.0.5.sch at 2011-10-03 11:13:18
 
 Part   Value           Device            Package      Description                                      Description            Supplier Partnumber          Price
 1N5819 S1D             DIODE-SMB         SMB          DIODE                                            Protection diod        Digikey  1N5819HW-FDICT-ND   3,84 
 C1     100uF           CPOL-EUD          PANASONIC_D  POLARIZED CAPACITOR, European symbol             Elektrolytkondensator  Digikey  PCE3951CT-ND        5,04 
 C2     330uF           CPOL-EUD          PANASONIC_D  POLARIZED CAPACITOR, European symbol             Elektrolytkondensator  Digikey  PCE4164CT-ND        4,4  
-C3     100nF           CNP-0805          0805         NON-POLARIZED CAP                                Avstörningskondensator Bejoken  522526              0,07 
+C3     100nF           CNP-0805          0805         NON-POLARIZED CAP                                Avstï¿½rningskondensator Bejoken  522526              0,07 
 C4     15pF            C-EUC0805         C0805        CAPACITOR, European symbol                       Kondensator            Bejoken  522419              0,11 
-C5     0.1uF           C-EUC0805         C0805        CAPACITOR, European symbol                       Avstörningskondensator Bejoken  522526              0,07 
+C5     0.1uF           C-EUC0805         C0805        CAPACITOR, European symbol                       Avstï¿½rningskondensator Bejoken  522526              0,07 
 C6     15pF            C-EUC0805         C0805        CAPACITOR, European symbol                       Kondensator            Bejoken  522419              0,11 
-C17    0.1uF           NP_CAP0805        C0805                                                         Avstörningskondensator Bejoken  522526              0.07 
-C18    0.1uF           NP_CAP0805        C0805                                                         Avstörningskondensator Bejoken  522526              0.07 
-C19    0.1uF           NP_CAP0805        C0805                                                         Avstörningskondensator Bejoken  522526              0.07 
-C20    0.1uF           NP_CAP0805        C0805                                                         Avstörningskondensator Bejoken  522526              0.07 
+C17    0.1uF           NP_CAP0805        C0805                                                         Avstï¿½rningskondensator Bejoken  522526              0.07 
+C18    0.1uF           NP_CAP0805        C0805                                                         Avstï¿½rningskondensator Bejoken  522526              0.07 
+C19    0.1uF           NP_CAP0805        C0805                                                         Avstï¿½rningskondensator Bejoken  522526              0.07 
+C20    0.1uF           NP_CAP0805        C0805                                                         Avstï¿½rningskondensator Bejoken  522526              0.07 
 D1     S1D             DIODE-SMB         SMB          DIODE                                            Protection diod        Digikey  1N5819HW-FDICT-ND   3,84 
 D2     NUP2105L        DIODE-2CA|ACSOT23 SOT23        Dual DIODE Cathode-Anode|Anode-Cathode           Tansient protection    Digikey  NUP2105LT1GOSCT-ND  4    
 IC1    PIC18F2580      PIC18LF252-I/SO   SO28         18F252, 28 pin, 32Kb prog, 1536 data, 256 EEPROM Processor              Digikey  PIC18F2580-I/SO-ND  60,96

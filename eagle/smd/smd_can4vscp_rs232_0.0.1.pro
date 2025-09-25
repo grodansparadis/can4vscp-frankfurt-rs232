@@ -1,6 +1,6 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /home/akhe/hardware/can4vscp_rs232/eagle/smd_can4vscp_rs232_0.0.1.brd
+Job           : /home/akhe/hardware/can4vscp-rs232/eagle/smd_can4vscp-rs232_0.0.1.brd
 
 Start at      :   21:52:38  ( 5/28/2006)
 End at        :   21:52:39  ( 5/28/2006)

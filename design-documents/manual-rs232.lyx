@@ -291,7 +291,7 @@ You can find the most current information about the Frankfurt-RS232 module
  at 
 \begin_inset CommandInset href
 LatexCommand href
-target "http://www.grodansparadis.com/can4vscp_rs232/can4vscp_rs232.html"
+target "http://www.grodansparadis.com/can4vscp-rs232/can4vscp-rs232.html"
 
 \end_inset
 
@@ -483,7 +483,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename images/can4vscp_rs232_revb_sch.png
+	filename images/can4vscp-rs232_revb_sch.png
 	width 12cm
 	rotateAngle 90
 
@@ -566,7 +566,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename images/can4vscp_rs232_revb_brd_600.jpg
+	filename images/can4vscp-rs232_revb_brd_600.jpg
 
 \end_inset
 
@@ -2795,7 +2795,7 @@ MPLAB
 \begin_inset CommandInset href
 LatexCommand href
 name "module home page"
-target "http://www.grodansparadis.com/can4vscp_rs232/can4vscp_rs232.html"
+target "http://www.grodansparadis.com/can4vscp-rs232/can4vscp-rs232.html"
 
 \end_inset
 
@@ -2825,7 +2825,7 @@ You need a Windows/Linux equipped PC to load the Frankfurt RS-232 module
 \begin_inset CommandInset href
 LatexCommand href
 name "here"
-target "http://www.grodansparadis.com/can4vscp_rs232/can4vscp_rs232.html"
+target "http://www.grodansparadis.com/can4vscp-rs232/can4vscp-rs232.html"
 
 \end_inset
 

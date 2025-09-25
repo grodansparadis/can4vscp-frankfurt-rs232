@@ -1,6 +1,6 @@
-1444388856	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
-1444388872	87.249.163.243	E	the_can4vscp_mode	admin	[NOOP] 	
-1444391598	87.249.163.243	E	the_can4vscp_mode	admin	[Set baudrate] 	
+1444388856	87.249.163.243	E	the_can4vscp-mode	admin	[NOOP] 	
+1444388872	87.249.163.243	E	the_can4vscp-mode	admin	[NOOP] 	
+1444391598	87.249.163.243	E	the_can4vscp-mode	admin	[Set baudrate] 	
 1447277680	87.249.163.243	E	introduction	admin		
 1447278755	87.249.163.243	E	introduction	admin	[Introduction] 	
 1447278836	87.249.163.243	E	introduction	admin		

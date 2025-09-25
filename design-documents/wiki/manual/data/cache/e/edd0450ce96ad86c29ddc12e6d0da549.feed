@@ -21,7 +21,7 @@
                 <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=getting_started&amp;rev=1511865551&amp;do=diff"/>
                 <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=hardware&amp;rev=1447279402&amp;do=diff"/>
                 <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=introduction&amp;rev=1447278862&amp;do=diff"/>
-                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1444391598&amp;do=diff"/>
+                <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp-mode&amp;rev=1444391598&amp;do=diff"/>
                 <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=works_config.jpg&amp;ns=&amp;rev=1433167148&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
                 <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=verify_error.png&amp;ns=&amp;rev=1426609087&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
                 <rdf:li rdf:resource="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?image=bootloader12.png&amp;ns=&amp;rev=1426607515&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
@@ -151,12 +151,12 @@ The raw facts
 
 Frankfurt RS-232 interfaces serial RS-232 to the CAN4VSCP bus and is powered from the CAN4VSCP bus. It is delivered with a USB to serial adapter free of charge so it can also be connected to host computers that does not have a RS-232 port. It is also possible to order the Frankfurt RS-232 module in a 3.3V TTL version (and at special orders as a 5V TTL version) that works with hardware that does not…</description>
     </item>
-    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1444391598&amp;do=diff">
+    <item rdf:about="https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp-mode&amp;rev=1444391598&amp;do=diff">
         <dc:format>text/html</dc:format>
         <dc:date>2015-10-09T13:53:18+0100</dc:date>
         <dc:creator>admin (admin@undisclosed.example.com)</dc:creator>
-        <title>the_can4vscp_mode - [Set baudrate] </title>
-        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp_mode&amp;rev=1444391598&amp;do=diff</link>
+        <title>the_can4vscp-mode - [Set baudrate] </title>
+        <link>https://www.grodansparadis.com/frankfurt/rs232/manual/doku.php?id=the_can4vscp-mode&amp;rev=1444391598&amp;do=diff</link>
         <description>The CAN4VSCP mode
 
 This mode export a standard VSCP serial interface. The CAN4VSCP driver can be used to export this interface to a CANAL interface which in turn can be used by the VSCP daemon, VSCP Works and other software that can work with a CANAL interface.

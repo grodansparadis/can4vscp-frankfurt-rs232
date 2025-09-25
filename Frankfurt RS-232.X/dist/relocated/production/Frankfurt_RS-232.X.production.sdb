@@ -2,7 +2,7 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F2580 ]
-"44 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"44 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [e E16349 _ECAN_RX_MSG_FLAGS `uc
 ECAN_RX_OVERFLOW 8
 ECAN_RX_INVALID_MSG 16
@@ -38,7 +38,7 @@ ECAN_TX_RTR_BIT 64
 ECAN_TX_NO_RTR_FRAME 0
 ECAN_TX_RTR_FRAME 64
 ]
-"171 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"171 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [e E16337 _ECAN_OP_MODE `uc
 ECAN_OP_MODE_BITS 224
 ECAN_OP_MODE_NORMAL 0
@@ -261,11 +261,11 @@ ECAN_RX_DBL_BUFFERED 128
 [v _ReadUSART ReadUSART `(uc  1 e 1 0 ]
 "14 /opt/microchip/xc8/v1.21/sources/pic18/plib/USART/uwrite.c
 [v _WriteUSART WriteUSART `(v  1 e 0 0 ]
-"25 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/crc8.c
+"25 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/crc8.c
 [v _init_crc8 init_crc8 `(v  1 e 0 0 ]
 "47
 [v _crc8 crc8 `(v  1 e 0 0 ]
-"168 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"168 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [v _ECANInitialize ECANInitialize `(v  1 e 0 0 ]
 "617
 [v _ECANSendMessage ECANSendMessage `(E15660  1 e 1 0 ]
@@ -279,7 +279,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v __RegsToCANID _RegsToCANID `(v  1 e 0 0 ]
 "1209
 [v __ECANPointBuffer _ECANPointBuffer `(*.39uc  1 s 2 _ECANPointBuffer ]
-"14 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/fifo.c
+"14 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/fifo.c
 [v _fifo_init fifo_init `(v  1 e 0 0 ]
 "29
 [v _fifo_read fifo_read `(us  1 e 2 0 ]
@@ -289,7 +289,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _fifo_getFree fifo_getFree `(us  1 e 2 0 ]
 [v i1_fifo_getFree fifo_getFree `(us  1 e 2 0 ]
 [v i1_fifo_getFree fifo_getFree `(us  1 e 2 0 ]
-"20 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/hexutils.c
+"20 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/hexutils.c
 [v _nibbleFromChar nibbleFromChar `(uc  1 s 1 nibbleFromChar ]
 "35
 [v _hexStringToBytes hexStringToBytes `(uc  1 e 1 0 ]
@@ -297,7 +297,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v _nibbleToChar nibbleToChar `(uc  1 s 1 nibbleToChar ]
 "71
 [v _bytesToHexString bytesToHexString `(uc  1 e 1 0 ]
-"154 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"154 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _Interrupt Interrupt `IIL(v  1 e 0 0 ]
 "307
 [v _main main `(i  1 e 2 0 ]
@@ -1108,7 +1108,7 @@ ECAN_RX_DBL_BUFFERED 128
 "5 /opt/microchip/xc8/v1.21/sources/pic18/plib/USART/udefs.c
 [u S2905 USART 1 `uc 1 val 1 0 `S2899 1 . 1 0 ]
 [v _USART_Status USART_Status `S2905  1 e 1 0 ]
-"17 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/crc8.c
+"17 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/crc8.c
 [v _crc8_table crc8_table `[256]uc  1 s 256 crc8_table ]
 "18
 [v _made_table made_table `i  1 s 2 made_table ]
@@ -1121,10 +1121,10 @@ ECAN_RX_DBL_BUFFERED 128
 `uc 1 b6 1 0 :1:6 
 `uc 1 b7 1 0 :1:7 
 ]
-"56 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"56 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [u S1802 . 1 `uc 1 Val 1 0 `S1793 1 bits 1 0 ]
 [v __ECANRxFilterHitInfo _ECANRxFilterHitInfo `S1802  1 e 1 0 ]
-"38 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"38 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _mode mode `uc  1 e 1 0 ]
 "41
 [v _id id `ul  1 e 4 0 ]
@@ -1240,7 +1240,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v doModeSLCAN@c c `uc  1 a 1 59 ]
 "2002
 } 0
-"35 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/hexutils.c
+"35 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/hexutils.c
 [v _hexStringToBytes hexStringToBytes `(uc  1 e 1 0 ]
 {
 "37
@@ -1262,7 +1262,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v nibbleFromChar@c c `uc  1 a 1 30 ]
 "25
 } 0
-"2636 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"2636 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _receiveSendEventSLCAN receiveSendEventSLCAN `(E15660  1 e 1 0 ]
 {
 "2639
@@ -1286,7 +1286,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ultoa@base base `i  1 p 2 19 ]
 "53
 } 0
-"1438 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"1438 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _doModeVscp doModeVscp `(v  1 e 0 0 ]
 {
 "1750
@@ -1354,7 +1354,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v memcpy@n n `ui  1 p 2 34 ]
 "32
 } 0
-"2092 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"2092 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _sendVSCPDriverAck sendVSCPDriverAck `(v  1 e 0 0 ]
 {
 "2093
@@ -1426,7 +1426,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v sendEscapedUartData@pcrc pcrc `*.39uc  1 p 2 3 ]
 "2037
 } 0
-"47 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/crc8.c
+"47 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/crc8.c
 [v _crc8 crc8 `(v  1 e 0 0 ]
 {
 [v crc8@crc crc `*.39uc  1 p 2 0 ]
@@ -1443,7 +1443,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v init_crc8@crc crc `uc  1 a 1 34 ]
 "40
 } 0
-"643 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"643 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _doModeVerbose doModeVerbose `(v  1 e 0 0 ]
 {
 "1389
@@ -1571,7 +1571,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v strcpy@from from `*.39Cuc  1 p 2 32 ]
 "24
 } 0
-"3126 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"3126 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _findNodes findNodes `(v  1 e 0 0 ]
 {
 "3128
@@ -1636,7 +1636,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v strcat@from from `*.35Cuc  1 p 2 32 ]
 "26
 } 0
-"2738 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"2738 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _readRegister readRegister `(E15660  1 e 1 0 ]
 {
 [v readRegister@nodeid nodeid `uc  1 a 1 87 ]
@@ -1668,7 +1668,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v sendCANFrame@pdata pdata `*.39uc  1 p 2 45 ]
 "3638
 } 0
-"617 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"617 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [v _ECANSendMessage ECANSendMessage `(E15660  1 e 1 0 ]
 {
 "630
@@ -1705,7 +1705,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ECANSendMessage@msgFlags msgFlags `E16306  1 p 1 10 ]
 "761
 } 0
-"617 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"617 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _checkCANBusState checkCANBusState `(v  1 e 0 0 ]
 {
 "635
@@ -1721,7 +1721,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v memset@n n `ui  1 p 2 34 ]
 "22
 } 0
-"3085 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"3085 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _printHelp printHelp `(v  1 e 0 0 ]
 {
 "3118
@@ -1824,7 +1824,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v strlen@s s `*.35Cuc  1 p 2 30 ]
 "13
 } 0
-"2234 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"2234 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _receivePrintEventVerbose receivePrintEventVerbose `(E15660  1 e 1 0 ]
 {
 "2235
@@ -1839,7 +1839,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ReadTimer3@timer timer `S2491  1 a 2 32 ]
 "21
 } 0
-"3609 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"3609 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _getVSCPFrame getVSCPFrame `(uc  1 e 1 0 ]
 {
 "3610
@@ -1862,7 +1862,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v getCANFrame@pdata pdata `*.39uc  1 p 2 10 ]
 "3681
 } 0
-"29 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/fifo.c
+"29 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/fifo.c
 [v _fifo_read fifo_read `(us  1 e 2 0 ]
 {
 "30
@@ -1939,7 +1939,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v isdigit@c c `uc  1 a 1 32 ]
 "15
 } 0
-"3298 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"3298 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _printFirmwareVersion printFirmwareVersion `(v  1 e 0 0 ]
 {
 "3299
@@ -1989,7 +1989,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v ___lwdiv@divisor divisor `ui  1 p 2 32 ]
 "31
 } 0
-"3288 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"3288 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _vscp_restoreDefaults vscp_restoreDefaults `(v  1 e 0 0 ]
 {
 "3291
@@ -2019,12 +2019,12 @@ ECAN_RX_DBL_BUFFERED 128
 [v WriteUSART@data data `uc  1 a 1 30 ]
 "23
 } 0
-"453 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"453 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _init init `(v  1 e 0 0 ]
 {
 "529
 } 0
-"168 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"168 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [v _ECANInitialize ECANInitialize `(v  1 e 0 0 ]
 {
 "500
@@ -2061,14 +2061,14 @@ ECAN_RX_DBL_BUFFERED 128
 [v OpenUSART@spbrg spbrg `ui  1 p 2 30 ]
 "143
 } 0
-"536 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"536 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _init_app_ram init_app_ram `(v  1 e 0 0 ]
 {
 "556
 [v init_app_ram@i i `uc  1 a 1 36 ]
 "577
 } 0
-"1101 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"1101 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [v __CANIDToRegs _CANIDToRegs `(v  1 e 0 0 ]
 {
 [s S2025 . 1 `uc 1 SIDL 1 0 :3:0 
@@ -2095,7 +2095,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v __CANIDToRegs@type type `uc  1 p 1 38 ]
 "1129
 } 0
-"3340 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"3340 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _setFilter setFilter `(v  1 e 0 0 ]
 {
 [v setFilter@nFilter nFilter `uc  1 a 1 6 ]
@@ -2128,7 +2128,7 @@ ECAN_RX_DBL_BUFFERED 128
 {
 "15
 } 0
-"1014 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"1014 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [v _ECANSetOperationMode ECANSetOperationMode `(v  1 e 0 0 ]
 {
 [v ECANSetOperationMode@mode mode `E16337  1 a 1 30 ]
@@ -2151,7 +2151,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v WriteTimer0@timer0 timer0 `ui  1 p 2 30 ]
 "24
 } 0
-"14 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/fifo.c
+"14 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/fifo.c
 [v _fifo_init fifo_init `(v  1 e 0 0 ]
 {
 [s S27 . 8 `*.39uc 1 buf 2 0 `us 1 head 2 2 `us 1 tail 2 4 `us 1 size 2 6 ]
@@ -2167,7 +2167,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v fifo_getFree@f f `*.39S27  1 p 2 30 ]
 "104
 } 0
-"154 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/main.c
+"154 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/main.c
 [v _Interrupt Interrupt `IIL(v  1 e 0 0 ]
 {
 "267
@@ -2184,14 +2184,14 @@ ECAN_RX_DBL_BUFFERED 128
 [v i1WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
 } 0
-"97 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/fifo.c
+"97 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/fifo.c
 [v i1_fifo_getFree fifo_getFree `(us  1 e 2 0 ]
 {
 [s S27 . 8 `*.39uc 1 buf 2 0 `us 1 head 2 2 `us 1 tail 2 4 `us 1 size 2 6 ]
 [v i1fifo_getFree@f f `*.39S27  1 p 2 0 ]
 "104
 } 0
-"803 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
+"803 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/ECAN.c
 [v _ECANReceiveMessage ECANReceiveMessage `(E15660  1 e 1 0 ]
 {
 [v ECANReceiveMessage@id id `*.29ul  1 a 1 13 ]
@@ -2258,7 +2258,7 @@ ECAN_RX_DBL_BUFFERED 128
 [v __ECANPointBuffer@b b `uc  1 a 1 3 ]
 "1240
 } 0
-"61 /home/akhe/development/VSCP/can4vscp_frankfurt_rs232/Frankfurt RS-232.X/fifo.c
+"61 /home/akhe/development/VSCP/can4vscp-frankfurt_rs232/Frankfurt RS-232.X/fifo.c
 [v _fifo_write fifo_write `(us  1 e 2 0 ]
 {
 "62

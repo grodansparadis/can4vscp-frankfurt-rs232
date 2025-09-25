@@ -4,7 +4,7 @@
 * [Connecting](./connecting.md)
 * [CAN4VSCP mode](./mode-can4vscp.md)
 * [Verbose mode](./mode-verbose.md)
-* [Slcan mode](./mode-slcan.md)
+* [SLCAN mode](./mode-slcan.md)
 * [Updating the firmware](./replacing-the-firmware.md)
 * [Using with the VSCP daemon](./using-with-vscp-daemon.md)
 * [Using with VSCP Works](./using-with-vscp-works.md)
