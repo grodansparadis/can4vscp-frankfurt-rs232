@@ -1970,9 +1970,9 @@ $dist/default/production\Frankfurt_RS-232.X.production.obj
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c":22 51C8 text82 CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c":23 51CC text82 CODE
 "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Timers\t0write.c":24 51D0 text82 CODE
-"C:\Users\grodansparadis\development\can4vscp-frankfurt_rs232\Frankfurt RS-232.X\main.c":2345 51D2 text75 CODE
-"C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c":2346 51D6 text75 CODE
-"C:\Users\grodansparadis\development\can4vscp_frankfurt_rs232\Frankfurt RS-232.X\main.c":1312 51DA text1 CODE
+"C:\Users\grodansparadis\development\can4vscp-frankfurt-rs232\Frankfurt RS-232.X\main.c":2345 51D2 text75 CODE
+"C:\Users\grodansparadis\development\can4vscp-frankfurt-rs232\Frankfurt RS-232.X\main.c":2346 51D6 text75 CODE
+"C:\Users\grodansparadis\development\can4vscp-frankfurt-rs232\Frankfurt RS-232.X\main.c":1312 51DA text1 CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.

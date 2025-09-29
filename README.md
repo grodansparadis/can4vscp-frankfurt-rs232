@@ -27,7 +27,7 @@ It is possible to have hundreds of Frankfurt RS-232 modules connected to a host 
 ## Project files
 
 ### User manual
-  * [User Manual](https://grodansparadis.github.io/can4vscp_frankfurt_rs232/#)
+  * [User Manual](https://grodansparadis.github.io/can4vscp-frankfurt-rs232/#)
 
 ### Schematic, PCB, 3D files etc
   * [Schematics reversion B](./images/schema_rev_B.png)
@@ -39,7 +39,7 @@ It is possible to have hundreds of Frankfurt RS-232 modules connected to a host 
 
  The firmware is developed in [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) using the [XC8 compiler](https://www.microchip.com/mplab/compilers).
 
-  * Binary release files is available [here](https://github.com/grodansparadis/can4vscp_frankfurt_rs232/releases)
+  * Binary release files is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/releases)
 
 ### MDF - Module Description File(s)
 No MDF is available for this module.
