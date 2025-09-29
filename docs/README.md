@@ -27,7 +27,7 @@ The Swedish company Lawicel AB and Lars Wictorsson created a serial protocol for
 It is possible to have hundreds of Frankfurt RS-232 modules connected to a host computer where each in turn is connected to hundreds of nodes, thereby building very large and complex systems. Together with cards like Raspberry Pi, Beaglebone and others it is possible to have distributed control systems controlled over Ethernet and TCP/IP.
 
   * [Repository for the module](https://github.com/grodansparadis/can4vscp-frankfurt-rs232)
-  * This manual is available [here](https://grodansparadis.github.io/can4vscp-frankfurt_rs232/#)
+  * This manual is available [here](https://grodansparadis.github.io/can4vscp-frankfurt-rs232/#)
   * Latest schema for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/blob/master/images/schema_rev_B.png)
   * Latest firmware for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/releases/tag/v1.1.4)
 
