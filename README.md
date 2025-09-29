@@ -1,6 +1,6 @@
 # Frankfurt RS-232
 
-<img src="http://www.grodansparadis.com/images/frankfurt_rs232_4_small.png">
+<img src="docs/images/frankfurt_rs232_4_small.png">
 
 ## Abstract
 
@@ -30,7 +30,7 @@ It is possible to have hundreds of Frankfurt RS-232 modules connected to a host 
   * [User Manual](https://grodansparadis.github.io/can4vscp-frankfurt-rs232/#)
 
 ### Schematic, PCB, 3D files etc
-  * [Schematics reversion B](./images/schema_rev_B.png)
+  * [Schematics reversion B](docs/images/schema_rev_B.png)
  * Hardware design files is made in [KiCad](https://kicad.org) and can be found in the `kicad` directory. Valid from reversion C of the hardware.
    * Gerber files for PCB production can be found in the `gerber` directory (in the `kicad` folder).
  * Eagle schema and board files for reversion A, B and B can be found in the `eagle` directory. Only the KiCad version is actively updated.
