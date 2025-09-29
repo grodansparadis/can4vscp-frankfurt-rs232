@@ -1,11 +1,10 @@
 # The CAN4VSCP mode
 
 This mode export a [standard VSCP serial
-interface](http://www.vscp.org/docs/vscpspec/doku.php?id=physical_level_lower_level_protocols#vscp_over_a_serial_channel_rs-232). The CAN4VSCP driver can be used to export this interface to a [CANAL interface](http://www.vscp.org/docs/vscpd/doku.php?id=canal_interface_specification) which in turn can be used by the [VSCP daemon](http://www.vscp.org/docs/vscpd/doku.php?id=start), [VSCP Works](http://www.vscp.org/docs/vscpworks/doku.php?id=start) and other software that can work with a CANAL interface.
+interface](https://grodansparadis.github.io/vscp-doc-spec/#/./vscp_over_a_serial_channel_rs-232). The CAN4VSCP driver can be used to export this interface to a [CANAL interface](https://grodansparadis.github.io/vscp-doc-canal/#/) which in turn can be used by the [VSCP daemon](https://grodansparadis.github.io/vscp/#/), [VSCP Works](https://grodansparadis.github.io/vscp-works-qt/#/) and other software that can work with a CANAL interface.
 
-An end user does not have to worry about any of this of course. He/she just use the [CAN4VSCP driver](http://www.vscp.org/docs/vscpd/doku.php?id=level1_driver_can4vscp) that is available both for Windows and Linux.
+An end user does not have to worry about any of this of course. He/she just use the [CAN4VSCP driver](https://github.com/grodansparadis/vscpl1drv-can4vscp) that is available both for Windows and Linux.
 
-The CAN4VSCP driver is installed with the [VSCP & Friends](https://sourceforge.net/projects/m2m/files/VSCP%20Software/) package on windows and with the [source package](https://github.com/grodansparadis/vscp_software) on Linux
 
 ## Available commands for driver
 

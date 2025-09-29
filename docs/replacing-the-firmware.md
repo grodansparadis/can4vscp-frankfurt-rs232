@@ -7,17 +7,17 @@ project. The process of updating the firmware of the module is a simple one.
 ## Where is the firmware?
 
 Firmware is available in the Github repository
-<https://github.com/grodansparadis/can4vscp-frankfurt_rs232/releases> and the [MDF of the module](https://github.com/grodansparadis/can4vscp-frankfurt_rs232/tree/master/mdf) folder.
+<https://github.com/grodansparadis/can4vscp-frankfurt-rs232/releases>.
 
 
 ## Where is the source for the firmware?
 
 You can find the latest source for the firmware
-[here](https://github.com/grodansparadis/can4vscp-frankfurt_rs232).
+[here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232).
 
 ## Replacing/updating the bootloader on the module
 
-If you need to update the bootloader on this module you need to have a programmer for microchip pic microprocessors. Firmware files for the bootloader can be found [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/tree/master/pic18_bootloader/firmware). Select the hex files for your board and use the bootloader application to update the bootloader. When the bootloader is loaded you can use the normal firmware update process outlined below to update the firmware of the module.
+If you need to update the bootloader on this module you need to have a programmer for microchip pic microprocessors. Firmware files for the bootloader can be found [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/tree/master/firmware) or in the release section of the repository. Select the hex files for your board and use the bootloader application to update the bootloader. When the bootloader is loaded you can use the normal firmware update process outlined below to update the firmware of the module.
 
 ### Getting the software
 
