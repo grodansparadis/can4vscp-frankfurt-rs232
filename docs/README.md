@@ -28,7 +28,7 @@ It is possible to have hundreds of Frankfurt RS-232 modules connected to a host 
 
   * [Repository for the module](https://github.com/grodansparadis/can4vscp-frankfurt-rs232)
   * This manual is available [here](https://grodansparadis.github.io/can4vscp-frankfurt-rs232/#)
-  * Latest schema for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/blob/master/images/schema_rev_B.png)
+  * Latest schema for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/blob/master/docs/images/schema_rev_B.png)
   * Latest firmware for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/releases/tag/v1.1.4)
 
 
