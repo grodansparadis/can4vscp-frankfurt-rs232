@@ -1,6 +1,6 @@
 # Download drivers for Frankfurt RS-232
 
-You can use the Frankfurt RS-232 with your own code either by writing code for the [CAN4VSCP serial driver](http://www.vscp.org/docs/vscpd/doku.php?id=level1_driver_can4vscp) which expose a [CANAL interface](http://www.vscp.org/docs/vscpd/doku.php?id=canal_interface_specification) (AKA Level I interface) or written directly to interface one of the modes of the Frankfurt RS-232 module ([verbose](the_verbose_mode), [CAN4VSCP](the_can4vscp-mode) or [SLCAN](the_slcan_mode)).
+You can use the Frankfurt RS-232 with your own code either by writing code for the [CAN4VSCP serial driver](https://github.com/grodansparadis/vscpl1drv-can4vscp) which expose a [CANAL interface](https://grodansparadis.github.io/vscp-doc-canal/#/) (AKA Level I interface) or written directly to interface one of the modes of the Frankfurt RS-232 module ([verbose](mode-verbose), [CAN4VSCP](mode-can4vscp) or [SLCAN](mode-slcan)).
 
 
 [filename](./bottom-copyright.md ':include')
