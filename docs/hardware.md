@@ -2,46 +2,38 @@
 
 ## Most current information
 
-You can find the most current information about the Frankfurt RS-232
-module at <http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html>. On
-the site you can also find links to the latest firmware, drivers and
-schematics etc for its use.
+You can find the most current information about the Frankfurt RS-232 module at <br>[http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html](http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html). On the site you can also find links to the latest firmware, drivers and schematics etc for its use.
 
 ## The raw facts
 
-  | Parameter | Value |
-  | --------- | ----- |
-  | Current hardware reversion    |     B        |
-  | Current firmware version      |    1.0.0     |
-  | Supply voltage                |   +9-+28 VDC |
-  | PCB Size                      |  42mm x 72mm |
-  | Power requirements            | 0.1W         |
-  | Communication: CAN4VSCP (CAN) |  125 kbps        |
-  | Communication: RS-232         |  115200 baud N81 |
+| Parameter | Value |
+| --- | --- |
+| Current hardware reversion | B |
+| Current firmware version | 1.0.0 |
+| Supply voltage | +9-+28 VDC |
+| PCB Size | 42mm x 72mm |
+| Power requirements | 0.1W |
+| Communication: CAN4VSCP (CAN) | 125 kbps |
+| Communication: RS-232 | 115200 baud N81 |
 
 ## Schematics
 
-![](./images/frankfurt-schema-rev-b.png)
+![](media/frankfurt-schema-rev-b.png ':size=600')
 
 Schematics: Rev B
 
-  ## Connectors
+## Connectors
 
-![](./images/frankfurt_rs232_connectors.png)
+![](media/frankfurt_rs232_connectors.png ':size=600')
 
 ### RJ-XX pin-out
 
-The unit is powered over the CAN4VSCP bus. The CAN4VSCP normally uses
-CAT5 or better twisted pair cable. You can use other cables if you
-which. The important thing is that the CANH and CANL signals uses a
-twisted cable. For connectors you can use RJ10, RJ11, RJ12 or the most
-common RJ45 connectors.
+The unit is powered over the CAN4VSCP bus. The CAN4VSCP normally uses CAT5 or better twisted pair cable. You can use other cables if you which. The important thing is that the CANH and CANL signals uses a twisted cable. For connectors you can use RJ10, RJ11, RJ12 or the most common RJ45 connectors.
 
-Recommended connector is RJ-45,RJ-12 or RJ-11 with pin out as in this
-table.
+Recommended connector is RJ-45,RJ-12 or RJ-11 with pin out as in this table.
 
 | Pin | Use | RJ-11 | RJ-12 | RJ-45 | Patch Cable wire color T568B |
-|-----|-----|-------|-------|-------|------------------------------|
+| --- | --- | --- | --- | --- | --- |
 | 1 | +9-28V DC | - | - | RJ-45 | Orange/White |
 | 2 1 | +9-28V DC | - | RJ-12 | RJ-45 | Orange |
 | 3 2 1 | +9-28V DC | RJ-11 | RJ-12 | RJ-45 | Green/White |
@@ -51,30 +43,29 @@ table.
 | 7 6 | GND | - | RJ-12 | RJ-45 | Brown/White |
 | 8 | GND | - | - | RJ-45 | Brown |
 
-\
+<br>
 
-![RJ-11/12/45 pin-out](./images/rj45.jpg)
+![RJ-11/12/45 pin-out](media/rj45.jpg ':size=300')
 
 **RJ-11/12/45 pin-out**
 
-Always use a pair of twisted wires for CANH/CANL for best noise
-immunity. If the EIA/TIA 56B standard is used this condition will be satisfied. This is good as most Ethernet networks already is wired this way.
+:!:
+Always use a pair of twisted wires for CANH/CANL for best noise immunity. If the EIA/TIA 56B standard is used this condition will be satisfied. This is good as most Ethernet networks already is wired this way.
 
 ### RS-232 connector pin-out
 
-The RS-232 connectors is not mounted on the TTL versions of this
-product.
+The RS-232 connectors is not mounted on the TTL versions of this product.
 
 The RS-232 female is numbered like this if you look into it
 
-<img src="./images/2000px-rs232_buchse_9pol_male.svg.png" alt="drawing" width="200"/>
+![](media/2000px-rs232_buchse_9pol_male.svg.png ':size=300')
 
 coupled like this
 
-  ![](./images/rs232_female_connector.png)
+![](media/rs232_femail_connector.png ':size=300')
 
-| Pin | Description |
-|-----|-------------|
+| pin | Description |
+| --- | --- |
 | 1 | unconnected |
 | 2 | Transmit data from Frankfurt RS-232 |
 | 3 | Receive data to Frankfurt RS-232 |
@@ -83,61 +74,74 @@ coupled like this
 | 6 | unconnected |
 | 7 | RTS (Request to send) |
 | 8 | CTS (Clear to send) |
-| 9 | unconnected |
+| 1 | unconnected |
 
-RTS/CTS is currently not used.
+:!: RTS/CTS is currently not used.
 
-#### Host connection
 Connect to host like this
 
-![](./images/e-8wwww-17-grus-000.gif)
+![](media/e-8wwww-17-grus-000.gif ':size=400')
 
 a standard straight RS-232 cable will work fine.
 
 ### TTL Connector
 
-The TTL connector have use only on the TTL versions of the module.
+:!: The TTL connector have use only on the TTL versions of the module.
 
 | Pin | Description |
-|-----|-------------|
-| 1   | Power from CAN4VSCP bus |
-| 2   | TTL level RX |
-| 3   | TTL level TX |
-| 4   | GND |
+| --- | --- |
+| 1 | Power from CAN4VSCP bus |
+| 2 | TTL level RX |
+| 3 | TTL level TX |
+| 4 | GND |
 
+<br>
 
-
-![](./images/frankfurt_rs232_rxtx_connector.png)
+![](media/frankfurt_rs232_rxtx_connector.png ':size=600')
 
 ### PIC programming Connector
 
-  | Pin | Description |
-  |-----|-------------|
-  | 1   | Reset       |
-  | 2   | VCC         |
-  | 3   | GND        |
-  | 4   | PGD        |
-  | 5   | PGC        |
-  | 6   | LWPGM      |
+| pin | Description |
+| --- | --- |
+| 1 | Reset |
+| 2 | VCC |
+| 3 | GND |
+| 4 | PGD |
+| 5 | PGC |
+| 6 | LWPGM |
 
+<br>
 
-![](./images/frankfurt_rs232_prg_connector.png)
+![](media/frankfurt_rs232_prg_connector.png ':size=600')
 
 ### Functionality of the status LED
 
-The LED is used to indicate a working device. It will light steady when the firmware is running and no faults are detected. It will blink with different frequency when there are bus errors and warnings as of the table below.
+The LED is used to indicate a working device. It will light steady when the firmware is running and no faults are detected and it will blink with different frequency when there are bus errors and warnings as of the table below.
 
-  | LED                  | Description |
-  |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Steady Powered.      | No error. Firmware running.
-  | Slow blinking        | Bus error warning. Something is wrong on the CAN4VSCP bus.
-  | Fast blinking        | Bus passive. The node will not flag errors on the bus anymore but will still send and receive.
-  | Very fast blinking   | Bus off. Something is very wrong of the CAN4VSCP bus and the driver to the bus has unconnected itself from the bus. When the bus behaves as normal again it will automatically connect again. The problem can typically be shorted CANH/CANL, only one devices on the bus, a device with wrong bitrate on the bus. To not terminate both ends of the bus with a 120 ohm resistor can also give this problem.|
+| LED | Description |
+| --- | --- |
+| Steady Powered. | No error. Firmware running. |
+| Slow blinking | Bus error warning. Something is wrong on the CAN4VSCP bus. |
+| Fast blinking | Bus passive. The node will not flag errors on the bus anymore but will still send and receive. |
+| Very fast blinking | Bus off. Something is very wrong of the CAN4VSCP bus and the driver to the bus has unconnected itself from the bus. When the bus behaves as normal again it will automatically connect again. The problem can typically be shorted CANH/CANL, only one devices on the bus, a device with wrong bitrate on the bus. To not terminate both ends of the bus with a 120 ohm resistor can also give this problem. |
 
 ### CAN
 
 CAN4VSCP is a CAN based bus running at 125 kbps with the addition of DC power. If you are interested in how CAN works you have a pretty good intro [here](http://www.eeherald.com/section/design-guide/esmod9.html).
 
-CAN is known to be robust and has been used in vehicles and in the industry for decades.
+CAN is known to be robust and is there for used in vehicles and in the industry.
 
-[filename](./bottom-copyright.md ':include')
+<br>
+
+---
+
+![](media/grodan_logo.png ':size=100')
+<br>
+
+<center>
+
+**Paradise of the Frog AB** Brattbergavägen 17 820 50 LOS SWEDEN<br>
+**email:** [info@grodansparadis.com](mailto:info@grodansparadis.com) **phone:** +46 (0)8 40011835 <br>
+**web:**[http://www.grodansparadis.com](http://www.grodansparadis.com) <br>
+
+</center>

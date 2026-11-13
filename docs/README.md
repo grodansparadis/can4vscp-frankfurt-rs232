@@ -1,62 +1,39 @@
+# Frankfurt RS-232/TTL module
 
-## Manual for the Frankfurt RS-232 module
+**Document reversion**: 2016-11-28 [change log](change_log_1.md)<br>
+Copyright © 2000-2015 [Grodans Paradis AB](http://www.grodansparadis.com), <[info@grodansparadis.com](mailto:akhe@grodansparadis.com)>
 
-**Document version:** ${/var/document-version} - ${/var/creation-time}
-[HISTORY](./history.md)
+![Photo is first hand soldered prototype](media/frankfurt_rs232_3.png ':size=600')
 
+This documentation is for the [Frankfurt RS-232 module](http://www.grodansparadis.com/frankfurt/rs232/frankfurt-rs232.html)
+and the [Frankfurt TTL module](http://www.grodansparadis.com/frankfurt/rs232/frankfurt-ttl.html). Both modules are available for international purchase from the [FrogShop](http://www.frogshop.se).
 
-![Frankfurt RS-232](/images/frankfurt_rs232_4.png)
+- [Introduction](introduction.md)
+- [Getting Started](getting_started.md)
+- [Hardware](hardware.md)
+- [CAN4VSCP cabling](can4vscp_cabling.md)
+- [Installing the module](installing_the_module.md)
+- [The verbose mode](the_verbose_mode.md)
+- [The CAN4VSCP mode](the_can4vscp_mode.md)
+- [The SLCAN mode](the_slcan_mode.md)
+- [Replacing the firmware](replacing_the_firmware.md)
 
-Frankfurt RS-232 interfaces serial RS-232 to the CAN4VSCP bus and is powered from the CAN4VSCP bus. It can be used with a USB to serial adapter free of charge so it can also be connected to host computers that does not have a RS-232 port. The Frankfurt RS-232 is designed to be mounted on a DIN rail or screwed on to a wall or used in an other installed fashion. This module is as our other modules designed to do its work behind the scenes. It is a powerful and reliable workhorse that does not need to be in the centre of the spotlights to do the work it is designed for.
+<em>**Disclaimer:** © 2011-2015 Grodans Paradis AB. All rights reserved. Grodans Paradis AB®, logo and combinations thereof, are registered trademarks of Grodans Paradis AB. Other terms and product names may be trademarks of others. The information in this document is provided in connection with Grodans Paradis AB products. No license, express or implied or otherwise, to any intellectual property right is granted by this document or in connection with the sale of Grodans Paradis AB products. Neither the whole nor any part of the information contained in or the product described in this document may be adapted or reproduced in any material from except with the prior written permission of the copyright holder. The product described in this document is subject to continuous development and improvements. All particulars of the product and its use contained in this document are given by Grodans Paradis AB in good faith. However all warranties implied or expressed including but not limited to implied warranties of merchantability or fitness for purpose are excluded. This document is intended only to assist the reader in the use of the product. Grodans Paradis AB. shall not be liable for any loss or damage arising from the use of any information in this document or any error or omission in such information or any incorrect use of the product.</em>
 
-It is important to note that Frankfurt RS-232 is not a general CAN interface. The CAN speed of the device is fixed to 125 kbps and the serial speed is fixed at 115200 baud 8N1. This is because the Frankfurt RS-232 is made for the CAN4VSCP bus and VSCP and therefore does not need the variable speeds. If you need a general CAN adapter please look at Rusoku Technologies TouCan or other CAN <-> USB interfaces.
+![](media/rohs.png ':size=100')
+All boards produced by Grodans Paradis AB are ROHS compliant.
 
-Frankfurt RS-232 have three working modes:
+<br>
 
-## Verbose mode
+---
 
-In this mode easy to remember and use text based commands can be issued to control the device. It is possible to find VSCP nodes on the connected CAN4VSCP bus, read and write registers and many other of the common functions needed to diagnose a CAN4VSCP system. The mode is created for users that need to check up on a CAN4VSCP network and get diagnostic information etc. It is possible to go to this mode from any of the other modes at any time and therefore get the most out of each modes available functionality.
+![](media/grodan_logo.png ':size=100')
+<br>
 
-## CAN4VSCP mode
+<center>
 
-This mode uses the efficient and secure VSCP serial protocol to talk to a host computer. Drivers for Windows and Linux is readably available and it is a turn key solution to connect any CAN4VSCP bus to a host. The driver follows the CANAL standard so both the VSCP Daemon and the VSCP Works programs can be used.
-SLCAN mode
+**Paradise of the Frog AB** Brattbergavägen 17 820 50 LOS SWEDEN<br>
+**email:** [info@grodansparadis.com](mailto:info@grodansparadis.com) **phone:** +46 (0)8 40011835 <br>
+**web:**[http://www.grodansparadis.com](http://www.grodansparadis.com) <br>
 
-The Swedish company Lawicel AB and Lars Wictorsson created a serial protocol for CAN adapters that since been a standard for such devices. The SLCAN mode of Frankfurt RS-232 support a limited set of commands from this standard so that the module can be connected to the Socketcan system available for Linux. Se the manual for the commands that are implemented. Also in this case the CAN speed is fixed at 125 kbps and the serial speed is fixed at 115200 kbps.
-
-It is possible to have hundreds of Frankfurt RS-232 modules connected to a host computer where each in turn is connected to hundreds of nodes, thereby building very large and complex systems. Together with cards like Raspberry Pi, Beaglebone and others it is possible to have distributed control systems controlled over Ethernet and TCP/IP.
-
-  * [Repository for the module](https://github.com/grodansparadis/can4vscp-frankfurt-rs232)
-  * This manual is available [here](https://grodansparadis.github.io/can4vscp-frankfurt-rs232/#)
-  * Latest schema for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/blob/master/docs/images/schema_rev_B.png)
-  * Latest firmware for the module is available [here](https://github.com/grodansparadis/can4vscp-frankfurt-rs232/releases/tag/v1.1.4)
-
-
-
-## VSCP
-
-![VSCP logo](./images/logo_100.png)
-
-VSCP is a free and open automation protocol for IoT and m2m devices. Visit [the VSCP site](https://www.vscp.org) for more information.
-
-**VSCP is free.** Placed in the **public domain**. Free to use. Free to change. Free to do whatever you want to do with it. VSCP is not owned by anyone. VSCP will stay free and gratis forever.
-
-The specification for the VSCP protocol is [here](https://docs.vscp.org) 
-
-VSCP documentation for various parts can be found [here](https://docs.vscp.org/).
-
-If you use VSCP please consider contributing resources or time to the project ([https://github.com/sponsors/grodansparadis](https://github.com/sponsors/grodansparadis)).
-
-## Buy a module
-
-<img src="./images/grodan_logo.png" alt="Grodans PAradis AB" width="200"/>
-
-Ready made modules can be bought from [Grodans Paradis AB](https://www.grodansparadis.com).
-
-## Document license
-
-This document is licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely copied, redistributed, remixed, transformed, built upon as long as you give credits to the author.
-
-
-
-[filename](./bottom-copyright.md ':include')
+</center>
